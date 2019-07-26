@@ -282,18 +282,18 @@ class DB:
                 writer.writerow([c,average] + row)
 
 
-    def get_old_timers(self,output_file,confs,years):
+    def get_old_timers(self,GLOB):
 
-        for conf in confs:
+        for conf in GLOB.confs_processed:
 
-            output_file_conf = fill_hole_string(output_file, conf)
+            output_file_conf = fill_hole_string(GLOB.output_old_timer, conf)
 
             with open(output_file_conf,'w',newline='') as csvfile:
                 writer = csv.writer(csvfile, delimiter=',', quoting=csv.QUOTE_MINIMAL)
 
                 writer.writerow(['year','old timers'])
 
-                for year in years:
+                for year in GLOB.years_processed:
                     select_data = [d.id for d in self.data if d.conference == conf and d.year == year]
                     if len(select_data) > 0:
                         select_old_data = [d.id for d in self.data if d.conference == conf and d.year < year]

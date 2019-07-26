@@ -40,8 +40,8 @@ class Globals:
         # Overlap in attendance
         self.output_overlap_intra_conf       = self.output_prefix + 'overlap_intra_conf#.csv'
         self.output_overlap_cross_conf       = self.output_prefix + 'overlap_cross_conf#.csv'
-        self.output_old_timer                = self.output_prefix + 'old_timer_#.csv'
         self.output_number_of_participations = self.output_prefix + 'number_of_participations.csv'
+        self.output_old_timer                = self.output_prefix + 'old_timer_#.csv'
         self.output_optimals                 = self.output_prefix + 'optimals.csv'
 
         # Default model to compute the footprint of travels
