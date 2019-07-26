@@ -252,34 +252,31 @@ class DB:
         for pair in combinations(GLOB.confs_processed,2):
             self.participation_overlap_cross_conf(GLOB,pair[0],pair[1])
 
-    def get_number_of_participations(self, output_file, confs):
+    def get_number_of_participations(self, GLOB):
 
-        with open(output_file,'w',newline='') as csvfile:
+        with open(GLOB.output_number_of_participations,'w',newline='') as csvfile:
             writer = csv.writer(csvfile, delimiter=',', quoting=csv.QUOTE_MINIMAL)
             writer.writerow(['conference','avrg nb of participations','at least 2','at least 3','at least 4','at least 5'])
 
-            res = {x:{} for x in confs}
+            # res: conf |-> id_participant |-> number of participations to conf specifically
+            res = {x:{} for x in GLOB.confs_processed}
             for d in self.data:
-                if d.conference in confs:
+                if d.conference in GLOB.confs_processed:
                     if d.id in res[d.conference]:
                         res[d.conference][d.id] = res[d.conference][d.id] + 1
                     else:
                         res[d.conference][d.id] = 1
 
-            # We forget about the idea, each conf maps to a list of number of participations
-            for x in confs:
-                print(len(res[x]))
+            # We forget about the id, each conf maps to a list of number of participations
             res = {k:list(res[k].values()) for k in res}
             aggregated = [x for v in res.values() for x in v]
 
-            print(len(aggregated))
-
             # Overall
-            average = round(sum(aggregated)/len(aggregated),2)
+            average = norm(sum(aggregated)/len(aggregated))
             row = [norm_perc(len([v for v in aggregated if v > i]),len(aggregated)) for i in range(1,5)]
             writer.writerow(['ALL',average] + row)
 
-            for c in confs:
+            for c in GLOB.confs_processed:
                 average = round(sum(res[c])/len(res[c]),2)
                 row = [norm_perc(len([v for v in res[c] if v > i]),len(res[c])) for i in range(1,5)]
                 writer.writerow([c,average] + row)

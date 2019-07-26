@@ -84,9 +84,10 @@ def analysis():
 
     # db.analysis_demographic(GLOB)
 
-    db.participation_overlap_intra_conf_generate_all(GLOB)
-    db.participation_overlap_cross_conf_generate_all(GLOB)
+    # db.participation_overlap_intra_conf_generate_all(GLOB)
+    # db.participation_overlap_cross_conf_generate_all(GLOB)
 
+    db.get_number_of_participations(GLOB)
 
 analysis()
 
