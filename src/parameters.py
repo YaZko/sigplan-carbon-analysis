@@ -21,6 +21,10 @@ class Globals:
         # TODO: get those from the input by default, with option to pick a subset
         self.confs_processed = ['ICFP','POPL','PLDI','SPLASH']
 
+        # TODO: get those from the input by default, with option to pick as subset
+        # Range of years to be considered
+        self.years_processed = range(9,19)
+
         # Cache for locations
         self.cache = '../input/.location_cache.csv'
 
@@ -34,8 +38,8 @@ class Globals:
         # Demographic per edition
         self.output_demographic              = self.output_prefix + 'demographic#.csv'
         # Overlap in attendance
+        self.output_overlap_intra_conf       = self.output_prefix + 'overlap_intra_conf#.csv'
         self.output_overlap_cross_conf       = self.output_prefix + 'overlap_cross_conf#.csv'
-        self.output_overlap_cross_year       = self.output_prefix + 'overlap_cross_year#.csv'
         self.output_old_timer                = self.output_prefix + 'old_timer_#.csv'
         self.output_number_of_participations = self.output_prefix + 'number_of_participations.csv'
         self.output_optimals                 = self.output_prefix + 'optimals.csv'
@@ -48,10 +52,6 @@ class Globals:
         # The value can be changed to k with the '--radiative k' option, and deactivated (i.e. set to 1)
         # with the '--no-radiative' option
         self.radiative_factor_index = 1.891
-
-        # TODO: get those from the source
-        # Range of years to be considered
-        conf_years = range(9,19)
 
         # Flag to set whether participants are uniquely identified, and hence if participation overlap can be computed
         self.unique_id = True

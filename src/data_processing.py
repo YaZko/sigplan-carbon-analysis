@@ -212,27 +212,27 @@ class DB:
 
         if len(participants1) > 0 and len(participants2) > 0:
             intersection = list(set(participants1) & set(participants2))
-            return round(len(intersection) * 2 * 100 / (len(participants1) + len(participants2) ),2)
+            return norm(len(intersection) * 2 * 100 / (len(participants1) + len(participants2)))
         else:
             return None
 
     # Overlap of participation, in percentage, between any two instances of a given conference
-    def participation_overlap_conf(self,output_file,name,years):
+    def participation_overlap_intra_conf(self,GLOB,name):
 
-        output_file = fill_hole_string(output_file, '_' + name)
+        output_file = fill_hole_string(GLOB.output_overlap_intra_conf, '_' + name)
 
         with open(output_file,'w',newline='') as csvfile:
 
             writer = csv.writer(csvfile, delimiter=',', quoting=csv.QUOTE_MINIMAL)
-            writer.writerow(['year1','year2','overlap'])
-            for pair in combinations(years,2):
+            writer.writerow(['year_1','year_2','overlap'])
+            for pair in combinations(GLOB.years_processed,2):
                 overlap = self.participation_overlap_single(name,pair[0],name,pair[1])
                 if not overlap is None:
                     writer.writerow([pair[0],pair[1],overlap])
 
-    def participation_overlap_conf_generate_all(self,output_file,confs,years):
-        for c in confs:
-            self.participation_overlap_conf(output_file,c,years)
+    def participation_overlap_intra_conf_generate_all(self,GLOB):
+        for c in GLOB.confs_processed:
+            self.participation_overlap_intra_conf(GLOB,c)
 
     # Overlap of participation, in percentage, between two given conferences for each year
     def participation_overlap_year(self,output_file,name1,name2,years):
