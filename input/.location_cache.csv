@@ -1,0 +1,2182 @@
+city,state,country,country_iso,continent,GPS,airport
+Edinburgh,,UK,GB,EU,"(55.95206, -3.19648)",EGPH
+Baltimore,MD,USA,US,NA,"(39.29038, -76.61219)",KBWI
+Tokyo,,Japan,JP,AS,"(35.6895, 139.69171)",RJTF
+Copenhagen,,Denmark,DK,EU,"(55.67594, 12.56553)",EKCH
+Boston,MA,USA,US,NA,"(42.35843, -71.05977)",KBOS
+Gothenburg,,Sweden,SE,EU,"(57.70716, 11.96679)",ESGP
+Vancouver,BC,Canada,CA,NA,"(49.24966, -123.11934)",CYVR
+Nara,,Japan,JP,AS,"(34.68505, 135.80485)",RJOY
+Oxford,,United Kingdom,GB,EU,"(51.75222, -1.25596)",EGTK
+St. Louis,MO,USA,US,NA,"(38.62727, -90.19789)",KSTL
+Savannah,GA,USA,US,NA,"(32.08354, -81.09983)",KSVN
+Madrid,,Spain,ES,EU,"(40.4165, -3.70256)",LECU
+Austin,TX,USA,US,NA,"(30.26715, -97.74306)",KAUS
+Philadelphia,PA,USA,US,NA,"(39.95233, -75.16379)",KPHL
+Rome,,Italy,IT,EU,"(41.89193, 12.51133)",LIRU
+San Diego,CA,USA,US,NA,"(32.71571, -117.16472)",KSAN
+Mumbai,,India,IN,AS,"(19.07283, 72.88261)",VABB
+St. Petersburg,FL,USA,US,NA,"(27.77086, -82.67927)",KPIE
+Paris,,France,FR,EU,"(48.85341, 2.3488)",LFPV
+Los Angeles,CA,USA,US,NA,"(34.05223, -118.24368)",KHHR
+Dublin,,Ireland,IE,EU,"(53.33306, -6.24889)",EIDW
+Toronto,ON,Canada,CA,NA,"(43.70011, -79.4163)",CYZD
+San Jose,CA,USA,US,NA,"(37.33939, -121.89496)",KSJC
+Beijing,,China,CN,AS,"(39.9075, 116.39723)",ZBBB
+Seattle,WA,USA,US,NA,"(47.60621, -122.33207)",KBFI
+Portland,OR,USA,US,NA,"(45.52345, -122.67621)",KPDX
+Santa Barbara,CA,USA,US,NA,"(34.42083, -119.69819)",KSBA
+Barcelona,,Spain,ES,EU,"(41.38879, 2.15899)",LEBL
+Reno,NV,USA,US,NA,"(39.52963, -119.8138)",KRNO
+Sparks,NV,USA,US,NA,"(39.53491, -119.75269)",KRNO
+Tucson,AZ,USA,US,NA,"(32.22174, -110.92648)",KDMA
+Indianapolis,IN,USA,US,NA,"(39.76838, -86.15804)",KIND
+Pittsburgh,PA,USA,US,NA,"(40.44062, -79.99589)",KAGC
+Amsterdam,,Netherlands,NL,EU,"(52.37403, 4.88969)",EHAM
+Yokohama,,Japan,JP,AS,"(35.43333, 139.65)",RJTT
+Kaiserslautern,,Germany,DE,EU,"(49.443, 7.77161)",ETAR
+Nijmegen,,Netherlands,NL,EU,"(51.8425, 5.85278)",EHVK
+Bloomington,IN,USA,US,NA,"(39.16533, -86.52639)",KBMG
+New York,NY,USA,US,NA,"(40.71427, -74.00597)",KLGA
+Göteborg,,Sweden,SE,EU,"(57.70716, 11.96679)",ESGP
+Plymouth Meeting,PA,USA,US,NA,"(40.10233, -75.27435)",KNXX
+Princeton,NJ,USA,US,NA,"(40.34872, -74.65905)",KTTN
+Berkeley,CA,USA,US,NA,"(37.87159, -122.27275)",KOAK
+Kyoto,,Japan,JP,AS,"(35.02107, 135.75385)",RJOO
+London,,United Kingdom,GB,EU,"(51.50853, -0.12574)",EGLC
+Bergen,,Norway,NO,EU,"(60.39299, 5.32415)",ENBR
+Jersey City,NJ,USA,US,NA,"(40.72816, -74.07764)",KEWR
+Durham,NC,USA,US,NA,"(35.99403, -78.89862)",KRDU
+Cambridge,,United Kingdom,GB,EU,"(52.2, 0.11667)",EGSC
+St. Andrews,,United Kingdom,GB,EU,"(56.33871, -2.79902)",EGQL
+Albstadt,,Germany,DE,EU,"(48.21644, 9.02596)",EDTD
+Forest Hill,MD,USA,US,NA,"(39.58511, -76.38774)",KAPG
+Guer,,France,FR,EU,"(47.90619, -2.12314)",LFRN
+Prince Frederick,MD,USA,US,NA,"(38.5404, -76.5844)",KNHK
+Nottingham,,United Kingdom,GB,EU,"(52.9536, -1.15047)",EGBN
+Hamilton,ON,Canada,CA,NA,"(43.25011, -79.84963)",CYHM
+Doha,,Qatar,QA,AS,"(25.28545, 51.53096)",QA-0001
+Sydney,,Australia,AU,OC,"(-33.86785, 151.20732)",YSSY
+West Lafayette,IN,USA,US,NA,"(40.42587, -86.90807)",KLAF
+Allston,MA,USA,US,NA,"(42.35843, -71.12589)",KBOS
+Tallinn,,Estonia,EE,EU,"(59.43696, 24.75353)",EETN
+Le Chesnay,,France,FR,EU,"(48.8222, 2.12213)",LFPV
+Mountain View,CA,USA,US,NA,"(37.38605, -122.08385)",KNUQ
+Edinburgh,,United Kingdom,GB,EU,"(55.95206, -3.19648)",EGPH
+Cambridge,MA,USA,US,NA,"(42.3751, -71.10561)",KBOS
+Marriottsville,MD,USA,US,NA,"(39.3501, -76.89942)",KBWI
+Worcester,,United Kingdom,GB,EU,"(52.18935, -2.22001)",EGBJ
+Salt Lake City,UT,USA,US,NA,"(40.76078, -111.89105)",KSLC
+Glasgow,,United Kingdom,GB,EU,"(55.86515, -4.25763)",EGPF
+Brest,,France,FR,EU,"(48.39029, -4.48628)",LFRB
+Aarhus,,Denmark,DK,EU,"(56.15674, 10.21076)",EKAH
+Brooklyn,NY,USA,US,NA,"(40.6501, -73.94958)",KJFK
+San Francisco,CA,USA,US,NA,"(37.77493, -122.41942)",KSFO
+Utrecht,,Netherlands,NL,EU,"(52.09083, 5.12222)",EHAM
+Saarbruecken,,Germany,DE,EU,"(49.23262, 7.00982)",EDDR
+Stockholm,,Sweden,SE,EU,"(59.33258, 18.0649)",ESSB
+Angered,,Sweden,SE,EU,"(57.78628, 12.09852)",ESGP
+Redmond,WA,USA,US,NA,"(47.67399, -122.12151)",KBFI
+Coralville,IA,USA,US,NA,"(41.6764, -91.58045)",KCID
+"Bunkyo, Tokyo",,Japan,JP,AS,"(35.71745, 139.74729)",RJTT
+Linkoping,,Sweden,SE,EU,"(58.41086, 15.62157)",ESSL
+Birmingham,,United Kingdom,GB,EU,"(52.48142, -1.89983)",EGBB
+Lawrence,KS,USA,US,NA,"(38.97167, -95.23525)",KTOP
+Ottawa,ON,Canada,CA,NA,"(45.41117, -75.69812)",CYRO
+Boadilla del Monte,,Spain,ES,EU,"(40.405, -3.87835)",LECU
+Evanston,IL,USA,US,NA,"(42.04114, -87.69006)",KORD
+Kiel,,Germany,DE,EU,"(54.32133, 10.13489)",EDHK
+Los Altos,CA,USA,US,NA,"(37.38522, -122.11413)",KNUQ
+Rochester,NY,USA,US,NA,"(43.15478, -77.61556)",KROC
+Créteil,,France,FR,EU,"(48.79266, 2.46569)",LFPO
+Ithaca,NY,USA,US,NA,"(42.44063, -76.49661)",KITH
+Minneapolis,MN,USA,US,NA,"(44.97997, -93.26384)",KMSP
+Nagoya,,Japan,JP,AS,"(35.18147, 136.90641)",RJNA
+Sophia Antipolis,,France,FR,EU,"(43.62235, 7.04721)",LFMD
+Santa Clara,CA,USA,US,NA,"(37.35411, -121.95524)",KSJC
+Umea,,Sweden,SE,EU,"(63.82842, 20.25972)",ESNU
+Chantilly,VA,USA,US,NA,"(38.89428, -77.4311)",KIAD
+Arlington,VA,USA,US,NA,"(38.88101, -77.10428)",KDCA
+Hopewell Junction,NY,USA,US,NA,"(41.58398, -73.80874)",KPOU
+Hillsboro,OR,USA,US,NA,"(45.52289, -122.98983)",KHIO
+Bagneux,,France,FR,EU,"(48.79565, 2.30796)",LFPV
+Laurel,MD,USA,US,NA,"(39.09928, -76.84831)",KFME
+Severna Park,MD,USA,US,NA,"(39.07039, -76.54524)",KBWI
+College Park,MD,USA,US,NA,"(38.98067, -76.93692)",KDCA
+Research Triangle Park,NC,USA,US,NA,"(35.89709, -78.86029)",KRDU
+Ossining,NY,USA,US,NA,"(41.16287, -73.86152)",KHPN
+Chicago,IL,USA,US,NA,"(41.85003, -87.65005)",KMDW
+Garching,,Germany,DE,EU,"(48.24896, 11.65101)",EDDM
+"Dundalk, Co. Louth",,Ireland,IE,EU,"(54.0, -6.41667)",EIDW
+Saarbrucken,,Germany,DE,EU,"(49.23262, 7.00982)",EDDR
+New Haven,CT,USA,US,NA,"(41.30815, -72.92816)",KHVN
+Goteborg,,Sweden,SE,EU,"(57.70716, 11.96679)",ESGP
+"Minato-ku, Tokyo",,Japan,JP,AS,"(35.65, 139.73333)",RJTT
+Massy,,France,FR,EU,"(48.72692, 2.28301)",LFPO
+Iowa City,IA,USA,US,NA,"(41.66113, -91.53017)",KCID
+Monterey,CA,USA,US,NA,"(36.60024, -121.89468)",KMRY
+Budapest,,Hungary,HU,EU,"(47.49835, 19.04045)",LHBP
+Houston,TX,USA,US,NA,"(29.76328, -95.36327)",KHOU
+Orsay,,France,FR,EU,"(48.69572, 2.18727)",LFPN
+Houilles,,France,FR,EU,"(48.92161, 2.19263)",LFPV
+Seoul,,South Korea,KR,AS,"(37.566, 126.9784)",RKSS
+Bellevue,WA,USA,US,NA,"(47.61038, -122.20068)",KBFI
+Ashburn,VA,USA,US,NA,"(39.04372, -77.48749)",KIAD
+Binghamton,NY,USA,US,NA,"(42.09869, -75.91797)",KBGM
+Marburg,,Germany,DE,EU,"(50.80904, 8.77069)",ETHF
+Willowbrook,IL,USA,US,NA,"(41.45781, -87.53643)",KGYY
+Orléans,,France,FR,EU,"(47.90289, 1.90389)",LFOJ
+Washington,DC,USA,US,NA,"(38.89511, -77.03637)",KDCA
+Red Bank,NJ,USA,US,NA,"(40.34705, -74.06431)",KEWR
+Sendai,,Japan,JP,AS,"(38.26667, 140.86667)",RJSS
+Kochi,,Japan,JP,AS,"(33.55, 133.53333)",RJOK
+Earlysville,VA,USA,US,NA,"(38.15763, -78.48279)",KCHO
+Easthampton,MA,USA,US,NA,"(42.26676, -72.66898)",KBAF
+Bowie,MD,USA,US,NA,"(38.94278, -76.73028)",KFME
+Taipei,,Taiwan,TW,AS,"(25.04776, 121.53185)",RCSS
+Hoboken,NJ,USA,US,NA,"(40.74399, -74.03236)",KTEB
+Cambrils,,Spain,ES,EU,"(41.06997, 1.05949)",LERS
+Upper Darby,PA,USA,US,NA,"(39.94706, -75.29213)",KPHL
+Wroclaw,,Poland,PL,EU,"(51.1, 17.03333)",EPWR
+Zuerich,,Switzerland,CH,EU,"(47.36667, 8.55)",LSMD
+Waterloo,ON,Canada,CA,NA,"(43.45747, -80.38593)",CYKF
+Medford,MA,USA,US,NA,"(42.41843, -71.10616)",KBOS
+Columbia,MD,USA,US,NA,"(39.24038, -76.83942)",KBWI
+Roskilde,,Denmark,DK,EU,"(55.64152, 12.08035)",EKRK
+Upper Marlboro,MD,USA,US,NA,"(38.81595, -76.74969)",KADW
+Eindhoven,,Netherlands,NL,EU,"(51.44083, 5.47778)",EHEH
+Holly Springs,NC,USA,US,NA,"(35.65127, -78.83362)",KRDU
+Salem,OR,USA,US,NA,"(44.9429, -123.0351)",KSLE
+York,,United Kingdom,GB,EU,"(53.95763, -1.08271)",EGXU
+Uppsala,,Sweden,SE,EU,"(59.85882, 17.63889)",ESSA
+"Uji-shi, Kyoto",,Japan,JP,AS,"(34.89044, 135.80325)",RJOO
+"Shibuya, Tokyo",,Japan,JP,AS,"(35.66404, 139.69821)",RJTT
+Richland,WA,USA,US,NA,"(46.28569, -119.28446)",KPSC
+Mineola,NY,USA,US,NA,"(40.74927, -73.64068)",KJFK
+Ashburnham,MA,USA,US,NA,"(42.6362, -71.90785)",KORH
+Palo Alto,CA,USA,US,NA,"(37.44188, -122.14302)",KNUQ
+Piscataway,NJ,USA,US,NA,"(40.49927, -74.39904)",KEWR
+Somerville,MA,USA,US,NA,"(42.3876, -71.0995)",KBOS
+Thornton,CO,USA,US,NA,"(39.86804, -104.97192)",KBJC
+Cary,NC,USA,US,NA,"(35.79154, -78.78112)",KRDU
+Tübingen,,Germany,DE,EU,"(48.52266, 9.05222)",EDDS
+Centreville,VA,USA,US,NA,"(38.84039, -77.42888)",KIAD
+Upplands Väsby,,Sweden,SE,EU,"(59.52382, 17.91001)",ESSA
+West Roxbury,MA,USA,US,NA,"(42.27926, -71.1495)",KOWD
+Praha,,Czech Republic,CZ,EU,"(50.08804, 14.42076)",LKKB
+"Minato-Ku, Tokyo",,Japan,JP,AS,"(35.65, 139.73333)",RJTT
+"Tokyo, Bunkyo-ku",,Japan,JP,AS,"(35.71745, 139.74729)",RJTT
+Madison,WI,USA,US,NA,"(43.07305, -89.40123)",KMSN
+Lewisville,TX,USA,US,NA,"(33.04623, -96.99417)",KDFW
+Wahroonga,,Australia,AU,OC,"(-33.71816, 151.11561)",YSBK
+Freiburg,,Germany,DE,EU,"(47.9959, 7.85222)",EDTL
+Kent,,United Kingdom,GB,EU,"(51.23667, 0.72393)",EGMD
+Zurich,,Switzerland,CH,EU,"(47.36667, 8.55)",LSMD
+Urbana,IN,USA,US,NA,"(40.89838, -85.79276)",KGUS
+Bonn,,Germany,DE,EU,"(50.87894, 7.12292)",EDDK
+Leipzig,,Germany,DE,EU,"(51.33962, 12.37129)",EDDP
+London,ON,Canada,CA,NA,"(42.98339, -81.23304)",CYXU
+Be'er-Sheva,,Israel,IL,AS,"(31.25181, 34.7913)",LLNV
+Renton,WA,USA,US,NA,"(47.48288, -122.21707)",KSEA
+Singapore,,Singapore,SG,AS,"(1.28967, 103.85007)",WSAP
+Leeds,,United Kingdom,GB,EU,"(53.79648, -1.54785)",EGNM
+Fair Haven,NJ,USA,US,NA,"(40.36067, -74.03819)",KJFK
+Metairie,LA,USA,US,NA,"(29.98409, -90.15285)",KMSY
+Houghton,NY,USA,US,NA,"(42.4234, -78.15723)",KBUF
+Los Alamos,NM,USA,US,NA,"(35.88808, -106.30697)",KSAF
+Aarhus N,,Denmark,DK,EU,"(56.20367, 10.17317)",EKAH
+Tsukuba,,Japan,JP,AS,"(36.11667, 140.05)",RJAH
+Bunkyo-ku,,Japan,JP,AS,"(35.71745, 139.74729)",RJTT
+Glyfada,,Greece,GR,EU,"(37.86289, 23.75802)",LGAV
+Hugo,MN,USA,US,NA,"(45.15997, -92.99327)",KSTP
+Kobe,,Japan,JP,AS,"(34.6913, 135.183)",RJBE
+Wakoshi,,Japan,JP,AS,"(35.78835, 139.61286)",RJTF
+Emeryville,CA,USA,US,NA,"(37.83132, -122.28525)",KOAK
+Hörby,,Sweden,SE,EU,"(55.83766, 13.74284)",ESMK
+Watlington,,United Kingdom,GB,EU,"(32.3, -64.75)",EGAB
+Clamart,,France,FR,EU,"(48.80299, 2.26692)",LFPV
+Nederland,CO,USA,US,NA,"(39.96138, -105.51083)",KBJC
+Berkeley Heights,NJ,USA,US,NA,"(40.68343, -74.44265)",KMMU
+Sapporo,,Japan,JP,AS,"(43.06667, 141.35)",RJCO
+Leuven,,Belgium,BE,EU,"(50.87959, 4.70093)",EBBE
+Saskatoon,SK,Canada,CA,NA,"(52.13238, -106.66892)",CYXE
+San Andreas,CA,USA,US,NA,"(38.19603, -120.68049)",KSCK
+Copenhagen S,,Denmark,DK,EU,"(55.68743, 12.57329)",EKCH
+Athens,,Greece,GR,EU,"(37.98376, 23.72784)",LGEL
+Orleans,,France,FR,EU,"(47.90289, 1.90389)",LFOJ
+Bologna,,Italy,IT,EU,"(44.49381, 11.33875)",LIPE
+Nice,,France,FR,EU,"(43.70313, 7.26608)",LFMN
+Kiskunlachaza,,Hungary,HU,EU,"(47.18839, 19.0093)",LHTL
+Gunma,,Japan,JP,AS,"(36.4, 139.08333)",RJTJ
+Tampere,,Finland,FI,EU,"(61.49911, 23.78712)",EFTP
+Kawasaki,,Japan,JP,AS,"(35.52056, 139.71722)",RJTT
+Setagaya-Ku,,Japan,JP,AS,"(35.64657, 139.65325)",RJTF
+Saarbrücken,,Germany,DE,EU,"(49.23262, 7.00982)",EDDR
+Pohang,,South Korea,KR,AS,"(35.98786, 129.42049)",RKTH
+Aichi Nagoya Showa-ku,,Japan,JP,AS,"(35.15021, 136.93413)",RJNA
+Saitama-shi,,Japan,JP,AS,"(35.90807, 139.65657)",RJTJ
+Matsue,,Japan,JP,AS,"(35.48333, 133.05)",RJOC
+College Station,TX,USA,US,NA,"(30.62798, -96.33441)",KCLL
+Broadway,,Australia,AU,OC,"(-34.8652, 147.5846)",YSWG
+Takamatsu,,Japan,JP,AS,"(34.33333, 134.05)",RJOT
+Miyazaki,,Japan,JP,AS,"(31.91667, 131.41667)",RJFM
+Chiba-ken,,Japan,JP,AS,"(35.6, 140.11667)",RJTL
+Ryugasaki,,Japan,JP,AS,"(35.9, 140.18333)",RJTL
+Yaidu,,Japan,JP,AS,"(34.86877, 138.31952)",RJNY
+Okinawa,,Japan,JP,AS,"(26.5, 127.93333)",RODN
+Minato-ku,,Japan,JP,AS,"(35.65, 139.73333)",RJTT
+Orsay Cedex,,France,FR,EU,"(48.69572, 2.18727)",LFPN
+Santa Monica,CA,USA,US,NA,"(34.01945, -118.49119)",KLAX
+Regensburg,,Germany,DE,EU,"(49.01513, 12.10161)",ETIH
+Nowa Ruda,,Poland,PL,EU,"(50.58008, 16.50164)",EPWR
+"Kami-shi, Kochi",,Japan,JP,AS,"(33.70816, 133.85322)",RJOK
+Provo,UT,USA,US,NA,"(40.23384, -111.65853)",KPVU
+Koto,,Japan,JP,AS,"(35.66667, 139.81667)",RJTT
+Tokyo-to,,Japan,JP,AS,"(34.52295, 139.28017)",RJTO
+Chofu,,Japan,JP,AS,"(35.65924, 139.54837)",RJTF
+Chiba,,Japan,JP,AS,"(35.6, 140.11667)",RJTL
+Kanagawa-Ken,,Japan,JP,AS,"(35.43333, 139.65)",RJTT
+Framingham,MA,USA,US,NA,"(42.27926, -71.41617)",KOWD
+Koshi,,Japan,JP,AS,"(37.33333, 138.93333)",RJSN
+Gyeongbuk,,South Korea,KR,AS,"(36.33333, 128.75)",RKTY
+Osaka,,Japan,JP,AS,"(34.69374, 135.50218)",RJOO
+Osnabrück,,Germany,DE,EU,"(52.27264, 8.0498)",EDDG
+Urbana,IL,USA,US,NA,"(40.11059, -88.20727)",KCMI
+Toyonaka City,,Japan,JP,AS,"(34.7702, 135.4828)",RJOO
+Lausanne,,Switzerland,CH,EU,"(46.516, 6.63282)",LSMP
+Akita City,,Japan,JP,AS,"(39.71965, 140.11349)",RJSK
+Aichi,,Japan,JP,AS,"(35.18147, 136.90641)",RJNA
+New Orleans,LA,USA,US,NA,"(29.95465, -90.07507)",KNEW
+Gent,,Belgium,BE,EU,"(51.05, 3.71667)",EBKT
+Gif-sur-Yvette,,France,FR,EU,"(48.68333, 2.13333)",LFPN
+Filderstadt,,Germany,DE,EU,"(48.65698, 9.22049)",EDDS
+Balcatta,,Australia,AU,OC,"(-31.87501, 115.82839)",YPPH
+Stanford,CA,USA,US,NA,"(37.42716, -122.17024)",KNUQ
+Pyrmont,,Australia,AU,OC,"(-33.86797, 151.19682)",YSSY
+Amagasaki Hyogo,,Japan,JP,AS,"(34.71667, 135.41667)",RJOO
+Nagoya-city,,Japan,JP,AS,"(35.18147, 136.90641)",RJNA
+Wellington,,New Zealand,NZ,OC,"(-41.28664, 174.77557)",NZWN
+Canterbury,,United Kingdom,GB,EU,"(51.27904, 1.07992)",EGMH
+Kariya,,Japan,JP,AS,"(34.98333, 136.98333)",RJGG
+Miyagi,,Japan,JP,AS,"(38.26667, 140.86667)",RJSS
+Jamaica Plain,MA,USA,US,NA,"(42.30982, -71.12033)",KBOS
+Ishikawa,,Japan,JP,AS,"(36.77145, 136.7705)",RJNT
+Ho Chi Minh,,Viet Nam,VN,AS,"(10.82302, 106.62965)",VVTS
+Swindon,,United Kingdom,GB,EU,"(51.55797, -1.78116)",EGVA
+Holmdel,NJ,USA,US,NA,"(40.34511, -74.18403)",KNEL
+Amagasaki,,Japan,JP,AS,"(34.71667, 135.41667)",RJOO
+Kanagawa,,Japan,JP,AS,"(35.43333, 139.65)",RJTT
+Nagakute,,Japan,JP,AS,"(35.18335, 137.04895)",RJNA
+Inzai-shi,,Japan,JP,AS,"(35.81207, 140.14098)",RJTL
+Ichikawa-shi,,Japan,JP,AS,"(35.71865, 139.93294)",RJTL
+Vienna,,Austria,AT,EU,"(48.20849, 16.37208)",LOWW
+Berlin,,Germany,DE,EU,"(52.52437, 13.41053)",EDDT
+Corvallis,OR,USA,US,NA,"(44.56457, -123.26204)",KCVO
+København,,Denmark,DK,EU,"(55.67594, 12.56553)",EKCH
+Porto,,Portugal,PT,EU,"(41.14961, -8.61099)",LPPR
+London,,Denmark,DK,EU,"(51.46807, -0.0896)",EKEB
+Copenhagen N,,Denmark,DK,EU,"(43.8934, -75.67353)",EKTS
+Aarhus C,,Denmark,DK,EU,"(56.16558, 10.21231)",EKAH
+Ostrava,,Czech Republic,CZ,EU,"(49.83465, 18.28204)",LKMT
+Zürich,,Switzerland,CH,EU,"(47.36667, 8.55)",LSMD
+Valby,,Denmark,DK,EU,"(55.63333, 12.31667)",EKRK
+Hamburg,,Germany,DE,EU,"(53.57532, 10.01534)",EDDH
+Boulogne-Billancourt,,France,FR,EU,"(48.83545, 2.24128)",LFPV
+Boulogne Billancourt,,France,FR,EU,"(48.83545, 2.24128)",LFPV
+Penzberg,,Germany,DE,EU,"(47.75293, 11.377)",EDMO
+Kreuztal,,Germany,DE,EU,"(50.96775, 7.98848)",EDGS
+Enschede,,Netherlands,NL,EU,"(52.21833, 6.89583)",EHTW
+Palaiseau,,France,FR,EU,"(48.71828, 2.2498)",LFPV
+St Andrews,,United Kingdom,GB,EU,"(56.33871, -2.79902)",EGQL
+Karlsruhe,,Germany,DE,EU,"(49.00937, 8.40444)",EDSB
+Bristol,,United Kingdom,GB,EU,"(51.45523, -2.59665)",EGGD
+Kilchberg,,Switzerland,CH,EU,"(47.32438, 8.54548)",LSMD
+Hørsholm,,Denmark,DK,EU,"(55.88098, 12.50111)",EKCH
+A Coruña,,Spain,ES,EU,"(43.37135, -8.396)",LECO
+Cachan,,France,FR,EU,"(48.79632, 2.33661)",LFPO
+Odessa,,Ukraine,UA,EU,"(46.47747, 30.73262)",UKOO
+Torun,,Poland,PL,EU,"(53.01375, 18.59814)",EPIR
+Brabrand,,Denmark,DK,EU,"(56.14593, 10.10742)",EKAH
+Versailles,,France,FR,EU,"(48.80359, 2.13424)",LFPV
+Encinitas,CA,USA,US,NA,"(33.03699, -117.29198)",KCRQ
+Torino,,Italy,IT,EU,"(45.07049, 7.68682)",LIMA
+Toulouse,,France,FR,EU,"(43.60426, 1.44367)",LFBO
+Sheffield,,United Kingdom,GB,EU,"(53.38297, -1.4659)",EGCN
+Spring,TX,USA,US,NA,"(30.07994, -95.41716)",KIAH
+Bangalore,,India,IN,AS,"(12.97194, 77.59369)",VOBG
+Halmstad,,Sweden,SE,EU,"(56.67446, 12.85676)",ESMT
+Moscow,,Russia,RU,EU,"(55.75222, 37.61556)",UUEE
+Ballerup,,Denmark,DK,EU,"(55.73165, 12.36328)",EKRK
+Soest,,Netherlands,NL,EU,"(52.17333, 5.29167)",EHLE
+Linköping,,Sweden,SE,EU,"(58.41086, 15.62157)",ESSL
+Montreal,QC,Canada,CA,NA,"(45.50884, -73.58781)",CYUL
+Lexington,MA,USA,US,NA,"(42.44732, -71.2245)",KBED
+San Mateo,CA,USA,US,NA,"(37.56299, -122.32553)",KSFO
+Gieres,,France,FR,EU,"(45.17997, 5.78935)",LFLS
+Odense S,,Denmark,DK,EU,"(55.32973, 10.37375)",EKOD
+Mårslet,,Denmark,DK,EU,"(56.0669, 10.16112)",EKAH
+Lyngby,,Denmark,DK,EU,"(55.77044, 12.50378)",EKCH
+Potsdam,,Germany,DE,EU,"(52.39886, 13.06566)",EDDT
+Muenchen,,Germany,DE,EU,"(48.13743, 11.57549)",EDMO
+Wien,,Austria,AT,EU,"(48.20849, 16.37208)",LOWW
+Visby,,Sweden,SE,EU,"(57.64089, 18.29602)",ESSV
+Bröndby,,Denmark,DK,EU,"(55.6455, 12.41008)",EKCH
+Unterföhring,,Germany,DE,EU,"(48.19253, 11.64293)",EDDM
+Hovås,,Sweden,SE,EU,"(57.61139, 11.93917)",ESGP
+Lviv,,Ukraine,UA,EU,"(49.83826, 24.02324)",UKLL
+Rennes,,France,FR,EU,"(48.11198, -1.67429)",LFRN
+Dortmund,,Germany,DE,EU,"(51.51494, 7.466)",EDLW
+Munich,,Germany,DE,EU,"(48.13743, 11.57549)",EDMO
+2,,Germany,DE,EU,"(-23.85997, -56.67184)",EDTL
+Herning,,Denmark,DK,EU,"(56.13615, 8.97662)",EKKA
+Solna,,Sweden,SE,EU,"(59.36548, 18.00728)",ESSB
+Grigny,,France,FR,EU,"(48.65412, 2.39343)",LFPO
+Sandnes,,Norway,NO,EU,"(58.85244, 5.73521)",ENZV
+A Coruńa,,Spain,ES,EU,"(43.37135, -8.396)",LECO
+Rodovre,,Denmark,DK,EU,"(55.68062, 12.45373)",EKCH
+East Lansing,MI,USA,US,NA,"(42.73698, -84.48387)",KLAN
+Aalborg,,Denmark,DK,EU,"(57.048, 9.9187)",EKYT
+Lares,PR,USA,US,NA,"(18.27023, -66.86907)",KHST
+Onsala,,Sweden,SE,EU,"(57.42531, 12.02903)",ESGG
+Kgs.Lyngby,,Denmark,DK,EU,"(55.77044, 12.50378)",EKCH
+Kiev,,Ukraine,UA,EU,"(50.45466, 30.5238)",UKKK
+Gatineau,QC,Canada,CA,NA,"(45.47723, -75.70164)",CYRO
+Le Chesnay Cedex,,France,FR,EU,"(48.8222, 2.12213)",LFPV
+Malden,MA,USA,US,NA,"(42.4251, -71.06616)",KBOS
+Aarhus V,,Denmark,DK,EU,"(56.17349, 10.1545)",EKAH
+Potenza,,Italy,IT,EU,"(40.64175, 15.80794)",LIRI
+Udine,,Italy,IT,EU,"(46.0693, 13.23715)",LIPI
+Hilversum,,Netherlands,NL,EU,"(52.22333, 5.17639)",EHAM
+Wedel,,Germany,DE,EU,"(53.58374, 9.69835)",EDHI
+Odense M,,Denmark,DK,EU,"(55.37848, 10.40362)",EKOD
+Kastellaun,,Germany,DE,EU,"(50.06922, 7.44154)",EDFH
+Schondorf,,Germany,DE,EU,"(48.05296, 11.09138)",ETSA
+Kyoto-fu,,Japan,JP,AS,"(35.02107, 135.75385)",RJOO
+Leuven-Heverlee,,Belgium,BE,EU,"(50.83522, 4.66421)",EBBE
+Leicester,,United Kingdom,GB,EU,"(52.6386, -1.13169)",EGNX
+Boulder,CO,USA,US,NA,"(40.01499, -105.27055)",KBJC
+Recife/Pernambuco,,Brazil,BR,SA,"(-8.05389, -34.88111)",SBRF
+Lochristi,,Belgium,BE,EU,"(51.09644, 3.83194)",EBAW
+Victoria Park,,Australia,AU,OC,"(-31.97651, 115.90592)",YPPH
+Partille,,Sweden,SE,EU,"(57.73306, 12.13072)",ESGG
+Borås,,Sweden,SE,EU,"(57.72101, 12.9401)",ESGG
+Århus,,Denmark,DK,EU,"(56.15674, 10.21076)",EKAH
+Mons,,Belgium,BE,EU,"(50.45413, 3.95229)",EBCV
+Den Haag,,Netherlands,NL,EU,"(52.07667, 4.29861)",EHRD
+Staffanstorp,,Sweden,SE,EU,"(55.64277, 13.20638)",ESMS
+Garching bei Muenchen,,Germany,DE,EU,"(48.24896, 11.65101)",EDDM
+Sandy,UT,USA,US,NA,"(40.59161, -111.8841)",KSLC
+Brookline,MA,USA,US,NA,"(42.33176, -71.12116)",KBOS
+Eugene,OR,USA,US,NA,"(44.05207, -123.08675)",KEUG
+Montevideo,,Uruguay,UY,SA,"(-34.90328, -56.18816)",SUAA
+Montgeron,,France,FR,EU,"(48.70543, 2.45039)",LFPO
+Viry - Chatillon,,France,FR,EU,"(48.67211, 2.39318)",LFPO
+West Hartford,CT,USA,US,NA,"(41.76204, -72.74204)",KHFD
+Clarksburg,MD,USA,US,NA,"(39.23872, -77.27943)",KIAD
+A Coruna,,Spain,ES,EU,"(43.37135, -8.396)",LECO
+Monmouth Junction,NJ,USA,US,NA,"(40.379, -74.54654)",KTTN
+La Jolla,CA,USA,US,NA,"(32.84727, -117.2742)",KNKX
+Denver,CO,USA,US,NA,"(39.73915, -104.9847)",KBKF
+Warwick,RI,USA,US,NA,"(41.7001, -71.41617)",KPVD
+Sydney,NSW,Australia,AU,OC,"(-33.86785, 151.20732)",YSSY
+Heverlee,,Belgium,BE,EU,"(50.83522, 4.66421)",EBBE
+Rostov-on-Don,,Russia,RU,EU,"(47.23135, 39.72328)",URRR
+Newport,RI,USA,US,NA,"(41.4901, -71.31283)",KOQU
+South Deerfield,MA,USA,US,NA,"(42.47731, -72.60787)",KCEF
+Potomac,MD,USA,US,NA,"(39.01817, -77.20859)",KIAD
+Darmstadt,,Germany,DE,EU,"(49.87167, 8.65027)",EDFE
+Menlo Park,CA,USA,US,NA,"(37.45383, -122.18219)",KNUQ
+San Bruno,CA,USA,US,NA,"(37.63049, -122.41108)",KSFO
+Natick,MA,USA,US,NA,"(42.28343, -71.3495)",KOWD
+Sao Paulo,,Brazil,BR,SA,"(-23.5475, -46.63611)",SBMT
+Westborough,MA,USA,US,NA,"(42.26954, -71.61618)",KORH
+Columbus,OH,USA,US,NA,"(39.96118, -82.99879)",KCMH
+Bristol,CT,USA,US,NA,"(41.67176, -72.94927)",KHFD
+Orem,UT,USA,US,NA,"(40.2969, -111.69465)",KPVU
+Novi Sad,,Serbia,RS,EU,"(45.25167, 19.83694)",LYBT
+Milton,MA,USA,US,NA,"(42.24954, -71.06616)",KOWD
+Rabastens,,France,FR,EU,"(43.82512, 1.72382)",LFCI
+Amherst,MA,USA,US,NA,"(42.36723, -72.51852)",KCEF
+Newton,MA,USA,US,NA,"(42.33704, -71.20922)",KBED
+Trondheim,,Norway,NO,EU,"(63.43049, 10.39506)",ENVA
+Syosset,NY,USA,US,NA,"(40.82621, -73.50207)",KFRG
+Munchen,,Germany,DE,EU,"(48.13743, 11.57549)",EDMO
+Winchester,MA,USA,US,NA,"(42.45232, -71.137)",KBED
+Wilton,CT,USA,US,NA,"(41.19537, -73.4379)",KBDR
+Talence,,France,FR,EU,"(44.80477, -0.59543)",LFBD
+Los Osos,CA,USA,US,NA,"(35.31109, -120.8324)",KSBP
+Gainesville,VA,USA,US,NA,"(38.79567, -77.61388)",KIAD
+Hovas,,Sweden,SE,EU,"(57.61139, 11.93917)",ESGP
+Ultimo,,Australia,AU,OC,"(-33.87722, 151.1972)",YSSY
+Naperville,IL,USA,US,NA,"(41.78586, -88.14729)",KDPA
+Kista,,Sweden,SE,EU,"(59.40316, 17.94479)",ESSB
+Chestnut Hill,MA,USA,US,NA,"(33.51038, -86.78027)",KBHM
+Burlington,MA,USA,US,NA,"(42.50482, -71.19561)",KBED
+Rosmalen,,Netherlands,NL,EU,"(51.71667, 5.36528)",EHVK
+Arlington,MA,USA,US,NA,"(42.41537, -71.15644)",KBED
+Trenton,NJ,USA,US,NA,"(40.21705, -74.74294)",KTTN
+Northfield,IL,USA,US,NA,"(42.06975, -87.78784)",KPWK
+Bellevue,,USA,US,NA,"(47.61038, -122.20068)",KBFI
+Champaign,IL,USA,US,NA,"(40.11642, -88.24338)",KCMI
+Albuquerque,NM,USA,US,NA,"(35.08449, -106.65114)",KABQ
+Atlanta,GA,USA,US,NA,"(33.749, -84.38798)",KFTY
+UNSW,,Australia,AU,OC,"(-33.9235, 151.2262)",YSSY
+Waltham,MA,USA,US,NA,"(42.37649, -71.23561)",KBED
+Pasadena,CA,USA,US,NA,"(34.14778, -118.14452)",KBUR
+Berwick,LA,USA,US,NA,"(29.69465, -91.21899)",KARA
+Hong Kong,,Hong Kong,HK,AS,"(22.27832, 114.17469)",VHSK
+Zionsville,IN,USA,US,NA,"(39.95087, -86.26194)",KIND
+Pohang Gyeongbuk,,South Korea,KR,AS,"(36.02917, 129.36481)",RKTH
+Portsmouth,NH,USA,US,NA,"(43.07704, -70.75766)",KPSM
+Melrose,MA,USA,US,NA,"(42.45843, -71.06616)",KBOS
+Joaquin Suarez,,Uruguay,UY,SA,"(-34.73501, -56.0347)",SUMU
+Gunnison,CO,USA,US,NA,"(38.6668, -107.0317)",KASE
+Natal,,Brazil,BR,SA,"(-5.795, -35.20944)",SBNT
+Rocquencourt,,France,FR,EU,"(48.83783, 2.10228)",LFPN
+New Delhi,,India,IN,AS,"(28.65195, 77.23149)",VIDD
+Hamden,CT,USA,US,NA,"(41.39593, -72.89677)",KHVN
+Bedford,MA,USA,US,NA,"(41.63622, -70.93421)",KEWB
+Villejuif,,France,FR,EU,"(48.7939, 2.35992)",LFPO
+Leichhardt,,Australia,AU,OC,"(-33.86781, 151.17057)",YSSY
+Watertown,MA,USA,US,NA,"(42.37093, -71.18283)",KBED
+Frankfurt am Main,,Germany,DE,EU,"(50.11552, 8.68417)",EDDF
+Brighton,,United Kingdom,GB,EU,"(50.82838, -0.13947)",EGKA
+Amman,,Jordan,JO,AS,"(31.95522, 35.94503)",OJAM
+new york,NY,USA,US,NA,"(40.71427, -74.00597)",KLGA
+Marrickville,,Australia,AU,OC,"(-33.91041, 151.15508)",YSSY
+Fayetteville,AR,USA,US,NA,"(36.06258, -94.15743)",KFYV
+Melbourne,FL,USA,US,NA,"(28.08363, -80.60811)",KMLB
+Heerenveen,,Netherlands,NL,EU,"(52.95929, 5.91854)",EHLW
+Upplands Vasby,,Sweden,SE,EU,"(59.52382, 17.91001)",ESSA
+Plainsboro,NJ,USA,US,NA,"(40.33344, -74.60043)",KTTN
+Silver Spring,MD,USA,US,NA,"(38.99067, -77.02609)",KDCA
+Santiago,,Chile,CL,SA,"(-33.45694, -70.64827)",SCEL
+Varennes,QC,Canada,CA,NA,"(45.68338, -73.43246)",CYHU
+Ottawa,,Canada,CA,NA,"(45.41117, -75.69812)",CYRO
+Concord,MA,USA,US,NA,"(43.20814, -71.53757)",KCON
+Unterschleissheim,,Germany,DE,EU,"(48.28038, 11.57684)",EDDM
+Shanghai,,China,CN,AS,"(31.22222, 121.45806)",CN-0171
+Peoria,IL,USA,US,NA,"(40.69365, -89.58899)",KPIA
+Msida,,Malta,MT,EU,"(35.8925, 14.48278)",LMML
+Miyagi Japan,,Japan,JP,AS,"(38.26667, 140.86667)",RJSS
+Oakwood,OH,USA,US,NA,"(41.36533, -81.5079)",KCGF
+Reggio Emilia,,Italy,IT,EU,"(44.69825, 10.63125)",LIMP
+Allentown,PA,USA,US,NA,"(40.60843, -75.49018)",KABE
+Malmo,,Sweden,SE,EU,"(55.60587, 13.00073)",ESMS
+Kållered,,Sweden,SE,EU,"(57.60637, 12.05948)",ESGG
+Grenoble,,France,FR,EU,"(45.17869, 5.71479)",LFLS
+St. Andrews,,Ireland,IE,EU,"(49.44778, -2.57361)",EIWF
+Culemborg,,Netherlands,NL,EU,"(51.955, 5.22778)",EHDL
+Southampton,,United Kingdom,GB,EU,"(50.90395, -1.40428)",EGHI
+Örebro,,Sweden,SE,EU,"(59.27412, 15.2066)",ESOE
+Yorkshire,,United Kingdom,GB,EU,"(53.7, -1.58333)",EGNM
+Montrouge,,France,FR,EU,"(48.8162, 2.31393)",LFPV
+Bures-sur-Yvette,,France,FR,EU,"(48.69981, 2.17064)",LFPN
+Albany,CA,USA,US,NA,"(37.88687, -122.29775)",KOAK
+København S,,Denmark,DK,EU,"(55.70428, 12.60582)",EKCH
+Fairlight,,Australia,AU,OC,"(-33.79575, 151.27346)",YSSY
+København N,,Denmark,DK,EU,"(55.69549, 12.54849)",EKCH
+Durham,,United Kingdom,GB,EU,"(54.77676, -1.57566)",EGNT
+Borodianka,,Ukraine,UA,EU,"(50.65889, 29.88556)",UKKM
+Le Grand-Saconnex,,Switzerland,CH,EU,"(46.23188, 6.12091)",LSGG
+Brännö,,Sweden,SE,EU,"(57.6439, 11.77458)",ESGP
+Bad Soden,,Germany,DE,EU,"(50.1408, 8.50449)",EDDF
+Oslo,,Norway,NO,EU,"(59.91273, 10.74609)",ENGM
+Stavanger,,Norway,NO,EU,"(58.97005, 5.73332)",ENZV
+Alphen aan den Rijn,,Netherlands,NL,EU,"(52.12917, 4.65546)",EHAM
+Odense,,Denmark,DK,EU,"(55.39594, 10.38831)",EKOD
+Sint-Genesius-Rode,,Belgium,BE,EU,"(50.74645, 4.35754)",EBBR
+Rozelle,,Australia,AU,OC,"(-34.98342, 138.58122)",YPAD
+Oulu,,Finland,FI,EU,"(65.01236, 25.46816)",EFOU
+Nacka,,Sweden,SE,EU,"(59.31077, 18.17551)",ESSB
+Kettering,,United Kingdom,GB,EU,"(52.39836, -0.72571)",EGXT
+Vinnytsia,,Ukraine,UA,EU,"(49.23278, 28.48097)",UKKO
+Ankara,,Turkey,TR,AS,"(39.91987, 32.85427)",LTAD
+Vienna,VA,USA,US,NA,"(38.90122, -77.26526)",KIAD
+Mölndal,,Sweden,SE,EU,"(57.6554, 12.01378)",ESGP
+Boone,NC,USA,US,NA,"(36.21679, -81.67455)",KHKY
+London,,Brazil,BR,SA,"(-23.5333, -46.6166)",SBMT
+Freiburg im Breisgau,,Germany,DE,EU,"(47.9959, 7.85222)",EDTL
+Ghent,,Belgium,BE,EU,"(51.05, 3.71667)",EBKT
+Jönköping,,Sweden,SE,EU,"(57.78145, 14.15618)",ESGJ
+Koblenz,,Germany,DE,EU,"(50.35357, 7.57883)",ETHM
+Wollstonecraft,,Australia,AU,OC,"(-33.8328, 151.18981)",YSSY
+Jelgava,,Latvia,LV,EU,"(56.65, 23.71278)",EVRA
+Paris Cedex 13,,France,FR,EU,"(48.8322, 2.3561)",LFPO
+Surry Hills,,Australia,AU,OC,"(-33.88374, 151.21282)",YSSY
+Hisings Backa,,Sweden,SE,EU,"(57.7535, 11.97257)",ESGP
+Vandoeuvre-lès-Nancy,,France,FR,EU,"(48.65, 6.18333)",LFSN
+Villetaneuse,,France,FR,EU,"(48.95833, 2.34167)",LFPB
+St Neots,,United Kingdom,GB,EU,"(52.21667, -0.26667)",EGUY
+Växjö,,Sweden,SE,EU,"(56.87767, 14.80906)",ESMX
+Berwyn Heights,MD,USA,US,NA,"(38.994, -76.91053)",KFME
+Kalmar,,Sweden,SE,EU,"(56.66157, 16.36163)",ESMQ
+Malmö,,Sweden,SE,EU,"(55.60587, 13.00073)",ESMS
+Kallered,,Sweden,SE,EU,"(57.60637, 12.05948)",ESGG
+Sendai-Shi,,Japan,JP,AS,"(38.26667, 140.86667)",RJSS
+Long Island City,NY,USA,US,NA,"(40.75766, -73.91327)",KLGA
+Södertälje,,Sweden,SE,EU,"(59.19554, 17.62525)",ESSB
+Melbourne,,Australia,AU,OC,"(-37.814, 144.96332)",YMEN
+Pune,,India,IN,AS,"(18.51957, 73.85535)",VAPO
+San Antonio,TX,USA,US,NA,"(29.42412, -98.49363)",KSKF
+Sendai-shi,,Japan,JP,AS,"(38.26667, 140.86667)",RJSS
+Spencer,NY,USA,US,NA,"(42.2098, -76.49327)",KITH
+Elsen,,Belgium,BE,EU,"(43.33333, 111.06667)",EBBL
+Steinen,,Germany,DE,EU,"(51.46667, 8.5)",EDLP
+Maalot,,Israel,IL,AS,"(33.01667, 35.26667)",LLIB
+Potts Point,,Australia,AU,OC,"(-33.86707, 151.22535)",YSSY
+Lodz,,Poland,PL,EU,"(51.77058, 19.47395)",EPLL
+Überacker,,Germany,DE,EU,"(48.23979, 11.27536)",ETSF
+St. Petersburg,,Russia,RU,EU,"(59.93863, 30.31413)",ULLI
+Tynaarlo,,Netherlands,NL,EU,"(53.0775, 6.61667)",EHGG
+Ilmenau,,Germany,DE,EU,"(50.68322, 10.91858)",EDDE
+München,,Germany,DE,EU,"(48.13743, 11.57549)",EDMO
+Brussels,,Belgium,BE,EU,"(50.85045, 4.34878)",EBBR
+The Hague,,Netherlands,NL,EU,"(52.07667, 4.29861)",EHRD
+MALMÖ,,Sweden,SE,EU,"(55.60587, 13.00073)",ESMS
+New York City,NY,USA,US,NA,"(40.71427, -74.00597)",KLGA
+Sollentuna,,Sweden,SE,EU,"(59.42804, 17.95093)",ESSB
+Kävlinge,,Sweden,SE,EU,"(55.79469, 13.07364)",ESTL
+Saratoga,CA,USA,US,NA,"(37.26383, -122.02301)",KSJC
+Montgomery,TX,USA,US,NA,"(30.31188, -95.45605)",KCXO
+Burnaby,BC,Canada,CA,NA,"(49.26636, -122.95263)",CYVR
+Brighton,MA,USA,US,NA,"(39.03977, -90.14066)",KALN
+Bourg-la-reine,,France,FR,EU,"(48.77888, 2.31781)",LFPO
+Mayne Island,BC,Canada,CA,NA,"(48.84965, -123.28593)",CYYJ
+Issy Les Moulineaux,,France,FR,EU,"(48.82104, 2.27718)",LFPV
+Norwood,MA,USA,US,NA,"(42.19454, -71.1995)",KOWD
+Santiago De Chile,,Chile,CL,SA,"(-33.45694, -70.64827)",SCEL
+Middletown,CT,USA,US,NA,"(41.56232, -72.65065)",KHFD
+Gentilly,,France,FR,EU,"(48.81294, 2.3417)",LFPO
+Biggar,,United Kingdom,GB,EU,"(55.6, -3.38333)",EGPH
+Wellsville,KS,USA,US,NA,"(38.71834, -95.08164)",KFOE
+Bellingham,WA,USA,US,NA,"(48.75955, -122.48822)",KBLI
+Rochester,,USA,US,NA,"(43.15478, -77.61556)",KROC
+Dundee,,United Kingdom,GB,EU,"(56.46913, -2.97489)",EGPN
+Montbonnot-saint-martin,,France,FR,EU,"(45.22537, 5.8017)",LFLS
+Gaithersburg,MD,USA,US,NA,"(39.14344, -77.20137)",KIAD
+Victoria,BC,Canada,CA,NA,"(48.4359, -123.35155)",CYYJ
+Sunnyvale,CA,USA,US,NA,"(37.36883, -122.03635)",KNUQ
+Medellin,,Colombia,CO,SA,"(6.25184, -75.56359)",SKMD
+Porto Alegre,,Brazil,BR,SA,"(-30.03283, -51.23019)",SBPA
+Kansas City,MO,USA,US,NA,"(39.09973, -94.57857)",KMKC
+Claremont,CA,USA,US,NA,"(34.09668, -117.71978)",KONT
+Battle Ground,WA,USA,US,NA,"(45.78095, -122.53343)",KPDX
+Gif-sur-yvette,,France,FR,EU,"(48.68333, 2.13333)",LFPN
+Kyles Ford,TN,USA,US,NA,"(36.57092, -83.04322)",KTRI
+Yokosuka,,Japan,JP,AS,"(35.28361, 139.66722)",RJTK
+Colorado Springs,CO,USA,US,NA,"(38.83388, -104.82136)",KCOS
+Warszawa,,Poland,PL,EU,"(52.22977, 21.01178)",EPWA
+Vancouver,WA,USA,US,NA,"(45.63873, -122.66149)",KPDX
+Nashville,TN,USA,US,NA,"(36.16589, -86.78444)",KBNA
+Kharkiv,,Ukraine,UA,EU,"(49.98081, 36.25272)",UKHH
+Athens,GA,USA,US,NA,"(33.96095, -83.37794)",KAHN
+Vashon,WA,USA,US,NA,"(47.44732, -122.45985)",KSEA
+Mission,BC,Canada,CA,NA,"(49.13298, -122.30258)",CYXX
+New York,,USA,US,NA,"(40.71427, -74.00597)",KLGA
+Scarborough,ME,USA,US,NA,"(43.57036, -70.38783)",KPWM
+Homer,AK,USA,US,NA,"(59.6425, -151.5494)",PAHO
+Beaverton,OR,USA,US,NA,"(45.48706, -122.80371)",KHIO
+Wollstonecraft,NB,Australia,AU,OC,"(-33.8328, 151.18981)",YSSY
+Lake Forest,IL,USA,US,NA,"(42.25863, -87.84063)",KPWK
+Le Bourget-du-lac,,France,FR,EU,"(45.65362, 5.8549)",LFLB
+Medellín,,Colombia,CO,SA,"(6.25184, -75.56359)",SKMD
+Highland,UT,USA,US,NA,"(40.42548, -111.79447)",KPVU
+Los Gatos,CA,USA,US,NA,"(37.22661, -121.97468)",KSJC
+Sydney,NB,Australia,AU,OC,"(-33.86785, 151.20732)",YSSY
+Gaggenau,,Germany,DE,EU,"(48.8, 8.33333)",EDSB
+"Kami, Kochi",,Japan,JP,AS,"(33.66667, 133.83333)",RJOK
+Harkaway,,Australia,AU,OC,"(-38.0, 145.35)",YMMB
+New Canaan,CT,USA,US,NA,"(42.02731, -73.32928)",KBAF
+Solihull,,United Kingdom,GB,EU,"(52.41426, -1.78094)",EGBB
+Edmonds,WA,USA,US,NA,"(47.81065, -122.37736)",KPAE
+Yellow Springs,OH,USA,US,NA,"(39.80645, -83.88687)",KSGH
+København Sv,,Denmark,DK,EU,"(55.64871, 12.53102)",EKCH
+Aloha,OR,USA,US,NA,"(45.49428, -122.86705)",KHIO
+Markham,ON,Canada,CA,NA,"(43.86682, -79.2663)",CYKZ
+Hyogo,,Japan,JP,AS,"(34.6913, 135.183)",RJBE
+Surry Hills,NSW,Australia,AU,OC,"(-33.88374, 151.21282)",YSSY
+Tuebingen,,Germany,DE,EU,"(48.52266, 9.05222)",EDDS
+Dallas,TX,USA,US,NA,"(32.78306, -96.80667)",KDAL
+Villers-les-nancy,,France,FR,EU,"(48.67333, 6.15283)",LFSN
+Oakland,CA,USA,US,NA,"(37.80437, -122.2708)",KOAK
+Providence,RI,USA,US,NA,"(41.82399, -71.41283)",KPVD
+North Augusta,SC,USA,US,NA,"(33.5018, -81.96512)",KDNL
+Brisbane,,Australia,AU,OC,"(-27.46794, 153.02809)",YBBN
+Rosario,,Argentina,AR,SA,"(-32.94682, -60.63932)",SAAR
+Bethlehem,PA,USA,US,NA,"(40.62593, -75.37046)",KABE
+Ames,IA,USA,US,NA,"(42.03471, -93.61994)",KDSM
+Lódz,,Poland,PL,EU,"(51.77058, 19.47395)",EPLL
+St-sulpice Vd,,Switzerland,CH,EU,"(46.51047, 6.55897)",LSMP
+Kenvil,NJ,USA,US,NA,"(40.87982, -74.61849)",KMMU
+Petersham,,Australia,AU,OC,"(-33.8902, 151.1512)",YSSY
+Ancaster,ON,Canada,CA,NA,"(43.21806, -79.98716)",CYHM
+Freiburg Im Breisgau,,Germany,DE,EU,"(47.9959, 7.85222)",EDTL
+Auckland,,New Zealand,NZ,OC,"(-36.84853, 174.76349)",NZWP
+Westport,CT,USA,US,NA,"(41.14149, -73.3579)",KBDR
+Decatur,GA,USA,US,NA,"(30.9713, -84.63742)",KTLH
+Wilmington,MA,USA,US,NA,"(42.54648, -71.17367)",KBED
+Windsor,ON,Canada,CA,NA,"(42.30008, -83.01654)",CYQG
+Fort Myers,FL,USA,US,NA,"(26.62168, -81.84059)",KFMY
+West Sacramento,CA,USA,US,NA,"(38.58157, -121.4944)",KSAC
+New Westminster,BC,Canada,CA,NA,"(49.20678, -122.91092)",CZBB
+Brush Prairie,WA,USA,US,NA,"(45.73289, -122.54649)",KPDX
+Cape Coast,,Ghana,GH,AF,"(5.10535, -1.2466)",DGTK
+Conway,AR,USA,US,NA,"(35.0887, -92.4421)",KLRF
+W Lafayette,IN,USA,US,NA,"(33.04316, -84.97681)",KCSG
+Cape Town,,South Africa,ZA,AF,"(-33.92584, 18.42322)",FAYP
+Skudai,,Malaysia,MY,AS,"(1.53741, 103.65779)",WMKJ
+Proveysieux,,France,FR,EU,"(45.26031, 5.69709)",LFLS
+Bamberg,,Germany,DE,EU,"(49.89873, 10.90067)",EDDN
+Hong Kong,,China,CN,AS,"(22.27832, 114.17469)",ZGSZ
+Redwood City,CA,USA,US,NA,"(37.48522, -122.23635)",KNUQ
+Lugano,,Switzerland,CH,EU,"(46.01008, 8.96004)",LSZA
+"Kensington, NSW",,Australia,AU,OC,"(-33.9235, 151.2179)",YSSY
+Flensburg,,Germany,DE,EU,"(54.78431, 9.43961)",ETNS
+Klågerup,,Sweden,SE,EU,"(55.59416, 13.24574)",ESMS
+Carlisle,,Australia,AU,OC,"(-38.56667, 143.38333)",YMAV
+Kami,,Japan,JP,AS,"(35.02107, 135.75385)",RJOO
+Pinckney,MI,USA,US,NA,"(42.457, -83.94791)",KYIP
+Cardiff,,United Kingdom,GB,EU,"(51.48, -3.18)",EGFF
+Manhattan Beach,CA,USA,US,NA,"(33.88474, -118.41091)",KLAX
+Brussel,,Belgium,BE,EU,"(50.85045, 4.34878)",EBBR
+Pozuelo De Alarcón,,Spain,ES,EU,"(40.43293, -3.81338)",LECU
+Bryn Mawr,PA,USA,US,NA,"(40.01983, -75.30463)",KPHL
+Iizuka,,Japan,JP,AS,"(33.63654, 130.68678)",RJFF
+Vigo - Pontevedra,,Spain,ES,EU,"(42.23282, -8.72264)",LEVX
+Parker,CO,USA,US,NA,"(39.5186, -104.76136)",KAPA
+Yokkaichi,,Japan,JP,AS,"(34.96667, 136.61667)",RJGG
+Tenri,,Japan,JP,AS,"(34.58333, 135.83333)",RJOY
+Buffalo,NY,USA,US,NA,"(42.88645, -78.87837)",KBUF
+Juan Les Pins,,France,FR,EU,"(43.56945, 7.11309)",LFMN
+Washington Dc,DC,USA,US,NA,"(38.89511, -77.03637)",KDCA
+Montigny Le Bretonneux,,France,FR,EU,"(48.76636, 2.03405)",LFPN
+Warsaw,,Poland,PL,EU,"(52.22977, 21.01178)",EPWA
+Pelham,NY,USA,US,NA,"(40.90982, -73.80791)",KLGA
+Singapore,NB,Singapore,SG,AS,"(1.28967, 103.85007)",WSAP
+Rooty Hill,,Australia,AU,OC,"(-33.76667, 150.83333)",YSRI
+Hachioji,,Japan,JP,AS,"(35.65583, 139.32389)",RJTY
+Tulsa,OK,USA,US,NA,"(36.15398, -95.99277)",KTUL
+Minatoku,,Japan,JP,AS,"(34.6538, 135.45583)",RJOO
+Faribault,MN,USA,US,NA,"(43.67393, -93.948)",KMCW
+Bielefeld,,Germany,DE,EU,"(52.03333, 8.53333)",ETUO
+Koganei-Shi,,Japan,JP,AS,"(35.71526, 139.51929)",RJTF
+Katsushika-ku,,Japan,JP,AS,"(35.75324, 139.85567)",RJTL
+Elizabeth Bay,,Australia,AU,OC,"(-32.3318, 152.53461)",YTRE
+Chuo-ku,,Japan,JP,AS,"(35.66993, 139.77705)",RJTT
+Swansea,,United Kingdom,GB,EU,"(51.62079, -3.94323)",EGFH
+Ikeda,,Japan,JP,AS,"(34.82208, 135.4298)",RJOO
+Shibuya-ku,,Japan,JP,AS,"(35.66404, 139.69821)",RJTT
+Schofields,,Australia,AU,OC,"(-33.71667, 150.86667)",YSRI
+Tokyo Taito-ku,,Japan,JP,AS,"(35.71261, 139.78)",RJTT
+Dunakeszi,,Hungary,HU,EU,"(47.63365, 19.16254)",LHBP
+Leiden,,Netherlands,NL,EU,"(52.15833, 4.49306)",EHRD
+Hiroshima,,Japan,JP,AS,"(34.4, 132.45)",RJBH
+Toyama,,Japan,JP,AS,"(36.7, 137.21667)",RJNT
+Otsu,,Japan,JP,AS,"(35.0, 135.86667)",RJOO
+Meguro,,Japan,JP,AS,"(35.64146, 139.69817)",RJTT
+Inwood,WV,USA,US,NA,"(39.35788, -78.04)",KMRB
+Ansan,,South Korea,KR,AS,"(37.32361, 126.82194)",RKSW
+Daejeon,,South Korea,KR,AS,"(36.32139, 127.41972)",RKTU
+Szeged,,Hungary,HU,EU,"(46.253, 20.14824)",LHKE
+Yugawara,,Japan,JP,AS,"(35.15, 139.06667)",RJTA
+Kanpur,,India,IN,AS,"(26.46523, 80.34975)",VIKA
+Nagasaki City,,Japan,JP,AS,"(32.8, 129.9166)",RJFU
+Pennington,NJ,USA,US,NA,"(40.32844, -74.79072)",KTTN
+Fujisawa,,Japan,JP,AS,"(35.34926, 139.47666)",RJTA
+Paris Cedex 12,,France,FR,EU,"(48.8412, 2.3876)",LFPO
+Lowell,MA,USA,US,NA,"(42.63342, -71.31617)",KBED
+Kensington,NSW,Australia,AU,OC,"(-33.9235, 151.2179)",YSSY
+Paddington,,Australia,AU,OC,"(-33.88419, 151.23151)",YSSY
+Meguro-ku,,Japan,JP,AS,"(35.64146, 139.69817)",RJTT
+Toyonaka,,Japan,JP,AS,"(34.78244, 135.46932)",RJOO
+Sumida-ku,,Japan,JP,AS,"(35.71072, 139.8015)",RJTT
+Newcastle Upon Tyne,,United Kingdom,GB,EU,"(54.97328, -1.61396)",EGNT
+Highland Park,IL,USA,US,NA,"(42.18169, -87.80034)",KPWK
+Capetown,,South Africa,ZA,AF,"(-33.9224, 18.41566)",FAYP
+Shenzhen,,China,CN,AS,"(22.54554, 114.0683)",ZGSZ
+Taipei City,,Taiwan,TW,AS,"(25.04776, 121.53185)",RCSS
+Tokai,,Japan,JP,AS,"(35.0, 137.5)",RJNH
+Kobenhavn S,,Denmark,DK,EU,"(55.70428, 12.60582)",EKCH
+Okayama,,Japan,JP,AS,"(34.65, 133.93333)",RJOB
+Kyoto-Shi,,Japan,JP,AS,"(35.02107, 135.75385)",RJOO
+London,CA,United Kingdom,GB,EU,"(51.50853, -0.12574)",EGLC
+Canberra,,Australia,AU,OC,"(-35.28346, 149.12807)",YSCB
+Alexandria,,Australia,AU,OC,"(-31.69167, 115.6994)",YPEA
+Shibuya,,Japan,JP,AS,"(35.66404, 139.69821)",RJTT
+Saitama,,Japan,JP,AS,"(35.90807, 139.65657)",RJTJ
+Grinnell,IA,USA,US,NA,"(41.74305, -92.72241)",KOTM
+Adliswil,,Switzerland,CH,EU,"(47.30997, 8.52462)",LSMD
+Leopoldshöhe,,Germany,DE,EU,"(52.01246, 8.69834)",ETUO
+Neyagawa,,Japan,JP,AS,"(34.76615, 135.62759)",RJOO
+Genova,,Italy,IT,EU,"(44.40478, 8.94439)",LIMJ
+Chatswood,NB,Australia,AU,OC,"(-33.7985, 151.16789)",YSSY
+Boxford,MA,USA,US,NA,"(42.6612, -70.99672)",KBVY
+Riga,,Latvia,LV,EU,"(56.946, 24.10589)",EVRA
+Gothemburg,,Sweden,SE,EU,"(57.62345, 11.98236)",ESGP
+Delhi,,India,IN,AS,"(28.65195, 77.23149)",VIDD
+Gyeonggi-do,,South Korea,KR,AS,"(37.29111, 127.00889)",RKSW
+Pok Fu Lam,,Hong Kong,HK,AS,"(22.26861, 114.12924)",VHSK
+Novato,CA,USA,US,NA,"(38.10742, -122.5697)",KSTS
+Belgrade,,Serbia,RS,EU,"(44.80401, 20.46513)",LYBE
+St. Sulpice,,Switzerland,CH,EU,"(46.51047, 6.55897)",LSMP
+Lake Bluff,IL,USA,US,NA,"(42.27891, -87.83424)",KPWK
+Tel Aviv,AL,Israel,IL,AS,"(32.08088, 34.78057)",LLSD
+Singapore,PA,Singapore,SG,AS,"(1.28967, 103.85007)",WSAP
+Longueuil,QC,Canada,CA,NA,"(45.53121, -73.51806)",CYHU
+Taoyuan,,Taiwan,TW,AS,"(24.99368, 121.29696)",RCGM
+Chiyoda-ku,,Japan,JP,AS,"(35.69402, 139.75363)",RJTT
+Kabul,,Afghanistan,AF,AS,"(34.52813, 69.17233)",OAKB
+Lisboa,,Portugal,PT,EU,"(38.71667, -9.13333)",LPPT
+Lithia Springs,GA,USA,US,NA,"(33.794, -84.66049)",KFTY
+Yinchuan,,China,CN,AS,"(38.46806, 106.27306)",CN-0010
+Saitama Prefecture,,Japan,JP,AS,"(35.90807, 139.65657)",RJTJ
+Matsudo,,Japan,JP,AS,"(35.77995, 139.90144)",RJTL
+City Of Industry,CA,USA,US,NA,"(34.01973, -117.95868)",KSLI
+Hillsborough,NC,USA,US,NA,"(36.07542, -79.09973)",KRDU
+"Iizuka, Fukuoka",,Japan,JP,AS,"(33.63654, 130.68678)",RJFF
+Hangzhou,,China,CN,AS,"(30.29365, 120.16142)",CN-0153
+Gaildorf,,Germany,DE,EU,"(49.00027, 9.76953)",EDTY
+Trets,,France,FR,EU,"(43.44818, 5.68328)",LFMQ
+Michelsneukirchen,,Germany,DE,EU,"(49.12291, 12.55284)",ETIH
+Innsbruck,,Austria,AT,EU,"(47.26266, 11.39454)",LOWI
+"Sanda, Hyogo",,Japan,JP,AS,"(34.88444, 135.22694)",RJOO
+Edmonton,AB,Canada,CA,NA,"(53.55014, -113.46871)",CYEG
+Salford,,United Kingdom,GB,EU,"(53.48771, -2.29042)",EGCC
+Nicosia,,Cyprus,CY,AS,"(35.17531, 33.3642)",LCEN
+Wantirna,,Australia,AU,OC,"(-37.85, 145.21667)",YMMB
+Surbiton,,United Kingdom,GB,EU,"(51.39148, -0.29825)",EGLL
+Puteaux,,France,FR,EU,"(48.88341, 2.23894)",LFPV
+Arles,,France,FR,EU,"(43.67681, 4.63031)",LFTW
+Alexandria,VA,USA,US,NA,"(38.80484, -77.04692)",KDCA
+Stanmore,NSW,Australia,AU,OC,"(-36.61819, 174.72019)",YPMQ
+Aylesford,,United Kingdom,GB,EU,"(51.30374, 0.47936)",EGKB
+Surry Hills,NB,Australia,AU,OC,"(-33.88374, 151.21282)",YSSY
+Totnes,,United Kingdom,GB,EU,"(50.43107, -3.6843)",EGHD
+Coventry,,United Kingdom,GB,EU,"(52.40656, -1.51217)",EGBE
+Firenze,,Italy,IT,EU,"(43.77925, 11.24626)",LIRQ
+Antony,CA,France,FR,EU,"(48.75329, 2.29668)",LFPO
+Almaty,,Kazakhstan,KZ,AS,"(43.25667, 76.92861)",UAAA
+Augusta,GA,USA,US,NA,"(33.47097, -81.97484)",KDNL
+Odenton,MD,USA,US,NA,"(39.084, -76.70025)",KFME
+Lommel,,Belgium,BE,EU,"(51.23074, 5.31349)",EBBL
+Córdoba,,Argentina,AR,SA,"(-31.4135, -64.18105)",SACO
+Justynow,,Poland,PL,EU,"(52.302, 20.15804)",EPMO
+Frederiksberg,,Denmark,DK,EU,"(55.67938, 12.53463)",EKCH
+Herrljunga,,Sweden,SE,EU,"(58.01156, 13.12059)",ESGL
+Tel Aviv,,Israel,IL,AS,"(32.08088, 34.78057)",LLSD
+Juan les Pins,,France,FR,EU,"(43.56945, 7.11309)",LFMN
+Washington DC,DC,USA,US,NA,"(38.89511, -77.03637)",KDCA
+Thornhill,ON,Canada,CA,NA,"(43.80011, -79.4163)",CYZD
+Zagreb,,Croatia,HR,EU,"(45.81444, 15.97798)",LDZA
+Kraków,,Poland,PL,EU,"(50.06143, 19.93658)",EPKK
+San Fermo della battaglia (CO),,Italy,IT,EU,"(45.80868, 9.04744)",LILN
+Wallasey,,United Kingdom,GB,EU,"(53.42324, -3.06497)",EGGP
+"Kiryu, Gunma",,Japan,JP,AS,"(36.4, 139.33333)",RJTU
+Cupar,,United Kingdom,GB,EU,"(56.31876, -3.01204)",EGQL
+Bromley,,United Kingdom,GB,EU,"(-77.63333, 162.06667)",EGHE
+Pleasantville,NY,USA,US,NA,"(41.13287, -73.79263)",KHPN
+Elizabeth Bay,NB,Australia,AU,OC,"(-32.3318, 152.53461)",YTRE
+"Kyoto-shi, Kyoto-hu",,Japan,JP,AS,"(34.95, 135.81667)",RJOO
+Lund,,Sweden,SE,EU,"(55.70584, 13.19321)",ESMS
+Irvine,CA,USA,US,NA,"(33.66946, -117.82311)",KSNA
+Middlesbrough,,United Kingdom,GB,EU,"(54.57623, -1.23483)",EGNV
+Chipperfield,,United Kingdom,GB,EU,"(51.71034, -0.49259)",EGWU
+Helsinki,,Finland,FI,EU,"(60.16952, 24.93545)",EFHF
+Poznan,,Poland,PL,EU,"(52.40692, 16.92993)",EPPO
+High Wycombe,,United Kingdom,GB,EU,"(51.62907, -0.74934)",EGUB
+Delft,,Netherlands,NL,EU,"(52.00667, 4.35556)",EHRD
+"Minato, Tokyo",,Japan,JP,AS,"(35.65, 139.73333)",RJTT
+"Sendai, Miyagi",,Japan,JP,AS,"(38.26667, 140.86667)",RJSS
+Moenchengladbach,,Germany,DE,EU,"(51.18539, 6.44172)",EDLN
+Næstved,,Denmark,DK,EU,"(55.22992, 11.76092)",EKRK
+Montréal,QC,Canada,CA,NA,"(45.50884, -73.58781)",CYUL
+Lake Oswego,OR,USA,US,NA,"(45.42067, -122.67065)",KPDX
+Rousson,,France,FR,EU,"(44.19136, 4.14786)",LFMS
+Baldwin City,KS,USA,US,NA,"(38.77501, -95.18636)",KFOE
+singapore,,Singapore,SG,AS,"(1.28967, 103.85007)",WSAP
+Newcastle upon Tyne,,United Kingdom,GB,EU,"(54.97328, -1.61396)",EGNT
+Fort Lee,NJ,USA,US,NA,"(40.85093, -73.97014)",KTEB
+Yorktown Heights,NY,USA,US,NA,"(41.27093, -73.77763)",KHPN
+Blackrock,,Ireland,IE,EU,"(-67.245, 59.02)",EIWF
+Raleigh,NC,USA,US,NA,"(35.7721, -78.63861)",KRDU
+Villeneuve de la Raho,,France,FR,EU,"(42.63596, 2.91651)",LFMP
+"Kyoto-shi, Kyoto",,Japan,JP,AS,"(35.02107, 135.75385)",RJOO
+Florence,,Italy,IT,EU,"(43.77925, 11.24626)",LIRQ
+LYON,,France,FR,EU,"(45.74846, 4.84671)",LFLY
+Providence,CT,USA,US,NA,"(41.52871, -72.06452)",KGON
+Angers,,France,FR,EU,"(47.47381, -0.54774)",LFJR
+Solkan,,Slovenia,SI,EU,"(45.97139, 13.64944)",LJPZ
+Tewksbury,MA,USA,US,NA,"(42.61065, -71.23422)",KLWM
+Paris Cedex,,France,FR,EU,"(48.79266, 2.46569)",LFPO
+Pleasant Hill,CA,USA,US,NA,"(37.94798, -122.0608)",KOAK
+Raymore,MO,USA,US,NA,"(38.80195, -94.45273)",KMKC
+Acklington,,United Kingdom,GB,EU,"(55.31579, -1.66896)",EGNT
+Saclay,,France,FR,EU,"(48.7326, 2.16923)",LFPN
+Albignasego,,Italy,IT,EU,"(45.34705, 11.86781)",LIPU
+Lindfield,,Australia,AU,OC,"(-33.78333, 151.16667)",YSSY
+Bronx,NY,USA,US,NA,"(40.84985, -73.86641)",KLGA
+Wrocław,,Poland,PL,EU,"(51.1, 17.03333)",EPWR
+Witney,,United Kingdom,GB,EU,"(51.7836, -1.4854)",EGVN
+Gloucester,,United Kingdom,GB,EU,"(51.86568, -2.2431)",EGBJ
+Carlton,,Australia,AU,OC,"(-15.5019, 128.534)",YPKU
+Elsene,,Belgium,BE,EU,"(50.83333, 4.36667)",EBBR
+Grantchester,,United Kingdom,GB,EU,"(52.18093, 0.09072)",EGSC
+Krasnogorsk,,Russia,RU,EU,"(48.41728, 142.08686)",RU-1892
+Rickmansworth,,United Kingdom,GB,EU,"(51.63898, -0.47718)",EGWU
+Canterbury,KY,United Kingdom,GB,EU,"(51.27904, 1.07992)",EGMH
+Hexham,,United Kingdom,GB,EU,"(54.96986, -2.104)",EGNT
+Thessaloniki,,Greece,GR,EU,"(40.64361, 22.93086)",LGTS
+Winchester,,United Kingdom,GB,EU,"(51.06513, -1.3187)",EGHI
+St Martin d Heres,,France,FR,EU,"(45.16639, 5.76472)",LFLS
+Bath,,United Kingdom,GB,EU,"(51.3751, -2.36172)",EGGD
+Nantes,,France,FR,EU,"(47.21725, -1.55336)",LFRS
+"Nagoya, Aichi",,Japan,JP,AS,"(35.18147, 136.90641)",RJNA
+Livingston,NJ,USA,US,NA,"(40.79593, -74.31487)",KMMU
+Milan,,Italy,IT,EU,"(45.46427, 9.18951)",LIML
+Manchester,,United Kingdom,GB,EU,"(53.45, -2.23333)",EGCC
+Woodside,NY,USA,US,NA,"(40.74538, -73.90541)",KLGA
+Batavia,OH,USA,US,NA,"(39.07701, -84.17688)",KLUK
+Overland Park,KS,USA,US,NA,"(38.98223, -94.67079)",KMKC
+Venice,CA,USA,US,NA,"(33.99084, -118.46008)",KLAX
+Birmingham,AL,USA,US,NA,"(33.52066, -86.80249)",KBHM
+Lafayette,LA,USA,US,NA,"(30.22409, -92.01984)",KLFT
+Norcross,GA,USA,US,NA,"(33.94121, -84.21353)",KPDK
+San Luis Obispo,CA,USA,US,NA,"(35.28275, -120.65962)",KSBP
+Burlington,VT,USA,US,NA,"(44.47588, -73.21207)",KBTV
+Roswell,GA,USA,US,NA,"(34.02316, -84.36159)",KPDK
+Val-David,QC,Canada,CA,NA,"(46.03338, -74.21592)",CYMX
+Aurora,CO,USA,US,NA,"(39.72943, -104.83192)",KBKF
+Hialeah,FL,USA,US,NA,"(25.8576, -80.27811)",KOPF
+Verdun,Qc,Canada,CA,NA,"(46.77809, -73.4093)",CYRQ
+Lafayette,,France,FR,EU,"(45.15863, 3.58043)",LFHP
+Coeur D Alene,ID,USA,US,NA,"(47.67768, -116.78047)",KCOE
+St Louis,MO,USA,US,NA,"(38.62727, -90.19789)",KSTL
+Bridgewater,VA,USA,US,NA,"(38.38207, -78.9767)",KCHO
+Oregon,WI,USA,US,NA,"(42.92611, -89.38456)",KMSN
+Independence,MO,USA,US,NA,"(39.09112, -94.41551)",KMKC
+Verdun,QC,Canada,CA,NA,"(46.77809, -73.4093)",CYRQ
+Lausanne,CT,Switzerland,CH,EU,"(46.516, 6.63282)",LSMP
+Cupertino,CA,USA,US,NA,"(37.323, -122.03218)",KSJC
+Lee's Summit,MO,USA,US,NA,"(38.91084, -94.38217)",KMKC
+San Gabriel,CA,USA,US,NA,"(34.09611, -118.10583)",KBUR
+St. Petersburg,AL,Russia,RU,EU,"(59.93863, 30.31413)",ULLI
+Guilford,VT,USA,US,NA,"(42.81786, -72.57648)",KEEN
+Boston,IN,USA,US,NA,"(30.79186, -83.78989)",KVLD
+Duvall,WA,USA,US,NA,"(47.74232, -121.98568)",KPAE
+Greencastle,IN,USA,US,NA,"(39.64449, -86.86473)",KHUF
+goeteborg,,Sweden,SE,EU,"(57.70716, 11.96679)",ESGP
+Sofia,,Bulgaria,BG,EU,"(42.69751, 23.32415)",LBSF
+Florissant,MO,USA,US,NA,"(38.78922, -90.32261)",KSTL
+Evanston,,USA,US,NA,"(42.04114, -87.69006)",KORD
+Wördern,,Austria,AT,EU,"(48.32409, 16.21714)",LOWW
+Cookeville,TN,USA,US,NA,"(36.16284, -85.50164)",KCSV
+Santa Cruz,CA,USA,US,NA,"(36.97412, -122.0308)",KSJC
+Palm Beach,FL,USA,US,NA,"(26.71534, -80.05337)",KPBI
+Bloomington,,India,IN,AS,"(39.4326, -79.1217)",VISR
+"Rosario, Santa Fe",,Argentina,AR,SA,"(-32.94682, -60.63932)",SAAR
+St-Sulpice,,Switzerland,CH,EU,"(46.51047, 6.55897)",LSMP
+Milpitas,CA,USA,US,NA,"(37.42827, -121.90662)",KSJC
+North Hollywood,CA,USA,US,NA,"(34.09834, -118.32674)",KBUR
+Tiffin,IA,USA,US,NA,"(41.70585, -91.66295)",KCID
+The Rocks,,Australia,AU,OC,"(-33.8599, 151.209)",YSSY
+Maplewood,NJ,USA,US,NA,"(40.73121, -74.27348)",KEWR
+Haverford,PA,USA,US,NA,"(40.01178, -75.30574)",KPHL
+Princeton,WA,USA,US,NA,"(41.67475, -90.34041)",KMLI
+Brooklyn,CA,USA,US,NA,"(37.78576, -122.24858)",KOAK
+Leiria,,Portugal,PT,EU,"(39.74362, -8.80705)",LPMR
+St.Petersburg,,Russia,RU,EU,"(59.93863, 30.31413)",ULLI
+University Place,WA,USA,US,NA,"(47.23565, -122.5504)",KTIW
+St. Peters,MO,USA,US,NA,"(38.80033, -90.62651)",KSUS
+Hampton,VA,USA,US,NA,"(37.02987, -76.34522)",KLFI
+Eaubonne,,France,FR,EU,"(48.99712, 2.28249)",LFPB
+Wheathampstead,,United Kingdom,GB,EU,"(51.81874, -0.30381)",EGGW
+Darien,CT,USA,US,NA,"(41.07871, -73.46929)",KHPN
+Erlangen,,Germany,DE,EU,"(49.59099, 11.00783)",EDDN
+Cologne,,Germany,DE,EU,"(50.93333, 6.95)",EDDK
+Naples,,Italy,IT,EU,"(40.85216, 14.26811)",LIRN
+Richmond,VA,USA,US,NA,"(37.55376, -77.46026)",KRIC
+Newcastle,WA,USA,US,NA,"(39.68372, -75.74966)",KILG
+Suwanee,GA,USA,US,NA,"(34.05149, -84.0713)",KPDK
+Alameda,CA,USA,US,NA,"(37.76521, -122.24164)",KOAK
+Kloosterhaar,,Netherlands,NL,EU,"(52.49667, 6.66944)",EHTW
+Kingston upon Thames,,United Kingdom,GB,EU,"(51.41259, -0.2974)",EGLL
+Dripping Springs,TX,USA,US,NA,"(30.19021, -98.08668)",KHYI
+Santiago,VT,Chile,CL,SA,"(-33.45694, -70.64827)",SCEL
+Sophia-Antipolis,,France,FR,EU,"(43.62235, 7.04721)",LFMD
+Ridgewood,NY,USA,US,NA,"(40.7001, -73.90569)",KLGA
+Hyattsville,MD,USA,US,NA,"(38.95594, -76.94553)",KDCA
+Saint Petersburg,,Russia,RU,EU,"(59.93863, 30.31413)",ULLI
+Schaumburg,IL,USA,US,NA,"(42.03336, -88.08341)",KORD
+Irving,TX,USA,US,NA,"(32.81402, -96.94889)",KDAL
+Conyers,GA,USA,US,NA,"(33.66761, -84.01769)",US-0086
+Wayne,NJ,USA,US,NA,"(40.92538, -74.27654)",KMMU
+Vigo,,Spain,ES,EU,"(42.23282, -8.72264)",LEVX
+Shenzhen,NY,China,CN,AS,"(22.54554, 114.0683)",ZGSZ
+River Edge,NJ,USA,US,NA,"(40.92871, -74.03986)",KTEB
+Cordoba,,Argentina,AR,SA,"(-31.4135, -64.18105)",SACO
+Almeria,,Spain,ES,EU,"(36.83814, -2.45974)",LEAM
+Rockville,MD,USA,US,NA,"(39.084, -77.15276)",KDCA
+Montbonnot,,France,FR,EU,"(45.22537, 5.8017)",LFLS
+Montbonnot Saint-Martin,,France,FR,EU,"(45.22537, 5.8017)",LFLS
+University Park,PA,USA,US,NA,"(40.84867, -77.84917)",KUNV
+Vandoeuvre-les-nancy,,France,FR,EU,"(48.65, 6.18333)",LFSN
+Braga,,Portugal,PT,EU,"(41.55032, -8.42005)",LPBR
+Boston,,USA,US,NA,"(42.35843, -71.05977)",KBOS
+Logan,UT,USA,US,NA,"(41.73549, -111.83439)",KLGU
+Istanbul,,Turkey,TR,AS,"(41.01384, 28.94966)",LTBA
+Zwolle,,Netherlands,NL,EU,"(52.5125, 6.09444)",EHLE
+Williamstown,MA,USA,US,NA,"(42.71202, -73.20372)",KALB
+Houston,,USA,US,NA,"(29.76328, -95.36327)",KHOU
+Plano,TX,USA,US,NA,"(33.01984, -96.69889)",KDAL
+Richardson,TX,USA,US,NA,"(32.94818, -96.72972)",KDAL
+Charlottesville,VA,USA,US,NA,"(38.02931, -78.47668)",KCHO
+Kashiwa,,Japan,JP,AS,"(35.86224, 139.97732)",RJTL
+Rungsted Kyst,,Denmark,DK,EU,"(55.88547, 12.53034)",EKCH
+Lulea,,Sweden,SE,EU,"(65.58415, 22.15465)",ESPA
+Fukuoka,,Japan,JP,AS,"(33.6, 130.41667)",RJFF
+Ann Arbor,MI,USA,US,NA,"(42.27756, -83.74088)",KYIP
+Modiin,,Israel,IL,AS,"(31.93221, 35.04416)",LLBG
+Tampa,FL,USA,US,NA,"(27.94752, -82.45843)",KTPA
+Cherry Hill,NJ,USA,US,NA,"(39.93484, -75.03073)",KPNE
+State College,PA,USA,US,NA,"(40.79339, -77.86)",KUNV
+Florham Park,NJ,USA,US,NA,"(40.78788, -74.38821)",KMMU
+Perpignan,,France,FR,EU,"(42.69764, 2.89541)",LFMP
+Covilha,,Portugal,PT,EU,"(40.28106, -7.50504)",LPCV
+Münster,,Germany,DE,EU,"(51.96236, 7.62571)",EDDG
+Lisbon,,Portugal,PT,EU,"(38.71667, -9.13333)",LPPT
+Caparica,,Portugal,PT,EU,"(38.62032, -9.19426)",LPMT
+Las Cruces,NM,USA,US,NA,"(32.31232, -106.77834)",KLRU
+Columbia,MO,USA,US,NA,"(38.95171, -92.33407)",KCOU
+Manhattan,KS,USA,US,NA,"(39.18361, -96.57167)",KMHK
+Hatfield,,United Kingdom,GB,EU,"(51.76338, -0.22419)",EGGW
+Basel,,Switzerland,CH,EU,"(47.55839, 7.57327)",LSZG
+Valencia,,Spain,ES,EU,"(39.46975, -0.37739)",LEVC
+Yamato-shi,,Japan,JP,AS,"(35.75031, 139.4266)",RJTY
+San Carlos,CA,USA,US,NA,"(37.50716, -122.26052)",KSFO
+Tartu,,Estonia,EE,EU,"(58.38062, 26.72509)",EETU
+Dresden,,Germany,DE,EU,"(51.05089, 13.73832)",EDDC
+Hagersten,,Sweden,SE,EU,"(59.30586, 17.98719)",ESSB
+Fairfax,VA,USA,US,NA,"(38.96872, -77.3411)",KIAD
+Evora,,Portugal,PT,EU,"(38.58333, -7.83333)",LPBJ
+Al-ahsa,,Saudi Arabia,SA,AS,"(25.28531, 49.48519)",OEAH
+Hawthorne,NY,USA,US,NA,"(41.10732, -73.79597)",KHPN
+Lubbock,TX,USA,US,NA,"(33.57786, -101.85517)",KLBB
+Gif sur Yvette,,France,FR,EU,"(48.68333, 2.13333)",LFPN
+Linz,,Austria,AT,EU,"(48.30639, 14.28611)",LOWL
+Woodinville,WA,USA,US,NA,"(47.75427, -122.16346)",KPAE
+Rennes cedex,,France,FR,EU,"(48.11198, -1.67429)",LFRN
+Düsseldorf,,Germany,DE,EU,"(51.22172, 6.77616)",EDDL
+Aachen,,Germany,DE,EU,"(50.77664, 6.08342)",ETNG
+Klosterneuburg,,Austria,AT,EU,"(48.30521, 16.32522)",LOWW
+Baton Rouge,LA,USA,US,NA,"(30.44332, -91.18747)",KBTR
+Venezia,,Italy,IT,EU,"(45.43713, 12.33265)",LIPZ
+Suzhou,,China,CN,AS,"(31.30408, 120.59538)",ZSSZ
+Gières,,France,FR,EU,"(45.17997, 5.78935)",LFLS
+Verona,,Italy,IT,EU,"(45.4299, 10.98444)",LIPX
+Lesnoy Gorodok,,Russia,RU,EU,"(51.73737, 113.06669)",UIAA
+Cedar Rapids,IA,USA,US,NA,"(42.00833, -91.64407)",KCID
+Villers-les-Nancy,,France,FR,EU,"(48.67333, 6.15283)",LFSN
+Luleå,,Sweden,SE,EU,"(65.58415, 22.15465)",ESPA
+Espoo,,Finland,FI,EU,"(60.2052, 24.6522)",EFHK
+Arnold,MD,USA,US,NA,"(39.03206, -76.50274)",KBWI
+Suwon-si,,South Korea,KR,AS,"(37.29111, 127.00889)",RKSW
+Fairfield,CT,USA,US,NA,"(41.1176, -73.4079)",KBDR
+Kirkland,WA,USA,US,NA,"(47.68149, -122.20874)",KBFI
+Bordeaux,,France,FR,EU,"(44.84044, -0.5805)",LFBD
+Sachse,TX,USA,US,NA,"(32.97623, -96.59527)",KDAL
+Danbury,CT,USA,US,NA,"(41.39482, -73.45401)",KBDR
+Paris cedex 13,,France,FR,EU,"(48.8322, 2.3561)",LFPO
+Haifa,,Israel,IL,AS,"(32.81841, 34.9885)",LLHA
+Le Chesnay CEDEX,,France,FR,EU,"(48.8222, 2.12213)",LFPV
+Scarsdale,NY,USA,US,NA,"(41.0051, -73.78458)",KHPN
+Paris Cedex 05,,France,FR,EU,"(48.8448, 2.3471)",LFPV
+Lafayette,CO,USA,US,NA,"(39.9936, -105.08971)",KBJC
+Denton,TX,USA,US,NA,"(33.21484, -97.13307)",KAFW
+Dedham,MA,USA,US,NA,"(42.24177, -71.16616)",KOWD
+Madison,NJ,USA,US,NA,"(40.75982, -74.4171)",KMMU
+Blacksburg,VA,USA,US,NA,"(37.22957, -80.41394)",KROA
+Glebe,,Australia,AU,OC,"(-34.4652, 150.41789)",YWOL
+Barrington,RI,USA,US,NA,"(41.74066, -71.30866)",KPVD
+Newark,DE,USA,US,NA,"(40.73566, -74.17237)",KEWR
+San Anselmo,CA,USA,US,NA,"(37.97465, -122.56164)",KOAK
+El Paso,TX,USA,US,NA,"(31.75872, -106.48693)",KELP
+Teutschenthal,AE,Germany,DE,EU,"(51.45, 11.8)",EDDP
+Outremont,QC,Canada,CA,NA,"(45.51678, -73.61588)",CYUL
+Swarthmore,PA,USA,US,NA,"(39.90206, -75.34991)",KPHL
+Wonju,,South Korea,KR,AS,"(37.43808, 127.96038)",RKNW
+Paris cedex 05,,France,FR,EU,"(48.8448, 2.3471)",LFPV
+"Crawley,WA",,Australia,AU,OC,"(-31.98418, 115.81603)",YPJT
+Falls Church,VA,USA,US,NA,"(38.88233, -77.17109)",KDCA
+Cheltenham,PA,USA,US,NA,"(40.06094, -75.09406)",KPNE
+Betzingen,,Germany,DE,EU,"(48.5, 9.17599)",EDDS
+Augsburg,,Germany,DE,EU,"(48.37154, 10.89851)",EDMA
+Mannheim,,Germany,DE,EU,"(49.4891, 8.46694)",EDFM
+Boisbriand,QC,Canada,CA,NA,"(45.61678, -73.83249)",CYMX
+Las Vegas,NM,USA,US,NA,"(35.59393, -105.2239)",KLVS
+Lenexa,KS,USA,US,NA,"(38.95362, -94.73357)",KMKC
+Farmers Branch,TX,USA,US,NA,"(32.92651, -96.89612)",KDAL
+Gif sur Yvette CEDEX,,France,FR,EU,"(48.68333, 2.13333)",LFPN
+New Haven,,USA,US,NA,"(41.30815, -72.92816)",KHVN
+Wuhan,,China,CN,AS,"(30.58333, 114.26667)",ZHHH
+Goleta,CA,USA,US,NA,"(34.43583, -119.82764)",KSBA
+Tallahassee,FL,USA,US,NA,"(30.43826, -84.28073)",KTLH
+Chung-Nam,,South Korea,KR,AS,"(34.88628, 127.06664)",RKJJ
+Derry,NH,USA,US,NA,"(42.88064, -71.32729)",KMHT
+Williamsburg,VA,USA,US,NA,"(37.2707, -76.70746)",KFAF
+Århus N,,Denmark,DK,EU,"(56.20367, 10.17317)",EKAH
+Gif-sur-Yvette CEDEX,,France,FR,EU,"(48.68333, 2.13333)",LFPN
+Lafayette,IN,USA,US,NA,"(40.4167, -86.87529)",KLAF
+Ermont,,France,FR,EU,"(48.99004, 2.25804)",LFPB
+Estoril,,Portugal,PT,EU,"(38.70571, -9.39773)",LPST
+Cambridgeshire,,United Kingdom,GB,EU,"(52.36717, 0.00433)",EGUY
+"Tsukuba-shi, Ibaraki",,Japan,JP,AS,"(36.2, 140.1)",RJAH
+Lawrenceville,GA,USA,US,NA,"(33.95621, -83.98796)",KPDK
+North Billerica,MA,USA,US,NA,"(42.55843, -71.26895)",KBED
+Fourqueux,,France,FR,EU,"(48.88693, 2.06367)",LFPN
+Stony Brook,NY,USA,US,NA,"(40.92565, -73.14094)",KISP
+Charlotte,NC,USA,US,NA,"(35.22709, -80.84313)",KCLT
+Sharon,MA,USA,US,NA,"(42.12371, -71.17866)",KOWD
+Tustin,CA,USA,US,NA,"(33.74585, -117.82617)",KSNA
+Giza,,Egypt,EG,AF,"(30.00808, 31.21093)",HEAZ
+Longmont,CO,USA,US,NA,"(40.16721, -105.10193)",KBJC
+Ilisia,,Greece,GR,EU,"(37.9743, 23.75534)",LGAV
+Lexington,KY,USA,US,NA,"(37.98869, -84.47772)",KLEX
+Deephaven,MN,USA,US,NA,"(44.92969, -93.52246)",KMSP
+Lille,,France,FR,EU,"(50.63297, 3.05858)",LFQQ
+Eagan,MN,USA,US,NA,"(44.80413, -93.16689)",KMSP
+Wellesley,MA,USA,US,NA,"(42.29649, -71.29256)",KOWD
+Campo Grande,,Portugal,PT,EU,"(38.75346, -9.15626)",LPPT
+Horizon City,TX,USA,US,NA,"(31.69261, -106.20748)",KELP
+Piran,,Slovenia,SI,EU,"(45.48278, 13.62694)",LJPZ
+New  York,NY,USA,US,NA,"(40.71427, -74.00597)",KLGA
+Hengelo,,Netherlands,NL,EU,"(52.26583, 6.79306)",EHTW
+Pittsburg,PA,USA,US,NA,"(40.44062, -79.99589)",KAGC
+Phildelphia,PA,USA,US,NA,"(39.87235, -75.27867)",KPHL
+Ibaraki,,Japan,JP,AS,"(36.35, 140.45)",RJAH
+Pescara,,Italy,IT,EU,"(42.4584, 14.20283)",LIBP
+Geneva,,Switzerland,CH,EU,"(46.20222, 6.14569)",LSGG
+Catania,,Italy,IT,EU,"(37.49223, 15.07041)",LICC
+Noida,,India,IN,AS,"(28.58, 77.33)",VIDD
+Brno,,Czech Republic,CZ,EU,"(49.19522, 16.60796)",LKTB
+Jaffa,,Israel,IL,AS,"(32.05043, 34.75224)",LLSD
+Iasi,,Romania,RO,EU,"(47.16667, 27.6)",LRIA
+Lyon,,France,FR,EU,"(45.74846, 4.84671)",LFLY
+Somerset,NJ,USA,US,NA,"(40.4976, -74.48849)",KMMU
+Venezia-Mestre,,Italy,IT,EU,"(45.49167, 12.24538)",LIPZ
+Fruit Heights,UT,USA,US,NA,"(41.03217, -111.90216)",KHIF
+El Puerto de Santa Maria,,Spain,ES,EU,"(36.59389, -6.23298)",LERT
+Ivry sur Seine,,France,FR,EU,"(48.81568, 2.38487)",LFPO
+Pozuelo de Alarcon,,Spain,ES,EU,"(40.43293, -3.81338)",LECU
+Louvain-La-Neuve,,Belgium,BE,EU,"(50.66829, 4.61443)",EBBE
+Cagliari,,Italy,IT,EU,"(39.23054, 9.11917)",LIEE
+Muncie,IN,USA,US,NA,"(40.19338, -85.38636)",KMIE
+Sammamish,WA,USA,US,NA,"(47.64177, -122.0804)",KBFI
+Italy,,Italy,IT,EU,"(42.83333, 12.83333)",LIRZ
+Balikesir,,Turkey,TR,AS,"(39.64917, 27.88611)",LTBF
+Sulzfeld,,Germany,DE,EU,"(49.70694, 10.13248)",ETHN
+Padova,,Italy,IT,EU,"(45.40797, 11.88586)",LIPU
+Zografou,,Greece,GR,EU,"(37.97574, 23.76911)",LGAV
+Rijeka,,Croatia,HR,EU,"(45.32673, 14.44241)",LDRI
+Praha 4,,Czech Republic,CZ,EU,"(50.06213, 14.43921)",LKKB
+Tubingen,,Germany,DE,EU,"(48.52266, 9.05222)",EDDS
+Trento,,Italy,IT,EU,"(46.06787, 11.12108)",LIDT
+Naples,NY,USA,US,NA,"(42.61535, -77.40249)",KROC
+Northamptonshire,,United Kingdom,GB,EU,"(52.25, -0.88333)",EGTC
+Graz,,Austria,AT,EU,"(47.06667, 15.45)",LOWG
+Villeneuve d'Ascq,,France,FR,EU,"(50.61669, 3.16664)",LFQQ
+Jacksonville,FL,USA,US,NA,"(30.33218, -81.65565)",KNIP
+Gyeonggi,,South Korea,KR,AS,"(37.29111, 127.00889)",RKSW
+Salzburg,,Austria,AT,EU,"(47.79941, 13.04399)",LOWS
+Zeist,,Netherlands,NL,EU,"(52.09, 5.23333)",EHAM
+Quebec,QC,Canada,CA,NA,"(46.81228, -71.21454)",CYQB
+Enfield,CT,USA,US,NA,"(41.97621, -72.59176)",KBDL
+Konstanz,,Germany,DE,EU,"(47.66033, 9.17582)",EDNY
+Roma,,Italy,IT,EU,"(41.89193, 12.51133)",LIRU
+Wittnau,,Germany,DE,EU,"(47.95, 7.81667)",EDTL
+Mobile,AL,USA,US,NA,"(30.69436, -88.04305)",KBFM
+Hanover,NH,USA,US,NA,"(43.70229, -72.28954)",KLEB
+Branchburg,NJ,USA,US,NA,"(40.56305, -74.7139)",KTTN
+Murray Hill,NJ,USA,US,NA,"(40.69538, -74.40098)",KMMU
+Stuttgart,,Germany,DE,EU,"(48.78232, 9.17702)",EDDS
+Villeneuve d ASCQ,,France,FR,EU,"(50.61669, 3.16664)",LFQQ
+N. Tonawanda,NY,USA,US,NA,"(43.03867, -78.8642)",KIAG
+Heidelberg,,Germany,DE,EU,"(49.40768, 8.69079)",EDFM
+Nomi,,Japan,JP,AS,"(36.43593, 136.54456)",RJNK
+Villafranca di Verona,,Italy,IT,EU,"(45.39571, 10.88853)",LIPX
+Saint Ismier,,France,FR,EU,"(45.25227, 5.83073)",LFLS
+San Giovanni Lupatoto,,Italy,IT,EU,"(45.38193, 11.04474)",LIPX
+St Ismier,,France,FR,EU,"(45.25227, 5.83073)",LFLS
+Tuckahoe,NY,USA,US,NA,"(40.89899, -72.41092)",KGON
+Almada,,Portugal,PT,EU,"(38.67902, -9.1569)",LPMT
+Nalbach,,Germany,DE,EU,"(49.38333, 6.78333)",EDDR
+Montbonnot St-Martin,,France,FR,EU,"(45.22639, 5.80275)",LFLS
+Suwon,,South Korea,KR,AS,"(37.29111, 127.00889)",RKSW
+Castel Gandolfo,,Italy,IT,EU,"(41.74252, 12.64888)",LIRA
+Varennes,,Canada,CA,NA,"(45.68338, -73.43246)",CYHU
+Siena,,Italy,IT,EU,"(43.31822, 11.33064)",LIQS
+Bradenton,FL,USA,US,NA,"(27.49893, -82.57482)",KSRQ
+Marseille,,France,FR,EU,"(43.29695, 5.38107)",LFML
+Namur,,Belgium,BE,EU,"(50.4669, 4.86746)",EBCI
+Redwood Shores,CA,USA,US,NA,"(37.53188, -122.24802)",KSFO
+Uttenreuth,,Germany,DE,EU,"(49.59675, 11.07216)",EDDN
+Croydon,,United Kingdom,GB,EU,"(51.38333, -0.1)",EGKB
+Lahore,AE,Pakistan,PK,AS,"(31.558, 74.35071)",OPLA
+Woodland Hills,CA,USA,US,NA,"(34.16834, -118.60592)",KVNY
+Livermore,CA,USA,US,NA,"(37.68187, -121.76801)",KSJC
+Culver City,CA,USA,US,NA,"(34.02112, -118.39647)",KLAX
+New Bedford,MA,USA,US,NA,"(41.63526, -70.92701)",KEWB
+Gangwon-do,,South Korea,KR,AS,"(37.75, 128.25)",RKNW
+Kensington,,Australia,AU,OC,"(-33.9235, 151.2179)",YSSY
+Paris cedex,,France,FR,EU,"(48.79266, 2.46569)",LFPO
+Lagoa,,Portugal,PT,EU,"(37.74486, -25.57184)",LPPD
+Rennes Cedex,,France,FR,EU,"(48.11198, -1.67429)",LFRN
+Kassel,,Germany,DE,EU,"(51.31667, 9.5)",EDVK
+Studio City,CA,USA,US,NA,"(34.14862, -118.39647)",KBUR
+Cochabamba,,Bolivia,BO,SA,"(-17.3895, -66.1568)",SLCB
+Bellevue,MA,USA,US,NA,"(38.70345, -76.18439)",KNHK
+Davis,CA,USA,US,NA,"(38.54491, -121.74052)",KSMF
+Delmar,NY,USA,US,NA,"(42.62202, -73.83262)",KALB
+Omaha,NE,USA,US,NA,"(41.25626, -95.94043)",KOMA
+Vasteras,,Sweden,SE,EU,"(59.61617, 16.55276)",ESOW
+Canberra,ACT,Australia,AU,OC,"(-35.28346, 149.12807)",YSCB
+Crestwood,MO,USA,US,NA,"(38.557, -90.38178)",KSTL
+Re'ut,,Israel,IL,AS,"(31.89385, 35.01504)",LLBG
+Riverside,CA,USA,US,NA,"(33.95335, -117.39616)",KRAL
+Vaulnaveys-le-haut,,France,FR,EU,"(45.12524, 5.81723)",LFLS
+Moffett Field,CA,USA,US,NA,"(37.41352, -122.05404)",KNUQ
+W. Lafayette,IN,USA,US,NA,"(33.04316, -84.97681)",KCSG
+Sacramento,CA,USA,US,NA,"(38.58157, -121.4944)",KSAC
+Tel-Aviv,,Israel,IL,AS,"(32.08088, 34.78057)",LLSD
+Tigard,OR,USA,US,NA,"(45.43123, -122.77149)",KHIO
+Mission Viejo,CA,USA,US,NA,"(33.60002, -117.672)",KSNA
+Meredith,NH,USA,US,NA,"(43.65757, -71.50035)",KCON
+Garching bei Munchen,,Germany,DE,EU,"(48.24896, 11.65101)",EDDM
+Nantes Cedex 3,,France,FR,EU,"(47.21725, -1.55336)",LFRS
+Daphne,AL,USA,US,NA,"(30.60353, -87.9036)",KBFM
+Carencro,LA,USA,US,NA,"(30.31714, -92.04901)",KLFT
+Longwood,FL,USA,US,NA,"(28.70305, -81.3384)",KSFB
+Kongens Lyngby,,Denmark,DK,EU,"(55.77044, 12.50378)",EKCH
+João Pessoa,,Brazil,BR,SA,"(-7.115, -34.86306)",SBJP
+Montreal-West,QC,Canada,CA,NA,"(45.45286, -73.64918)",CYUL
+Winona,MN,USA,US,NA,"(44.04996, -91.63932)",KLSE
+Lewisburg,PA,USA,US,NA,"(40.96453, -76.88441)",KIPT
+East Hanover,NJ,USA,US,NA,"(40.80454, -74.36682)",KMMU
+Newbury Park,CA,USA,US,NA,"(34.18417, -118.91065)",KNTD
+Cairo,,Egypt,EG,AF,"(30.06263, 31.24967)",HEAZ
+Montecatini Terme,,Italy,IT,EU,"(43.88153, 10.7723)",LIRQ
+Xi' an,,China,CN,AS,"(34.25833, 108.92861)",ZLSN
+Trento,TN,Italy,IT,EU,"(46.06787, 11.12108)",LIDT
+Patna,,India,IN,AS,"(25.59408, 85.13563)",VEPT
+Chennai,,India,IN,AS,"(13.08784, 80.27847)",VOMM
+Pilani,,India,IN,AS,"(28.36725, 75.60352)",VIHR
+Kharagpur,,India,IN,AS,"(22.33971, 87.32501)",VECC
+Calcutta,,India,IN,AS,"(22.56263, 88.36304)",VECC
+Sophia Antipolis Cedex,,France,FR,EU,"(43.62235, 7.04721)",LFMD
+Kolkata,,India,IN,AS,"(22.56263, 88.36304)",VECC
+Hyderabad,,India,IN,AS,"(17.38405, 78.45636)",VOHY
+De Bilt,,Netherlands,NL,EU,"(52.11, 5.18056)",EHAM
+Pandua,,India,IN,AS,"(23.07492, 88.28637)",VECC
+Bengaluru,,India,IN,AS,"(12.97194, 77.59369)",VOBG
+"Wonju, Gangwon-do",,South Korea,KR,AS,"(37.35139, 127.94528)",RKNW
+Idukki,,India,IN,AS,"(10.0, 77.0)",VOCI
+Fontainebleau,,France,FR,EU,"(48.40908, 2.70177)",LFPM
+Pisa,,Italy,IT,EU,"(43.70853, 10.4036)",LIRP
+Oldenburg,,Germany,DE,EU,"(53.14118, 8.21467)",EDDW
+Nasr City,,Egypt,EG,AF,"(30.06667, 31.3)",HEAZ
+"Ansan, Gyeonggi-do",,South Korea,KR,AS,"(37.32361, 126.82194)",RKSW
+Goa,,India,IN,AS,"(15.33333, 74.08333)",VAGO
+Kelambakkam,,India,IN,AS,"(12.78725, 80.22161)",VOMM
+Pune-india,,India,IN,AS,"(18.51957, 73.85535)",VAPO
+Troy,NY,USA,US,NA,"(42.72841, -73.69179)",KALB
+Västerås,,Sweden,SE,EU,"(59.61617, 16.55276)",ESOW
+Lausanne,,France,FR,EU,"(46.52232, 6.62648)",LFLI
+Udupi,,India,IN,AS,"(13.33467, 74.74617)",VOML
+"Sakyo-ku, Kyoto",,Japan,JP,AS,"(35.16563, 135.79625)",RJOO
+Thrissur,,India,IN,AS,"(10.51667, 76.21667)",VOCI
+Pozuelo De Alarcon,,Spain,ES,EU,"(40.43293, -3.81338)",LECU
+Karkala,,India,IN,AS,"(13.21428, 74.99234)",VOML
+Bruxelles,,Belgium,BE,EU,"(50.85045, 4.34878)",EBBR
+Hilliard,OH,USA,US,NA,"(40.0334, -83.15825)",KOSU
+Saint Ismier cedex,,France,FR,EU,"(45.25227, 5.83073)",LFLS
+Bologna,ID,Italy,IT,EU,"(44.49381, 11.33875)",LIPE
+Jhunjhunu,,India,IN,AS,"(28.12559, 75.39797)",VIHR
+Bunkyo,,Japan,JP,AS,"(35.71745, 139.74729)",RJTT
+Ny,NY,USA,US,NA,"(40.71427, -74.00597)",KLGA
+Tamil Nadu,,India,IN,AS,"(13.08784, 80.27847)",VOMM
+"Canterbury, Kent",,United Kingdom,GB,EU,"(51.27904, 1.07992)",EGMH
+Bhubaneswar,,India,IN,AS,"(20.27241, 85.83385)",VEBS
+Powai,,India,IN,AS,"(19.12591, 72.90339)",VABB
+"Egham, Surrey",,United Kingdom,GB,EU,"(51.43158, -0.55239)",EGLL
+Ramla,,Israel,IL,AS,"(31.92923, 34.86563)",LLBG
+Kingston,ON,Canada,CA,NA,"(44.22976, -76.48098)",CYGK
+West Melbourne,FL,USA,US,NA,"(28.07168, -80.65339)",KMLB
+Kent,OH,USA,US,NA,"(41.15367, -81.35789)",KAKR
+Ontario,ON,Canada,CA,NA,"(43.70011, -79.4163)",CYZD
+Rostov-on-don,,Russia,RU,EU,"(47.23135, 39.72328)",URRR
+Oberengstringen,,Switzerland,CH,EU,"(47.41023, 8.46598)",LSZH
+Baldwin,NY,USA,US,NA,"(40.65649, -73.6093)",KJFK
+Groningen,,Netherlands,NL,EU,"(53.21917, 6.56667)",EHGG
+Surrey,BC,Canada,CA,NA,"(49.19, -122.84889)",CZBB
+North Vancouver,BC,Canada,CA,NA,"(49.24966, -123.11934)",CYVR
+Dover,FL,USA,US,NA,"(27.99419, -82.21953)",KLAL
+Hefei,,China,CN,AS,"(31.86389, 117.28083)",ZSOF
+Ferrara,,Italy,IT,EU,"(44.83333, 11.61667)",LIPE
+Egham,,United Kingdom,GB,EU,"(51.43158, -0.55239)",EGLL
+Snohomish,WA,USA,US,NA,"(47.97898, -122.20208)",KPAE
+Midvale,UT,USA,US,NA,"(40.61106, -111.89994)",KSLC
+Garching Bei München,,Germany,DE,EU,"(48.24896, 11.65101)",EDDM
+Zalaegerszeg,,Hungary,HU,EU,"(46.84, 16.84389)",LHSM
+Goeteborg,,Sweden,SE,EU,"(57.70716, 11.96679)",ESGP
+Vincennes,,France,FR,EU,"(48.8486, 2.43769)",LFPB
+Gainesville,FL,USA,US,NA,"(29.65163, -82.32483)",KGNV
+Jerusalem,,Israel,IL,AS,"(31.78199, 35.21961)",LLEK
+Aoba-ku,,Japan,JP,AS,"(35.55895, 139.52403)",RJTF
+Ave Maria,FL,USA,US,NA,"(26.33667, -81.43806)",KRSW
+Fisciano,,Italy,IT,EU,"(40.77175, 14.79454)",LIRI
+Bloomington,,USA,US,NA,"(39.16533, -86.52639)",KBMG
+Prague,,Czech Republic,CZ,EU,"(50.08804, 14.42076)",LKKB
+Bruz,,France,FR,EU,"(48.0242, -1.74591)",LFRN
+North York,ON,Canada,CA,NA,"(43.76681, -79.4163)",CYZD
+Luxembourg,,Luxembourg,LU,EU,"(49.75, 6.16667)",ELLX
+Saarland,,Germany,DE,EU,"(49.40472, 6.96083)",EDDR
+Atherton,CA,USA,US,NA,"(37.46133, -122.19774)",KNUQ
+Hod Hasharon,,Israel,IL,AS,"(32.15934, 34.8932)",LLSD
+Metuchen,NJ,USA,US,NA,"(40.54316, -74.3632)",KEWR
+Kanata,ON,Canada,CA,NA,"(43.70011, -79.4163)",CYZD
+Athens,OH,USA,US,NA,"(39.32924, -82.10126)",KPKB
+Flower Mound,TX,USA,US,NA,"(33.01457, -97.09696)",KDFW
+Kanazawa City,,Japan,JP,AS,"(36.6, 136.61667)",RJNK
+Northbrook,IL,USA,US,NA,"(42.12753, -87.82895)",KPWK
+Lucca,,Italy,IT,EU,"(43.84369, 10.50447)",LIRP
+Amersfoort,,Netherlands,NL,EU,"(52.155, 5.3875)",EHDL
+Addison,IL,USA,US,NA,"(41.9317, -87.98896)",KORD
+Addis Ababa,,Ethiopia,ET,AF,"(9.02497, 38.74689)",HAAB
+Fremont,CA,USA,US,NA,"(37.54827, -121.98857)",KNUQ
+Desenzano,,Italy,IT,EU,"(45.47127, 10.53559)",LIPO
+Kanagawa-ken,,Japan,JP,AS,"(35.43333, 139.65)",RJTT
+Kew Gardens,NY,USA,US,NA,"(40.73002, -73.8234)",KLGA
+Rennes Cédex,,France,FR,EU,"(48.11198, -1.67429)",LFRN
+Gif Sur Yvette,,France,FR,EU,"(48.68333, 2.13333)",LFPN
+Orsay Cédex,,France,FR,EU,"(48.69572, 2.18727)",LFPN
+Meudon,,France,FR,EU,"(48.81381, 2.235)",LFPV
+Villeneuve D'ascq,,France,FR,EU,"(50.61669, 3.16664)",LFQQ
+St Martin D'hères,,France,FR,EU,"(45.16639, 5.76472)",LFLS
+Besançon,,France,FR,EU,"(47.24878, 6.01815)",LFQW
+Ivry Sur Seine,,France,FR,EU,"(48.81568, 2.38487)",LFPO
+St.petersburg,,Russia,RU,EU,"(59.93863, 30.31413)",ULLI
+Ivry-sur-seine,,France,FR,EU,"(48.81568, 2.38487)",LFPO
+Waban,MA,USA,US,NA,"(42.32787, -71.22728)",KOWD
+Illkirch,,France,FR,EU,"(48.52894, 7.71523)",LFST
+Changsha,,China,CN,AS,"(28.19874, 112.97087)",CN-0055
+Marilia,,Brazil,BR,SA,"(-22.21389, -49.94583)",SBML
+Dunstable,,United Kingdom,GB,EU,"(51.88571, -0.52288)",EGGW
+L'aquila,,Italy,IT,EU,"(42.35055, 13.39954)",LIBP
+75003,,France,FR,EU,"(48.85341, 2.3488)",LFPV
+Paris Cédex,,France,FR,EU,"(48.79266, 2.46569)",LFPO
+Makeni,,Sierra Leone,SL,AF,"(8.88605, -12.04417)",GFBO
+Lyon Cedex 07,,France,FR,EU,"(45.74846, 4.84671)",LFLY
+Edinburgh,YT,United Kingdom,GB,EU,"(55.95206, -3.19648)",EGPH
+Induno Olona,,Italy,IT,EU,"(45.84571, 8.84056)",LILN
+Antwerp,,Belgium,BE,EU,"(51.21989, 4.40346)",EBAW
+Lyon Cédex 07,,France,FR,EU,"(45.74846, 4.84671)",LFLY
+Pittsburgh,MN,USA,US,NA,"(37.79299, -117.64926)",KTPH
+Paris Cédex 12,,France,FR,EU,"(48.8412, 2.3876)",LFPO
+Alphen Aan Den Rijn,,Netherlands,NL,EU,"(52.12917, 4.65546)",EHAM
+Evian,,France,FR,EU,"(46.40111, 6.58793)",LFLI
+Ljubljana,,Slovenia,SI,EU,"(46.05108, 14.50513)",LJLJ
+Ewing,NJ,USA,US,NA,"(40.27677, -74.81294)",KTTN
+Chuncheon-si,,South Korea,KR,AS,"(37.88048, 127.72776)",RKNW
+Saint Martin D'hères,,France,FR,EU,"(45.1787, 5.76281)",LFLS
+St Petersburg,,Russia,RU,EU,"(59.93863, 30.31413)",ULLI
+Praha 6,,Czech Republic,CZ,EU,"(50.10089, 14.39535)",LKPR
+LA Jolla,CA,USA,US,NA,"(32.84727, -117.2742)",KNKX
+Chiba City,,Japan,JP,AS,"(35.60897, 140.1239)",RJTL
+Mangalore,,India,IN,AS,"(12.91723, 74.85603)",VOML
+"Nishi-sonogi-gun, Nagasaki",,Japan,JP,AS,"(32.83438, 129.86019)",RJFU
+Bourg La Reine,,France,FR,EU,"(48.77888, 2.31781)",LFPO
+Tongyeong,,South Korea,KR,AS,"(34.8736, 128.39709)",RKPS
+Walnut,CA,USA,US,NA,"(37.90631, -122.06496)",KOAK
+Toulouse Cédex,,France,FR,EU,"(43.60426, 1.44367)",LFBO
+Santa Fe,,Argentina,AR,SA,"(-31.64881, -60.70868)",SAAV
+Renens,,Switzerland,CH,EU,"(46.53989, 6.5881)",LSMP
+Belo Horizonte,,Brazil,BR,SA,"(-19.92083, -43.93778)",SBBH
+Sophia Antipolis Cédex,,France,FR,EU,"(43.62235, 7.04721)",LFMD
+Auburn,WA,USA,US,NA,"(47.30732, -122.22845)",KSEA
+Hasselt,,Belgium,BE,EU,"(50.93106, 5.33781)",EBBL
+"Kensington, London",,United Kingdom,GB,EU,"(51.48755, -0.16936)",EGLC
+Rosny Sous Bois,,France,FR,EU,"(48.87017, 2.4991)",LFPB
+Saint-martin D'hères,,France,FR,EU,"(45.1787, 5.76281)",LFLS
+Chelles,,France,FR,EU,"(48.88109, 2.59295)",LFPB
+Castelnau D'arbieu,,France,FR,EU,"(43.88333, 0.70523)",LFDH
+Liverpool,,United Kingdom,GB,EU,"(53.41058, -2.97794)",EGGP
+Renningen,,Germany,DE,EU,"(48.76974, 8.93871)",EDDS
+Tlemcen,,Algeria,DZ,AF,"(34.87833, -1.315)",DAON
+Ancona,,Italy,IT,EU,"(43.5942, 13.50337)",LIPY
+Golfe Juan,,France,FR,EU,"(43.56812, 7.07744)",LFMD
+"Chuo-ku, Tokyo",,Japan,JP,AS,"(35.66993, 139.77705)",RJTT
+Villeurbanne Cédex,,France,FR,EU,"(45.76601, 4.8795)",LFLY
+Cesson-sévigné,,France,FR,EU,"(48.1212, -1.603)",LFRN
+Brackenheim,,Germany,DE,EU,"(49.07787, 9.06601)",EDDS
+Heerlen,,Netherlands,NL,EU,"(50.88365, 5.98154)",EHBK
+Sint-katelijne-waver,,Belgium,BE,EU,"(51.06691, 4.53469)",EBAW
+Marseille Cédex,,France,FR,EU,"(43.29695, 5.38107)",LFML
+Arpajon,,France,FR,EU,"(48.58875, 2.24672)",LFPO
+Gif-sur-yvette Cedex,,France,FR,EU,"(48.68333, 2.13333)",LFPN
+Smyrna,GA,USA,US,NA,"(33.88399, -84.51438)",KMGE
+Saint-Martin D'hères,,France,FR,EU,"(45.1787, 5.76281)",LFLS
+Chiba-shi,,Japan,JP,AS,"(35.6, 140.11667)",RJTL
+Ultimo,NSW,Australia,AU,OC,"(-33.87722, 151.1972)",YSSY
+Oxford,YT,United Kingdom,GB,EU,"(51.75222, -1.25596)",EGTK
+Mansfield,,United Kingdom,GB,EU,"(53.13333, -1.2)",EGBN
+Westwood,CA,USA,US,NA,"(40.306, -121.00579)",KRBL
+Kenmore,WA,USA,US,NA,"(47.75732, -122.24401)",KPAE
+Hadley,MA,USA,US,NA,"(42.36723, -72.51852)",KCEF
+Rende,,Italy,IT,EU,"(39.33154, 16.18041)",LICA
+Thuwal,,Saudi Arabia,SA,AS,"(22.28272, 39.11245)",OEJN
+Elkridge,MD,USA,US,NA,"(39.21261, -76.71358)",KBWI
+Golden,CO,USA,US,NA,"(39.75554, -105.2211)",KBJC
+Aguas Claras,,Brazil,BR,SA,"(-3.23333, -39.31667)",SBFZ
+Gurgaon,,India,IN,AS,"(28.4601, 77.02635)",VIDP
+Evry,,France,FR,EU,"(48.6328, 2.44049)",LFPO
+Yorktown,VA,USA,US,NA,"(37.23876, -76.50967)",KPHF
+VERONA,,Italy,IT,EU,"(45.4299, 10.98444)",LIPX
+Newton Centre,MA,USA,US,NA,"(42.33065, -71.1995)",KOWD
+"Boulder,",CO,USA,US,NA,"(40.01499, -105.27055)",KBJC
+Worcester,MA,USA,US,NA,"(42.26259, -71.80229)",KORH
+Williamsport,PA,USA,US,NA,"(41.24119, -77.00108)",KIPT
+Marousi,,Greece,GR,EU,"(38.05, 23.8)",LGAV
+Risskov,,Denmark,DK,EU,"(56.19716, 10.248)",EKAH
+Aliso Viejo,CA,USA,US,NA,"(33.56504, -117.72712)",KSNA
+Vandoeuvre-lès-Nancy Cedex,,France,FR,EU,"(48.65, 6.18333)",LFSN
+Riverside,,Cambodia,KH,AS,"(11.57055, 104.92946)",VDPP
+Nanjing,,China,CN,AS,"(32.06167, 118.77778)",CN-0002
+Järfälla,,Sweden,SE,EU,"(59.40875, 17.86514)",ESSB
+Wigton,,United Kingdom,GB,EU,"(54.86783, -4.44489)",EGPK
+Ranggen,,Austria,AT,EU,"(47.25247, 11.21219)",LOWI
+Astoria,NY,USA,US,NA,"(40.77205, -73.93014)",KLGA
+Seattle,CA,USA,US,NA,"(41.84318, -123.30172)",KMFR
+Getzville,NY,USA,US,NA,"(43.02395, -78.76781)",KBUF
+Antibes,,France,FR,EU,"(43.56241, 7.12777)",LFMN
+Ville d Avray,,France,FR,EU,"(48.82358, 2.19311)",LFPV
+Gardena,CA,USA,US,NA,"(33.88835, -118.30896)",KHHR
+Redondo Beach,CA,USA,US,NA,"(33.84918, -118.38841)",KHHR
+Marina Del Rey,CA,USA,US,NA,"(33.98029, -118.45174)",KLAX
+Lier,,Belgium,BE,EU,"(51.13128, 4.57041)",EBAW
+Flagstaff,AZ,USA,US,NA,"(35.19807, -111.65127)",KFLG
+Fresno,CA,USA,US,NA,"(36.74773, -119.77237)",KFAT
+Tel Aviv,NJ,Israel,IL,AS,"(32.08088, 34.78057)",LLSD
+Davidson,NC,USA,US,NA,"(35.88264, -80.08199)",KGSO
+LOS ANGELES,CA,USA,US,NA,"(34.05223, -118.24368)",KHHR
+Alexandria,,Egypt,EG,AF,"(31.20176, 29.91582)",HEAX
+Anaheim,CA,USA,US,NA,"(33.83529, -117.9145)",KSLI
+Belfield,,Ireland,IE,EU,"(53.31065, -6.22066)",EIDW
+Reykjavik,,Iceland,IS,EU,"(64.13548, -21.89541)",BIRK
+Rotterdam,,Netherlands,NL,EU,"(51.9225, 4.47917)",EHRD
+Florianópolis,,Brazil,BR,SA,"(-27.59667, -48.54917)",SBFL
+Stafford,TX,USA,US,NA,"(29.61607, -95.55772)",KSGR
+Carlow,,Ireland,IE,EU,"(52.66667, -6.83333)",EIWF
+Hudson,MA,USA,US,NA,"(42.39176, -71.56618)",KBED
+Pleasanton,CA,USA,US,NA,"(37.66243, -121.87468)",KOAK
+Tuscaloosa,AL,USA,US,NA,"(33.20984, -87.56917)",KTCL
+Northampton,MA,USA,US,NA,"(42.32509, -72.6412)",KCEF
+Kfar,,Israel,IL,AS,"(32.175, 34.90694)",LLSD
+Phoenix,AZ,USA,US,NA,"(33.44838, -112.07404)",KPHX
+Lincoln,NE,USA,US,NA,"(40.8, -96.66696)",KLNK
+Cluj-Napoca,,Romania,RO,EU,"(46.76667, 23.6)",LRCL
+Har-Adar,,Israel,IL,AS,"(31.82754, 35.13093)",LLEK
+Ramsey,NJ,USA,US,NA,"(41.05732, -74.14098)",KTEB
+Herzliya,,Israel,IL,AS,"(32.16627, 34.82536)",LLSD
+Maynooth,,Ireland,IE,EU,"(53.385, -6.59361)",EIWT
+Hsinchu,,Taiwan,TW,AS,"(24.80361, 120.96861)",RCPO
+Oak Park,IL,USA,US,NA,"(41.88503, -87.7845)",KMDW
+Fircrest,WA,USA,US,NA,"(47.23954, -122.51596)",KTIW
+Campbell,CA,USA,US,NA,"(37.28717, -121.94996)",KSJC
+Bethesda,MD,USA,US,NA,"(38.98067, -77.10026)",KDCA
+Nicholls,,Australia,AU,OC,"(-9.66695, 142.65027)",YHID
+Yonkers,NY,USA,US,NA,"(40.93121, -73.89875)",KTEB
+Menlo Park,CO,USA,US,NA,"(40.53607, -108.99373)",KVEL
+Yokneam Illit,,Israel,IL,AS,"(32.65385, 35.10382)",LLRD
+Argonne,IL,USA,US,NA,"(41.71059, -87.98312)",KMDW
+Fredericksburg,VA,USA,US,NA,"(38.30318, -77.46054)",KNYG
+Weert,,Netherlands,NL,EU,"(51.25167, 5.70694)",EHBD
+Isla Vista,CA,USA,US,NA,"(34.41333, -119.86097)",KSBA
+Carnation,WA,USA,US,NA,"(47.64788, -121.91401)",KBFI
+Holon,,Israel,IL,AS,"(32.01034, 34.77918)",LLBG
+Capitola,CA,USA,US,NA,"(36.9719, -121.9494)",KSJC
+Boise,ID,USA,US,NA,"(43.6135, -116.20345)",KBOI
+Las Vegas,NV,USA,US,NA,"(36.17497, -115.13722)",KVGT
+Gyeonggi-do Suwon,,South Korea,KR,AS,"(37.29111, 127.00889)",RKSW
+Gwangju,,South Korea,KR,AS,"(35.15472, 126.91556)",RKJJ
+Cape Girardeau,MO,USA,US,NA,"(37.30588, -89.51815)",KCGI
+Dudley,MA,USA,US,NA,"(42.0451, -71.93007)",KORH
+Yokohama-shi,,Japan,JP,AS,"(35.43333, 139.65)",RJTT
+Gdansk,,Poland,PL,EU,"(54.35205, 18.64637)",EPGD
+Porto,,Brazil,BR,SA,"(-30.03283, -51.23019)",SBPA
+Rosh Haayin,,Israel,IL,AS,"(32.09556, 34.95664)",LLBG
+Edinburgh,UT,United Kingdom,GB,EU,"(55.95206, -3.19648)",EGPH
+Syracuse,NY,USA,US,NA,"(43.04812, -76.14742)",KSYR
+Notre Dame,IN,USA,US,NA,"(41.7031, -86.23917)",KSBN
+Macau,,Macao,MO,AS,"(22.20056, 113.54611)",VMMC
+"Hung Hom, Kowloon",,Hong Kong,HK,AS,"(22.30715, 114.18532)",VHSK
+Munich,CA,Germany,DE,EU,"(48.13743, 11.57549)",EDMO
+Munster,,Germany,DE,EU,"(51.96236, 7.62571)",EDDG
+Sequim,WA,USA,US,NA,"(48.07963, -123.10234)",KCLM
+Iizuka Fukuoka,,Japan,JP,AS,"(33.63654, 130.68678)",RJFF
+"Haikou, Hainan",,China,CN,AS,"(20.04583, 110.34167)",ZJHK
+Kowloon,,Hong Kong,HK,AS,"(22.31667, 114.18333)",VHSK
+Kensington NSW,,Australia,AU,OC,"(-33.9235, 151.2179)",YSSY
+Olinda,,Brazil,BR,SA,"(-8.00889, -34.85528)",SBRF
+Jefferson City,TN,USA,US,NA,"(36.12231, -83.4924)",KTYS
+The Woodlands,TX,USA,US,NA,"(30.15799, -95.48938)",KCXO
+Villeneuve d’Ascq,,France,FR,EU,"(50.61669, 3.16664)",LFQQ
+Plock,,Poland,PL,EU,"(52.54682, 19.70638)",EPMO
+West Drayton,,United Kingdom,GB,EU,"(51.5, -0.46667)",EGLL
+Meggen,,Switzerland,CH,EU,"(47.04691, 8.37467)",LSME
+HaEmek,,Israel,IL,AS,"(32.67597, 35.23986)",LLRD
+Burtonsville,MD,USA,US,NA,"(39.11122, -76.93248)",KFME
+Franklin Park,NJ,USA,US,NA,"(40.43899, -74.53515)",KTTN
+Rijswijk,,Netherlands,NL,EU,"(52.03634, 4.32501)",EHRD
+Oviedo,FL,USA,US,NA,"(28.67, -81.20812)",KSFB
+Uberlandia,,Brazil,BR,SA,"(-18.91861, -48.27722)",SBUL
+Belfast,,United Kingdom,GB,EU,"(54.59682, -5.92541)",EGAC
+Curitiba,,Brazil,BR,SA,"(-25.42778, -49.27306)",SBBI
+Manchester,RI,USA,US,NA,"(41.81593, -71.40367)",KPVD
+"Heraklion, Crete",,Greece,GR,EU,"(35.32787, 25.14341)",LGIR
+Shillong,,India,IN,AS,"(25.56892, 91.88313)",VEBI
+Port Sunlight,,United Kingdom,GB,EU,"(53.35413, -2.99847)",EGGP
+White Plains,NY,USA,US,NA,"(41.03399, -73.76291)",KHPN
+Rochetoirin,,France,FR,EU,"(45.58373, 5.41237)",LFLS
+Lancaster,,United Kingdom,GB,EU,"(54.04649, -2.79988)",EGNL
+Heraklion,,Greece,GR,EU,"(35.32787, 25.14341)",LGIR
+Villers-les-nancy Cedex,,France,FR,EU,"(48.67333, 6.15283)",LFSN
+Detroit,MI,USA,US,NA,"(42.33143, -83.04575)",KDET
+Scottsdale,AZ,USA,US,NA,"(33.50921, -111.89903)",KPHX
+Morges,,Switzerland,CH,EU,"(46.51127, 6.49854)",LSGG
+Vicksburg,MS,USA,US,NA,"(32.35265, -90.87788)",KJAN
+Kassel,HE,Germany,DE,EU,"(51.31667, 9.5)",EDVK
+Brisbane,QLD,Australia,AU,OC,"(-27.46794, 153.02809)",YBBN
+Kitchener,ON,Canada,CA,NA,"(43.42537, -80.5112)",CYKF
+Edinburgh,Midlothian,United Kingdom,GB,EU,"(55.95206, -3.19648)",EGPH
+Lyon Cedex,,France,FR,EU,"(45.74846, 4.84671)",LFLY
+Pregassona,Ticino,Switzerland,CH,EU,"(46.02021, 8.97429)",LSZA
+Greenville,NC,USA,US,NA,"(35.61266, -77.36635)",KPGV
+Cortlandt Manor,NY,USA,US,NA,"(41.28, -73.87164)",KHPN
+Apple Valley,MN,USA,US,NA,"(44.73191, -93.21772)",KMSP
+Kamakura,,Japan,JP,AS,"(35.30889, 139.55028)",RJTA
+Athens,Attiki,Greece,GR,EU,"(37.98376, 23.72784)",LGEL
+Bussum,,Netherlands,NL,EU,"(52.27333, 5.16111)",EHAM
+Hellebaek,,Denmark,DK,EU,"(56.06823, 12.55782)",EKCH
+Redmond,MA,USA,US,NA,"(48.41584, -102.16882)",KMIB
+Dexter,MI,USA,US,NA,"(42.33834, -83.88954)",KYIP
+Alhambra,CA,USA,US,NA,"(34.09529, -118.12701)",KBUR
+Hopkinton,MA,USA,US,NA,"(42.22871, -71.52256)",KOWD
+Cincinnati,OH,USA,US,NA,"(39.12711, -84.51439)",KLUK
+St. Paul,MN,USA,US,NA,"(44.94441, -93.09327)",KSTP
+Chatham,NJ,USA,US,NA,"(40.74093, -74.38376)",KMMU
+Sion,Valais,Switzerland,CH,EU,"(46.22739, 7.35559)",LSGS
+Danville,CA,USA,US,NA,"(37.82159, -121.99996)",KOAK
+Oak Ridge,TN,USA,US,NA,"(36.01036, -84.26964)",KTYS
+Highland Park,NJ,USA,US,NA,"(40.49594, -74.42432)",KEWR
+Shrewsbury,MA,USA,US,NA,"(42.29593, -71.71285)",KORH
+Monterrey,NL,Mexico,MX,NA,"(25.67507, -100.31847)",MMAN
+Eden Prairie,MN,USA,US,NA,"(44.85469, -93.47079)",KMSP
+Petersham,MA,USA,US,NA,"(42.48759, -72.18703)",KORH
+Catonsville,MD,USA,US,NA,"(39.27205, -76.73192)",KBWI
+Bromborough,,United Kingdom,GB,EU,"(53.3485, -2.97935)",EGGP
+Roßdorf,,Germany,DE,EU,"(49.85972, 8.76167)",EDFE
+Munich,Bavaria,Germany,DE,EU,"(48.13743, 11.57549)",EDMO
+Fort Collins,CO,USA,US,NA,"(40.58526, -105.08442)",KCYS
+Ollon,,Switzerland,CH,EU,"(46.29832, 7.05631)",LSGS
+Neulengbach,,Austria,AT,EU,"(48.19745, 15.90219)",LOAN
+N. Brunswick,NJ,USA,US,NA,"(40.48622, -74.45182)",KEWR
+Chandler,AZ,USA,US,NA,"(33.30616, -111.84125)",KIWA
+Richland,,China,CN,AS,"(32.28126, -91.84652)",ZYFY
+Erie,PA,USA,US,NA,"(42.12922, -80.08506)",KERI
+Elmendorf,AK,USA,US,NA,"(61.26437, -149.85118)",PAED
+Paderborn,,Germany,DE,EU,"(51.71905, 8.75439)",EDLP
+Ventura,CA,USA,US,NA,"(34.27834, -119.29317)",KOXR
+Taoyuan City,,Taiwan,TW,AS,"(24.99368, 121.29696)",RCGM
+Anderson,CA,USA,US,NA,"(40.44821, -122.29778)",KRDD
+Katowice,,Poland,PL,EU,"(50.25841, 19.02754)",EPKT
+Godziesze,,Poland,PL,EU,"(51.6446, 18.17259)",EPLK
+San Rafael,CA,USA,US,NA,"(37.97353, -122.53109)",KOAK
+Malvern,PA,USA,US,NA,"(40.03622, -75.51381)",KPHL
+Amherst,,USA,US,NA,"(42.36723, -72.51852)",KCEF
+Westford,MA,USA,US,NA,"(42.57926, -71.43784)",KBED
+Ramat Gan,,Israel,IL,AS,"(32.08227, 34.81065)",LLSD
+Birkirkara,,Malta,MT,EU,"(35.89722, 14.46111)",LMML
+San Clara,CA,USA,US,NA,"(37.33939, -121.89496)",KSJC
+Rochester,MI,USA,US,NA,"(42.68059, -83.13382)",KPTK
+Tyngsboro,MA,USA,US,NA,"(42.67676, -71.42451)",KLWM
+Knoxville,TN,USA,US,NA,"(35.96064, -83.92074)",KTYS
+Arbutus,MD,USA,US,NA,"(39.25455, -76.69997)",KBWI
+Hellebæk,,Denmark,DK,EU,"(56.06823, 12.55782)",EKCH
+Calgary,AB,Canada,CA,NA,"(51.05011, -114.08529)",CYYC
+San Marcos,TX,USA,US,NA,"(29.88327, -97.94139)",KHYI
+Yorktown Heights,,USA,US,NA,"(41.27093, -73.77763)",KHPN
+Anderson,SC,USA,US,NA,"(34.50344, -82.65013)",KAND
+Kgs. Lyngby,,Denmark,DK,EU,"(55.77044, 12.50378)",EKCH
+Akko,,Israel,IL,AS,"(32.92814, 35.07647)",LLHA
+East Hampton,MA,USA,US,NA,"(42.26676, -72.66898)",KBAF
+Burke,VA,USA,US,NA,"(38.79345, -77.27165)",KDAA
+Manti,UT,USA,US,NA,"(39.2683, -111.63686)",KPVU
+Yokneam,,Israel,IL,AS,"(32.65385, 35.10382)",LLRD
+Greenbelt,MD,USA,US,NA,"(39.00455, -76.87553)",KFME
+Newburgh,IN,USA,US,NA,"(37.94449, -87.40529)",KEVV
+Stockton,CA,USA,US,NA,"(37.9577, -121.29078)",KSCK
+Randolph Center,VT,USA,US,NA,"(43.9409, -72.6076)",KMPV
+Belmont,CA,USA,US,NA,"(37.52021, -122.2758)",KSFO
+Santa Clara,,USA,US,NA,"(37.35411, -121.95524)",KSJC
+Sai Kung,,Hong Kong,HK,AS,"(22.38333, 114.26667)",VHSK
+Malnate,,Italy,IT,EU,"(45.79377, 8.88104)",LILN
+Galway,,Ireland,IE,EU,"(53.27194, -9.04889)",EICM
+Katonah,NY,USA,US,NA,"(41.25898, -73.68541)",KHPN
+Portland,,USA,US,NA,"(45.52345, -122.67621)",KPDX
+Waverly,NY,USA,US,NA,"(42.01035, -76.52717)",KELM
+Vestal,NY,USA,US,NA,"(42.08507, -76.05381)",KBGM
+Bogota,,Colombia,CO,SA,"(4.60971, -74.08175)",SKBO
+Buenos Aires,,Argentina,AR,SA,"(-34.61315, -58.37723)",SABE
+Montreal,,Canada,CA,NA,"(45.50884, -73.58781)",CYUL
+Malden,WA,USA,US,NA,"(47.22878, -117.47269)",KGEG
+Coimbra,,Portugal,PT,EU,"(40.20564, -8.41955)",LPCO
+Santiago de Chile,,Chile,CL,SA,"(-33.45694, -70.64827)",SCEL
+Teggiano,,Italy,IT,EU,"(40.37921, 15.54046)",LIRI
+Mareno di Piave (TV),,Italy,IT,EU,"(45.84572, 12.33703)",LIPH
+Vancouver,,Canada,CA,NA,"(49.24966, -123.11934)",CYVR
+Tel aviv,,Israel,IL,AS,"(32.08088, 34.78057)",LLSD
+Pozuelo de Alarcón,,Spain,ES,EU,"(40.43293, -3.81338)",LECU
+Waterloo,,Canada,CA,NA,"(43.45747, -80.38593)",CYKF
+Hannover,,Germany,DE,EU,"(52.37052, 9.73322)",EDDV
+Palmerston North,,New Zealand,NZ,OC,"(-40.35636, 175.61113)",NZPM
+Praha 1,,Czech Republic,CZ,EU,"(50.08802, 14.42166)",LKKB
+Castelldefels,,Spain,ES,EU,"(41.27794, 1.97033)",LEBL
+Framfield,,United Kingdom,GB,EU,"(50.96337, 0.12763)",EGKK
+Neu-Ulm,,Germany,DE,EU,"(48.39279, 10.01112)",ETHL
+Toronto,,Canada,CA,NA,"(43.70011, -79.4163)",CYZD
+Genova (GE),,Italy,IT,EU,"(44.40478, 8.94439)",LIMJ
+Lyon cedex,,France,FR,EU,"(45.74846, 4.84671)",LFLY
+Laguna Beach,CA,USA,US,NA,"(33.54225, -117.78311)",KSNA
+HOVAS,,Sweden,SE,EU,"(57.61139, 11.93917)",ESGP
+Eching,,Germany,DE,EU,"(48.3, 11.61667)",EDDM
+"Seongnam-si, Gyeonggi-do",,South Korea,KR,AS,"(37.43861, 127.13778)",RKSM
+Plzen,,Czech Republic,CZ,EU,"(49.74747, 13.37759)",LKLN
+Chongqing,,China,CN,AS,"(29.56278, 106.55278)",ZUCK
+Reutlingen,,Germany,DE,EU,"(48.49144, 9.20427)",EDDS
+Incheon,,South Korea,KR,AS,"(37.45646, 126.70515)",RKSS
+Kranj,,Slovenia,SI,EU,"(46.23887, 14.35561)",LJLJ
+Union City,NJ,USA,US,NA,"(40.66399, -74.2107)",KEWR
+Pohang-si,,South Korea,KR,AS,"(36.02917, 129.36481)",RKTH
+Luxembourg-ville,,Luxembourg,LU,EU,"(49.61167, 6.13)",ELLX
+Pohang. Gyeongbuk,,South Korea,KR,AS,"(36.02917, 129.36481)",RKTH
+Obertshausen,,Germany,DE,EU,"(50.07139, 8.85123)",EDFE
+Kovacica,,Serbia,RS,EU,"(45.11167, 20.62139)",LYBT
+Oswego,NY,USA,US,NA,"(43.32285, -76.41716)",KSYR
+Lake Mary,FL,USA,US,NA,"(28.75888, -81.31784)",KSFB
+Milano,,Italy,IT,EU,"(45.46427, 9.18951)",LIML
+Louvain-la-Neuve,,Belgium,BE,EU,"(50.66829, 4.61443)",EBBE
+Medford,OR,USA,US,NA,"(42.32652, -122.87559)",KMFR
+Malibu,CA,USA,US,NA,"(34.02577, -118.7804)",KNTD
+Baltimore,MA,USA,US,NA,"(39.29038, -76.61219)",KBWI
+Montréal,,Canada,CA,NA,"(45.50884, -73.58781)",CYUL
+Hung Hom,,Hong Kong,HK,AS,"(22.30715, 114.18532)",VHSK
+Nakhon pathom,,Thailand,TH,AS,"(13.8196, 100.04427)",VTBK
+Athlone,,Ireland,IE,EU,"(53.42278, -7.93722)",EICM
+Kanata,,Canada,CA,NA,"(60.10867, -113.64258)",CYSM
+Peristeri,,Greece,GR,EU,"(38.01539, 23.69187)",LGEL
+Shinjuku-ku,,Japan,JP,AS,"(35.69384, 139.70355)",RJTF
+Malaga,,Spain,ES,EU,"(36.72016, -4.42034)",LEMG
+Katy,TX,USA,US,NA,"(29.78579, -95.8244)",KSGR
+Gif-sur-Yvette Cedex,,France,FR,EU,"(48.68333, 2.13333)",LFPN
+Clemson,SC,USA,US,NA,"(34.68344, -82.83737)",KAND
+Markham,,Canada,CA,NA,"(43.86682, -79.2663)",CYKZ
+Amersham,,United Kingdom,GB,EU,"(51.66667, -0.61667)",EGWU
+Jinan,,China,CN,AS,"(36.66833, 116.99722)",CN-0093
+Tian Jing,,China,CN,AS,"(39.87953, 116.40389)",ZBNY
+Norwich,,United Kingdom,GB,EU,"(52.62783, 1.29834)",EGSH
+Warrington,PA,USA,US,NA,"(40.24927, -75.13406)",KNXX
+Kingston,RI,USA,US,NA,"(41.48038, -71.52256)",KOQU
+Elmsford,NY,USA,US,NA,"(41.0551, -73.82013)",KHPN
+Belle Mead,NJ,USA,US,NA,"(40.46677, -74.66071)",KTTN
+Villeurbanne,,France,FR,EU,"(45.76601, 4.8795)",LFLY
+Tacoma,WA,USA,US,NA,"(47.25288, -122.44429)",KTIW
+Hancock,MI,USA,US,NA,"(30.39378, -89.47456)",KGPT
+HOUSTON,TX,USA,US,NA,"(29.76328, -95.36327)",KHOU
+New Brunswick,NJ,USA,US,NA,"(40.48622, -74.45182)",KEWR
+GIF-SUR-YVETTE CEDEX,,France,FR,EU,"(48.68333, 2.13333)",LFPN
+Seyssinet-Pariset,,France,FR,EU,"(45.17675, 5.69387)",LFLS
+Pittsford,NY,USA,US,NA,"(43.09062, -77.515)",KROC
+Fredericton,NB,Canada,CA,NA,"(45.94541, -66.66558)",CYFC
+Titusville,NJ,USA,US,NA,"(40.30955, -74.88044)",KTTN
+MALDEN,MA,USA,US,NA,"(42.4251, -71.06616)",KBOS
+South Weber,UT,USA,US,NA,"(41.19189, -111.97133)",KOGD
+New York,CT,USA,US,NA,"(41.32219, -72.2365)",KGON
+Arlington,TX,USA,US,NA,"(32.73569, -97.10807)",KDFW
+"Rochester, NY",NY,USA,US,NA,"(43.15478, -77.61556)",KROC
+HOVÅS,,Sweden,SE,EU,"(57.61139, 11.93917)",ESGP
+San Ramon,CA,USA,US,NA,"(37.77993, -121.97802)",KOAK
+University Park,MD,USA,US,NA,"(38.97039, -76.94192)",KDCA
+Newton Highlands,MA,USA,US,NA,"(42.32093, -71.1995)",KOWD
+San mateo,CA,USA,US,NA,"(37.56299, -122.32553)",KSFO
+Edison,NJ,USA,US,NA,"(40.51872, -74.4121)",KEWR
+Honeoye Falls,NY,USA,US,NA,"(42.95229, -77.59028)",KROC
+Newark,NJ,USA,US,NA,"(40.73566, -74.17237)",KEWR
+"Pittsburgh, PA",PA,USA,US,NA,"(40.44062, -79.99589)",KAGC
+Chesterbrook,PA,USA,US,NA,"(40.07566, -75.45908)",KPHL
+Spring City,PA,USA,US,NA,"(40.17677, -75.54769)",KNXX
+Rome,NY,USA,US,NA,"(43.21285, -75.45573)",KRME
+Kyiv,,Ukraine,UA,EU,"(50.45466, 30.5238)",UKKK
+Rio de Janeiro,,Brazil,BR,SA,"(-22.90642, -43.18223)",SBRJ
+New Jersey,NJ,USA,US,NA,"(40.72816, -74.07764)",KEWR
+Eveleigh,,Australia,AU,OC,"(-33.89559, 151.19235)",YSSY
+Knoxville,MA,USA,US,NA,"(32.99235, -87.79057)",KTCL
+Vail,AZ,USA,US,NA,"(32.04786, -110.71203)",KDMA
+Chapel Hill,NC,USA,US,NA,"(35.9132, -79.05584)",KRDU
+Keyport,WA,USA,US,NA,"(47.70204, -122.62098)",KPWT
+Bokaro Steel City,,India,IN,AS,"(23.78707, 85.95644)",VEDB
+Princeton,PA,USA,US,NA,"(34.84342, -86.24304)",KHUA
+Easton,PA,USA,US,NA,"(40.68843, -75.22073)",KABE
+Greenwood,IN,USA,US,NA,"(39.61366, -86.10665)",KIND
+"Cambridge, MA",MA,USA,US,NA,"(42.3751, -71.10561)",KBOS
+Yahud,,Israel,IL,AS,"(32.03317, 34.89091)",LLBG
+Daly City,CA,USA,US,NA,"(37.70577, -122.46192)",KSFO
+Milwaukee,WI,USA,US,NA,"(43.0389, -87.90647)",KMKE
+Twente,,Netherlands,NL,EU,"(52.27, 6.87417)",EHTW
+Northolt,,United Kingdom,GB,EU,"(51.553, -0.41817)",EGWU
+Deland,FL,USA,US,NA,"(29.02832, -81.30312)",KSFB
+Amherst,NY,USA,US,NA,"(42.97839, -78.79976)",KBUF
+Raritan,NJ,USA,US,NA,"(40.56955, -74.63294)",KMMU
+Alliance,OH,USA,US,NA,"(40.91534, -81.10593)",KCAK
+Morris,MN,USA,US,NA,"(45.58607, -95.91394)",KAXN
+OSLO,,Norway,NO,EU,"(59.91273, 10.74609)",ENGM
+Cotignola,,Italy,IT,EU,"(44.38572, 11.93852)",LIDR
+Orlando,FL,USA,US,NA,"(28.53834, -81.37924)",KMCO
+Tempe,AZ,USA,US,NA,"(33.41477, -111.90931)",KPHX
+Carson,CA,USA,US,NA,"(33.83141, -118.28202)",KHHR
+Glen Rock,NJ,USA,US,NA,"(40.96288, -74.13292)",KTEB
+Lenzburg,,Switzerland,CH,EU,"(47.37184, 8.1891)",LSZH
+Smithsburg,MD,USA,US,NA,"(39.65482, -77.57277)",KHGR
+McLean,VA,USA,US,NA,"(38.93428, -77.17748)",KDCA
+Recife,,Brazil,BR,SA,"(-8.05389, -34.88111)",SBRF
+Oshawa,ON,Canada,CA,NA,"(43.90012, -78.84957)",CYOO
+Roebuck,SC,USA,US,NA,"(34.87957, -81.96621)",KGSP
+Bloomington,IL,USA,US,NA,"(40.4842, -88.99369)",KBMI
+Riverton,UT,USA,US,NA,"(40.52189, -111.9391)",KSLC
+Cypress,TX,USA,US,NA,"(29.96911, -95.69717)",KIAH
+Fortaleza,,Brazil,BR,SA,"(-3.71722, -38.54306)",SBFZ
+Campina Grande-PB,,Brazil,BR,SA,"(-7.23056, -35.88111)",SBKG
+Forest Lake,,Australia,AU,OC,"(-27.62563, 152.96883)",YAMB
+Boxboro,MA,USA,US,NA,"(42.49084, -71.52851)",KBED
+Terre Haute,IN,USA,US,NA,"(39.4667, -87.41391)",KHUF
+Villers Les Nancy,,France,FR,EU,"(48.67333, 6.15283)",LFSN
+Grand Rapids,MI,USA,US,NA,"(42.96336, -85.66809)",KGRR
+Mexico,,Mexico,MX,NA,"(23.0, -102.0)",MMZC
+Memphis,TN,USA,US,NA,"(35.14953, -90.04898)",KMEM
+DeLand,FL,USA,US,NA,"(29.02832, -81.30312)",KSFB
+Uxbridge,,United Kingdom,GB,EU,"(51.54863, -0.48048)",EGWU
+Reading,,United Kingdom,GB,EU,"(51.45625, -0.97113)",EGLK
+Storrs,CT,USA,US,NA,"(41.80843, -72.24952)",KHFD
+Los Alamitos,CA,USA,US,NA,"(33.80307, -118.07256)",KSLI
+Portsmouth,,United Kingdom,GB,EU,"(50.79899, -1.09125)",EGHI
+Rancho Cordova,CA,USA,US,NA,"(38.58907, -121.30273)",KMHR
+Winter Park,FL,USA,US,NA,"(28.6, -81.33924)",KMCO
+Eau Claire,WI,USA,US,NA,"(44.81135, -91.49849)",KEAU
+Lysaker,,Norway,NO,EU,"(59.90994, 10.63545)",ENGM
+Woonsocket,RI,USA,US,NA,"(42.00288, -71.51478)",KPVD
+Portland,ME,USA,US,NA,"(43.65737, -70.2589)",KPWM
+Boca Raton,FL,USA,US,NA,"(26.35869, -80.0831)",KFXE
+Miami,FL,USA,US,NA,"(25.77427, -80.19366)",KMIA
+São Paulo,,Brazil,BR,SA,"(-23.5475, -46.63611)",SBMT
+Pasadena,MD,USA,US,NA,"(39.10733, -76.57108)",KBWI
+Magdeburg,,Germany,DE,EU,"(52.12773, 11.62916)",EDBM
+Campina Grande,,Brazil,BR,SA,"(-7.23056, -35.88111)",SBKG
+Amstelveen,,Netherlands,NL,EU,"(52.30083, 4.86389)",EHAM
+Gardendale,AL,USA,US,NA,"(33.6601, -86.81277)",KBHM
+Hawthorn Woods,IL,USA,US,NA,"(42.21697, -88.04952)",KPWK
+SJ Campos,,Brazil,BR,SA,"(-22.16667, -45.1)",SBGW
+Nesher,,Israel,IL,AS,"(32.76622, 35.04425)",LLHA
+Woodbridge,VA,USA,US,NA,"(38.65817, -77.2497)",KDAA
+Essen,,Germany,DE,EU,"(51.45657, 7.01228)",EDDL
+Birkerød,,Denmark,DK,EU,"(55.84759, 12.42791)",EKCH
+Aguascalientes,,Mexico,MX,NA,"(21.88234, -102.28259)",MMAS
+Santa Fe,NM,USA,US,NA,"(35.68698, -105.9378)",KSAF
+Shailer Park,,Australia,AU,OC,"(-27.6498, 153.17753)",YBBN
+Mounds View,MN,USA,US,NA,"(45.10497, -93.20856)",KSTP
+Fort Meade,MD,USA,US,NA,"(39.10815, -76.74323)",KFME
+Khandallah,,New Zealand,NZ,OC,"(-41.245, 174.79422)",NZWN
+Rochester Hills,MI,USA,US,NA,"(42.65837, -83.14993)",KPTK
+Aptos,CA,USA,US,NA,"(36.97717, -121.8994)",KSJC
+Bolzano,,Italy,IT,EU,"(46.49067, 11.33982)",LIPB
+Hjärup,,Sweden,SE,EU,"(55.6688, 13.13931)",ESMS
+Copenhagen O,,Denmark,DK,EU,"(55.70968, 12.56862)",EKCH
+San Clemente,CA,USA,US,NA,"(33.42697, -117.61199)",KNFG
+Juneau,AK,USA,US,NA,"(58.30194, -134.41972)",PAJN
+Seongnam,,South Korea,KR,AS,"(37.43861, 127.13778)",RKSM
+Fallanden,,Switzerland,CH,EU,"(47.37169, 8.63869)",LSMD
+Gross-Umstadt,,Germany,DE,EU,"(49.86899, 8.9321)",EDFE
+Sun Prairie,WI,USA,US,NA,"(43.1836, -89.21373)",KMSN
+Luzern,,Switzerland,CH,EU,"(47.05048, 8.30635)",LSME
+Mclean,VA,USA,US,NA,"(38.93428, -77.17748)",KDCA
+Yehud,,Israel,IL,AS,"(32.03317, 34.89091)",LLBG
+Windisch,,Switzerland,CH,EU,"(47.47899, 8.21842)",LSZH
+Stonington,CT,USA,US,NA,"(41.44093, -71.88118)",KGON
+"Ann Arbor, MI",MI,USA,US,NA,"(42.27756, -83.74088)",KYIP
+"CheonAn, ChungNam",,South Korea,KR,AS,"(36.8065, 127.1522)",RKSG
+Letterkenny,,Ireland,IE,EU,"(54.95, -7.73333)",EIDL
+South Hadley,MA,USA,US,NA,"(42.25842, -72.57453)",KCEF
+Bryan,TX,USA,US,NA,"(30.67436, -96.36996)",KCLL
+San Marcos,CA,USA,US,NA,"(33.14337, -117.16614)",KCRQ
+Raanana,,Israel,IL,AS,"(32.1836, 34.87386)",LLSD
+Campinas,,Brazil,BR,SA,"(-22.90556, -47.06083)",SBKP
+Kenosha,WI,USA,US,NA,"(42.58474, -87.82119)",KENW
+Paisley,,United Kingdom,GB,EU,"(55.83173, -4.43254)",EGPF
+Asheville,NC,USA,US,NA,"(35.60095, -82.55402)",KAVL
+Panevezys,,Lithuania,LT,EU,"(55.73333, 24.35)",EYPP
+Pontiac,MI,USA,US,NA,"(42.63892, -83.29105)",KPTK
+Long Valley,NJ,USA,US,NA,"(40.78593, -74.78016)",KMMU
+Mercerville,NJ,USA,US,NA,"(40.23126, -74.67223)",KTTN
+Montpellier,,France,FR,EU,"(43.61092, 3.87723)",LFMT
+St. Gallen,,Switzerland,CH,EU,"(47.42391, 9.37477)",LSZR
+Orpington,,United Kingdom,GB,EU,"(51.37457, 0.09785)",EGKB
+Annapolis,MD,USA,US,NA,"(38.97845, -76.49218)",KFME
+Rosemount,MN,USA,US,NA,"(44.73941, -93.12577)",KMSP
+Hamilton,NY,USA,US,NA,"(43.66112, -74.49736)",KGFL
+Forth Worth,TX,USA,US,NA,"(32.89595, -97.0372)",KDFW
+Sherman Oaks,CA,USA,US,NA,"(34.15112, -118.44925)",KVNY
+Clausthal-Zellerfeld,,Germany,DE,EU,"(51.80949, 10.33821)",EDVE
+Yola,,Nigeria,NG,AF,"(9.20839, 12.48146)",DNYO
+Mostoles,,Spain,ES,EU,"(40.32234, -3.86496)",LECU
+Smyrna,TN,USA,US,NA,"(35.98284, -86.5186)",KMQY
+Dorval,QC,Canada,CA,NA,"(45.4473, -73.75335)",CYUL
+Carnières,,Belgium,BE,EU,"(50.44428, 4.25509)",EBCI
+Helsingin Yliopisto,,Finland,FI,EU,"(60.18852, 24.8085)",EFHF
+Fort Worth,TX,USA,US,NA,"(32.72541, -97.32085)",KFTW
+Round Rock,TX,USA,US,NA,"(30.50826, -97.6789)",KAUS
+Bangkok,,Thailand,TH,AS,"(13.75398, 100.50144)",VTBD
+Dunedin,,New Zealand,NZ,OC,"(-45.87416, 170.50361)",NZDN
+Mexico City,,Mexico,MX,NA,"(19.42847, -99.12766)",MMMX
+Fairborn,OH,USA,US,NA,"(39.82089, -84.01938)",KFFO
+Hertzliya,,Israel,IL,AS,"(32.16618, 34.81278)",LLSD
+Braunschweig,,Germany,DE,EU,"(52.26594, 10.52673)",EDVE
+Brest Cedex 3,,France,FR,EU,"(48.39029, -4.48628)",LFRB
+Falcon Heights,MN,USA,US,NA,"(44.99163, -93.16633)",KSTP
+Albion,IL,USA,US,NA,"(38.37755, -88.05615)",KEVV
+Gjøvik,,Norway,NO,EU,"(60.79574, 10.69155)",ENGM
+Maplewood,MN,USA,US,NA,"(44.95302, -92.99522)",KSTP
+Carmiel,,Israel,IL,AS,"(32.91708, 35.30501)",LLIB
+Uster,,Switzerland,CH,EU,"(47.34713, 8.72091)",LSMD
+Kyoto-City,,Japan,JP,AS,"(35.03088, 135.75143)",RJOO
+Salvador,,Brazil,BR,SA,"(-12.97111, -38.51083)",SBSV
+"Recife, Pernambuco",,Brazil,BR,SA,"(-8.05389, -34.88111)",SBRF
+Alamosa,CO,USA,US,NA,"(37.46945, -105.87002)",KALS
+Kiryat-Ono,,Israel,IL,AS,"(32.06124, 34.85618)",LLBG
+Waterville,ME,USA,US,NA,"(44.55201, -69.63171)",KAUG
+Rapperswil SG,,Switzerland,CH,EU,"(47.22557, 8.82228)",LSMD
+Tricht,,Netherlands,NL,EU,"(51.89083, 5.26806)",EHVK
+Sanford,FL,USA,US,NA,"(28.80055, -81.27312)",KSFB
+Chevy Chase,MD,USA,US,NA,"(39.00287, -77.07115)",KDCA
+Brentwood,MD,USA,US,NA,"(38.94317, -76.95664)",KDCA
+Beer-Sheva,,Israel,IL,AS,"(31.25181, 34.7913)",LLNV
+Weston,FL,USA,US,NA,"(26.10037, -80.39977)",KOPF
+Bozen / Bolzano,,Italy,IT,EU,"(46.49067, 11.33982)",LIPB
+Kingston,,Jamaica,JM,NA,"(17.99702, -76.79358)",MKTP
+Jyvaskyla,,Finland,FI,EU,"(62.24147, 25.72088)",EFJY
+Alpharetta,GA,USA,US,NA,"(34.07538, -84.29409)",KPDK
+Adelphi,MD,USA,US,NA,"(39.00317, -76.97192)",KDCA
+Burbank,CA,USA,US,NA,"(34.18084, -118.30897)",KBUR
+Lier,,Norway,NO,EU,"(59.78663, 10.2459)",ENRY
+'s-Hertogenbosch,,Netherlands,NL,EU,"(51.69917, 5.30417)",EHEH
+Glen Ellyn,IL,USA,US,NA,"(41.87753, -88.06701)",KDPA
+Sveta Nedjelja,,Croatia,HR,EU,"(45.79833, 15.78056)",LDZA
+Foley,AL,USA,US,NA,"(30.40659, -87.6836)",KNPA
+Zug,,Switzerland,CH,EU,"(47.17242, 8.51745)",LSME
+Dättwil,,Switzerland,CH,EU,"(47.45506, 8.28474)",LSZH
+Wright City,MO,USA,US,NA,"(38.82755, -91.02014)",KSUS
+Halle (Saale),,Germany,DE,EU,"(51.48158, 11.97947)",EDDP
+Grove City,PA,USA,US,NA,"(41.15784, -80.08867)",KFKL
+Suita,,Japan,JP,AS,"(34.76143, 135.51567)",RJOO
+Woodbury,NJ,USA,US,NA,"(39.83817, -75.15268)",KPHL
+Southington,CT,USA,US,NA,"(41.59649, -72.8776)",KHFD
+Grosse Pointe Park,MI,USA,US,NA,"(42.37587, -82.93742)",KDET
+Ridgefield,CT,USA,US,NA,"(41.28148, -73.49818)",KHPN
+Bedford,NY,USA,US,NA,"(41.20426, -73.64374)",KHPN
+Pau,,France,FR,EU,"(43.3, -0.36667)",LFBP
+Beverly Hills,CA,USA,US,NA,"(34.07362, -118.40036)",KLAX
+Mt Pleasant,SC,USA,US,NA,"(32.79407, -79.86259)",KCHS
+Springfield,OH,USA,US,NA,"(39.92423, -83.80882)",KSGH
+Kiryat Bialik,,Israel,IL,AS,"(32.8275, 35.08583)",LLHA
+Wauwatosa,WI,USA,US,NA,"(43.04946, -88.00759)",KMKE
+Carson City,NV,USA,US,NA,"(39.1638, -119.7674)",KTVL
+Elyakhin,,Israel,IL,AS,"(32.40793, 34.92433)",LLSD
+Bloomfield Hills,MI,USA,US,NA,"(42.58364, -83.24549)",KPTK
+Venlo,,Netherlands,NL,EU,"(51.37, 6.16806)",EHDP
+El Cerrito,CA,USA,US,NA,"(37.91576, -122.31164)",KOAK
+Sao Carlos,,Brazil,BR,SA,"(-22.0175, -47.89083)",SBAQ
+Long Beach,CA,USA,US,NA,"(33.76696, -118.18923)",KLGB
+Medina,OH,USA,US,NA,"(41.13839, -81.86375)",KCLE
+Chieri,,Italy,IT,EU,"(45.01054, 7.82133)",LIMA
+"Acton, ACT",,Australia,AU,OC,"(-35.27767, 149.11829)",YSCB
+Nagareyama,,Japan,JP,AS,"(35.8563, 139.90266)",RJTL
+Redwood CIty,CA,USA,US,NA,"(37.48522, -122.23635)",KNUQ
+Saint Ann,MO,USA,US,NA,"(38.72727, -90.38317)",KSTL
+São José dos Campos,,Brazil,BR,SA,"(-23.17944, -45.88694)",SBSJ
+Draper,UT,USA,US,NA,"(40.52467, -111.86382)",KSLC
+Belmont,MA,USA,US,NA,"(42.39593, -71.17867)",KBED
+Florence,MA,USA,US,NA,"(34.79981, -87.67725)",KMSL
+"Kariya-shi, Aichi-ken",,Japan,JP,AS,"(34.98333, 136.98333)",RJGG
+Ashland,MA,USA,US,NA,"(42.26121, -71.4634)",KOWD
+Nakhon Ratchasima,,Thailand,TH,AS,"(14.97066, 102.10196)",VTUQ
+Lancaster,PA,USA,US,NA,"(40.03788, -76.30551)",KLNS
+Sung-nam,,South Korea,KR,AS,"(36.5108, 126.3536)",RKJK
+Garching b. München,,Germany,DE,EU,"(48.24896, 11.65101)",EDDM
+Watsonville,CA,USA,US,NA,"(36.91023, -121.75689)",KSNS
+Hemmingford,QC,Canada,CA,NA,"(45.08338, -73.58248)",CYJN
+Orinda,CA,USA,US,NA,"(37.87715, -122.17969)",KOAK
+Biederbach,,Germany,DE,EU,"(48.2, 8.03333)",EDTL
+Canmore,AB,Canada,CA,NA,"(51.06359, -115.32545)",CYBW
+Yamato,,Japan,JP,AS,"(33.15, 130.48333)",RJFS
+Bratislava,,Slovakia,SK,EU,"(48.14816, 17.10674)",LZIB
+Mililani,HI,USA,US,NA,"(21.45, -158.00111)",PHHI
+Coacalco de Berriozabal,,Mexico,MX,NA,"(19.62923, -99.10689)",MMMX
+Maceió,,Brazil,BR,SA,"(-9.66583, -35.73528)",SBMO
+Carouge,,Switzerland,CH,EU,"(46.18096, 6.13921)",LSGG
+Walldorf,,Germany,DE,EU,"(49.30637, 8.64236)",EDFM
+West Newton,MA,USA,US,NA,"(42.3501, -71.23283)",KBED
+Aalto,,Finland,FI,EU,"(60.18572, 24.82771)",EFHF
+Ismaning,,Germany,DE,EU,"(48.23333, 11.68333)",EDDM
+Lavras - MG,,Brazil,BR,SA,"(-21.24528, -44.99972)",SBVG
+Bloomfield,CT,USA,US,NA,"(41.82649, -72.73009)",KHFD
+Huntington Woods,MI,USA,US,NA,"(42.48059, -83.16687)",KDET
+"Kawagoeshi, Saitama",,Japan,JP,AS,"(35.90861, 139.48528)",RJTJ
+Lusby,MD,USA,US,NA,"(38.41068, -76.45523)",KNHK
+Sivakasi,,India,IN,AS,"(9.44999, 77.79797)",VOMD
+Rueschlikon,,Switzerland,CH,EU,"(47.30688, 8.55135)",LSMD
+Hellerup,,Denmark,DK,EU,"(55.73204, 12.57093)",EKCH
+Søborg,,Denmark,DK,EU,"(56.08481, 12.31803)",EKCH
+Orono,ME,USA,US,NA,"(44.88312, -68.67198)",KBGR
+"Chofu, Tokyo",,Japan,JP,AS,"(35.65924, 139.54837)",RJTF
+Jorvas,,Finland,FI,EU,"(60.13621, 24.51058)",EFHK
+Sunny Isles Beach,FL,USA,US,NA,"(25.95065, -80.12282)",KFLL
+Muiderberg,,Netherlands,NL,EU,"(52.32583, 5.12083)",EHAM
+Le Kremlin-Bicetre,,France,FR,EU,"(48.81471, 2.36073)",LFPO
+Bern,,Switzerland,CH,EU,"(46.94809, 7.44744)",LSZB
+Bayreuth,,Germany,DE,EU,"(49.94782, 11.57893)",EDQD
+Giessen,,Germany,DE,EU,"(50.58727, 8.67554)",EDGS
+Goleta,,USA,US,NA,"(34.43583, -119.82764)",KSBA
+Ypsilanti,MI,USA,US,NA,"(42.24115, -83.61299)",KYIP
+Sherwood,OR,USA,US,NA,"(45.35651, -122.8401)",KUAO
+Mountainview,CA,USA,US,NA,"(37.38605, -122.08385)",KNUQ
+Tel  Aviv,,Israel,IL,AS,"(32.08088, 34.78057)",LLSD
+"Takatsu-ku, Kawasaki-shi, Kanagawa",,Japan,JP,AS,"(35.59222, 139.61529)",RJTF
+Bethpage,NY,USA,US,NA,"(40.74427, -73.48207)",KFRG
+HongKong,,China,CN,AS,"(22.27832, 114.17469)",ZGSZ
+Greenbrae,CA,USA,US,NA,"(37.94854, -122.5247)",KOAK
+Peekskill,NY,USA,US,NA,"(41.29009, -73.92042)",KSWF
+Zûrich,,Switzerland,CH,EU,"(47.36667, 8.55)",LSMD
+Auburndale,MA,USA,US,NA,"(42.34732, -71.2495)",KBED
+Dobbs Ferry,NY,USA,US,NA,"(41.01454, -73.87264)",KHPN
+Northfield,MN,USA,US,NA,"(44.4583, -93.1616)",KMSP
+Springfield,VA,USA,US,NA,"(38.78928, -77.1872)",KDAA
+Foster City,CA,USA,US,NA,"(37.55855, -122.27108)",KSFO
+Shalimar,FL,USA,US,NA,"(30.44575, -86.57912)",KVPS
+Espergaerde,,Denmark,DK,EU,"(55.99464, 12.54733)",EKCH
+Blaine,WA,USA,US,NA,"(48.99372, -122.74712)",KBLI
+Green Bank,WV,USA,US,NA,"(38.43118, -79.82646)",KEKN
+Flemington,NJ,USA,US,NA,"(40.51233, -74.85933)",KTTN
+Santa Maria,CA,USA,US,NA,"(34.95303, -120.43572)",KSMX
+Auburn,AL,USA,US,NA,"(32.60986, -85.48078)",KCSG
+Aalen,,Germany,DE,EU,"(48.83777, 10.0933)",EDTY
+Montgomery,WV,USA,US,NA,"(38.18038, -81.32845)",KCRW
+Champlin,MN,USA,US,NA,"(45.18885, -93.39745)",KMSP
+YongIn,,South Korea,KR,AS,"(37.23825, 127.17795)",RKSW
+Hujisawa,,Japan,JP,AS,"(35.34926, 139.47666)",RJTA
+Kocaeli,,Turkey,TR,AS,"(40.76499, 29.92928)",LTBQ
+Elkton,MD,USA,US,NA,"(39.60678, -75.83327)",KILG
+Hoover,AL,USA,US,NA,"(33.40539, -86.81138)",KBHM
+Lewis Center,OH,USA,US,NA,"(40.1984, -83.01018)",KOSU
+Le Barp,,France,FR,EU,"(44.60833, -0.76948)",LFBD
+Rehovot,,Israel,IL,AS,"(31.89421, 34.81199)",LLEK
+Quinta do Conde,,Portugal,PT,EU,"(38.56528, -9.04316)",LPMT
+Glendale,CA,USA,US,NA,"(34.14251, -118.25508)",KBUR
+Auburn University,AL,USA,US,NA,"(32.60504, -85.48266)",KCSG
+Solaize,,France,FR,EU,"(45.6397, 4.84038)",LFLY
+Sankt Augustin,,Germany,DE,EU,"(50.77538, 7.197)",EDDK
+Rio Tinto,,Portugal,PT,EU,"(41.17872, -8.55953)",LPPR
+Cesena,,Italy,IT,EU,"(44.22177, 12.04144)",LIPK
+Montclair,NJ,USA,US,NA,"(40.82593, -74.20903)",KTEB
+Odawara,,Japan,JP,AS,"(35.25556, 139.15972)",RJTA
+Fano,,Italy,IT,EU,"(43.84052, 13.01665)",LIPY
+Lahore,,Pakistan,PK,AS,"(31.558, 74.35071)",OPLA
+Bundang,,South Korea,KR,AS,"(37.36568, 127.14324)",RKSM
+Edwardsville,IL,USA,US,NA,"(38.81144, -89.95316)",KALN
+Funabashi,,Japan,JP,AS,"(35.70129, 139.98648)",RJTL
+West Lafayette,,USA,US,NA,"(40.42587, -86.90807)",KLAF
+Utzenaich,,Austria,AT,EU,"(48.27554, 13.46014)",LOWL
+Adelaide,,Australia,AU,OC,"(-34.92866, 138.59863)",YPAD
+"Kobe, Hyogo",,Japan,JP,AS,"(34.6913, 135.183)",RJBE
+Bergenfield,NJ,USA,US,NA,"(40.9276, -73.99736)",KTEB
+Bourg la Reine,,France,FR,EU,"(48.77888, 2.31781)",LFPO
+Riyadh,,Saudi Arabia,SA,AS,"(24.68773, 46.72185)",OERY
+Brasilia,,Brazil,BR,SA,"(-10.0, -55.0)",SBCC
+Villeneuve D ASCQ,,France,FR,EU,"(50.61669, 3.16664)",LFQQ
+Xanthi,,Greece,GR,EU,"(41.13488, 24.888)",LGKV
+Niterói,,Brazil,BR,SA,"(-22.88333, -43.10361)",SBRJ
+Annandale,VA,USA,US,NA,"(38.83039, -77.19637)",KDAA
+Williston,VT,USA,US,NA,"(44.43755, -73.06818)",KBTV
+Mont de Marsan,,France,FR,EU,"(43.89022, -0.49713)",LFBM
+Champaign-Urbana,IL,USA,US,NA,"(40.11642, -88.24338)",KCMI
+Villers-Les-Nancy,,France,FR,EU,"(48.67333, 6.15283)",LFSN
+Newark,CA,USA,US,NA,"(37.52966, -122.04024)",KNUQ
+Secane,PA,USA,US,NA,"(39.914, -75.30213)",KPHL
+Central,SC,USA,US,NA,"(34.72427, -82.78125)",KAND
+Sittard,,Netherlands,NL,EU,"(50.99833, 5.86944)",EHBK
+Athabasca,AB,Canada,CA,NA,"(54.73298, -113.05645)",CYZH
+Carmel,IN,USA,US,NA,"(39.97837, -86.11804)",KIND
+Aiken,SC,USA,US,NA,"(33.56042, -81.71955)",KAGS
+Roseville,CA,USA,US,NA,"(38.75212, -121.28801)",KMCC
+Pregassona,,Switzerland,CH,EU,"(46.02021, 8.97429)",LSZA
+Des Moines,IA,USA,US,NA,"(41.60054, -93.60911)",KDSM
+Potsdam,NY,USA,US,NA,"(44.66978, -74.98131)",KMSS
+Kariya-shi,,Japan,JP,AS,"(34.98333, 136.98333)",RJGG
+New Hope,PA,USA,US,NA,"(40.36427, -74.95128)",KTTN
+Worblaufen,,Switzerland,CH,EU,"(46.97967, 7.45809)",LSZB
+Passau,,Germany,DE,EU,"(48.5665, 13.43122)",ETSE
+Christiansburg,VA,USA,US,NA,"(37.12985, -80.40894)",KROA
+Geneva,NY,USA,US,NA,"(42.86896, -76.97774)",KITH
+Raananna,,Israel,IL,AS,"(32.1836, 34.87386)",LLSD
+Bridgewater,NJ,USA,US,NA,"(40.60079, -74.64815)",KMMU
+Prague 1,,Czech Republic,CZ,EU,"(50.08802, 14.42166)",LKKB
+Schwalbach am Taunus,,Germany,DE,EU,"(50.15, 8.53333)",EDDF
+Bogota DC,,Colombia,CO,SA,"(4.60971, -74.08175)",SKBO
+Fountain Valley,CA,USA,US,NA,"(33.70918, -117.95367)",KSNA
+Niteroi,,Brazil,BR,SA,"(-22.88333, -43.10361)",SBRJ
+Maceio,,Brazil,BR,SA,"(-9.66583, -35.73528)",SBMO
+Lugano,AZ,Switzerland,CH,EU,"(46.01008, 8.96004)",LSZA
+Glenview,IL,USA,US,NA,"(42.06975, -87.78784)",KPWK
+Williamsville,NY,USA,US,NA,"(42.96395, -78.73781)",KBUF
+Bozen/Bolzano,,Italy,IT,EU,"(46.49067, 11.33982)",LIPB
+Roanoke,VA,USA,US,NA,"(37.27097, -79.94143)",KROA
+Recife,PA,Brazil,BR,SA,"(-8.05389, -34.88111)",SBRF
+Hagen,,Germany,DE,EU,"(51.36081, 7.47168)",EDLW
+Amsterdam,NH,Netherlands,NL,EU,"(52.37403, 4.88969)",EHAM
+Stellenbosch,,South Africa,ZA,AF,"(-33.93462, 18.86676)",FACT
+Oberperfuss,,Austria,AT,EU,"(47.23717, 11.21026)",LOWI
+Oregonia,OH,USA,US,NA,"(39.45089, -84.09605)",KILN
+Ikoma,,Japan,JP,AS,"(34.68333, 135.7)",RJOY
+Florianopolis,,Brazil,BR,SA,"(-27.59667, -48.54917)",SBFL
+Petach-tikva,,Israel,IL,AS,"(32.08707, 34.88747)",LLBG
+Minnetonka,MN,USA,US,NA,"(44.9133, -93.50329)",KMSP
+Utsunomiya-shi,,Japan,JP,AS,"(36.56667, 139.88333)",RJTU
+Owego,NY,USA,US,NA,"(42.10341, -76.26215)",KBGM
+Hartsville,SC,USA,US,NA,"(34.40515, -80.11812)",KFLO
+Lincoln,MA,USA,US,NA,"(35.78674, -96.66219)",KSWO
+Glen Iris,VIC,Australia,AU,OC,"(-37.85995, 145.05489)",YMMB
+Rapperswil,,Switzerland,CH,EU,"(47.22557, 8.82228)",LSMD
+Ammersbek,,Germany,DE,EU,"(53.7, 10.2)",EDDH
+Omer,,Israel,IL,AS,"(31.26489, 34.84766)",LLNV
+King George,VA,USA,US,NA,"(38.27374, -77.15651)",KNYG
+Meudon-La-Forêt,,France,FR,EU,"(48.78404, 2.22507)",LFPV
+Maple Valley,WA,USA,US,NA,"(47.39272, -122.04641)",KSEA
+Cross Roads,TX,USA,US,NA,"(32.04905, -95.96747)",KTYR
+Prague 2,,Czech Republic,CZ,EU,"(50.07546, 14.43595)",LKKB
+TAMPA,FL,USA,US,NA,"(27.94752, -82.45843)",KTPA
+Bend,OR,USA,US,NA,"(44.05817, -121.31531)",KRDM
+Agoura Hills,CA,USA,US,NA,"(34.13639, -118.77453)",KVNY
+Westbrook,ME,USA,US,NA,"(43.67703, -70.37116)",KPWM
+Pullman,WA,USA,US,NA,"(46.73127, -117.17962)",KPUW
+Tehran,,Iran,IR,AS,"(35.69439, 51.42151)",OIIG
+Scarborough,ON,Canada,CA,NA,"(43.77223, -79.25666)",CYKZ
+Winnipeg,MB,Canada,CA,NA,"(49.8844, -97.14704)",CYWG
+Mount Kisco,NY,USA,US,NA,"(41.20426, -73.72708)",KHPN
+Schwarzenegg,,Switzerland,CH,EU,"(46.79529, 7.71685)",LSZB
+Meudon-La-Foret,,France,FR,EU,"(48.78404, 2.22507)",LFPV
+Jülich,,Germany,DE,EU,"(50.92149, 6.36267)",ETNG
+Ra'anana,,Israel,IL,AS,"(32.1836, 34.87386)",LLSD
+Pardes Hanna,,Israel,IL,AS,"(32.47408, 34.97781)",LLRD
+Spring Grove,IL,USA,US,NA,"(42.44363, -88.23648)",KENW
+Dulles,VA,USA,US,NA,"(38.94877, -77.4491)",KIAD
+Albany,OR,USA,US,NA,"(44.63651, -123.10593)",KCVO
+Camas,WA,USA,US,NA,"(45.58706, -122.39954)",KTTD
+Lake Elsinore,CA,USA,US,NA,"(33.66808, -117.32726)",KRIV
+La Terrasse sur Dorlay,,France,FR,EU,"(45.45051, 4.58267)",LFMH
+Dendermonde,,Belgium,BE,EU,"(51.02869, 4.10106)",EBBR
+Belém,,Brazil,BR,SA,"(-1.45583, -48.50444)",SBBE
+Tualatin,OR,USA,US,NA,"(45.38401, -122.76399)",KUAO
+Santa Cruz,CO,USA,US,NA,"(37.86194, -107.8384)",KMTJ
+Milwaukie,OR,USA,US,NA,"(45.44623, -122.63926)",KPDX
+Bergamo,,Italy,IT,EU,"(45.69601, 9.66721)",LIME
+Recife PE,,Brazil,BR,SA,"(-8.05389, -34.88111)",SBRF
+Yakima,WA,USA,US,NA,"(46.60207, -120.5059)",KYKM
+Hamminkeln,,Germany,DE,EU,"(51.73262, 6.59031)",EDLV
+Chapel HIll,NC,USA,US,NA,"(35.9132, -79.05584)",KRDU
+Hollywood,FL,USA,US,NA,"(26.0112, -80.14949)",KFLL
+Lynchburg,VA,USA,US,NA,"(37.41375, -79.14225)",KLYH
+Dana Point,CA,USA,US,NA,"(33.46697, -117.69811)",KSNA
+Vologda,,Russia,RU,EU,"(59.2239, 39.88398)",ULWW
+Ober Ramstadt,,Germany,DE,EU,"(49.83078, 8.74887)",EDFE
+Sagamihara,,Japan,JP,AS,"(35.55, 139.35)",RJTA
+Kidlington,,United Kingdom,GB,EU,"(51.82166, -1.2886)",EGTK
+Bowling Green,OH,USA,US,NA,"(41.37477, -83.65132)",KTOL
+Utsunomiya,,Japan,JP,AS,"(36.56667, 139.88333)",RJTU
+Tranbjerg J,,Denmark,DK,EU,"(56.09519, 10.13605)",EKAH
+Oberlin,OH,USA,US,NA,"(41.29394, -82.21738)",KCLE
+McDonald,PA,USA,US,NA,"(40.3709, -80.23478)",KPIT
+Pearland,TX,USA,US,NA,"(29.56357, -95.28605)",KHOU
+Nobleton,ON,Canada,CA,NA,"(43.90086, -79.65191)",CYKZ
+Roermond,,Netherlands,NL,EU,"(51.19417, 5.9875)",EHBD
+Distrito Federal,,Mexico,MX,NA,"(19.42847, -99.12766)",MMMX
+Weston,OH,USA,US,NA,"(41.34477, -83.79716)",KTOL
+Grand Forks,ND,USA,US,NA,"(47.92526, -97.03285)",KGFK
+Copenhagen,DE,Denmark,DK,EU,"(55.67594, 12.56553)",EKCH
+Zoetermeer,,Netherlands,NL,EU,"(52.0575, 4.49306)",EHRD
+Columbus,GA,USA,US,NA,"(32.46098, -84.98771)",KCSG
+Wellesley Hills,MA,USA,US,NA,"(42.30843, -71.27867)",KOWD
+Hildesheim,,Germany,DE,EU,"(52.15077, 9.95112)",EDDV
+Linda-a-velha,,Portugal,PT,EU,"(38.71446, -9.2422)",LPPT
+Quilpué,,Chile,CL,SA,"(-33.04752, -71.44249)",SCVM
+Act,,Australia,AU,OC,"(-35.28346, 149.12807)",YSCB
+Ellicott City,MD,USA,US,NA,"(39.26733, -76.79831)",KBWI
+Zargoza,,Spain,ES,EU,"(41.65606, -0.87734)",LEZG
+Saint-ismier,,France,FR,EU,"(45.25227, 5.83073)",LFLS
+São José Dos Campos,,Brazil,BR,SA,"(-23.17944, -45.88694)",SBSJ
+Mount Berry,GA,USA,US,NA,"(34.27509, -85.18328)",KRMG
+Camperdown,,Australia,AU,OC,"(-38.23392, 143.14983)",YARA
+Fullerton,CA,USA,US,NA,"(33.87029, -117.92534)",KSLI
+Hoshaya,,Israel,IL,AS,"(32.75809, 35.2948)",LLRD
+Bloomfield,NJ,USA,US,NA,"(40.80677, -74.18542)",KTEB
+Kawasaki-shi,,Japan,JP,AS,"(35.52056, 139.71722)",RJTT
+Monroe,LA,USA,US,NA,"(31.46329, -87.34934)",KNSE
+Rostock,,Germany,DE,EU,"(54.0887, 12.14049)",ETNL
+Gummersbach,,Germany,DE,EU,"(51.02608, 7.56473)",EDDK
+Lugano 4,,Switzerland,CH,EU,"(45.95516, 8.94757)",LSZA
+Mont Saint Guibert,,Belgium,BE,EU,"(50.63427, 4.61061)",EBBE
+Sycamore,OH,USA,US,NA,"(40.94978, -83.17075)",KFDY
+Marietta,PA,USA,US,NA,"(40.05704, -76.55219)",KLNS
+Richmond,CA,USA,US,NA,"(37.93576, -122.34775)",KOAK
+Freehold,NJ,USA,US,NA,"(40.26011, -74.27376)",KNEL
+Maribor,,Slovenia,SI,EU,"(46.55472, 15.64667)",LJMB
+Mühltal,,Germany,DE,EU,"(49.80677, 8.69194)",EDFE
+Rio De Janeiro,,Brazil,BR,SA,"(-22.90642, -43.18223)",SBRJ
+Aveiro,,Portugal,PT,EU,"(40.64427, -8.64554)",LPOV
+Coburg,,Germany,DE,EU,"(50.25937, 10.96384)",EDQD
+Roubaix,,France,FR,EU,"(50.69421, 3.17456)",LFQQ
+Nelsonville,OH,USA,US,NA,"(39.45868, -82.23182)",KZZV
+Millersville,PA,USA,US,NA,"(39.99788, -76.35413)",KLNS
+Glenshaw,PA,USA,US,NA,"(40.53285, -79.96755)",KAGC
+Lake Worth,FL,USA,US,NA,"(26.61708, -80.07231)",KPBI
+Libertyville,IL,USA,US,NA,"(42.28308, -87.95313)",KPWK
+Gibsonia,PA,USA,US,NA,"(40.63007, -79.9695)",KPIT
+Abbesbüttel,,Germany,DE,EU,"(52.35233, 10.55649)",EDVE
+Valbonne,,France,FR,EU,"(45.85021, 5.12341)",LFLL
+North Ryde,NSW,Australia,AU,OC,"(-33.79677, 151.12436)",YSSY
+Villeneuve D Ascq,,France,FR,EU,"(50.61669, 3.16664)",LFQQ
+Sandrigo,,Italy,IT,EU,"(45.66083, 11.58921)",LIPT
+Washington,,USA,US,NA,"(38.89511, -77.03637)",KDCA
+Herentals,,Belgium,BE,EU,"(51.17655, 4.83248)",EBAW
+Halle,,Belgium,BE,EU,"(50.73385, 4.23454)",EBBR
+Harkstede,,Netherlands,NL,EU,"(53.21333, 6.69861)",EHGG
+Ravenswood,WV,USA,US,NA,"(38.94814, -81.76096)",KPKB
+Huntington Beach,CA,USA,US,NA,"(33.6603, -117.99923)",KSNA
+Urbana-Champaign,IL,USA,US,NA,"(40.11642, -88.24338)",KCMI
+Skikda,,Algeria,DZ,AF,"(36.87617, 6.90921)",DABC
+Halle (saale),,Germany,DE,EU,"(51.48158, 11.97947)",EDDP
+Parma,,Italy,IT,EU,"(44.79935, 10.32618)",LIMP
+Bucharest,,Romania,RO,EU,"(44.43225, 26.10626)",LRBS
+Milano,MI,Italy,IT,EU,"(45.46427, 9.18951)",LIML
+Pennant Hills,,Australia,AU,OC,"(-33.7457, 151.04764)",YSBK
+Zhejiang,,China,CN,AS,"(29.16667, 120.0)",ZSYW
+Aix-en-provence,,France,FR,EU,"(43.5283, 5.44973)",LFML
+Hazerswoude-Rijndijk,,Netherlands,NL,EU,"(52.12833, 4.59167)",EHRD
+Écublens Vd,,Switzerland,CH,EU,"(46.52899, 6.56261)",LSMP
+Christchurch,,New Zealand,NZ,OC,"(-43.53333, 172.63333)",NZCH
+Recife - Pe,,Brazil,BR,SA,"(-8.05389, -34.88111)",SBRF
+Lakeland,FL,USA,US,NA,"(28.03947, -81.9498)",KLAL
+Franklin,MA,USA,US,NA,"(42.69592, -72.45287)",KEEN
+Newport Beach,CA,USA,US,NA,"(33.61891, -117.92895)",KSNA
+Almere,,Netherlands,NL,EU,"(52.37025, 5.21413)",EHLE
+Wabern,,Switzerland,CH,EU,"(46.92987, 7.45079)",LSZB
+Duivendrecht,,Netherlands,NL,EU,"(52.32941, 4.93964)",EHAM
+Ulm,,Germany,DE,EU,"(48.39841, 9.99155)",ETHL
+Brugge,,Belgium,BE,EU,"(51.20892, 3.22424)",EBOS
+Kempten,,Germany,DE,EU,"(47.72674, 10.31389)",EDJA
+Kottingbrunn,,Austria,AT,EU,"(47.95096, 16.22715)",LOAN
+Frankfurt,,Germany,DE,EU,"(50.11552, 8.68417)",EDDF
+Jena,,Germany,DE,EU,"(50.92878, 11.5899)",EDDE
+Seattle,OR,USA,US,NA,"(42.01235, -123.15116)",KMFR
+Košice,,Slovakia,SK,EU,"(48.71395, 21.25808)",LZKZ
+Kusatsu,,Japan,JP,AS,"(35.01667, 135.96667)",RJOO
+Wiener Neustadt,,Austria,AT,EU,"(47.80485, 16.23196)",LOAN
+Hwaseong,,South Korea,KR,AS,"(37.20682, 126.8169)",RKSW
+Wernigerode,,Germany,DE,EU,"(51.83652, 10.78216)",EDVE
+Volendam,,Netherlands,NL,EU,"(52.495, 5.07083)",EHAM
+Bothell,WA,USA,US,NA,"(47.76232, -122.2054)",KPAE
+Walton-on-thames,,United Kingdom,GB,EU,"(51.38678, -0.41319)",EGLL
+Bellvue,WA,USA,US,NA,"(39.24769, -119.81157)",KRNO
+Antwerpen,,Belgium,BE,EU,"(51.21989, 4.40346)",EBAW
+East Palo Alto,CA,USA,US,NA,"(37.46883, -122.14108)",KNUQ
+Ditzingen,,Germany,DE,EU,"(48.82672, 9.06703)",EDDS
+Welsum,,Netherlands,NL,EU,"(52.33583, 6.09167)",EHDL
+Casalecchio Di Reno,,Italy,IT,EU,"(44.47563, 11.27495)",LIPE
+Podgorica,,Montenegro,ME,EU,"(42.44111, 19.26361)",LYPG
+Cambridge,CA,USA,US,NA,"(38.66685, -121.00355)",KMHR
+Misgav,,Israel,IL,AS,"(33.25446, 35.56526)",LLIB
+Nürnberg,,Germany,DE,EU,"(49.45421, 11.07752)",EDDN
+Pasay City,,Philippines,PH,AS,"(14.53748, 121.00144)",RPLL
+Best,,Netherlands,NL,EU,"(51.5075, 5.39028)",EHEH
+Heswall,,United Kingdom,GB,EU,"(53.32733, -3.09648)",EGGP
+Casalecchio Di Reno (Bologna),,Italy,IT,EU,"(44.47563, 11.27495)",LIPE
+Etterbeek,,Belgium,BE,EU,"(50.83272, 4.38835)",EBBR
+Faisalabad,,Pakistan,PK,AS,"(31.41554, 73.08969)",OPFA
+Jyväskylä,,Finland,FI,EU,"(62.24147, 25.72088)",EFJY
+Dordrecht,,Netherlands,NL,EU,"(51.81, 4.67361)",EHRD
+Apeldoorn,,Netherlands,NL,EU,"(52.21, 5.96944)",EHDL
+Langen,,Germany,DE,EU,"(49.98955, 8.66852)",EDFE
+Makati City,,Philippines,PH,AS,"(14.55027, 121.03269)",RPLL
+Bethany,CT,USA,US,NA,"(41.42176, -72.99705)",KHVN
+Issaquah,WA,USA,US,NA,"(47.5301, -122.03262)",KBFI
+Jackson,MS,USA,US,NA,"(32.29876, -90.18481)",KJAN
+Weinheim,,Germany,DE,EU,"(49.54887, 8.66697)",EDFM
+Vega Baja,PR,USA,US,NA,"(18.42578, -66.39961)",KHST
+Mount Vernon,WA,USA,US,NA,"(48.42122, -122.33405)",KNUW
+Shinjuku,,Japan,JP,AS,"(35.69384, 139.70355)",RJTF
+Sunderland,MA,USA,US,NA,"(42.46675, -72.5787)",KCEF
+Spencerport,NY,USA,US,NA,"(43.18645, -77.8039)",KROC
+Muzambinho,,Brazil,BR,SA,"(-21.3524, -46.51842)",SBPC
+São Carlos,,Brazil,BR,SA,"(-22.0175, -47.89083)",SBAQ
+Zurich,BC,Switzerland,CH,EU,"(47.36667, 8.55)",LSMD
+Chicago,WI,USA,US,NA,"(42.58474, -87.82119)",KENW
+Shoreline,WA,USA,US,NA,"(47.75565, -122.34152)",KPAE
+São José dos Campos SP,,Brazil,BR,SA,"(-23.17944, -45.88694)",SBSJ
+Nashua,NH,USA,US,NA,"(42.76537, -71.46757)",KMHT
+South Jordan,UT,USA,US,NA,"(40.56217, -111.92966)",KSLC
+Saitama City,,Japan,JP,AS,"(35.83221, 139.87185)",RJTL
+Fujimi-shi,,Japan,JP,AS,"(35.85393, 139.55478)",RJTJ
+Arcadia,CA,USA,US,NA,"(34.13973, -118.03534)",KBUR
+Wels,,Austria,AT,EU,"(48.16667, 14.03333)",LOWL
+Zaragoza,,Spain,ES,EU,"(41.65606, -0.87734)",LEZG
+Richmond,BC,Canada,CA,NA,"(49.17003, -123.13683)",CYVR
+Mont-Saint-Guibert,,Belgium,BE,EU,"(50.63427, 4.61061)",EBBE
+Setauket,NY,USA,US,NA,"(40.93064, -73.10179)",KISP
+Ra'ananna,,Israel,IL,AS,"(32.1836, 34.87386)",LLSD
+St-Sulpice VD,,Switzerland,CH,EU,"(46.51047, 6.55897)",LSMP
+Carmel,NY,USA,US,NA,"(41.41485, -73.68524)",KPOU
+Waterbury,CT,USA,US,NA,"(41.55815, -73.0515)",KHVN
+Kanagawa(-ken),,Japan,JP,AS,"(35.43333, 139.65)",RJTT
+Kalamazoo,MI,USA,US,NA,"(42.29171, -85.58723)",KAZO
+Dubuque,IA,USA,US,NA,"(42.50056, -90.66457)",KDBQ
+Ezeiza,,Argentina,AR,SA,"(-34.82222, -58.53583)",SAEZ
+Belo Horizonte/MG,,Brazil,BR,SA,"(-19.92083, -43.93778)",SBBH
+Glattbrugg,,Switzerland,CH,EU,"(47.43169, 8.57588)",LSZH
+Shoham,,Israel,IL,AS,"(31.99866, 34.94559)",LLBG
+Sarasota,FL,USA,US,NA,"(27.33643, -82.53065)",KSRQ
+Sulaymaniyah,,Iraq,IQ,AS,"(35.56496, 45.4329)",ORSU
+Arecibo,PR,USA,US,NA,"(18.47245, -66.71573)",KHST
+Laval,QC,Canada,CA,NA,"(45.56995, -73.692)",CYUL
+Morehead,KY,USA,US,NA,"(38.21418, -83.58604)",KJKL
+Valparaíso,,Chile,CL,SA,"(-33.036, -71.62963)",SCVM
+Marietta,GA,USA,US,NA,"(33.9526, -84.54993)",KMGE
+Meyrin,,Switzerland,CH,EU,"(46.23424, 6.08025)",LSGG
+Minneapols,MN,USA,US,NA,"(44.86339, -93.28827)",KMSP
+Neunkirchen,,Germany,DE,EU,"(49.34449, 7.18045)",EDDR
+Yorktown Heights NY,NY,USA,US,NA,"(41.27093, -73.77763)",KHPN
+Rutgers,NJ,USA,US,NA,"(40.51872, -74.44182)",KEWR
