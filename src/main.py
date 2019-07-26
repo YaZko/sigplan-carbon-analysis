@@ -88,7 +88,8 @@ def analysis():
     # db.participation_overlap_cross_conf_generate_all(GLOB)
 
     # db.get_number_of_participations(GLOB)
-    db.get_old_timers(GLOB)
+    # db.get_old_timers(GLOB)
+    db.pick_optimals(GLOB, cache)
 
 analysis()
 

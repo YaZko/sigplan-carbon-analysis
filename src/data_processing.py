@@ -55,12 +55,7 @@ class DB:
                     continent = loc.get_and_set_continent(GLOB,cache)
                     airport = loc.get_and_set_airport(GLOB,cache)
 
-                    if GLOB.model == 'acm':
-                        footprint = d.get_and_set_cost_acm(GLOB, cache, conf_loc)
-                    elif GLOB.model == 'cool':
-                        cost_brighter = d.get_and_set_cost_CoolEffect(GLOB, cache, conf_loc)
-                    else:
-                        raise("Model not recognize in global environment: {}".format(GLOB.model))
+                    footprint = d.get_and_set_footprint(GLOB, cache, conf_loc)
 
     def preprocess(self,GLOB,cache):
         self.preprocess_confs(GLOB,cache)
@@ -76,27 +71,6 @@ class DB:
                              'footprint'])
             for d in self.data:
                 d.write_csv_row(writer)
-
-    def analysis(self,output_file):
-        with open(output_file,'w',newline='') as csvfile:
-            writer = csv.writer(csvfile, delimiter=',', quoting=csv.QUOTE_MINIMAL)
-            writer.writerow(['conf','year','location',
-                             'number of participants',
-                             'acm total cost', 'acm average cost',
-                             'brighter total cost', 'brighter average cost'])
-            for name,conf in self.confs.items():
-                for year,conf_loc in conf.items():
-                    select_data = [d for d in self.data if d.conference == name and d.year == year]
-                    nb = len(select_data)
-                    if nb > 0:
-                        total_acm = round(reduce(lambda x,y: x + y.cost_acm, select_data, 0)/1000,2)
-                        average_acm = round(total_acm/nb,2)
-                        total_brighter = round(reduce(lambda x,y: x + y.cost_brighter, select_data, 0)/1000,2)
-                        average_brighter = round(total_brighter/nb,2)
-                        writer.writerow([name, year, conf_loc.city, nb,
-                                         total_acm, average_acm,
-                                         total_brighter,average_brighter])
-
 
     def analysis_demographic(self,GLOB):
         output_file_main  = fill_hole_string(GLOB.output_demographic,'')
@@ -175,34 +149,6 @@ class DB:
             for c in continents:
                 if not total_attendance_per_loc[c] is 0:
                     writer.writerow([c] + [norm_perc(distrib_per_loc[c][x],total_attendance_per_loc[c]) for x in continents] + [norm_perc(distrib_per_loc[c]['SAME'],total_attendance_per_loc[c])])
-
-
-    # Assuming the participants would not have changed, speculate the carbon cost of a conference assuming it had taken place in a different location
-    def speculate_cost_at_loc(self,name,year,loc):
-        select_data = [d for d in self.data if d.conference == name and d.year == year]
-        nb = len(select_data)
-
-        if nb > 0:
-            costs = [d.get_cost_acm(loc) for d in select_data]
-            total_cost = round(reduce(lambda x,y: x + y, costs, 0)/1000,2)
-            average_cost = round(total_cost/len(select_data),2)
-
-            print("{} {} would have cost {} per participant if organized in {}".format(name,year,average_cost,loc))
-            return average_cost
-
-    # Assuming the participants would not have changed, speculate the carbon cost of a conference assuming it was colocated between its actual location and another one of choice
-    def speculate_cost_split(self,name,year,loc):
-        select_data = [d for d in self.data if d.conference == name and d.year == year]
-        nb = len(select_data)
-        loc1,loc2 = self.confs[name][year], loc
-
-        if nb > 0:
-            costs = [min(d.get_cost_acm(loc1),d.get_cost_acm(loc2)) for d in select_data]
-            total_cost = round(reduce(lambda x,y: x + y, costs, 0)/1000,2)
-            average_cost = round(total_cost/len(select_data),2)
-
-            print("{} {} would have cost {} per participant if colocated between {} and {}".format(name,year,average_cost,loc1,loc2))
-            return average_cost
 
     # Overlap of participation, in percentage, between two instances of two conferences
     def participation_overlap_single(self,name1,year1,name2,year2):
@@ -302,19 +248,19 @@ class DB:
                         res = norm_perc(len(old_timers),len(select_data))
                         writer.writerow([year,res])
 
-    def pick_optimal(self,conf,year,candidates):
-        print("Picking optimal for {} {}".format(conf,year))
+    def pick_optimal(self,GLOB, cache, conf, year):
+        logging.debug("Picking optimal for {} {}".format(conf,year))
         select_data = [d for d in self.data if d.conference == conf and d.year == year]
         nb = len(select_data)
         if nb > 0:
-            base_total = round(reduce(lambda x,y: x + y.cost_acm, select_data, 0)/1000,2)
+            base_total = round(reduce(lambda x,y: x + y.footprint, select_data, 0)/1000,2)
             base_average = round(base_total/nb,2)
             best_average = base_average
             best_loc = "SAME"
 
-            for loc in candidates:
-                loc = Location(*loc)
-                costs = [d.get_cost_acm(loc) for d in select_data]
+            for loc in GLOB.city_candidates:
+                loc = Location(Place(*loc))
+                costs = [d.get_footprint(GLOB, cache, loc) for d in select_data]
                 total = round(reduce(lambda x,y: x + y, costs, 0)/1000,2)
                 average = round(total/nb,2)
                 if best_average > average:
@@ -326,19 +272,19 @@ class DB:
         else:
             return None
 
-    def pick_optimals(self,output_file,confs,years,candidates):
+    def pick_optimals(self, GLOB, cache):
 
-        with open(output_file,'w',newline='') as csvfile:
+        with open(GLOB.output_optimals,'w',newline='') as csvfile:
 
             writer = csv.writer(csvfile, delimiter=',', quoting=csv.QUOTE_MINIMAL)
             writer.writerow(['conf','year','orig. loc.','orig. cost', 'best loc.', 'best cost', 'saved'])
-            for conf in confs:
-                for year in years:
-                    x = self.pick_optimal(conf,year,candidates)
+            for conf in GLOB.confs_processed:
+                for year in GLOB.years_processed:
+                    x = self.pick_optimal(GLOB, cache, conf, year)
                     if not x is None:
                         (base,best,best_loc) = x
-                        best_loc = best_loc if best_loc == 'SAME' else best_loc.city
-                        writer.writerow([conf,year,self.confs[conf][year].city,base,best_loc,best,norm(base-best)])
+                        best_loc = best_loc if best_loc == 'SAME' else best_loc.place.city
+                        writer.writerow([conf,year,self.confs[conf][year].place.city,base,best_loc,best,norm(base-best)])
 
 
 
@@ -408,6 +354,53 @@ class DB:
                                      c.GPS,
                                      c.airport
                     ])
+
+    def analysis(self,output_file):
+        with open(output_file,'w',newline='') as csvfile:
+            writer = csv.writer(csvfile, delimiter=',', quoting=csv.QUOTE_MINIMAL)
+            writer.writerow(['conf','year','location',
+                             'number of participants',
+                             'acm total cost', 'acm average cost',
+                             'brighter total cost', 'brighter average cost'])
+            for name,conf in self.confs.items():
+                for year,conf_loc in conf.items():
+                    select_data = [d for d in self.data if d.conference == name and d.year == year]
+                    nb = len(select_data)
+                    if nb > 0:
+                        total_acm = round(reduce(lambda x,y: x + y.footprint, select_data, 0)/1000,2)
+                        average_acm = round(total_acm/nb,2)
+                        total_brighter = round(reduce(lambda x,y: x + y.cost_brighter, select_data, 0)/1000,2)
+                        average_brighter = round(total_brighter/nb,2)
+                        writer.writerow([name, year, conf_loc.city, nb,
+                                         total_acm, average_acm,
+                                         total_brighter,average_brighter])
+
+    # Assuming the participants would not have changed, speculate the carbon cost of a conference assuming it had taken place in a different location
+    def speculate_cost_at_loc(self,name,year,loc):
+        select_data = [d for d in self.data if d.conference == name and d.year == year]
+        nb = len(select_data)
+
+        if nb > 0:
+            costs = [d.get_footprint(GLOB, cache, loc) for d in select_data]
+            total_cost = round(reduce(lambda x,y: x + y, costs, 0)/1000,2)
+            average_cost = round(total_cost/len(select_data),2)
+
+            print("{} {} would have cost {} per participant if organized in {}".format(name,year,average_cost,loc))
+            return average_cost
+
+    # Assuming the participants would not have changed, speculate the carbon cost of a conference assuming it was colocated between its actual location and another one of choice
+    def speculate_cost_split(self,name,year,loc):
+        select_data = [d for d in self.data if d.conference == name and d.year == year]
+        nb = len(select_data)
+        loc1,loc2 = self.confs[name][year], loc
+
+        if nb > 0:
+            costs = [min(d.get_cost_acm(loc1),d.get_footprint(GLOB, cache, loc2)) for d in select_data]
+            total_cost = round(reduce(lambda x,y: x + y, costs, 0)/1000,2)
+            average_cost = round(total_cost/len(select_data),2)
+
+            print("{} {} would have cost {} per participant if colocated between {} and {}".format(name,year,average_cost,loc1,loc2))
+            return average_cost
 
 ############# END DEPRECATED ############
 

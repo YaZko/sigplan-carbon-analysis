@@ -289,6 +289,24 @@ class RawData:
         else:
             return self.footprint
 
+    def get_footprint(self,GLOB,cache,destination):
+        if GLOB.model == 'acm':
+            return self.get_cost_acm(GLOB, cache, destination)
+        elif GLOB.modol == 'cool':
+            return self.get_cost_CoolEffect(GLOB, cache, destination)
+        else:
+            raise("Model not recognize in global environment: {}".format(GLOB.model))
+
+    def get_and_set_footprint(self,GLOB,cache,destination):
+        if GLOB.model == 'acm':
+            return self.get_and_set_cost_acm(GLOB, cache, destination)
+        elif GLOB.model == 'cool':
+            return self.get_and_set_cost_CoolEffect(GLOB, cache, destination)
+        else:
+            raise("Model not recognize in global environment: {}".format(GLOB.model))
+
+
+
     # Write the part of the data that is deemed relevant for human concern
     def write_csv_row(self,writer):
         writer.writerow([self.id,
