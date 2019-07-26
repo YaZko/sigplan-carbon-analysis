@@ -5,6 +5,7 @@ from time import sleep
 
 import json
 import csv
+import logging
 
 from geopy import geocoders
 from geopy import distance
@@ -21,135 +22,60 @@ from datastructure import *
 
 class DB:
 
-    # A Database contains a list of RawData 'data', a mapping (conf -> year -> Location) 'confs' and a function to compute the average carbone cost necessary to travel between two given locations 'CO2_estimator'
+    # A Database contains a list of RawData 'data', a mapping (conf -> year -> Location) 'confs'
     def __init__(self, data, confs):
         self.data = data
         self.confs = confs
-        # self.CO2_estimator = CO2_estimator
 
-    # Utilities
+    def get_participants_conf(self,conf):
+        return [d for d in self.data if d.conference == conf]
 
-    # Return two maps, one returning the mean per conf, the other the mean per edition of each conf
-    def get_means(self):
-        confs = self.confs
-        means = {conf:{year:self.get_average_cost_conf_year(conf,year) for year in confs[conf]} for conf in confs}
-        means_confs = {conf:mean(means[conf].values) for conf in means}
-        return means_confs,means
+    def get_participants_conf_year(self,conf,year):
+        return [d for d in self.data if d.conference == conf and d.year == year]
 
-############# BEGIN DEPRECATED ############
-
-    # Compute the average carbone cost per participant of a conference 'conf' during year 'year'
-    def get_average_cost_conf_year(self,conf,year):
-        conf_loc = self.confs[conf][year]
-        select_data = [d for d in self.data if d.conference == conf and d.year == year]
-        if len(select_data) is 0:
-            print('Missing data for conference {} during year {}'.format(conf,year))
-            return 0
-        else:
-            get_costs = [self.CO2_estimator(d.location,conf_loc) for d in select_data]
-            get_costs = [d for d in get_costs if d is not None]
-            return mean(get_costs)
-
-    # Compute the average carbone cost per participant of a conference 'conf' for all years available
-    def get_average_cost_conf(self,conf):
-        editions = self.confs[conf]
-        means = [self.get_average_cost_conf_year(conf,year) for year in editions]
-        return mean(means)
-
-    # Compute the average carbone cost per participant over all available data
-    def get_average_cost_confs(self):
-        confs = self.confs
-        means = [self.get_average_cost_conf(conf) for conf in confs]
-        return mean(means)
-
-    # Compute the carbone cost of a conference 'conf' during year 'year' assuming that the conference
-    # were to have taken place at location 'loc', with the same participants
-    def get_cost_conf_year_at_loc(self,conf,year,loc):
-        conf_loc = loc
-        select_data = [d for d in self.data if d.conference == conf and d.year == year]
-        if len(select_data) is 0:
-            print('Missing data for conference {} during year {}'.format(conf,year))
-            return 0
-        else:
-            get_costs = [self.CO2_estimator(d.location,conf_loc) for d in select_data]
-            return reduce(lambda x,y: x + y,get_costs,0)
-
-    # Compute the carbone cost of a conference 'conf' during year 'year'
-    def get_cost_conf_year(self,conf,year):
-        return self.get_cost_conf_year_at_loc(conf,year,self.confs[conf][year])
-
-    # Compute the carbone cost of a conference 'conf' for all years available
-    def get_cost_conf(self,conf):
-        editions = self.confs[conf]
-        return reduce(lambda x,y: x + y, [self.get_cost_conf_year(conf,year) for year in editions],0)
-
-############# END DEPRECATED ############
-
-    def print_user_db(self,file):
-        print("Caching user db")
-        with open(file,'w',newline='') as csvfile:
-            writer = csv.writer(csvfile, delimiter=',', quoting=csv.QUOTE_MINIMAL)
-            writer.writerow(['id','city','state','country','conference','year',
-                             'country_iso','continent','cost_acm','cost_brighter','GPS',
-                             'airport'])
-            for d in self.data:
-                d.write_data(writer)
-
-    def print_conf_db(self,file):
-        print("Caching conf db")
-        with open(file,'w',newline='') as csvfile:
-            writer = csv.writer(csvfile, delimiter=',', quoting=csv.QUOTE_MINIMAL)
-            writer.writerow(['conference','year','city','state','country','country_iso','continent','GPS','airport'])
-            for name,conf in self.confs.items():
-                for year,c in conf.items():
-                    writer.writerow([name,
-                                     year,
-                                     c.city,
-                                     c.state,
-                                     c.country,
-                                     c.country_iso,
-                                     c.continent,
-                                     c.GPS,
-                                     c.airport
-                    ])
-
-    def init_extended_format_for_db(self,name):
-        self.print_user_db(name)
-
-    def preprocess_confs(self):
-        print("Starting preprocessing of confs db")
+    def preprocess_confs(self,GLOB,cache):
+        logging.info("Starting the preprocessing of the locations of the events")
         for name,conf in self.confs.items():
             for year,loc in conf.items():
-                coord = loc.get_and_set_GPS()
-                iso = loc.get_and_set_iso()
-                continent = loc.get_and_set_continent()
-                airport = loc.get_and_set_airport()
+                coord = loc.get_and_set_GPS(GLOB,cache)
+                iso = loc.get_and_set_iso(GLOB,cache)
+                continent = loc.get_and_set_continent(GLOB,cache)
+                airport = loc.get_and_set_airport(GLOB,cache)
 
-    def preprocess_users(self,file):
-        print("Starting preprocessing of users db")
+    def preprocess_users(self,GLOB,cache):
+        logging.info("Starting the preprocessing of the participation database")
         confs = self.confs
         for name,conf in confs.items():
             for year,conf_loc in conf.items():
-                airport_loc = conf_loc.get_and_set_airport()
-                participants = [d for d in self.data if d.conference == name and d.year == year]
-                # print('Preprocessing conf {} {} with {} participants'.format(name,year,len(participants)))
+                participants = self.get_participants_conf_year(name,year)
                 for d in participants:
                     loc = d.location
-                    coord = loc.get_and_set_GPS()
-                    iso = loc.get_and_set_iso()
-                    continent = loc.get_and_set_continent()
-                    airport = loc.get_and_set_airport()
-                    cost_acm = d.get_and_set_cost_acm(conf_loc)
-                    cost_brighter = d.get_and_set_cost_brighter(conf_loc)
-                # print('updating the user db')
-                # self.print_user_db(file)
+                    coord = loc.get_and_set_GPS(GLOB,cache)
+                    iso = loc.get_and_set_iso(GLOB,cache)
+                    continent = loc.get_and_set_continent(GLOB,cache)
+                    airport = loc.get_and_set_airport(GLOB,cache)
 
-    # Preprocessing: compute and set secondary attributes of the db
-    def preprocess(self,users_db_file, conf_db_file):
-        self.preprocess_confs()
-        self.print_conf_db(conf_db_file)
-        self.preprocess_users(users_db_file)
-        self.print_user_db(users_db_file)
+                    if GLOB.model == 'acm':
+                        footprint = d.get_and_set_cost_acm(GLOB, cache, conf_loc)
+                    elif GLOB.model == 'cool':
+                        cost_brighter = d.get_and_set_cost_CoolEffect(GLOB, cache, conf_loc)
+                    else:
+                        raise("Model not recognize in global environment: {}".format(GLOB.model))
+
+    def preprocess(self,GLOB,cache):
+        self.preprocess_confs(GLOB,cache)
+        self.preprocess_users(GLOB,cache)
+        self.print_user_db(GLOB)
+
+    def print_user_db(self, GLOB):
+        logging.info("Writing the raw emission data at {}".format(GLOB.output_raw))
+        with open(GLOB.output_raw,'w',newline='') as csvfile:
+            writer = csv.writer(csvfile, delimiter=',', quoting=csv.QUOTE_MINIMAL)
+            writer.writerow(['id','city','state','country','continent',
+                             'conference','year',
+                             'footprint'])
+            for d in self.data:
+                d.write_csv_row(writer)
 
     def analysis(self,output_file):
         with open(output_file,'w',newline='') as csvfile:
@@ -419,4 +345,74 @@ class DB:
                         best_loc = best_loc if best_loc == 'SAME' else best_loc.city
                         writer.writerow([conf,year,self.confs[conf][year].city,base,best_loc,best,norm(base-best)])
 
+
+
+############# BEGIN DEPRECATED ############
+
+    # Compute the average carbone cost per participant of a conference 'conf' during year 'year'
+    def get_average_cost_conf_year(self,conf,year):
+        conf_loc = self.confs[conf][year]
+        select_data = [d for d in self.data if d.conference == conf and d.year == year]
+        if len(select_data) is 0:
+            print('Missing data for conference {} during year {}'.format(conf,year))
+            return 0
+        else:
+            get_costs = [self.CO2_estimator(d.location,conf_loc) for d in select_data]
+            get_costs = [d for d in get_costs if d is not None]
+            return mean(get_costs)
+
+    # Compute the average carbone cost per participant of a conference 'conf' for all years available
+    def get_average_cost_conf(self,conf):
+        editions = self.confs[conf]
+        means = [self.get_average_cost_conf_year(conf,year) for year in editions]
+        return mean(means)
+
+    # Compute the average carbone cost per participant over all available data
+    def get_average_cost_confs(self):
+        confs = self.confs
+        means = [self.get_average_cost_conf(conf) for conf in confs]
+        return mean(means)
+
+    # Compute the carbone cost of a conference 'conf' during year 'year' assuming that the conference
+    # were to have taken place at location 'loc', with the same participants
+    def get_cost_conf_year_at_loc(self,conf,year,loc):
+        conf_loc = loc
+        select_data = [d for d in self.data if d.conference == conf and d.year == year]
+        if len(select_data) is 0:
+            print('Missing data for conference {} during year {}'.format(conf,year))
+            return 0
+        else:
+            get_costs = [self.CO2_estimator(d.location,conf_loc) for d in select_data]
+            return reduce(lambda x,y: x + y,get_costs,0)
+
+    # Compute the carbone cost of a conference 'conf' during year 'year'
+    def get_cost_conf_year(self,conf,year):
+        return self.get_cost_conf_year_at_loc(conf,year,self.confs[conf][year])
+
+    # Compute the carbone cost of a conference 'conf' for all years available
+    def get_cost_conf(self,conf):
+        editions = self.confs[conf]
+        return reduce(lambda x,y: x + y, [self.get_cost_conf_year(conf,year) for year in editions],0)
+
+
+### Rendered deprecated by the introduction of the caching mechanism
+    def print_conf_db(self,file):
+        print("Caching conf db")
+        with open(file,'w',newline='') as csvfile:
+            writer = csv.writer(csvfile, delimiter=',', quoting=csv.QUOTE_MINIMAL)
+            writer.writerow(['conference','year','city','state','country','country_iso','continent','GPS','airport'])
+            for name,conf in self.confs.items():
+                for year,c in conf.items():
+                    writer.writerow([name,
+                                     year,
+                                     c.city,
+                                     c.state,
+                                     c.country,
+                                     c.country_iso,
+                                     c.continent,
+                                     c.GPS,
+                                     c.airport
+                    ])
+
+############# END DEPRECATED ############
 

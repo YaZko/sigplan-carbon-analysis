@@ -1,52 +1,67 @@
 ## This file should contains all global parameters manipulated by the analysis
 ## They should only be used in `main.py`, all methods being parameterized by these arguments
 
-#1 Range of years to be considered
-conf_years = range(9,19)
-## List of names of the conferences to be considered
-conf_names = ['ICFP','POPL','PLDI','SPLASH']
+class Globals:
 
-city_candidates = [("Paris",None,"France"),
-                   ("Edinburgh",None,"UK"),
-                   ("Boston","MA","USA"),
-                   ("Los Angeles","CA","USA"),
-                   ("Vancouver","BC","Canada"),
-                   ("Tokyo",None,"Japan"),
-                   ("Beijing",None,"China"),
-                   ("Mumbai",None,"India")]
+    def __init__(self,input_events,input_participants,output_folder):
 
-## Nature of the fields of interest in the csv files intended to be read
-## Used to guide the parser when building the internal data structures
-## Use `None` to ignore a field
-raw_user_types = [int,str,str,str,str,int,None,None]
-user_types = [int,str,str,str,str,int,str,str,float,float,str,str]
-raw_conf_types = [int,str,str,str]
-conf_types = [int,str,str,str,str,str,str,str]
+        ## Nature of the fields of interest in the csv files intended to be read
+        ## Used to guide the parser when building the internal data structures
+        self.participants_types = [int,str,str,str,str,int]
+        self.confs_types = [str,int,str,str,str]
+
+        ### Relative paths to the various input and output files
+
+        ## Input files
+        # Read only input data for events/conferences
+        self.confs_path = '../input/' + input_events + '.csv'
+        # Read only input data for attendees
+        self.participants_path = '../input/' + input_participants + '.csv'
+
+        # TODO: get those from the input by default, with option to pick a subset
+        self.confs_processed = ['ICFP','POPL','PLDI','SPLASH']
+ 
+        # Cache for locations
+        self.cache = '../input/.location_cache.csv'
+
+        # Database of airports
+        self.airports = '../input/airports.json'
+
+        ## Output files
+        self.output_prefix                   = '../output/' + output_folder + '/'
+        # Raw emissions per participant
+        self.output_raw                      = self.output_prefix + 'emission_raw.csv'
+        # Demographic per edition
+        self.output_demographic              = self.output_prefix + 'demographic.csv'
+        # Overlap in attendance
+        self.output_overlap_cross_conf       = self.output_prefix + 'overlap_cross_conf#.csv'
+        self.output_overlap_cross_year       = self.output_prefix + 'overlap_cross_year#.csv'
+        self.output_old_timer                = self.output_prefix + 'old_timer_#.csv'
+        self.output_number_of_participations = self.output_prefix + 'number_of_participations.csv'
+        self.output_optimals                 = self.output_prefix + 'optimals.csv'
+
+        # Default model to compute the footprint of travels
+        self.model = 'acm'
+
+        # Greenhouse gases have various impact depending on the altitude there are released at.
+        # The radiative factor index account for this effect in the case of avionic.
+        # The value can be changed to k with the '--radiative k' option, and deactivated (i.e. set to 1)
+        # with the '--no-radiative' option
+        self.radiative_factor_index = 1.891
+
+        # TODO: get those from the source
+        # Range of years to be considered
+        conf_years = range(9,19)
 
 
-## (Relative) Paths to the (read only) raw data provided by the ACM
-# For attendees
-raw_users_path = '../data/SIGPLANcarbonAnon25Oct.csv'
-# For conferences
-raw_confs_path = '../data/SIGPLAN.CarbonDataMap.csv'
-
-## (Relative) Paths to the databases, i.e. the raw data preprocessed with all
-## secondary attributes for the DB class
-# For attendees
-users_path     = '../data/data_preprocessed.csv'
-# For conferences
-confs_path     = '../data/confs_preprocessed.csv'
-
-## (Relative) Paths to the aggregated data resulting from the analyses
-## conducted over the preprocessed database
-# Mean emission
-output_path             = '../output/output.csv'
-# Demographic per edition
-output_demographic      = '../output/demographic.csv'
-# Overlap in attendance
-output_overlap_cross_conf = '../output/overlap_cross_conf#.csv'
-output_overlap_cross_year = '../output/overlap_cross_year#.csv'
-output_old_timer = '../output/old_timer_#.csv'
-output_number_of_participations = '../output/number_of_participations.csv'
-output_optimals = '../output/optimals.csv'
+        ## List of names of the conferences to be considered when looking for a rough retroactive optimal
+        self.city_candidates = [("Paris",None,"France"),
+                                ("Edinburgh",None,"UK"),
+                                ("Philadelphia","PA","USA"),
+                                ("Boston","MA","USA"),
+                                ("Los Angeles","CA","USA"),
+                                ("Vancouver","BC","Canada"),
+                                ("Tokyo",None,"Japan"),
+                                ("Beijing",None,"China"),
+                                ("Mumbai",None,"India")]
 
