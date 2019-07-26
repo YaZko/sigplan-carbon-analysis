@@ -235,22 +235,22 @@ class DB:
             self.participation_overlap_intra_conf(GLOB,c)
 
     # Overlap of participation, in percentage, between two given conferences for each year
-    def participation_overlap_year(self,output_file,name1,name2,years):
+    def participation_overlap_cross_conf(self,GLOB,conf1,conf2):
 
-        output_file = fill_hole_string(output_file, '_' + name1 + '_' + name2)
+        output_file = fill_hole_string(GLOB.output_overlap_cross_conf, '_' + conf1 + '_' + conf2)
 
         with open(output_file,'w',newline='') as csvfile:
 
             writer = csv.writer(csvfile, delimiter=',', quoting=csv.QUOTE_MINIMAL)
             writer.writerow(['year','overlap'])
-            for year in years:
-                overlap = self.participation_overlap_single(name1,year,name2,year)
+            for year in GLOB.years_processed:
+                overlap = self.participation_overlap_single(conf1,year,conf2,year)
                 if not overlap is None:
                     writer.writerow([year,overlap])
 
-    def participation_overlap_year_generate_all(self,output_file,confs,years):
-        for pair in combinations(confs,2):
-            self.participation_overlap_year(output_file,pair[0],pair[1],years)
+    def participation_overlap_cross_conf_generate_all(self,GLOB):
+        for pair in combinations(GLOB.confs_processed,2):
+            self.participation_overlap_cross_conf(GLOB,pair[0],pair[1])
 
     def get_number_of_participations(self, output_file, confs):
 
