@@ -22,6 +22,7 @@ def setup_args():
     parser.add_argument('-r','--radiative', type=int, help='Set the value of the radiative forcing index. The default value used is 1.891')
     parser.add_argument('--no_radiative', action='store_true', help='Disable accounting for radiative forcing. This is equivalent to \'--radiative 1\'')
     parser.add_argument('-m','--model', choices=['acm','cool'], help='Changes the emission model to be used. Default value is acm')
+    parser.add_argument('--no_id', action='store_true', help='Assert that participants to events are not uniquely identified, disabling overlap analyses')
 
     args = parser.parse_args()
 
@@ -56,6 +57,9 @@ def setup_args():
     if args.model:
         logging.info("Model {} selected".format(args.model))
         GLOB.model = args.model
+    if args.no_id:
+        logging.info("Disabling cross-participation analyses")
+        GLOB.unique_id = False
 
     return GLOB
 
@@ -70,13 +74,16 @@ def initialize(GLOB):
 
     return cache,db
 
+def analysis():
 
-GLOB = setup_args()
-cache,db = initialize(GLOB)
+    GLOB = setup_args()
 
-db.preprocess(GLOB,cache)
+    cache,db = initialize(GLOB)
 
-db.analysis_demographic(GLOB)
+    db.preprocess(GLOB,cache)
+
+    # db.analysis_demographic(GLOB)
+
 
 # initialize_user_db(raw_users_path, raw_user_types, users_path, raw_user_types,
 #                    raw_confs_path, confs_path, conf_names, raw_conf_types)

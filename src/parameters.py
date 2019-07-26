@@ -20,7 +20,7 @@ class Globals:
 
         # TODO: get those from the input by default, with option to pick a subset
         self.confs_processed = ['ICFP','POPL','PLDI','SPLASH']
- 
+
         # Cache for locations
         self.cache = '../input/.location_cache.csv'
 
@@ -53,6 +53,8 @@ class Globals:
         # Range of years to be considered
         conf_years = range(9,19)
 
+        # Flag to set whether participants are uniquely identified, and hence if participation overlap can be computed
+        self.unique_id = True
 
         ## List of names of the conferences to be considered when looking for a rough retroactive optimal
         self.city_candidates = [("Paris",None,"France"),
