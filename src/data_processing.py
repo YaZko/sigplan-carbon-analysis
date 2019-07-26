@@ -98,11 +98,10 @@ class DB:
                                          total_brighter,average_brighter])
 
 
-    def analysis_demographic(self,output_file):
-        output = output_file.split(".csv")[0]
-        output_file_main = output + '.csv'
-        output_file_conf = output + '-per-conf.csv'
-        output_file_delta = output + '-delta.csv'
+    def analysis_demographic(self,GLOB):
+        output_file_main  = fill_hole_string(GLOB.output_demographic,'')
+        output_file_conf  = fill_hole_string(GLOB.output_demographic,'_per_conf')
+        output_file_delta = fill_hole_string(GLOB.output_demographic,'_delta')
 
         continents = ['EU','NA','AS','SA','AF','OC']
 
@@ -172,10 +171,10 @@ class DB:
             writer = csv.writer(csvfile_delta,delimiter=',',quoting=csv.QUOTE_MINIMAL)
             writer.writerow(['Conf Loc'] + continents + ['SAME'])
 
-            writer.writerow(['Any'] + [norm_perc(distrib_total[x],total_attendance) for x in continents] + [normalize(distrib_total['SAME'],total_attendance)])
+            writer.writerow(['Any'] + [norm_perc(distrib_total[x],total_attendance) for x in continents] + [norm_perc(distrib_total['SAME'],total_attendance)])
             for c in continents:
                 if not total_attendance_per_loc[c] is 0:
-                    writer.writerow([c] + [norm_perc(distrib_per_loc[c][x],total_attendance_per_loc[c]) for x in continents] + [normalize(distrib_per_loc[c]['SAME'],total_attendance_per_loc[c])])
+                    writer.writerow([c] + [norm_perc(distrib_per_loc[c][x],total_attendance_per_loc[c]) for x in continents] + [norm_perc(distrib_per_loc[c]['SAME'],total_attendance_per_loc[c])])
 
 
     # Assuming the participants would not have changed, speculate the carbon cost of a conference assuming it had taken place in a different location
@@ -329,7 +328,6 @@ class DB:
 
         else:
             return None
-
 
     def pick_optimals(self,output_file,confs,years,candidates):
 

@@ -76,6 +76,8 @@ cache,db = initialize(GLOB)
 
 db.preprocess(GLOB,cache)
 
+db.analysis_demographic(GLOB)
+
 # initialize_user_db(raw_users_path, raw_user_types, users_path, raw_user_types,
 #                    raw_confs_path, confs_path, conf_names, raw_conf_types)
 

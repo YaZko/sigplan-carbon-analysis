@@ -32,7 +32,7 @@ class Globals:
         # Raw emissions per participant
         self.output_raw                      = self.output_prefix + 'emission_raw.csv'
         # Demographic per edition
-        self.output_demographic              = self.output_prefix + 'demographic.csv'
+        self.output_demographic              = self.output_prefix + 'demographic#.csv'
         # Overlap in attendance
         self.output_overlap_cross_conf       = self.output_prefix + 'overlap_cross_conf#.csv'
         self.output_overlap_cross_year       = self.output_prefix + 'overlap_cross_year#.csv'
