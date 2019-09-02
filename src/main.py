@@ -82,6 +82,9 @@ def analysis():
 
     db.preprocess(GLOB,cache)
 
+    db.mythical_hotel(GLOB)
+    # db.footprint_per_conf(GLOB)
+
     # db.analysis_demographic(GLOB)
 
     # db.participation_overlap_intra_conf_generate_all(GLOB)
@@ -89,7 +92,7 @@ def analysis():
 
     # db.get_number_of_participations(GLOB)
     # db.get_old_timers(GLOB)
-    db.pick_optimals(GLOB, cache)
+    # db.pick_optimals(GLOB, cache)
 
 analysis()
 

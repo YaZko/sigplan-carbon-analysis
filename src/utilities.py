@@ -28,3 +28,24 @@ def get_args(row,types):
 def string_to_double(s):
     x,y = s.split(',')
     return float(x.split('(')[1].strip()), float(y.split(')')[0].strip())
+
+# def export_to_tex(path):
+
+#     head1 = """
+# \begin{figure}
+# \begin{tabular}{|l|l|c|c|c|}
+#   \hline%
+# """
+#   \bfseries event & \bfseries location & \bfseries nb. participants & \bfseries total cost & \bfseries average cost
+
+
+# """
+# \csvreader[head to column names]{../output/output.csv}{}%
+# {\\\conf\ \year & \location & \csvcoliv & \csvcolv & \csvcolvi}%
+# \\\hline
+# \end{tabular}
+# \caption{For each \event: location, number of participants and carbon cost, total and average per participant, in \gazunitbis,}
+# \label{fig:RawData}
+# \end{figure}
+# """
+

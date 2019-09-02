@@ -1,5 +1,5 @@
 from functools import reduce
-from itertools import combinations
+from itertools import combinations, permutations
 from statistics import mean
 from time import sleep
 
@@ -71,6 +71,21 @@ class DB:
                              'footprint'])
             for d in self.data:
                 d.write_csv_row(writer)
+
+    def footprint_per_conf(self, GLOB):
+        with open(GLOB.footprint_confs,'w',newline='') as csvfile:
+            writer = csv.writer(csvfile, delimiter=',', quoting=csv.QUOTE_MINIMAL)
+            writer.writerow(['conf','year','location','nb participants',
+                             'total cost', 'average cost'])
+            for name,conf in self.confs.items():
+                for year,conf_loc in conf.items():
+                    select_data = [d for d in self.data if d.conference == name and d.year == year]
+                    nb = len(select_data)
+                    if nb > 0:
+                        total_footprint = round(reduce(lambda x,y: x + y.footprint, select_data, 0)/1000,2)
+                        average_footprint = round(total_footprint/nb,2)
+                        writer.writerow([name, year, conf_loc.place.city, nb,
+                                         total_footprint, average_footprint])
 
     def analysis_demographic(self,GLOB):
         output_file_main  = fill_hole_string(GLOB.output_demographic,'')
@@ -170,7 +185,7 @@ class DB:
         with open(output_file,'w',newline='') as csvfile:
 
             writer = csv.writer(csvfile, delimiter=',', quoting=csv.QUOTE_MINIMAL)
-            writer.writerow(['year_1','year_2','overlap'])
+            writer.writerow(['year1','year2','overlap'])
             for pair in combinations(GLOB.years_processed,2):
                 overlap = self.participation_overlap_single(name,pair[0],name,pair[1])
                 if not overlap is None:
@@ -256,7 +271,8 @@ class DB:
             base_total = round(reduce(lambda x,y: x + y.footprint, select_data, 0)/1000,2)
             base_average = round(base_total/nb,2)
             best_average = base_average
-            best_loc = "SAME"
+            base_loc = self.confs[conf][year]
+            best_loc = base_loc
 
             for loc in GLOB.city_candidates:
                 loc = Location(Place(*loc))
@@ -267,7 +283,7 @@ class DB:
                     best_average = average
                     best_loc = loc
 
-            return (base_average,best_average,best_loc)
+            return (base_average,base_loc,best_average,best_loc)
 
         else:
             return None
@@ -282,11 +298,48 @@ class DB:
                 for year in GLOB.years_processed:
                     x = self.pick_optimal(GLOB, cache, conf, year)
                     if not x is None:
-                        (base,best,best_loc) = x
-                        best_loc = best_loc if best_loc == 'SAME' else best_loc.place.city
+                        (base,base_loc,best,best_loc) = x
+                        best_loc = best_loc.place.city + '(*)' if best_loc == base_loc else best_loc.place.city
                         writer.writerow([conf,year,self.confs[conf][year].place.city,base,best_loc,best,norm(base-best)])
 
+    # Slightly ad-hoc function computing the average total overlap that occurs when a list of conference using the same location over sliding years (see Jens' request)
 
+    def mythical_hotel_aux(self,year,confs):
+
+        years = [year + k for k in range(len(confs))]
+        pairs = list(zip(confs,years))
+        datas = [[d.id for d in self.data if d.conference == p[0] and d.year == p[1]] for p in pairs]
+
+        if all(len(x) > 0 for x in datas):
+            pairs = combinations(datas,2)
+            intersections = [len(set(x[0]) & set(x[1])) for x in pairs]
+            total = sum(intersections)
+            # print("From year {}: {} overlaps".format(year,total))
+            return total
+        else:
+            return None
+
+    def mythical_hotel(self,GLOB):
+
+        # Let's simply pick a year and an order and count what this overlap would have been for various historical years
+        total = 0
+        counter = 0
+        for confs in permutations(GLOB.confs_processed):
+            # print("Given the permutation {}, the overlap has been:".format(confs))
+            local_total = 0
+            local_counter = 0
+            for year in GLOB.years_processed[:-3]:
+                overlap = self.mythical_hotel_aux(year,confs)
+                if not overlap is None:
+                    counter = counter + 1
+                    local_counter = local_counter + 1
+                    total = total + overlap
+                    local_total = local_total + overlap
+            # print("Mmh weird {}    {}".format(local_total,local_counter))
+            print("For permutation {}, the average overlap has been {}:".format(confs,norm(local_total/local_counter)))
+        res = norm(total/counter)
+        print("On average overall, the overlap has been: {}".format(res))
+        return res
 
 ############# BEGIN DEPRECATED ############
 

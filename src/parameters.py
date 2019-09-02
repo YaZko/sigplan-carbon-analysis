@@ -35,7 +35,9 @@ class Globals:
         self.output_prefix                   = '../output/' + output_folder + '/'
         # Raw emissions per participant
         self.output_raw                      = self.output_prefix + 'emission_raw.csv'
-        # Demographic per edition
+        # Footprint per conference
+        self.footprint_confs                 = self.output_prefix + 'footprint_confs.csv'
+         # Demographic per edition
         self.output_demographic              = self.output_prefix + 'demographic#.csv'
         # Overlap in attendance
         self.output_overlap_intra_conf       = self.output_prefix + 'overlap_intra_conf#.csv'
