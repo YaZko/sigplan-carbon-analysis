@@ -289,6 +289,23 @@ class RawData:
         else:
             return self.footprint
 
+    # Model used by thegoodtraveler, a non-profit funded by airports.
+    # See: https://thegoodtraveler.org/what-is-offsetting/faqs/
+    # The model is weirdly simplistic without being absurdly wrong
+    def get_thegoodtraveler(self, GLOB, cache, destination):
+        logging.debug("Estimating carbon footprint according to thegoodtraveler's methodology from {} to {}".format(self.location,destination))
+        dist = self.location.get_distance(GLOB, cache, destination)
+        cost = round(dist * 0.0975,4)
+        return cost
+
+    def get_and_set_cost_thegoodtraveler(self, GLOB, cache, destination):
+        if self.footprint is None:
+            cost = self.get_cost_thegoodtraveler(GLOB, cache, destination)
+            self.set_footprint(cost)
+            return cost
+        else:
+            return self.footprint
+
     def get_footprint(self,GLOB,cache,destination):
         if GLOB.model == 'acm':
             return self.get_cost_acm(GLOB, cache, destination)
