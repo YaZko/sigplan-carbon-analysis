@@ -311,35 +311,62 @@ class DB:
         datas = [[d.id for d in self.data if d.conference == p[0] and d.year == p[1]] for p in pairs]
 
         if all(len(x) > 0 for x in datas):
+
+            # Computes the number of people that went to at least two of these events
+            d = {}
+            for data in datas:
+                for id in data:
+                    if id in d:
+                        d[id] = d[id] + 1
+                    else:
+                        d[id] = 1
+            recurrent = len([x for x in d if d[x] > 1])
+            recurrent2 = sum([d[x] - 1 for x in d if d[x] > 1])
+            # print("From year {}: {} recurrent".format(year,recurrent))
+
+            # Computes the size of the union of the intersection of all combinations of events
             pairs = combinations(datas,2)
             intersections = [len(set(x[0]) & set(x[1])) for x in pairs]
             total = sum(intersections)
             # print("From year {}: {} overlaps".format(year,total))
-            return total
+            return recurrent,recurrent2,total
         else:
             return None
 
     def mythical_hotel(self,GLOB):
 
         # Let's simply pick a year and an order and count what this overlap would have been for various historical years
-        total = 0
+        total_rec = 0
+        total_rec2 = 0
+        total_all = 0
         counter = 0
         for confs in permutations(GLOB.confs_processed):
             # print("Given the permutation {}, the overlap has been:".format(confs))
-            local_total = 0
+            local_total_rec = 0
+            local_total_rec2 = 0
+            local_total_all = 0
             local_counter = 0
             for year in GLOB.years_processed[:-3]:
                 overlap = self.mythical_hotel_aux(year,confs)
                 if not overlap is None:
+                    recurrent,recurrent2,overlap = overlap
                     counter = counter + 1
                     local_counter = local_counter + 1
-                    total = total + overlap
-                    local_total = local_total + overlap
-            # print("Mmh weird {}    {}".format(local_total,local_counter))
-            print("For permutation {}, the average overlap has been {}:".format(confs,norm(local_total/local_counter)))
-        res = norm(total/counter)
-        print("On average overall, the overlap has been: {}".format(res))
-        return res
+                    total_rec = total_rec + recurrent
+                    total_rec2 = total_rec2 + recurrent2
+                    total_all = total_all + overlap
+                    local_total_rec = local_total_rec + recurrent
+                    local_total_rec2 = local_total_rec2 + recurrent2
+                    local_total_all = local_total_all + overlap
+            # print("For permutation {}, the average amount of recurrent participants has been {}:".format(confs,norm(local_total_rec/local_counter)))
+            # print("For permutation {}, the average overlap has been {}:".format(confs,norm(local_total_all/local_counter)))
+        res_rec = norm(total_rec/counter)
+        res_rec2 = norm(total_rec2/counter)
+        res_all = norm(total_all/counter)
+        print("On average overall, the amount of recurrent participants has been: {}".format(res_rec))
+        print("On average overall, the amount of recurrent participants accounting for more than two has been: {}".format(res_rec2))
+        print("On average overall, the overlap has been: {}".format(res_all))
+        return res_rec,res_rec2,res_all
 
 ############# BEGIN DEPRECATED ############
 
