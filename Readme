@@ -9,11 +9,12 @@ libraries, all available through pip.
 
 ############### Structure ###############
 
-## data
-   Contains the raw and pre-process input data
+## input
+   Contains the cached db and locations as well as the db of airports.
+   The data to be analyzed must be stored there as well.
 
 ## output
-   Contains all computed data to be exploited
+   Contains all computed data to be exploited in folders per analysis ran.
 
 ## src
    Source code
