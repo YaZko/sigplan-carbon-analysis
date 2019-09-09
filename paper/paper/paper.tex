@@ -1,0 +1,719 @@
+\documentclass{scrartcl}
+
+\usepackage[english]{babel}
+\usepackage[utf8x]{inputenc}
+
+\usepackage{caption}
+\usepackage{subcaption}
+
+\usepackage{amsfonts} % mathbb
+\usepackage{amsthm}   % environment proof
+\usepackage{stmaryrd} % semantical brackets
+
+\usepackage{siunitx} 
+
+\usepackage[hidelinks]{hyperref}
+\usepackage{xcolor}
+\newif\ifcomments\commentstrue   %% include author discussion
+
+\usepackage{glossaries}
+\usepackage{csvsimple}
+
+\ifcomments
+\newcommand{\yz}[1]{\textcolor{blue}{{[YZ:~#1]}}}
+\newcommand{\bcp}[1]{\textcolor{red}{{[BCP:~#1]}}}
+\else
+\newcommand{\yz}[1]{}
+\newcommand{\bcp}[1]{}
+\fi
+
+\newcommand{\python}{\texttt{Python 3}}
+\newcommand{\gaz}{\si{\kilogram\of{CO_2e}}}
+\newcommand{\gazunit}{\si{\kilogram\of{CO_2e~ per~ passenger}}}
+\newcommand{\gazunitbis}{\si{\tonne\of{CO_2e}}}
+
+\newcommand{\event}{event} % What's the right term to designate a specific iteration of a conference?
+\newcommand{\conf}{conference} 
+
+\newtheorem{obs}{Observation}
+\newtheorem{recommend}{Recommendation}
+
+\title{Engaging with Climate Change: grounding in data possible changes for SIGPLAN}
+
+\begin{document}
+
+\maketitle
+
+\bcp{Probably better not to use the same title as the earlier report.}
+
+\section{Introduction}
+
+In face of the global warming threat, we are responsible to evaluate the carbon
+emissions entailed by our activity, and seek for ways to reduce this footprint.
+It is well-known that the overwhelming factor of emission in research is air travel,
+notably due to international conferences.
+
+With this perspective in mind, we may be attracted to ponder several questions
+about our activity.
+\begin{itemize}
+% \item Should we organize the offsetting of the carbon cost of conferences? If
+%   so, what should be the amount of carbon we offset, at what price, and to whom
+%   should the cost be attributed?
+%   \bcp{IMHO, this is a topic for a separate paper.}
+%   \yz{I had in mind that the numbers could legitimate the amount we ask for, but I see your point, we can certainly ditch this section. I commented it out for now}
+\item Should SIGPLAN conference locations be chosen to minimize their
+carbon impact?  
+\item Should some conferences be co-located?
+\item Should some conferences be split into two remote sites?
+\item Should some conferences be held entirely virtually?  \bcp{This is a
+  good question, of course, but I'm not sure it is addressed at all by the
+  data we have.}
+\end{itemize}
+
+Such decisions have various impacts on our activity, and may have drawbacks in
+terms of the social and professional benefits of conferences. 
+In order to ground discussions about the compromises we wish to undertake, we consider
+three main classes of data whose analysis may guide the decisions of the community.
+\begin{itemize}
+\item What has been the emissions of past conferences?
+\item What is the geographical distribution of participants to conferences?
+\item What is the overlapping in participation that exists between various conferences?
+\end{itemize}
+
+We propose in this paper one such analysis that we hope can be seen as a basis both for
+debates about concrete measures, as well as the basis for more involved data analyses.
+
+Section~\ref{sec:dataset} and \ref{sec:methodo} describe respectively the
+analyzed data set and the methodology followed. The aggregated data
+we derived is then exposed through Section~\ref{sec:data}: we point a few
+observations of interests, but aim to remain neutral through this exposition.
+Finally, we offer the conclusions we derive from the data and the measures we
+correspondingly advice the ACM to take through Section~\ref{sec:opinions}.
+
+\section{The data set}
+\label{sec:dataset}
+
+The currently available data spans over four conferences, all members of
+SIGPLAN: POPL, PLDI, ICFP and SPLASH. Data ranges from 2009 to 2019, with a few
+missing data points.
+
+For each instance of each conference, the available information is the location
+(city, state if relevant and country) the conference took place in, as well as
+the list of all participants paired with their location of origin. The identity
+of participants is hashed, leading to anonymization but retaining the
+possibility to study cross participation.
+
+The resulting dataset contains in total 4 different conferences, 33
+instances of conferences for a total of 16374 participants.
+
+\section{Evaluation of the carbon cost: methodology}
+\label{sec:methodo}
+
+All data are processed using \python.
+
+Informal named locations manually provided by participant are mapped to their
+ISO designation using the \texttt{pycountry} library.
+Once this is done, these named locations are converted to GPS
+locations using the \texttt{geopy} library, that provides a straightforward api
+to this end.
+
+An open source data-base of airports and their locations is then used to
+manually find the closest one to each city of concern, among those classified as
+\emph{medium} or \emph{large}.
+
+Distances in kilometers between airports are then computed between GPS locations
+once again using the \texttt{geopy} library. They use the geodesic distance
+(shortest distance for an ellipsoidal model of the Earth) with a model providing
+precisions that are several orders more precise than we need.
+
+At this point, we therefore know for each participant to a conference the
+distance separating the two airports between which he is most likely to have
+commuted. It is relevant to keep in mind the following assumptions that have
+been made to reach this stage:
+\begin{itemize}
+\item we assume that \emph{all} participant travelled by plane;
+\item we assume that all flights are direct flights;
+\item we assume that the geodesic distance is the one taken by planes.
+\end{itemize}
+
+Estimating the errors introduced by these hypotheses and refining them would be
+a valuable work. However, for this first work that mainly aim at a relative
+evaluation of different structural changes in our activities, we believe those
+to be workable hypotheses.
+
+Remains now to convert this distance to an emission in \gaz. We use to this end
+a standard model introduced as part of the \texttt{DEFRA 16} report on
+Greenhouse gas
+\footnote{\url{https://www.gov.uk/government/publications/greenhouse-gas-reporting-conversion-factors-2016}}
+\footnote{\url{https://co2calculator.acm.org/methodology.pdf}}
+conducted by the British Government.
+
+The model distinguishes three classes of flight, depending on their length:
+short, medium or long hauls. Each category is associated with a linear
+coefficient relating directly the distance of travel to the amount of \gaz
+emitted. We make the assumptions, anecdotally observed, that researchers all
+fly in economy class.
+
+A second linear coefficient, identical for all flights, is added to
+account for radiative forcing\bcp{I think we (I) have not been using this
+  term quite correctly: we should really be saying ``radiative forcing
+  index''---i.e., here, the coefficient is accounting for the {\em
+    difference} in radiative forcing between the same emissions at ground
+  level vs. high in the atmosphere}, i.e. an estimation of the impact that the
+specific gases emitted in the specific context of aviation has on global
+warming.
+
+We therefore obtain the following piece-wise linear model of emissions for a flight covering $d$ kms:
+\begin{itemize}
+\item $1.891 * 0.14735 * d$ \gazunit if $d < 785$
+\item $1.891 * 0.08728 * d$ \gazunit if $785 \leq d < 3700$
+\item $1.891 * 0.077610 * d$ \gazunit if $3700\leq d  $
+\end{itemize}
+
+It should be noted that experiments with other models show significant variance
+in absolute value, but resilience in relative values.\bcp{Maybe worth
+  showing some numbers justifying these statements?}\yz{I agree, will
+  do}\bcp{Assuming that we can get our numbers to agree with CoolEffect's,
+  we could also mention this!} Once again, refining the
+model would hence be a valuable work, but using this simple standard and
+well-established one appears appropriate to draw conclusion in terms of
+\emph{relative} impact of different measures.
+
+\section{Data analysis}
+\label{sec:data}
+
+Through this section, we present the results of our data analysis in a as
+neutral way as possible. We shall point out phenomena that came out as a
+surprise to us, but defer opinionated observations and practical conclusions to
+Section~\ref{sec:opinions}.
+
+\subsection{Raw data}
+
+\begin{figure}
+\begin{tabular}{|l|l|c|c|c|}
+  \hline%
+  \bfseries event & \bfseries location & \bfseries nb. participants & \bfseries total cost & \bfseries average cost 
+\csvreader[head to column names]{../output/acm/footprint_confs.csv}{}%
+{\\\conf\ \year & \location & \csvcoliv & \csvcolv & \csvcolvi}%
+\\\hline
+\end{tabular}
+\caption{For each \event: location, number of participants and carbon cost, total and average per participant, in \gazunitbis,}
+\label{fig:RawData}
+\end{figure}
+
+Figure~\ref{fig:RawData} depicts the total and average carbon cost per participant of
+all conferences analyzed. This cost is estimated in terms of \gazunitbis of emissions.
+The main data of interest is naturally the last column depicting the average cost per participant.
+
+This raw data already presents a very obvious and interesting phenomenon: a
+factor two separates the lowest average carbon cost (PLDI'18 at 0.9\gazunitbis)
+from the highest one (ICFP'16 at 1.93\gazunitbis).
+Understanding the underlying rationals for such variations may be a promising
+angle to reduce our emissions without restructuring fundamentally our activity.
+
+Since emissions are strongly correlated to the distance traveled, deriving
+demographic data may shine some light.
+
+\subsection{Demographics}
+\label{subsec:demo}
+
+\begin{figure}
+  \csvautotabular{../output/acm/demographic.csv}
+  \caption{For each \event, continent in which it took place and distribution of
+    each continent by origin of participants. The final column indicates the
+    portion of participants that traveled from the same continent the
+    conference took place in.}
+  \label{fig:demo-raw}
+\end{figure}
+
+Demographic data are a key resource to understand the carbon cost of attendance.
+Figure~\ref{fig:demo-raw} shows, for each \event, the
+continent it took place in, the distribution of attendance per continent, and
+the percentage of attendants originating from the same continent as the one it
+took place in. To a first approximation, maximizing this last parameter is a fair
+heuristic to minimize the carbon cost without any impact on the organization of
+the conference itself. One may already notice that in the current conjecture, in
+sheer question of volume, attendance is essentially divided between Europe and
+North America primarily, Asia secondarily.
+
+\begin{figure}
+  \csvautotabular{../output/acm/demographic_per_conf.csv}
+\caption{For each kind of conference, distribution of participants per continent of origin}
+\label{fig:demo-conf}
+\end{figure}
+
+A natural idea suggested by the desire to increase the percentage of attendance
+taking place locally at the scale of continents is to look for a core group of
+recurrent attendees that would constitutes a model of the distribution of the
+attendees of a given conference. To investigate this idea, Figure~\ref{fig:demo-conf}
+depicts an aggregated information of the previous data: for each 
+\conf, the average distribution of attendance per continent. From this
+table, one can observe the relative cultural anchor of each conference into a
+specific continent. Most notably, PLDI and SPLASH appear to be very North
+American-centric, while ICFP's core community seems to have a quite strong
+anchor in Europe as well.
+
+This aggregation of data however intrinsically rests upon the assumption of a uniform
+community attending each conference every year. A closer inspection of
+Figure~\ref{fig:demo-raw} easily convinces us of the erroneous dimension of this
+hypothesis. Most strikingly, Asian participation during POPL '15, ICFP '11 and
+ICFP '16, events that took place on the Asian continent, is significantly higher
+than usual: there appears to be a strong locality phenomenon. Crossing the data with
+Figure~\ref{fig:demo-conf} one can also notice that the only time SPLASH took
+place in Europe turned out to be the least expensive edition, challenging our previous
+observation that the conference appears to be mostly north American-centric.
+
+\begin{figure}
+  \csvautotabular{../output/acm/demographic_delta.csv}
+\caption{Geographical distribution of participation conditioned by the location of the \event}
+\label{fig:local_effect}
+\end{figure}
+
+Figure~\ref{fig:local_effect} attempts to measure this locality effect. The
+table depicts, all conferences being considered at once, the geographical
+distribution of attendance conditioned by the geographical location of the
+\event. The Asian phenomenon previously hinted at is here extremely
+apparent: while overall on average, 10.9\% of the participants come from Asia,
+this number is roughly multiplied by a factor 4 when the \event takes place in Asia --
+without any significant drop in total volume of attendance that could indirectly bump
+the percentage.
+
+But interestingly, this phenomenon also exists in the case of Europe (+22.29\%
+deviation to the average) and North America (+12.15\% deviation to the average).
+Despite their name, international conferences appear to exhibit a fairly strong
+local component.
+
+\subsection{Attendance overlaps}
+\label{subsec:overlap}
+
+Section~\ref{subsec:demo}, through the study of the demographic distribution of
+attendance, has suggested the existence of local communities that only
+partake in conferences when they take place close to their place of residency.
+One can conversely look for groups of regular attendees, that participate to a given \conf
+regardless of the location it is held in.
+
+\begin{figure}
+\centering
+     \begin{subfigure}[b]{0.4\textwidth}
+       \centering
+       \csvautotabular{../output/acm/overlap_intra_conf_POPL.csv}
+       \caption{Case of POPL}
+     \end{subfigure}
+     \hfill
+     \begin{subfigure}[b]{0.4\textwidth}
+       \centering
+       \csvautotabular{../output/acm/overlap_intra_conf_ICFP.csv}
+       \caption{Case of ICFP}
+    \end{subfigure}
+
+     \caption{For any two years, percentage of overlap in attendance at the corresponding editions of a conference (part 1)}
+     \label{fig:overlap-conf-alpha}
+\end{figure}
+
+\begin{figure}
+\centering
+     \begin{subfigure}[b]{0.4\textwidth}
+       \centering
+       \csvautotabular{../output/acm/overlap_intra_conf_PLDI.csv}
+       \caption{Case of PLDI}
+     \end{subfigure}
+     \begin{subfigure}[b]{0.4\textwidth}
+       \centering
+       \csvautotabular{../output/acm/overlap_intra_conf_SPLASH.csv}
+       \caption{Case of SPLASH}
+     \end{subfigure}
+
+     \caption{For any two years, percentage of overlap in attendance at the corresponding editions of a conference (part 2)}
+     \label{fig:overlap-conf-beta}
+\end{figure}
+
+Figures~\ref{fig:overlap-conf-alpha}~and~\ref{fig:overlap-conf-beta} present one
+way to gather intuition about the reality and size of this phenomenon. For a
+given conference at a time, we depicts, for any pair of years, the percentage of
+attendees that participated in both events. In particular for two consecutive
+years, this number oscillate between 15\% and 30\%. The vast majority of
+participants of a conference were therefore not part of the previous edition.
+
+\yz{TODO: This data is not striking enough and takes a lot of space. To aggregate
+  more, or ditch in favor of the following tables only}\bcp{IMO it is worth
+  keeping.  But maybe it could be moved later?}
+
+\begin{figure}
+  \centering
+  \begin{subfigure}[b]{0.3\textwidth}
+    \centering
+    \csvautotabular{../output/acm/overlap_cross_conf_ICFP_POPL.csv}
+    \caption{POPL and ICFP}
+  \end{subfigure}
+  \begin{subfigure}[b]{0.3\textwidth}
+    \centering
+    \csvautotabular{../output/acm/overlap_cross_conf_POPL_PLDI.csv}
+    \caption{POPL and PLDI}
+  \end{subfigure}
+  \begin{subfigure}[b]{0.3\textwidth}
+    \centering
+    \csvautotabular{../output/acm/overlap_cross_conf_POPL_SPLASH.csv}
+    \caption{POPL and SPLASH}
+  \end{subfigure}
+  \begin{subfigure}[b]{0.3\textwidth}
+    \centering
+    \csvautotabular{../output/acm/overlap_cross_conf_ICFP_PLDI.csv}
+    \caption{ICFP and PLDI}
+  \end{subfigure}
+  \begin{subfigure}[b]{0.3\textwidth}
+    \centering
+    \csvautotabular{../output/acm/overlap_cross_conf_ICFP_SPLASH.csv}
+    \caption{ICFP and SPLASH}
+  \end{subfigure}
+  \begin{subfigure}[b]{0.3\textwidth}
+    \centering
+    \csvautotabular{../output/acm/overlap_cross_conf_PLDI_SPLASH.csv}
+    \caption{PLDI and SPLASH}
+  \end{subfigure}
+   \caption{For every year, overlap in attendance between the events of two
+     different conferences\bcp{Maybe we could also have an aggregate count
+       for each pair, showing how many people {\em ever} went to both (even
+       in different years).}}
+  \label{fig:overlap-cross}
+\end{figure}
+
+Arguably more useful for practical purposes is to evaluate the overlap 
+between the events for the same year of two different conferences.
+Figure~\ref{fig:overlap-cross} depicts this data for any pairing of the four
+conferences considered. The overlap is strikingly low for most conferences.
+
+\begin{figure}
+  \csvautotabular{../output/acm/number_of_participations.csv}
+\caption{Overall and for each conference, the average number of instances a
+  participant has taken part of, and the percentage of them that has
+  attended at least $k$ instances, for $k\in\llbracket 2 \dots 5
+  \rrbracket$. Remark: the means and percentages are here computed with
+  respect to \emph{unique} participants.  \bcp{I really like this table.}}
+\label{fig:reccurent}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \begin{subfigure}[b]{0.4\textwidth}
+    \centering
+    \csvautotabular{../output/acm/old_timer_POPL.csv}
+    \caption{Case of POPL}
+  \end{subfigure}
+  \begin{subfigure}[b]{0.4\textwidth}
+    \centering
+    \csvautotabular{../output/acm/old_timer_ICFP.csv}
+    \caption{Case of ICFP}
+  \end{subfigure}
+  \\
+  \begin{subfigure}[b]{0.4\textwidth}
+    \centering
+    \csvautotabular{../output/acm/old_timer_PLDI.csv}
+    \caption{Case of PLDI}
+  \end{subfigure}
+  \begin{subfigure}[b]{0.4\textwidth}
+    \centering
+    \csvautotabular{../output/acm/old_timer_SPLASH.csv}
+    \caption{Case of SPLASH}
+  \end{subfigure}
+  \caption{For each conference, percentage of participants that have been
+    part of a previous edition of the same conference \bcp{Is this sort of
+      the same information as Figure 8?}}
+  \label{fig:old-timers}
+\end{figure}
+
+Finally, Figure~\ref{fig:reccurent} and \ref{fig:old-timers} offer two different views on reccurent participations. Figure~\ref{fig:reccurent} represents respectively for the whole dataset and for each conference individually the average number of editions an average participant has been part of, as well as the percentage of participants that has been part of at least some amount of times. We immediately remark that no less than 75\% of unique participants has been part of a single edition.
+Figure~\ref{fig:old-timers} represents for each instance of each conference the percentage of participants that has participated in a previous instance of the conference, among our dataset.
+
+\subsection{A naive, retrospective, optimal choice}
+
+We have observed that the location an \event takes place in significantly
+impacts the distribution of origin of its participants. However, dismissing
+temporarily this factor to consider what could have been the cheapest location
+for past conferences can be an illuminating exercise.
+
+To this end, we chose a fixed number of locations that we believe to be
+representative and spread across the relevant parts of the globe for our
+concern: Paris, Edinburgh, Boston, Los Angeles, Vancouver, Tokyo, Beijing and
+Mumbai. We then reprocessed the dataset to look for the location that would have
+led to the lowest carbon footprint, once again assuming that it would not have
+changed the set of participants.
+
+\begin{figure}
+  \begin{tabular}{|l|l|c|c|c|c|}
+    \hline%
+    \bfseries event & \bfseries orig. loc. & \bfseries orig. cost & \bfseries best loc. & \bfseries best cost & \bfseries saved
+    \csvreader[head to column names]{../output/acm/optimals.csv}{}%
+              {\\\conf\ \year & \csvcoliii & \csvcoliv & \csvcolv & \csvcolvi & \csvcolvii}%
+              \\\hline
+  \end{tabular}
+  \caption{For each \event, depicts the location among Paris, Edinburgh,
+    Boston, Los Angeles, Vancouver, Tokyo, Beijing and Mumbai that would
+    have led to the lowest carbon footprint. We indicate 'SAME' when the
+    actually location is the best, and show in the final column the amount
+    of \gazunitbis that it would have saved. \bcp{Might be more informative
+      to replace SAME with the name of the city, in parens or something to
+      indicate the sameness.}}
+  \label{fig:optimal}
+\end{figure}
+
+
+Figure~\ref{fig:optimal} depicts the resulting data: for each \event, the best location
+and the average \gazunitbis it would have saved. We observe that in the majority
+of the events, the locality effect is strong enough that the optimal takes place on
+the original continent. However it is striking to see how often the East Coast turns
+out to be the cheapest destination. In particular it appears to be preferable to
+the West Coast in most cases, even despite the underlying locality effect that
+is ignored here.
+
+\section{Opinionated interpretation}
+\label{sec:opinions}
+
+The data analysis conducted through Section~\ref{sec:data} has put in evidence
+several phenomena that we review here.
+
+\bcp{These observations do not seem all that opinionated.  Maybe move them
+  earlier, with the figures they refer to?}
+
+The first one is a straight read of the carbon footprint of conferences. 
+\begin{obs}
+If as is well known the carbon footprint of
+conferences due to air travel is significant, the specific number
+varies from an \event to another by up to a factor of 2.
+\label{obs:footprint}
+\end{obs}
+
+The more specific analysis of demographic data, in Section~\ref{subsec:demo},
+gives a sense of the rough origin of participants:
+
+\begin{obs}
+  The vast majority of participants are split between North America and Europe,
+  Asia to a much lesser degree. SPLASH and PLDI are strongly anchored in North
+  America, ICFP and POPL fairly equally split between North America and Europe.
+  \label{obs:dist-naive}
+\end{obs}
+
+This distribution however turns out to be \emph{strongly} dependent on the
+location of the \event.
+
+\begin{obs}
+  There is a major ``locality" effect: it is both true that locality attract
+  new participants, and distance repels some participants.
+  \label{obs:locality}
+\end{obs}
+
+The extent of this phenomenon should not be underestimated. The example of the
+few conferences having taken place in Asia underlines the size of the community
+that we fail to encounter otherwise. Also interesting, the surprisingly cheap
+footprint of the only time SPLASH took place in Europe may suggest that the
+North American anchor of the conference is not intrinsic, but rather a
+self-fulfilling prophecy.
+
+Section~\ref{subsec:overlap} provides insights into the expected ``core" community
+that would attend most editions of a given conference by analyzing the overlap
+in participations that actually took place.
+
+\begin{obs}
+  Temporal overlap is moderate: roughly a quarter of attendants were present
+  the year before at the same conference.
+  \label{obs:overlap-temp}
+\end{obs}
+
+\begin{obs}
+  Cross-conference overlap is low: the tightest pairing sees slightly over 10\%
+  of common attendance for a given year.  \bcp{More aggregated numbers would
+  also be interesting, since I suspect that there are quite a few people
+  that only go to one big conference a year, but may alternate between
+  (e.g.) POPL and PLDI.}
+  \label{obs:overlap-cross}
+\end{obs}
+
+Additionally, a significant portion of attendees are ``one timer", or close.
+
+\begin{obs}
+  The average amount of conferences a participant has been part of is extremely low: 1.52.
+  Less than 4\% of unique participants have been to more than five events
+  among our dataset\bcp{Is that an accurate way of saying it?  I thought it
+    was ``have been to five instances of the same conference.''  (The other
+    number would be interesting too---how many people went to 2,3,4,5
+    instances of {\em any} of the conferences?}.
+  Similarly, at any \event, more than half of the participants are experiencing this specific
+  conference for the first time.
+  \label{obs:old-timers}
+\end{obs}
+
+Lastly, despite the aforementioned locality effect that tends to narrow the
+distribution of attendance around the locality the conference actually takes
+place in, a crude search for lowest carbon footprint is highly instructive.
+
+\begin{obs}
+  Due to the locality effect, past data can act as a heuristic for a worst case
+  distribution of attendance with respect to the objective function of
+  minimizing the carbon footprint. Doing so most notably suggests that the East
+  Coast should often be preferred to the West Coast.
+  \label{obs:optim}
+\end{obs}
+
+\subsection{A mandatory estimate of the carbon footprint by the conference organizers}
+
+Despite a modest amount of data at our disposition and the use of a rudimentary suit of
+analyses, there is no ambiguity about the relative environmental impact the choice of
+location to hold a conference in has. In particular, observation~\ref{obs:dist-naive}
+suggests that even setting aside any restructuration of our activities, we can hope for
+saving a factor 2 by being more acute when choosing destinations. Furthermore,
+observation~\ref{obs:optim} emphasizes that even a naive distribution model already gives
+us material to do better, while the more ambitious perspective to model the locality effect
+that we discussed through this paper would allow us for even more efficient choices.
+
+In this light, we consider it unacceptable to continue choosing locations of conferences
+either blindly, or for its scenic value. We should ponder professional relevancy with
+ecological imperative. We hence formulate the following simple recommendation, that shall
+have no impact on our professional activity, save for the reduction of some leisuring side
+product.
+
+\begin{recommend}
+It should be made part of the mandatory process of organization of SIGPLAN
+conference to estimate the carbon footprint of the options considered, and
+to take the results of this analysis into account to finalize the decision.
+\end{recommend}
+
+It shall be emphasized that we do not suggest by this to consider the destination
+minimizing the carbon footprint as the systematic right choice. Concerns such as
+rotating over different parts of the globe or naturally accounting for availability
+of qualified universities to organize should remain of major concern. We merely
+assess by this recommendation the need to bring carbon footprint into the constraint
+system we seek to optimize.
+
+\subsection{A short term experiment: bi-localized or tri-localized conferences}
+
+A considerate choice of destination to organize conferences can lead to a
+non-neglectible reduction of their carbon footprint. However, a reduction of
+the scale required to match by 2050 the recommendation from the Accords de Paris
+will require more drastic measures. More specifically, we need to reduce the cheer
+number of flights our activity induces.
+
+There is no denying that it will have an impact on our activity, some of which will
+be negative. It is hence more than ever of importance to take a reasoned approach
+allowing us to balance optimization of quantitative measures, such as reducing the
+carbon footprint, with qualitative imperative, such as maintaining the ideal of
+an international, borderless, scientific research.
+
+Interestingly, this novel requirement leads us to pay attention to data that may also be
+relevant to our activity beyond the question of carbon footprint. These should be
+taken into consideration as well while seeking a lasting restructuration of our
+activity. In particular, it is implicit to assume that conferences have to be
+geographically international to gather communities of researchers from all over the
+world. However, observation~\ref{obs:locality} challenges strongly this intuition:
+despite any claim a conference may have, the very fact that it is hold each year in
+a single place on Earth rules out a vast amount of international researchers. It is most
+striking with respect to programming language communities from Asia, but seems to be
+true for Europeans desiring to partake in SPLASH as well for instance.
+
+This statement is also backed up by evidence against its complement: the idea of a core
+group of researchers making the essential of all editions of their favorite conference,
+while not completely incorrect, is vastly overestimated. Observations~\ref{obs:old-timers}
+most notably makes it very clear.
+
+This analysis leads us to push toward strong considerations for experimenting a more
+ambitious way to save carbon: giving up on the uniqueness of location of conferences and
+experimenting with bi-localized or tri-localized conferences.
+
+\begin{recommend}
+  Some conferences should experiment a bi-localized format. Typically, POPL could for
+  instance be held simultaneously held in Boston and Paris. A day would span over 12 hours
+  instead of the usual 8. The four hours intersecting would be held simultaneously on
+  both sites via visioconference. The eight other hours would be retransmitted live and
+  have simple support for questions as is already put in practice.\\
+  If the initial experiments go well, we recommend a progressive shift toward this
+  format becoming the norm, and consideration for a third site.
+\end{recommend}
+
+We argue naturally that this change would be a truly ambitious measure to reduce
+significantly the carbon footprint of conferences. But furthermore, we believe that
+it would also enhance the international dimension of the conference: following
+the locality effect, this would most certainly lead to an increase in participation.
+
+A natural opposition would be to state that it is unreasonably to ask for researchers to
+follow twelve hours a day of conferences, and that they would therefore miss part of the
+talks. We do not deny this fact, but points out that it is already largely the case,
+most conferences having two, if not three tracks in parallel.
+
+Yet, it should not be brushed aside that this would remove some precious
+physical interactions between researches from different continents. We
+nonetheless argue that making these interactions the systematic default at conferences
+is an historical incident. Such a restructuration of our activity would probably
+be accompanied by an increase in visit to other laboratories. But that would shift
+these interactions from the current situation that put hundreds of researchers in the
+same building so that extremely small groups get to meet, to a more sensible ``meeting
+by need" organization.
+
+\subsection{A long term need: entirely virtualized conferences}
+
+Bi-localized conferences strike a compromise. On the long run, research, as all
+activities, shall however ambition to be entirely carbon-free. This ambitious
+goal has already been embraced by some conferences\footnote{https://conference.opensimulator.org/2018/}
+and seminars\footnote{https://sites.google.com/site/plustcs/}.
+
+While the currently existing cases are either fairly experimental, or of much more
+modest size than a conference such as the ones organized by SIGPLAN, they report
+encouraging results. As such, we encourage experiments aiming to develop further
+these techniques, and bring the cultural change they entail incrementally among
+our community.
+
+\begin{recommend}
+  We recommend to conduct experiments toward the development of fully virtual
+  conferences as a mean to reach a fully sustainable activity by the horizon 2050
+  at the latest.
+\end{recommend}
+
+%% \subsection{Offsetting}
+
+%% Striving for carbon neutrality, the spontaneous reaction is to reduce emissions.
+%% Carbon offsetting works at the other end of the scale: by increasing the rate of
+%% absorption of carbon from the atmosphere, through so-called carbon wells, we can
+%% get away with a higher rate of emissions.
+
+%% The best known carbon well is naturally trees themselves: a caricatural
+%% description of carbon offsetting is hence to plant a sufficient amount of trees
+%% to compensate for our emissions. In practice, there are numerous vastly
+%% different carbon wells, whose efficiency and cost differs vastly, or even often
+%% are extremely hard to evaluate.
+
+%% \yz{Refer to the sigplan paper on the topic}
+
+%% The danger of carbon offsets is to mistakenly interpret them as a magical
+%% bullet: carbon wells have margin to grow, but in no way can get anyway near able
+%% to support our current rate of emission. They are however an available resource
+%% that should be taken advantage of.
+
+%% They also offer the advantage to interface easily with the market: they are an
+%% unregulated mechanism allowing to put a price on carbon emissions, and hence if
+%% combined with legislative enforcement of carbon neutrality, could let the market
+%% sort the problem of allocating available carbon emissions.
+
+%% They are at the moment not nearly nature enough: in particular, the current
+%% price they set on carbon vastly understimate the estimated social cost of the
+%% same emission. Additionally, companies have at the moment mainly altruistic or
+%% PR insentives to use them, but very few coercive ones.
+
+%% However, they have the significant advantage to be immediately trivially
+%% implementable as a temporary solution while moving toward a restructuration of
+%% the activity to reduce the emissions. For this reason, we recommend their
+%% integration in conferences.
+
+%% \yz{Talk about already existing first experiments}
+
+%% Doing so requires to fix the amount of emissions we wish to offset, as well as
+%% either a price per ton or leaving to the attendant to offset the emissions
+%% themselves.
+
+%% The data analyzed in this study offers us a way to choose a realistic answer
+%% to the first question. It however raises the following choices:
+
+%% \begin{enumerate}
+%% \item Should we average over all of SIGPLAN? Previous editions of the same conference? Build a model of attendance and estimate for the incoming year?
+%% \item Should we distribute this cost homogeneously, or should we bill each participant based on the distance travelled to encourage participation in conferences closed to them?
+%% \item Should this tax be mandatory? Optional checked in by default? Optional check-out by default? Mandatory, but equip the conference with a fund available on demands to cover it? 
+%% \end{enumerate}
+
+
+\end{document}
