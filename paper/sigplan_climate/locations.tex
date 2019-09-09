@@ -1,0 +1,57 @@
+\section{Data Analysis: Locations}
+
+\subsection{How Carbon Efficient Were These Conferences?}
+
+Present the results using a couple of metrics
+
+\subsection{How Did the Conferences Do in Attracting Local Participants?}
+
+Show 1st quartile and median distances
+
+\subsection{Were There Geographic Differences Between the Four Conferences?}
+
+POPL/ICFP (Europe-centered) vs PLDI/SPLASH (NA-centered)
+
+\subsection{What Would Have Been the Ideal Locations for Each Conference?}
+
+\cvl{Try to do this in Google Earth. Caveat: this is a non-linear system, because the participants depend partly on the location... so that needs to be accounted for.}
+
+\paragraph{A naive, retrospective, optimal choice}
+
+We have observed that the location an \event takes place in significantly
+impacts the distribution of origin of its participants. However, dismissing
+temporarily this factor to consider what could have been the cheapest location
+for past conferences can be an illuminating exercise.
+
+To this end, we chose a fixed number of locations that we believe to be
+representative and spread across the relevant parts of the globe for our
+concern: Paris, Edinburgh, Boston, Los Angeles, Vancouver, Tokyo, Beijing and
+Mumbai. We then reprocessed the dataset to look for the location that would have
+led to the lowest carbon footprint, once again assuming that it would not have
+changed the set of participants.
+
+\begin{table}
+  \begin{tabular}{|l|l|c|c|c|c|}
+    \hline%
+    \bfseries Event & \bfseries Orig. Loc. & \bfseries Orig. Cost & \bfseries Best Loc. & \bfseries Best Cost & \bfseries Saved
+    \csvreader[head to column names]{../../output/sigplan/optimals.csv}{}%
+              {\\\conf\ \year & \csvcoliii & \csvcoliv & \csvcolv & \csvcolvi & \csvcolvii}%
+              \\\hline
+  \end{tabular}
+  \caption{For each \event, depicts the location among Paris, Edinburgh,
+    Boston, Philadelphia, Los Angeles, Vancouver, Tokyo, Beijing and Mumbai that would
+    have led to the lowest carbon footprint. Starred best locations indicates that they coincide with the original one.
+    The final column shows the amount
+    of \gazunitbis that it would have saved.}
+  \label{table:optimal}
+\end{table}
+
+
+Figure~\ref{table:optimal} depicts the resulting data: for each \event, the best location
+and the average \gazunitbis it would have saved. We observe that in the majority
+of the events, the locality effect is strong enough that the optimal takes place on
+the original continent. However it is striking to see how often the East Coast turns
+out to be the cheapest destination. In particular it appears to be preferable to
+the West Coast in most cases, even despite the underlying locality effect that
+is ignored here.
+

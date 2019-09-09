@@ -102,7 +102,7 @@ The description of these analyses will cover Section~\ref{sec:community} to \ref
 \begin{tabular}{|l|l|c|c|c|}
   \hline%
   \bfseries Event & \bfseries Location & \bfseries \# Participants & \bfseries Total cost & \bfseries Average cost 
-\csvreader[head to column names]{../output/sigplan/footprint_confs.csv}{}%
+\csvreader[head to column names]{../../output/sigplan/footprint_confs.csv}{}%
 {\\\conf\ \year & \location & \csvcoliv & \csvcolv & \csvcolvi}%
 \\\hline
 \end{tabular}
@@ -118,7 +118,7 @@ The main data of interest is arguably the last column depicting the average cost
 This high level data already suggests an interesting observation:
 \begin{obs}
 If the carbon footprint of conferences due to air travel is indeed significant,
-its specific average value per participant varies from an \eventto another by up
+its specific average value per participant varies from an \event to another by up
 to a factor of 2.
 \label{obs:footprint}
 \end{obs}

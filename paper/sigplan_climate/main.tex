@@ -25,12 +25,14 @@
 \usepackage{siunitx} 
 
 \usepackage{xcolor}
+\usepackage{graphicx}
+\graphicspath{{./gfx/}}
 %% \usepackage[hidelinks]{hyperref}
-\newif\ifcomments\commentstrue   %% include author discussion
 
 \usepackage{glossaries}
 \usepackage{csvsimple}
 
+\newif\ifcomments\commentstrue   %% include author discussion
 \ifcomments
 \newcommand{\yz}[1]{\textcolor{blue}{{[YZ:~#1]}}}
 \newcommand{\bcp}[1]{\textcolor{red}{{[BCP:~#1]}}}
@@ -106,8 +108,9 @@ will be needed.
 \input{introduction}
 \input{dataset}
 \input{footprint}
-\input{}
-\input{}
-\input{}
+\input{community}
+\input{locations}
+\input{whatif}
+%% \input{}
 
 \end{document}
