@@ -301,7 +301,7 @@ class DB:
                     x = self.pick_optimal(GLOB, cache, conf, year)
                     if not x is None:
                         (base,base_loc,best,best_loc) = x
-                        best_loc = best_loc.place.city + '(*)' if best_loc == base_loc else best_loc.place.city
+                        best_loc = best_loc.place.city + '*' if best_loc == base_loc else best_loc.place.city
                         writer.writerow([conf,year,self.confs[conf][year].place.city,base,best_loc,best,norm(base-best)])
 
     # Slightly ad-hoc function computing the average total overlap that occurs when a list of conference using the same location over sliding years (see Jens' request)
