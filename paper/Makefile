@@ -1,6 +1,9 @@
 paper: sigplan_climate/main.tex
 	cd sigplan_climate;\
 	pdflatex main;\
+	pdflatex main;\
+	bibtex main;\
+	pdflatex main;\
 	mv main.pdf ../sigplan_climate_data_analysis.pdf
 
 draft_Y: draft_Yannick/old_draft.tex
