@@ -1,4 +1,4 @@
-conference,avrg nb of participations,at least 2,at least 3,at least 4,at least 5
+Conference,Avrg nb of participations,>= 2,>= 3,>= 4,>= 5
 ALL,1.52,25.32,12.06,6.61,3.79
 ICFP,1.64,28.86,14.39,8.9,5.45
 POPL,1.59,27.98,14.04,7.87,4.79

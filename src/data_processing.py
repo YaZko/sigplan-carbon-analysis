@@ -187,7 +187,7 @@ class DB:
         with open(output_file,'w',newline='') as csvfile:
 
             writer = csv.writer(csvfile, delimiter=',', quoting=csv.QUOTE_MINIMAL)
-            writer.writerow(['year1','year2','overlap'])
+            writer.writerow(['Year1','Year2','Overlap'])
             for pair in combinations(GLOB.years_processed,2):
                 overlap = self.participation_overlap_single(name,pair[0],name,pair[1])
                 if not overlap is None:
@@ -205,7 +205,7 @@ class DB:
         with open(output_file,'w',newline='') as csvfile:
 
             writer = csv.writer(csvfile, delimiter=',', quoting=csv.QUOTE_MINIMAL)
-            writer.writerow(['year','overlap'])
+            writer.writerow(['Year','Overlap'])
             for year in GLOB.years_processed:
                 overlap = self.participation_overlap_single(conf1,year,conf2,year)
                 if not overlap is None:
@@ -219,7 +219,7 @@ class DB:
 
         with open(GLOB.output_number_of_participations,'w',newline='') as csvfile:
             writer = csv.writer(csvfile, delimiter=',', quoting=csv.QUOTE_MINIMAL)
-            writer.writerow(['conference','avrg nb of participations','at least 2','at least 3','at least 4','at least 5'])
+            writer.writerow(['Conference','Avrg nb of participations','>= 2','>= 3','>= 4','>= 5'])
 
             # res: conf |-> id_participant |-> number of participations to conf specifically
             res = {x:{} for x in GLOB.confs_processed}
