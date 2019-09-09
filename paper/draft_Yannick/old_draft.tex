@@ -193,7 +193,7 @@ Section~\ref{sec:opinions}.
 \begin{tabular}{|l|l|c|c|c|}
   \hline%
   \bfseries event & \bfseries location & \bfseries nb. participants & \bfseries total cost & \bfseries average cost 
-\csvreader[head to column names]{../output/sigplan/footprint_confs.csv}{}%
+\csvreader[head to column names]{../../output/sigplan/footprint_confs.csv}{}%
 {\\\conf\ \year & \location & \csvcoliv & \csvcolv & \csvcolvi}%
 \\\hline
 \end{tabular}
@@ -218,7 +218,7 @@ demographic data may shine some light.
 \label{subsec:demo}
 
 \begin{figure}
-  \csvautotabular{../output/sigplan/demographic.csv}
+  \csvautotabular{../../output/sigplan/demographic.csv}
   \caption{For each \event, continent in which it took place and distribution of
     each continent by origin of participants. The final column indicates the
     portion of participants that traveled from the same continent the
@@ -237,7 +237,7 @@ sheer question of volume, attendance is essentially divided between Europe and
 North America primarily, Asia secondarily.
 
 \begin{figure}
-  \csvautotabular{../output/sigplan/demographic_per_conf.csv}
+  \csvautotabular{../../output/sigplan/demographic_per_conf.csv}
 \caption{For each kind of conference, distribution of participants per continent of origin}
 \label{fig:demo-conf}
 \end{figure}
@@ -264,7 +264,7 @@ place in Europe turned out to be the least expensive edition, challenging our pr
 observation that the conference appears to be mostly north American-centric.
 
 \begin{figure}
-  \csvautotabular{../output/sigplan/demographic_delta.csv}
+  \csvautotabular{../../output/sigplan/demographic_delta.csv}
 \caption{Geographical distribution of participation conditioned by the location of the \event}
 \label{fig:local_effect}
 \end{figure}
@@ -296,13 +296,13 @@ regardless of the location it is held in.
 \centering
      \begin{subfigure}[b]{0.4\textwidth}
        \centering
-       \csvautotabular{../output/sigplan/overlap_intra_conf_POPL.csv}
+       \csvautotabular{../../output/sigplan/overlap_intra_conf_POPL.csv}
        \caption{Case of POPL}
      \end{subfigure}
      \hfill
      \begin{subfigure}[b]{0.4\textwidth}
        \centering
-       \csvautotabular{../output/sigplan/overlap_intra_conf_ICFP.csv}
+       \csvautotabular{../../output/sigplan/overlap_intra_conf_ICFP.csv}
        \caption{Case of ICFP}
     \end{subfigure}
 
@@ -314,12 +314,12 @@ regardless of the location it is held in.
 \centering
      \begin{subfigure}[b]{0.4\textwidth}
        \centering
-       \csvautotabular{../output/sigplan/overlap_intra_conf_PLDI.csv}
+       \csvautotabular{../../output/sigplan/overlap_intra_conf_PLDI.csv}
        \caption{Case of PLDI}
      \end{subfigure}
      \begin{subfigure}[b]{0.4\textwidth}
        \centering
-       \csvautotabular{../output/sigplan/overlap_intra_conf_SPLASH.csv}
+       \csvautotabular{../../output/sigplan/overlap_intra_conf_SPLASH.csv}
        \caption{Case of SPLASH}
      \end{subfigure}
 
@@ -342,32 +342,32 @@ participants of a conference were therefore not part of the previous edition.
   \centering
   \begin{subfigure}[b]{0.3\textwidth}
     \centering
-    \csvautotabular{../output/sigplan/overlap_cross_conf_ICFP_POPL.csv}
+    \csvautotabular{../../output/sigplan/overlap_cross_conf_ICFP_POPL.csv}
     \caption{POPL and ICFP}
   \end{subfigure}
   \begin{subfigure}[b]{0.3\textwidth}
     \centering
-    \csvautotabular{../output/sigplan/overlap_cross_conf_POPL_PLDI.csv}
+    \csvautotabular{../../output/sigplan/overlap_cross_conf_POPL_PLDI.csv}
     \caption{POPL and PLDI}
   \end{subfigure}
   \begin{subfigure}[b]{0.3\textwidth}
     \centering
-    \csvautotabular{../output/sigplan/overlap_cross_conf_POPL_SPLASH.csv}
+    \csvautotabular{../../output/sigplan/overlap_cross_conf_POPL_SPLASH.csv}
     \caption{POPL and SPLASH}
   \end{subfigure}
   \begin{subfigure}[b]{0.3\textwidth}
     \centering
-    \csvautotabular{../output/sigplan/overlap_cross_conf_ICFP_PLDI.csv}
+    \csvautotabular{../../output/sigplan/overlap_cross_conf_ICFP_PLDI.csv}
     \caption{ICFP and PLDI}
   \end{subfigure}
   \begin{subfigure}[b]{0.3\textwidth}
     \centering
-    \csvautotabular{../output/sigplan/overlap_cross_conf_ICFP_SPLASH.csv}
+    \csvautotabular{../../output/sigplan/overlap_cross_conf_ICFP_SPLASH.csv}
     \caption{ICFP and SPLASH}
   \end{subfigure}
   \begin{subfigure}[b]{0.3\textwidth}
     \centering
-    \csvautotabular{../output/sigplan/overlap_cross_conf_PLDI_SPLASH.csv}
+    \csvautotabular{../../output/sigplan/overlap_cross_conf_PLDI_SPLASH.csv}
     \caption{PLDI and SPLASH}
   \end{subfigure}
    \caption{For every year, overlap in attendance between the events of two
@@ -383,7 +383,7 @@ Figure~\ref{fig:overlap-cross} depicts this data for any pairing of the four
 conferences considered. The overlap is strikingly low for most conferences.
 
 \begin{figure}
-  \csvautotabular{../output/sigplan/number_of_participations.csv}
+  \csvautotabular{../../output/sigplan/number_of_participations.csv}
 \caption{Overall and for each conference, the average number of instances a
   participant has taken part of, and the percentage of them that has
   attended at least $k$ instances, for $k\in\llbracket 2 \dots 5
@@ -396,23 +396,23 @@ conferences considered. The overlap is strikingly low for most conferences.
   \centering
   \begin{subfigure}[b]{0.4\textwidth}
     \centering
-    \csvautotabular{../output/sigplan/old_timer_POPL.csv}
+    \csvautotabular{../../output/sigplan/old_timer_POPL.csv}
     \caption{Case of POPL}
   \end{subfigure}
   \begin{subfigure}[b]{0.4\textwidth}
     \centering
-    \csvautotabular{../output/sigplan/old_timer_ICFP.csv}
+    \csvautotabular{../../output/sigplan/old_timer_ICFP.csv}
     \caption{Case of ICFP}
   \end{subfigure}
   \\
   \begin{subfigure}[b]{0.4\textwidth}
     \centering
-    \csvautotabular{../output/sigplan/old_timer_PLDI.csv}
+    \csvautotabular{../../output/sigplan/old_timer_PLDI.csv}
     \caption{Case of PLDI}
   \end{subfigure}
   \begin{subfigure}[b]{0.4\textwidth}
     \centering
-    \csvautotabular{../output/sigplan/old_timer_SPLASH.csv}
+    \csvautotabular{../../output/sigplan/old_timer_SPLASH.csv}
     \caption{Case of SPLASH}
   \end{subfigure}
   \caption{For each conference, percentage of participants that have been
@@ -442,7 +442,7 @@ changed the set of participants.
   \begin{tabular}{|l|l|c|c|c|c|}
     \hline%
     \bfseries event & \bfseries orig. loc. & \bfseries orig. cost & \bfseries best loc. & \bfseries best cost & \bfseries saved
-    \csvreader[head to column names]{../output/sigplan/optimals.csv}{}%
+    \csvreader[head to column names]{../../output/sigplan/optimals.csv}{}%
               {\\\conf\ \year & \csvcoliii & \csvcoliv & \csvcolv & \csvcolvi & \csvcolvii}%
               \\\hline
   \end{tabular}
