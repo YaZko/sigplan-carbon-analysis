@@ -141,7 +141,7 @@ location of the \event.
   \label{obs:locality}
 \end{obs}
 
-\subsection{Attendance overlaps}
+\subsection{How Often Did Participants Attend These Conferences?}
 \label{subsec:overlap}
 
 Section~\ref{subsec:demo}, through the study of the demographic distribution of
@@ -151,50 +151,33 @@ One can conversely look for groups of regular attendees, that participate to a g
 regardless of the location it is held in.
 
 \begin{figure}
-\centering
-     \begin{subfigure}[b]{0.4\textwidth}
-       \centering
-       \csvautotabular{../../output/sigplan/overlap_intra_conf_POPL.csv}
-       \caption{Case of POPL}
-     \end{subfigure}
-     \hfill
-     \begin{subfigure}[b]{0.4\textwidth}
-       \centering
-       \csvautotabular{../../output/sigplan/overlap_intra_conf_ICFP.csv}
-       \caption{Case of ICFP}
-    \end{subfigure}
-
-     \caption{For any two years, percentage of overlap in attendance at the corresponding editions of a conference (part 1)}
-     \label{fig:overlap-conf-alpha}
+  \centering
+  \includegraphics[width=0.6\textwidth]{AttendanceHist.pdf}
+  \caption{Histogram of attendance.}
+  \label{fig:hist_attendance}
 \end{figure}
 
 \begin{figure}
-\centering
-     \begin{subfigure}[b]{0.4\textwidth}
-       \centering
-       \csvautotabular{../../output/sigplan/overlap_intra_conf_PLDI.csv}
-       \caption{Case of PLDI}
-     \end{subfigure}
-     \begin{subfigure}[b]{0.4\textwidth}
-       \centering
-       \csvautotabular{../../output/sigplan/overlap_intra_conf_SPLASH.csv}
-       \caption{Case of SPLASH}
-     \end{subfigure}
-
-     \caption{For any two years, percentage of overlap in attendance at the corresponding editions of a conference (part 2)}
-     \label{fig:overlap-conf-beta}
+  \centering
+  \includegraphics[width=0.45\textwidth,height=1.5in]{AttendanceHistICFP.pdf}
+  \includegraphics[width=0.4\textwidth,height=1.5in]{AttendanceHistPLDI.pdf}
+  \includegraphics[width=0.45\textwidth,height=1.5in]{AttendanceHistPOPL.pdf}
+  \includegraphics[width=0.4\textwidth,height=1.5in]{AttendanceHistSPLASH.pdf}
+  \caption{Histogram of attendance for each conference series.}
+  \label{fig:hist_attendance_per_conference}
 \end{figure}
 
-Figures~\ref{fig:overlap-conf-alpha}~and~\ref{fig:overlap-conf-beta} present one
-way to gather intuition about the reality and size of this phenomenon. For a
-given conference at a time, we depicts, for any pair of years, the percentage of
-attendees that participated in both events. In particular for two consecutive
-years, this number oscillate between 15\% and 30\%. The vast majority of
-participants of a conference were therefore not part of the previous edition.
+Figure~\ref{fig:hist_attendance} shows how often the same participants attended
+multiple conferences. At the extremes, 6,009 people (69\%) attended only 1
+conference, and 4 people attended 20 or more conferences. Participation is
+dominated by single-conference participants, which reflects the large and
+transient student population. The pattern is similar for each conference series,
+shown in Figure~\ref{fig:hist_attendance_per_conference}.
 
-\yz{TODO: This data is not striking enough and takes a lot of space. To aggregate
-  more, or ditch in favor of the following tables only}\bcp{IMO it is worth
-  keeping.  But maybe it could be moved later?}
+
+\subsection{What Was the Participation Overlap Between These Conferences?}
+
+We now take a closer look at the habits of these recurring participants.
 
 \begin{figure}
   \centering
@@ -235,50 +218,162 @@ participants of a conference were therefore not part of the previous edition.
   \label{fig:overlap-cross}
 \end{figure}
 
-Arguably more useful for practical purposes is to evaluate the overlap 
-between the events for the same year of two different conferences.
-Figure~\ref{fig:overlap-cross} depicts this data for any pairing of the four
-conferences considered. The overlap is strikingly low for most conferences.
+A first natural question is to ponder whether there is a significant overlap
+in participation between conferences.
+Figure~\ref{fig:overlap-cross} depicts for any pairing of the four
+conferences considered the percentage of overlap. This measure is strikingly
+low for most conferences.
+
+\begin{obs}
+  Cross-conference overlap is low: the tightest pairing sees slightly over 10\%
+  of common attendance for a given year.  \bcp{More aggregated numbers would
+  also be interesting, since I suspect that there are quite a few people
+  that only go to one big conference a year, but may alternate between
+  (e.g.) POPL and PLDI.}
+  \label{obs:overlap-cross}
+\end{obs}
+
+\begin{table}
+\centering
+     \begin{subtable}[b]{0.4\textwidth}
+       \centering
+       \csvautotabular{../../output/sigplan/overlap_intra_conf_POPL.csv}
+       \caption{Case of POPL}
+     \end{subtable}
+     \hfill
+     \begin{subtable}[b]{0.4\textwidth}
+       \centering
+       \csvautotabular{../../output/sigplan/overlap_intra_conf_ICFP.csv}
+       \caption{Case of ICFP}
+    \end{subtable}
+
+     \caption{For any two years, percentage of overlap in attendance at the corresponding editions of a conference (part 1)}
+     \label{table:overlap-conf-alpha}
+\end{table}
+
+\begin{table}
+\centering
+     \begin{subtable}[b]{0.4\textwidth}
+       \centering
+       \csvautotabular{../../output/sigplan/overlap_intra_conf_PLDI.csv}
+       \caption{Case of PLDI}
+     \end{subtable}
+     \begin{subtable}[b]{0.4\textwidth}
+       \centering
+       \csvautotabular{../../output/sigplan/overlap_intra_conf_SPLASH.csv}
+       \caption{Case of SPLASH}
+     \end{subtable}
+
+     \caption{For any two years, percentage of overlap in attendance at the corresponding editions of a conference (part 2)}
+     \label{table:overlap-conf-beta}
+\end{table}
+
+Conversely, one can estimate the overlap for a given conference over time.
+Tables~\ref{table:overlap-conf-alpha}~and~\ref{table:overlap-conf-beta} depicts
+for a given conference at a time, and for any pair of years, the percentage of
+attendees that participated in both events. In particular for two consecutive
+years, this number oscillate between 15\% and 30\%. The majority of
+participants of a conference were therefore not part of the previous edition.
+
+\begin{obs}
+  Temporal overlap is moderate: roughly a quarter of attendants were present
+  the year before at the same conference.
+  \label{obs:overlap-temp}
+\end{obs}
 
 \begin{figure}
+  \centering
+  \includegraphics[width=\textwidth]{OverlapAnalysis-crop.pdf}
+  \caption{Conference participation overlap.}
+  \label{fig:overlap}
+\end{figure}
+
+Figure~\ref{fig:overlap} synthesizes these overlap in participants between the various
+conferences, giving a bird-eye view of the permanence vs. transience of the
+participants over time in SIGPLAN conferences. \yz{Should we scrap the three previous tables and only keep this Figure?}
+In principle, it is desirable to
+have a balance between repeat participants and newcomers. Communities that don't
+attract new participants tend to stagnate; but communities that don't have a
+core of repeat participants tend to lose focus.
+\yz{Do we want to have this argument here?}
+
+The existence of a certain community associated with each conference series that
+tends to repeat participation is clearly visible on the diagonal. The highest
+overlap of all in particular was between ICFP'16 and ICFP'17, with 180
+repeaters. The four conference series show a healthy balance between repeat
+participation and newcomers.
+
+The weaker overlap between conferences in different series is also apparent.
+For example, there is a somewhat surprising overlap between PLDI and
+POPL, followed by ICFP and POPL and by PLDI and SPLASH. The weakest overlaps are
+between ICFP and SPLASH, followed by ICFP and PLDI, and by POPL and SPLASH. It
+is unclear whether the overlap, or lack thereof, between these conference series
+is due to intellectual reasons or due to their dates. PLDI and POPL is the pair
+that is most distant in time, typically June and January, respectively. ICFP and
+SPLASH is the pair that is the closest in time, typically September and October.
+Time proximity may detract cross-participation.
+
+\begin{table}
   \csvautotabular{../../output/sigplan/number_of_participations.csv}
 \caption{Overall and for each conference, the average number of instances a
   participant has taken part of, and the percentage of them that has
   attended at least $k$ instances, for $k\in\llbracket 2 \dots 5
   \rrbracket$. Remark: the means and percentages are here computed with
   respect to \emph{unique} participants.  \bcp{I really like this table.}}
-\label{fig:reccurent}
-\end{figure}
+\label{table:reccurent}
+\end{table}
 
-\begin{figure}
+\begin{table}
   \centering
-  \begin{subfigure}[b]{0.4\textwidth}
+  \begin{subtable}[b]{0.4\textwidth}
     \centering
     \csvautotabular{../../output/sigplan/old_timer_POPL.csv}
     \caption{Case of POPL}
-  \end{subfigure}
-  \begin{subfigure}[b]{0.4\textwidth}
+  \end{subtable}
+  \begin{subtable}[b]{0.4\textwidth}
     \centering
     \csvautotabular{../../output/sigplan/old_timer_ICFP.csv}
     \caption{Case of ICFP}
-  \end{subfigure}
+  \end{subtable}
   \\
-  \begin{subfigure}[b]{0.4\textwidth}
+  \begin{subtable}[b]{0.4\textwidth}
     \centering
     \csvautotabular{../../output/sigplan/old_timer_PLDI.csv}
     \caption{Case of PLDI}
-  \end{subfigure}
-  \begin{subfigure}[b]{0.4\textwidth}
+  \end{subtable}
+  \begin{subtable}[b]{0.4\textwidth}
     \centering
     \csvautotabular{../../output/sigplan/old_timer_SPLASH.csv}
     \caption{Case of SPLASH}
-  \end{subfigure}
+  \end{subtable}
   \caption{For each conference, percentage of participants that have been
     part of a previous edition of the same conference \bcp{Is this sort of
-      the same information as Figure 8?}}
-  \label{fig:old-timers}
-\end{figure}
+      the same information as Table 8?}}
+  \label{table:old-timers}
+\end{table}
 
-Finally, Figure~\ref{fig:reccurent} and \ref{fig:old-timers} offer two different views on reccurent participations. Figure~\ref{fig:reccurent} represents respectively for the whole dataset and for each conference individually the average number of editions an average participant has been part of, as well as the percentage of participants that has been part of at least some amount of times. We immediately remark that no less than 75\% of unique participants has been part of a single edition.
-Figure~\ref{fig:old-timers} represents for each instance of each conference the percentage of participants that has participated in a previous instance of the conference, among our dataset.
+Finally, Table~\ref{table:reccurent} and \ref{table:old-timers} offer two
+different views on reccurent participations. Table~\ref{table:reccurent}
+represents respectively for the whole dataset and for each conference
+individually the average number of editions an average participant has been part
+of, as well as the percentage of participants that has been part of at least
+some amount of times. We immediately remark that no less than 75\% of unique
+participants has been part of a single edition. Table~\ref{table:old-timers}
+represents for each instance of each conference the percentage of participants
+that has participated in a previous instance of the conference, among our
+dataset.
+
+\begin{obs}
+  The average amount of conferences a participant has been part of is extremely low: 1.52.
+  Less than 4\% of unique participants have been to more than five events
+  among our dataset\bcp{Is that an accurate way of saying it?  I thought it
+    was ``have been to five instances of the same conference.''  (The other
+    number would be interesting too---how many people went to 2,3,4,5
+    instances of {\em any} of the conferences?}\yz{We have both data. This observation refers
+    to the line ``ALL'' from Table 7}.
+  Similarly, at any \event, more than half of the participants are experiencing this specific
+  conference for the first time.
+  \label{obs:old-timers}
+\end{obs}
+
 

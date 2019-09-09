@@ -43,6 +43,8 @@
 \newcommand{\cvl}[1]{}
 \fi
 
+\newif\ifopinions\opinionstrue   %% include author discussion
+
 \newcommand{\python}{\texttt{Python 3}}
 \newcommand{\gaz}{\si{\kilogram\of{CO_2e}}}
 \newcommand{\gazunit}{\si{\kilogram\of{CO_2e~ per~ passenger}}}
@@ -111,6 +113,6 @@ will be needed.
 \input{community}
 \input{locations}
 \input{whatif}
-%% \input{}
+\ifopinions\input{opiniated}\fi
 
 \end{document}
