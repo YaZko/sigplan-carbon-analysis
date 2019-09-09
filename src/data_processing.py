@@ -108,8 +108,8 @@ class DB:
 
                 writer_main = csv.writer(csvfile_main, delimiter=',', quoting=csv.QUOTE_MINIMAL)
                 writer_conf = csv.writer(csvfile_conf, delimiter=',', quoting=csv.QUOTE_MINIMAL)
-                writer_main.writerow(['conf','year','continent'] + continents + ['SAME'])
-                writer_conf.writerow(['conf'] + continents + ['SAME'])
+                writer_main.writerow(['Conference','Year','Continent'] + continents + ['Local'])
+                writer_conf.writerow(['Conference'] + continents + ['Local'])
 
                 # For each conference
                 for name,conf in self.confs.items():
@@ -156,14 +156,16 @@ class DB:
                     conf_row = [norm_perc(distrib_conf[x],total_attendance_conf) for x in continents]
                     writer_conf.writerow([name] + conf_row + [norm_perc(distrib_conf['SAME'],total_attendance_conf)])
 
+                writer_conf.writerow(['Any'] + [norm_perc(distrib_total[x],total_attendance) for x in continents] + [norm_perc(distrib_total['SAME'],total_attendance)])
+
         with open(output_file_delta,'w',newline='') as csvfile_delta:
             writer = csv.writer(csvfile_delta,delimiter=',',quoting=csv.QUOTE_MINIMAL)
-            writer.writerow(['Conf Loc'] + continents + ['SAME'])
+            writer.writerow(['Location'] + continents + ['Local'])
 
-            writer.writerow(['Any'] + [norm_perc(distrib_total[x],total_attendance) for x in continents] + [norm_perc(distrib_total['SAME'],total_attendance)])
             for c in continents:
                 if not total_attendance_per_loc[c] is 0:
                     writer.writerow([c] + [norm_perc(distrib_per_loc[c][x],total_attendance_per_loc[c]) for x in continents] + [norm_perc(distrib_per_loc[c]['SAME'],total_attendance_per_loc[c])])
+            writer.writerow(['Any'] + [norm_perc(distrib_total[x],total_attendance) for x in continents] + [norm_perc(distrib_total['SAME'],total_attendance)])
 
     # Overlap of participation, in percentage, between two instances of two conferences
     def participation_overlap_single(self,name1,year1,name2,year2):

@@ -8,7 +8,6 @@ import csv
 # The state of the cache on the disk and of the mapping in memory is kept consistent to make sure stuff is cached even if the analysis crashes in the middle
 
 # NOTE: Currently, we only store fully computed locations, and assume that all stored locations are such.
-# NOTE: We do not cache the computation of 
 
 class Cache:
 
