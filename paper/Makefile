@@ -1,4 +1,4 @@
-all:
+paper: sigplan_climate/paper.tex
 	pdflatex sigplan_climate/paper
 	mv paper.pdf sigplan_climate_data_analysis.pdf
 	rm paper*
@@ -12,3 +12,8 @@ draft_C:
 	pdflatex draft_Crista/main
 	mv main.pdf draft_Crista.pdf
 	rm main*
+
+all:
+	$(MAKE) paper
+	$(MAKE) draft_Y
+	$(MAKE) draft_C
