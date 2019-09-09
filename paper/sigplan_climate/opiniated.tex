@@ -1,0 +1,200 @@
+\section{Opinionated interpretation}
+\label{sec:opinions}
+
+The data analysis conducted through Section~\ref{sec:data} has put in evidence
+several phenomena that we review here.
+
+\bcp{These observations do not seem all that opinionated.  Maybe move them
+  earlier, with the figures they refer to?}
+
+The first one is a straight read of the carbon footprint of conferences. 
+\begin{obs}
+If as is well known the carbon footprint of
+conferences due to air travel is significant, the specific number
+varies from an \event to another by up to a factor of 2.
+\label{obs:footprint}
+\end{obs}
+
+The more specific analysis of demographic data, in Section~\ref{subsec:demo},
+gives a sense of the rough origin of participants:
+
+\begin{obs}
+  The vast majority of participants are split between North America and Europe,
+  Asia to a much lesser degree. SPLASH and PLDI are strongly anchored in North
+  America, ICFP and POPL fairly equally split between North America and Europe.
+  \label{obs:dist-naive}
+\end{obs}
+
+This distribution however turns out to be \emph{strongly} dependent on the
+location of the \event.
+
+\begin{obs}
+  There is a major ``locality" effect: it is both true that locality attract
+  new participants, and distance repels some participants.
+  \label{obs:locality}
+\end{obs}
+
+The extent of this phenomenon should not be underestimated. The example of the
+few conferences having taken place in Asia underlines the size of the community
+that we fail to encounter otherwise. Also interesting, the surprisingly cheap
+footprint of the only time SPLASH took place in Europe may suggest that the
+North American anchor of the conference is not intrinsic, but rather a
+self-fulfilling prophecy.
+
+Section~\ref{subsec:overlap} provides insights into the expected ``core" community
+that would attend most editions of a given conference by analyzing the overlap
+in participations that actually took place.
+
+\begin{obs}
+  Temporal overlap is moderate: roughly a quarter of attendants were present
+  the year before at the same conference.
+  \label{obs:overlap-temp}
+\end{obs}
+
+\begin{obs}
+  Cross-conference overlap is low: the tightest pairing sees slightly over 10\%
+  of common attendance for a given year.  \bcp{More aggregated numbers would
+  also be interesting, since I suspect that there are quite a few people
+  that only go to one big conference a year, but may alternate between
+  (e.g.) POPL and PLDI.}
+  \label{obs:overlap-cross}
+\end{obs}
+
+Additionally, a significant portion of attendees are ``one timer", or close.
+
+\begin{obs}
+  The average amount of conferences a participant has been part of is extremely low: 1.52.
+  Less than 4\% of unique participants have been to more than five events
+  among our dataset\bcp{Is that an accurate way of saying it?  I thought it
+    was ``have been to five instances of the same conference.''  (The other
+    number would be interesting too---how many people went to 2,3,4,5
+    instances of {\em any} of the conferences?}.
+  Similarly, at any \event, more than half of the participants are experiencing this specific
+  conference for the first time.
+  \label{obs:old-timers}
+\end{obs}
+
+Lastly, despite the aforementioned locality effect that tends to narrow the
+distribution of attendance around the locality the conference actually takes
+place in, a crude search for lowest carbon footprint is highly instructive.
+
+\begin{obs}
+  Due to the locality effect, past data can act as a heuristic for a worst case
+  distribution of attendance with respect to the objective function of
+  minimizing the carbon footprint. Doing so most notably suggests that the East
+  Coast should often be preferred to the West Coast.
+  \label{obs:optim}
+\end{obs}
+
+\subsection{A mandatory estimate of the carbon footprint by the conference organizers}
+
+Despite a modest amount of data at our disposition and the use of a rudimentary suit of
+analyses, there is no ambiguity about the relative environmental impact the choice of
+location to hold a conference in has. In particular, observation~\ref{obs:dist-naive}
+suggests that even setting aside any restructuration of our activities, we can hope for
+saving a factor 2 by being more acute when choosing destinations. Furthermore,
+observation~\ref{obs:optim} emphasizes that even a naive distribution model already gives
+us material to do better, while the more ambitious perspective to model the locality effect
+that we discussed through this paper would allow us for even more efficient choices.
+
+In this light, we consider it unacceptable to continue choosing locations of conferences
+either blindly, or for its scenic value. We should ponder professional relevancy with
+ecological imperative. We hence formulate the following simple recommendation, that shall
+have no impact on our professional activity, save for the reduction of some leisuring side
+product.
+
+\begin{recommend}
+It should be made part of the mandatory process of organization of SIGPLAN
+conference to estimate the carbon footprint of the options considered, and
+to take the results of this analysis into account to finalize the decision.
+\end{recommend}
+
+It shall be emphasized that we do not suggest by this to consider the destination
+minimizing the carbon footprint as the systematic right choice. Concerns such as
+rotating over different parts of the globe or naturally accounting for availability
+of qualified universities to organize should remain of major concern. We merely
+assess by this recommendation the need to bring carbon footprint into the constraint
+system we seek to optimize.
+
+\subsection{A short term experiment: bi-localized or tri-localized conferences}
+
+A considerate choice of destination to organize conferences can lead to a
+non-neglectible reduction of their carbon footprint. However, a reduction of
+the scale required to match by 2050 the recommendation from the Accords de Paris
+will require more drastic measures. More specifically, we need to reduce the cheer
+number of flights our activity induces.
+
+There is no denying that it will have an impact on our activity, some of which will
+be negative. It is hence more than ever of importance to take a reasoned approach
+allowing us to balance optimization of quantitative measures, such as reducing the
+carbon footprint, with qualitative imperative, such as maintaining the ideal of
+an international, borderless, scientific research.
+
+Interestingly, this novel requirement leads us to pay attention to data that may also be
+relevant to our activity beyond the question of carbon footprint. These should be
+taken into consideration as well while seeking a lasting restructuration of our
+activity. In particular, it is implicit to assume that conferences have to be
+geographically international to gather communities of researchers from all over the
+world. However, observation~\ref{obs:locality} challenges strongly this intuition:
+despite any claim a conference may have, the very fact that it is hold each year in
+a single place on Earth rules out a vast amount of international researchers. It is most
+striking with respect to programming language communities from Asia, but seems to be
+true for Europeans desiring to partake in SPLASH as well for instance.
+
+This statement is also backed up by evidence against its complement: the idea of a core
+group of researchers making the essential of all editions of their favorite conference,
+while not completely incorrect, is vastly overestimated. Observations~\ref{obs:old-timers}
+most notably makes it very clear.
+
+This analysis leads us to push toward strong considerations for experimenting a more
+ambitious way to save carbon: giving up on the uniqueness of location of conferences and
+experimenting with bi-localized or tri-localized conferences.
+
+\begin{recommend}
+  Some conferences should experiment a bi-localized format. Typically, POPL could for
+  instance be held simultaneously held in Boston and Paris. A day would span over 12 hours
+  instead of the usual 8. The four hours intersecting would be held simultaneously on
+  both sites via visioconference. The eight other hours would be retransmitted live and
+  have simple support for questions as is already put in practice.\\
+  If the initial experiments go well, we recommend a progressive shift toward this
+  format becoming the norm, and consideration for a third site.
+\end{recommend}
+
+We argue naturally that this change would be a truly ambitious measure to reduce
+significantly the carbon footprint of conferences. But furthermore, we believe that
+it would also enhance the international dimension of the conference: following
+the locality effect, this would most certainly lead to an increase in participation.
+
+A natural opposition would be to state that it is unreasonably to ask for researchers to
+follow twelve hours a day of conferences, and that they would therefore miss part of the
+talks. We do not deny this fact, but points out that it is already largely the case,
+most conferences having two, if not three tracks in parallel.
+
+Yet, it should not be brushed aside that this would remove some precious
+physical interactions between researches from different continents. We
+nonetheless argue that making these interactions the systematic default at conferences
+is an historical incident. Such a restructuration of our activity would probably
+be accompanied by an increase in visit to other laboratories. But that would shift
+these interactions from the current situation that put hundreds of researchers in the
+same building so that extremely small groups get to meet, to a more sensible ``meeting
+by need" organization.
+
+\subsection{A long term need: entirely virtualized conferences}
+
+Bi-localized conferences strike a compromise. On the long run, research, as all
+activities, shall however ambition to be entirely carbon-free. This ambitious
+goal has already been embraced by some conferences\footnote{https://conference.opensimulator.org/2018/}
+and seminars\footnote{https://sites.google.com/site/plustcs/}.
+
+While the currently existing cases are either fairly experimental, or of much more
+modest size than a conference such as the ones organized by SIGPLAN, they report
+encouraging results. As such, we encourage experiments aiming to develop further
+these techniques, and bring the cultural change they entail incrementally among
+our community.
+
+\begin{recommend}
+  We recommend to conduct experiments toward the development of fully virtual
+  conferences as a mean to reach a fully sustainable activity by the horizon 2050
+  at the latest.
+\end{recommend}
+

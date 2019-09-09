@@ -1,0 +1,129 @@
+\section{The footprint of conferences: an estimation}
+
+Carbon footprint is the essential metric of interest that we seek to reduce.
+As such, it is also the starting point of our analysis.
+We introduce in this section the methodology we used and tool we built to
+conduct all of our analyses, and describe the first results ran on our dataset.
+
+\subsection{Evaluation of the carbon cost: methodology}
+\label{sec:methodo}
+
+\yz{This should probably be cut from the paper. Entirely, or abstracted?}
+
+We conduct all our analyses through a \python script, publicly available at
+\url{https://github.com/YaZko/acm-climate}.
+
+The script requires as an input a dataset similar to ours, described by two
+\texttt{csv} files. The first one describes the list of conferences: each line
+describes a specific event and the location it took place in, i.e. has the
+fields \texttt{Name, Year, City, State} and \texttt{Country}. The second one
+contains the list of participants of these events: each line describes a unique
+participation at an event with the location of origin of the participant, i.e.
+has the fields \texttt{Identifier, City, State, Country, Conference} and
+\texttt{Year}.
+
+The first pass of the analysis computes the needed raw data. 
+Informal named locations manually provided by participant are mapped to their
+ISO designation using the \texttt{pycountry} library.
+Once this is done, these named locations are converted to GPS
+locations using the \texttt{geopy} library, that provides a straightforward api
+to this end.
+
+%% An open source data-base of airports and their locations is then used to
+%% manually find the closest one to each city of concern, among those classified as
+%% \emph{medium} or \emph{large}.
+
+Distances in kilometers between airports are then computed between GPS locations
+once again using the \texttt{geopy} library. They use the geodesic distance
+(shortest distance for an ellipsoidal model of the Earth) with a model providing
+precisions that are several orders more precise than we need.
+
+At this point, we therefore know for each participant to a conference the
+distance they traveled.
+%% the two airports between which he is most likely to have commuted.
+It is relevant to keep in mind the following assumptions that have
+been made to reach this stage:
+\begin{itemize}
+\item we assume that \emph{all} participant travelled by plane;
+\item we assume that the airports used are close enough to the end points for their locations to be assimilated;
+\item we assume that all flights are direct flights;
+\item we assume that the geodesic distance is the one taken by planes.
+\end{itemize}
+
+Estimating the errors introduced by these hypotheses and refining them would be
+a valuable work. However, for this first proposal that mainly aims at a relative
+evaluation of different structural changes in our activities, we believe those
+to be workable hypotheses.
+
+Remains now to convert this distance to an emission in \gaz. We use to this end
+a standard model introduced as part of the \texttt{DEFRA 16} report on
+Greenhouse gas
+\footnote{\url{https://www.gov.uk/government/publications/greenhouse-gas-reporting-conversion-factors-2016}}
+\footnote{\url{https://co2calculator.acm.org/methodology.pdf}}
+conducted by the British Government.
+
+The model distinguishes three classes of flight, depending on their length:
+short, medium or long hauls. Each category is associated with a linear
+coefficient relating directly the distance of travel to the amount of \gaz
+emitted. We make the assumptions, anecdotally observed, that researchers all
+fly in economy class.
+
+A second linear coefficient, identical for all flights and so-called
+\emph{radiative forcing index}, is added to account for the difference in
+radiative forcing between the same emissions at ground level compared to high in
+the atmosphere. This coefficient has been taken for the results presented in this
+paper to be $1.891$ as suggested by R. Sausen et al.\cite{Sausen05}.
+
+We therefore obtain the following piece-wise linear model of emissions for a flight covering $d$ kms:
+\begin{itemize}
+\item $1.891 * 0.14735 * d$ \gazunit if $d < 785$
+\item $1.891 * 0.08728 * d$ \gazunit if $785 \leq d < 3700$
+\item $1.891 * 0.077610 * d$ \gazunit if $3700\leq d  $
+\end{itemize}
+
+It should be noted that experiments with other models show significant variance
+in absolute value, but resilience in relative values.\bcp{Maybe worth
+  showing some numbers justifying these statements?}\yz{I agree, will
+  do}\bcp{Assuming that we can get our numbers to agree with CoolEffect's,
+  we could also mention this!} Once again, refining the
+model would hence be a valuable work, but using this simple standard and
+well-established one appears appropriate to draw conclusion in terms of
+\emph{relative} impact of different measures.
+
+This first pass of the script therefore give us an estimation of the footprint
+of our conferences. We have implemented on top of it several analyses aiming to
+estimate the correlation some concrete factors upon which conference organizers
+can act may have with this footprint.
+The description of these analyses will cover Section~\ref{sec:community} to \ref{sec:speculate}.
+
+\subsection{Footprint of the studied conferences}
+
+\begin{table}
+\begin{tabular}{|l|l|c|c|c|}
+  \hline%
+  \bfseries Event & \bfseries Location & \bfseries \# Participants & \bfseries Total cost & \bfseries Average cost 
+\csvreader[head to column names]{../output/sigplan/footprint_confs.csv}{}%
+{\\\conf\ \year & \location & \csvcoliv & \csvcolv & \csvcolvi}%
+\\\hline
+\end{tabular}
+\caption{For each \event: location, number of participants and carbon cost, total and average per participant, in \gazunitbis,}
+\label{table:footprint}
+\end{table}
+
+We now turn to the estimation of the footprint of our dataset.
+Figure~\ref{table:footprint} depicts the total and average carbon cost per participant of
+all conferences analyzed. This cost is estimated in terms of \gazunitbis of emissions.
+The main data of interest is arguably the last column depicting the average cost per participant.
+
+This high level data already suggests an interesting observation:
+\begin{obs}
+If the carbon footprint of conferences due to air travel is indeed significant,
+its specific average value per participant varies from an \eventto another by up
+to a factor of 2.
+\label{obs:footprint}
+\end{obs}
+
+Indeed, the lowest average carbon cost of our dataset is obtained by PLDI'18 at 0.9\gazunitbis,
+while the highest one is reached by ICFP'16 at 1.93\gazunitbis.
+Understanding the underlying rationals for such variations may be a promising
+angle to reduce our emissions without restructuring fundamentally our activity.

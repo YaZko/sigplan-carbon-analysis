@@ -1,0 +1,41 @@
+\subsection{A naive, retrospective, optimal choice}
+
+We have observed that the location an \event takes place in significantly
+impacts the distribution of origin of its participants. However, dismissing
+temporarily this factor to consider what could have been the cheapest location
+for past conferences can be an illuminating exercise.
+
+To this end, we chose a fixed number of locations that we believe to be
+representative and spread across the relevant parts of the globe for our
+concern: Paris, Edinburgh, Boston, Los Angeles, Vancouver, Tokyo, Beijing and
+Mumbai. We then reprocessed the dataset to look for the location that would have
+led to the lowest carbon footprint, once again assuming that it would not have
+changed the set of participants.
+
+\begin{figure}
+  \begin{tabular}{|l|l|c|c|c|c|}
+    \hline%
+    \bfseries event & \bfseries orig. loc. & \bfseries orig. cost & \bfseries best loc. & \bfseries best cost & \bfseries saved
+    \csvreader[head to column names]{../output/sigplan/optimals.csv}{}%
+              {\\\conf\ \year & \csvcoliii & \csvcoliv & \csvcolv & \csvcolvi & \csvcolvii}%
+              \\\hline
+  \end{tabular}
+  \caption{For each \event, depicts the location among Paris, Edinburgh,
+    Boston, Los Angeles, Vancouver, Tokyo, Beijing and Mumbai that would
+    have led to the lowest carbon footprint. We indicate 'SAME' when the
+    actually location is the best, and show in the final column the amount
+    of \gazunitbis that it would have saved. \bcp{Might be more informative
+      to replace SAME with the name of the city, in parens or something to
+      indicate the sameness.}}
+  \label{fig:optimal}
+\end{figure}
+
+
+Figure~\ref{fig:optimal} depicts the resulting data: for each \event, the best location
+and the average \gazunitbis it would have saved. We observe that in the majority
+of the events, the locality effect is strong enough that the optimal takes place on
+the original continent. However it is striking to see how often the East Coast turns
+out to be the cheapest destination. In particular it appears to be preferable to
+the West Coast in most cases, even despite the underlying locality effect that
+is ignored here.
+

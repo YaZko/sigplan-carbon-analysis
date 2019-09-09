@@ -1,0 +1,113 @@
+\documentclass[manuscript, review, screen]{acmart}
+
+\citestyle{acmauthoryear}
+
+\acmVolume{0}
+\acmNumber{0}
+\acmArticle{0}
+\acmYear{2019}
+\acmMonth{0}
+
+\setcopyright{acmcopyright}
+
+\acmDOI{0000001.0000001}
+
+\usepackage[english]{babel}
+\usepackage[utf8x]{inputenc}
+
+\usepackage{caption}
+\usepackage{subcaption}
+
+\usepackage{amsfonts} % mathbb
+\usepackage{amsthm}   % environment proof
+\usepackage{stmaryrd} % semantical brackets
+
+\usepackage{siunitx} 
+
+\usepackage{xcolor}
+%% \usepackage[hidelinks]{hyperref}
+\newif\ifcomments\commentstrue   %% include author discussion
+
+\usepackage{glossaries}
+\usepackage{csvsimple}
+
+\ifcomments
+\newcommand{\yz}[1]{\textcolor{blue}{{[YZ:~#1]}}}
+\newcommand{\bcp}[1]{\textcolor{red}{{[BCP:~#1]}}}
+\newcommand{\cvl}[1]{\textcolor{green}{{[CVL:~#1]}}}
+\else
+\newcommand{\yz}[1]{}
+\newcommand{\bcp}[1]{}
+\newcommand{\cvl}[1]{}
+\fi
+
+\newcommand{\python}{\texttt{Python 3}}
+\newcommand{\gaz}{\si{\kilogram\of{CO_2e}}}
+\newcommand{\gazunit}{\si{\kilogram\of{CO_2e~ per~ passenger}}}
+\newcommand{\gazunitbis}{\si{\tonne\of{CO_2e}}}
+
+\newcommand{\event}{event} % What's the right term to designate a specific iteration of a conference?
+\newcommand{\conf}{conference} 
+
+\newtheorem{obs}{Observation}
+\newtheorem{recommend}{Recommendation}
+
+\title{Engaging with Climate Change: grounding in data possible changes for SIGPLAN}
+
+\begin{document}
+
+\title{Towards Sustainable Conferences: An Analysis of SIGPLAN Conference Data}
+
+\author{Cristina V. Lopes}
+%\orcid{1234-5678-9012-3456}
+\affiliation{%
+  \institution{University of California, Irvine}
+  \city{Irvine}
+  \state{CA}
+  \postcode{92697}
+  \country{USA}}
+\email{lopes@uci.edu}
+
+\author{Benjamin Pierce}
+\affiliation{%
+  \institution{University of Pennsylvania}
+  \city{Philadelphia}
+  \state{PA}
+  \country{USA}}
+\email{bcpierce@cis.upenn.edu}
+
+\author{Yannick Zakowski}
+\affiliation{%
+  \institution{University of Pennsylvania}
+  \city{Philadelphia}
+  \state{PA}
+  \country{USA}}
+\email{zakowski@seas.upenn.edu}
+
+\begin{abstract}
+
+Starting in 2017, SIGPLAN formed an ad-hoc committee to study issues related to
+climate change, in particular how SIGPLAN can improve its operations in order to
+contribute to 40\% reduction in carbon emissions by 2030. One important part of
+that effort was to gather data pertaining to SIGPLAN conferences so to gain a
+better understanding of how we have been operating so far. This paper explain
+the data we gathered, and presents an analysis of this data. The main conclusion
+is that there is an inherent conflict between SIGPLAN's mission of geographic
+inclusion and carbon emissions, and that, going forward, innovative approaches
+for how to organize conferences that are both inclusive and carbon efficient
+will be needed.
+
+\end{abstract}
+
+\keywords{Climate change, conferences, carbon footprint}
+
+\maketitle
+
+\input{introduction}
+\input{dataset}
+\input{footprint}
+\input{}
+\input{}
+\input{}
+
+\end{document}
