@@ -1,4 +1,16 @@
-\documentclass{scrartcl}
+\documentclass[manuscript, review, screen]{acmart}
+
+\citestyle{acmauthoryear}
+
+\acmVolume{0}
+\acmNumber{0}
+\acmArticle{0}
+\acmYear{2019}
+\acmMonth{0}
+
+\setcopyright{acmcopyright}
+
+\acmDOI{0000001.0000001}
 
 \usepackage[english]{babel}
 \usepackage[utf8x]{inputenc}
@@ -12,8 +24,8 @@
 
 \usepackage{siunitx} 
 
-\usepackage[hidelinks]{hyperref}
 \usepackage{xcolor}
+%% \usepackage[hidelinks]{hyperref}
 \newif\ifcomments\commentstrue   %% include author discussion
 
 \usepackage{glossaries}
@@ -42,9 +54,41 @@
 
 \begin{document}
 
-\maketitle
+\title{Towards Sustainable Conferences: An Analysis of SIGPLAN Conference Data}
 
-\bcp{Probably better not to use the same title as the earlier report.}
+\author{Cristina V. Lopes}
+%\orcid{1234-5678-9012-3456}
+\affiliation{%
+  \institution{University of California, Irvine}
+  \city{Irvine}
+  \state{CA}
+  \postcode{92697}
+  \country{USA}}
+\email{lopes@uci.edu}
+
+\author{Benjamin Pierce}
+\affiliation{%
+  \institution{University of Pennsylvania}
+  \city{Philadelphia}
+  \state{PA}
+  \country{USA}}
+\email{bcpierce@cis.upenn.edu}
+
+\author{Yannick Zakowski}
+\affiliation{%
+  \institution{University of Pennsylvania}
+  \city{Philadelphia}
+  \state{PA}
+  \country{USA}}
+\email{zakowski@seas.upenn.edu}
+
+\begin{abstract}
+Starting in 2017, SIGPLAN formed an ad-hoc committee to study issues related to climate change, in particular how SIGPLAN can improve its operations in order to contribute to 40\% reduction in carbon emissions by 2030. One important part of that effort was to gather data pertaining to SIGPLAN conferences so to gain a better understanding of how we have been operating so far. This paper explain the data we gathered, and presents an analysis of this data. The main conclusion is that there is an inherent conflict between SIGPLAN's mission of geographic inclusion and carbon emissions, and that, going forward, innovative approaches for how to organize conferences that are both inclusive and carbon efficient will be needed. 
+\end{abstract}
+
+\keywords{Climate change, conferences, carbon footprint}
+
+\maketitle
 
 \section{Introduction}
 
@@ -54,25 +98,20 @@ It is well-known that the overwhelming factor of emission in research is air tra
 notably due to international conferences.
 
 With this perspective in mind, we may be attracted to ponder several questions
-about our activity.
-\begin{itemize}
-% \item Should we organize the offsetting of the carbon cost of conferences? If
-%   so, what should be the amount of carbon we offset, at what price, and to whom
-%   should the cost be attributed?
-%   \bcp{IMHO, this is a topic for a separate paper.}
-%   \yz{I had in mind that the numbers could legitimate the amount we ask for, but I see your point, we can certainly ditch this section. I commented it out for now}
-\item Should SIGPLAN conference locations be chosen to minimize their
-carbon impact?  
-\item Should some conferences be co-located?
-\item Should some conferences be split into two remote sites?
-\item Should some conferences be held entirely virtually?  \bcp{This is a
+about our activity. Should SIGPLAN conference locations be chosen to minimize
+their carbon impact? Should we move toward co-locating more conferences? Or on
+the contrary, should some conferences be split into two remote sites?
+More drastically, should some conferences be held entirely virtually?
+\bcp{This is a
   good question, of course, but I'm not sure it is addressed at all by the
   data we have.}
-\end{itemize}
+\yz{My rationale was that all these questions require hard numbers to ponder
+  correctly, which is the object of this paper. None of these questions should
+  really find an answer here, should it?}
 
 Such decisions have various impacts on our activity, and may have drawbacks in
 terms of the social and professional benefits of conferences. 
-In order to ground discussions about the compromises we wish to undertake, we consider
+In order to ground discussions about the compromises we wish to collectively undertake, we consider
 three main classes of data whose analysis may guide the decisions of the community.
 \begin{itemize}
 \item What has been the emissions of past conferences?
@@ -90,36 +129,58 @@ observations of interests, but aim to remain neutral through this exposition.
 Finally, we offer the conclusions we derive from the data and the measures we
 correspondingly advice the ACM to take through Section~\ref{sec:opinions}.
 
-\section{The data set}
+\section{Dataset}
 \label{sec:dataset}
+ 
+The dataset we have consists of 10 years worth of attendance to the four major
+SIGPLAN conference series, namely: POPL, PLDI, ICFP, and SPLASH, from the
+beginning of 2009 until the end of 2018. Data for some of the conferences in the
+earlier years are missing. In total, we have data for 33 conferences,
+corresponding to 8,758 unique participants and 16,374 trips. For each
+participant, we know all the conferences (s)he attended, and from which city
+(s)he departed to attend the conferences.
 
-The currently available data spans over four conferences, all members of
-SIGPLAN: POPL, PLDI, ICFP and SPLASH. Data ranges from 2009 to 2019, with a few
-missing data points.
+The identity of participants is hashed, leading to anonymization but retaining
+the possibility to study cross participation.
 
-For each instance of each conference, the available information is the location
-(city, state if relevant and country) the conference took place in, as well as
-the list of all participants paired with their location of origin. The identity
-of participants is hashed, leading to anonymization but retaining the
-possibility to study cross participation.
+\yz{Removed the table detailing  the dataset since it is highly redundant with the table of footprints from section 4.}
 
-The resulting dataset contains in total 4 different conferences, 33
-instances of conferences for a total of 16374 participants.
+%% Table~\ref{tab:dataset} summarizes our conference dataset.
 
-\section{Evaluation of the carbon cost: methodology}
+\section{The footprint of conferences: an estimation}
+
+Carbon footprint is the essential metric of interest that we seek to reduce.
+As such, it is also the starting point of our analysis.
+We introduce in this section the methodology we used and tool we built to
+conduct all of our analyses, and describe the first results ran on our dataset.
+
+\subsection{Evaluation of the carbon cost: methodology}
 \label{sec:methodo}
 
-All data are processed using \python.
+\yz{This should probably be cut from the paper. Entirely, or abstracted?}
 
+We conduct all our analyses through a \python script, publicly available at
+\url{https://github.com/YaZko/acm-climate}.
+
+The script requires as an input a dataset similar to ours, described by two
+\texttt{csv} files. The first one describes the list of conferences: each line
+describes a specific event and the location it took place in, i.e. has the
+fields \texttt{Name, Year, City, State} and \texttt{Country}. The second one
+contains the list of participants of these events: each line describes a unique
+participation at an event with the location of origin of the participant, i.e.
+has the fields \texttt{Identifier, City, State, Country, Conference} and
+\texttt{Year}.
+
+The first pass of the analysis computes the needed raw data. 
 Informal named locations manually provided by participant are mapped to their
 ISO designation using the \texttt{pycountry} library.
 Once this is done, these named locations are converted to GPS
 locations using the \texttt{geopy} library, that provides a straightforward api
 to this end.
 
-An open source data-base of airports and their locations is then used to
-manually find the closest one to each city of concern, among those classified as
-\emph{medium} or \emph{large}.
+%% An open source data-base of airports and their locations is then used to
+%% manually find the closest one to each city of concern, among those classified as
+%% \emph{medium} or \emph{large}.
 
 Distances in kilometers between airports are then computed between GPS locations
 once again using the \texttt{geopy} library. They use the geodesic distance
@@ -127,17 +188,19 @@ once again using the \texttt{geopy} library. They use the geodesic distance
 precisions that are several orders more precise than we need.
 
 At this point, we therefore know for each participant to a conference the
-distance separating the two airports between which he is most likely to have
-commuted. It is relevant to keep in mind the following assumptions that have
+distance they traveled.
+%% the two airports between which he is most likely to have commuted.
+It is relevant to keep in mind the following assumptions that have
 been made to reach this stage:
 \begin{itemize}
 \item we assume that \emph{all} participant travelled by plane;
+\item we assume that the airports used are close enough to the end points for their locations to be assimilated;
 \item we assume that all flights are direct flights;
 \item we assume that the geodesic distance is the one taken by planes.
 \end{itemize}
 
 Estimating the errors introduced by these hypotheses and refining them would be
-a valuable work. However, for this first work that mainly aim at a relative
+a valuable work. However, for this first proposal that mainly aims at a relative
 evaluation of different structural changes in our activities, we believe those
 to be workable hypotheses.
 
@@ -154,14 +217,11 @@ coefficient relating directly the distance of travel to the amount of \gaz
 emitted. We make the assumptions, anecdotally observed, that researchers all
 fly in economy class.
 
-A second linear coefficient, identical for all flights, is added to
-account for radiative forcing\bcp{I think we (I) have not been using this
-  term quite correctly: we should really be saying ``radiative forcing
-  index''---i.e., here, the coefficient is accounting for the {\em
-    difference} in radiative forcing between the same emissions at ground
-  level vs. high in the atmosphere}, i.e. an estimation of the impact that the
-specific gases emitted in the specific context of aviation has on global
-warming.
+A second linear coefficient, identical for all flights and so-called
+\emph{radiative forcing index}, is added to account for the difference in
+radiative forcing between the same emissions at ground level compared to high in
+the atmosphere. This coefficient has been taken for the results presented in this
+paper to be $1.891$ as suggested by R. Sausen et al.\cite{Sausen05}.
 
 We therefore obtain the following piece-wise linear model of emissions for a flight covering $d$ kms:
 \begin{itemize}
@@ -179,15 +239,13 @@ model would hence be a valuable work, but using this simple standard and
 well-established one appears appropriate to draw conclusion in terms of
 \emph{relative} impact of different measures.
 
-\section{Data analysis}
-\label{sec:data}
+This first pass of the script therefore give us an estimation of the footprint
+of our conferences. We have implemented on top of it several analyses aiming to
+estimate the correlation some concrete factors upon which conference organizers
+can act may have with this footprint.
+The description of these analyses will cover Section~\ref{sec:community} to \ref{sec:speculate}.
 
-Through this section, we present the results of our data analysis in a as
-neutral way as possible. We shall point out phenomena that came out as a
-surprise to us, but defer opinionated observations and practical conclusions to
-Section~\ref{sec:opinions}.
-
-\subsection{Raw data}
+\subsection{Footprint of the studied conferences}
 
 \begin{figure}
 \begin{tabular}{|l|l|c|c|c|}
@@ -201,11 +259,12 @@ Section~\ref{sec:opinions}.
 \label{fig:RawData}
 \end{figure}
 
+We now turn to the estimation of the footprint of our dataset.
 Figure~\ref{fig:RawData} depicts the total and average carbon cost per participant of
 all conferences analyzed. This cost is estimated in terms of \gazunitbis of emissions.
-The main data of interest is naturally the last column depicting the average cost per participant.
+The main data of interest is arguably the last column depicting the average cost per participant.
 
-This raw data already presents a very obvious and interesting phenomenon: a
+This high level data already presents a very obvious and interesting phenomenon: a
 factor two separates the lowest average carbon cost (PLDI'18 at 0.9\gazunitbis)
 from the highest one (ICFP'16 at 1.93\gazunitbis).
 Understanding the underlying rationals for such variations may be a promising
@@ -213,6 +272,16 @@ angle to reduce our emissions without restructuring fundamentally our activity.
 
 Since emissions are strongly correlated to the distance traveled, deriving
 demographic data may shine some light.
+
+\section{Data analysis}
+\label{sec:data}
+
+Through this section, we present the results of our data analysis in a as
+neutral way as possible. We shall point out phenomena that came out as a
+surprise to us, but defer opinionated observations and practical conclusions to
+Section~\ref{sec:opinions}.
+
+\subsection{Raw data}
 
 \subsection{Demographics}
 \label{subsec:demo}
