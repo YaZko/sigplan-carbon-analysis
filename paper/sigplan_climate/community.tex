@@ -19,62 +19,91 @@ to a given conference, and overlap in participation between several conferences.
 %% surprise to us, but defer opinionated observations and practical conclusions to
 %% Section~\ref{sec:opinions}.
 
-\subsection{Demographics}
+\subsection{Demographics: Where did the Participants Come from?}
 \label{subsec:demo}
 
+Demographic distributions of attendance are a key resource to understand
+the core community fueling a conference, hence suggesting carbon-cheap locations
+to host it.
+
 \begin{figure}
+  \centering
+  \includegraphics[width=0.7\textwidth]{ParticipantsOrigin.pdf}
+  \caption{Overall origin of participants per conference.}
+  \label{fig:demo-per-conf}
+\end{figure}
+
+\begin{table}
+  \csvautotabular{../../output/sigplan/demographic_per_conf.csv}
+\caption{For each kind of conference, distribution of participants per continent of origin}
+\label{table:demo-per-conf}
+\end{table}
+
+
+Table~\ref{fig:demo-per-conf} and Figure~\ref{fig:demo-per-conf} show where all
+participants came from. For each conference, we depict the distribution of
+attendance per continent. Table~\ref{fig:demo-per-conf} also shows the portion
+of attendants originating from the same continent as the one the event took
+place in. To a first approximation, maximizing this last metric, i.e. hosting
+conferences in the continent containing the majority of its community, is a
+first simple heuristic to consider.
+
+Taken as a whole, these conferences attracted 50\% participants from North
+America, 36\% from Europe, 11\% from Asia, 2\% from Oceania, 1\% from South
+America, and less than 0.2\% from Africa.
+This data also emphasizes the relative anchor to a specific continent each
+conference may have.
+Most notably, PLDI and SPLASH appear to be very North
+American-centric, while ICFP's core community seems to have a quite strong
+anchor in Europe as well.
+
+\begin{table}
   \csvautotabular{../../output/sigplan/demographic.csv}
   \caption{For each \event, continent in which it took place and distribution of
     each continent by origin of participants. The final column indicates the
     portion of participants that traveled from the same continent the
     conference took place in.}
-  \label{fig:demo-raw}
-\end{figure}
-
-Demographic data are a key resource to understand the carbon cost of attendance.
-Figure~\ref{fig:demo-raw} shows, for each \event, the
-continent it took place in, the distribution of attendance per continent, and
-the percentage of attendants originating from the same continent as the one it
-took place in. To a first approximation, maximizing this last parameter is a fair
-heuristic to minimize the carbon cost without any impact on the organization of
-the conference itself. One may already notice that in the current conjecture, in
-sheer question of volume, attendance is essentially divided between Europe and
-North America primarily, Asia secondarily.
+  \label{table:demo-per-event}
+\end{table}
 
 \begin{figure}
-  \csvautotabular{../../output/sigplan/demographic_per_conf.csv}
-\caption{For each kind of conference, distribution of participants per continent of origin}
-\label{fig:demo-conf}
+  \centering
+  \includegraphics[width=0.45\textwidth,height=1.8in]{ParticipantsOriginICFP.pdf}
+  \includegraphics[width=0.45\textwidth,height=1.8in]{ParticipantsOriginPLDI.pdf}
+  \includegraphics[width=0.45\textwidth,height=1.8in]{ParticipantsOriginPOPL.pdf}
+  \includegraphics[width=0.45\textwidth,height=1.8in]{ParticipantsOriginSPLASH.pdf}
+  \caption{Origin of participants for each conference, detail.}
+  \label{fig:demo-per-event}
 \end{figure}
 
-A natural idea suggested by the desire to increase the percentage of attendance
-taking place locally at the scale of continents is to look for a core group of
-recurrent attendees that would constitutes a model of the distribution of the
-attendees of a given conference. To investigate this idea, Figure~\ref{fig:demo-conf}
-depicts an aggregated information of the previous data: for each 
-\conf, the average distribution of attendance per continent. From this
-table, one can observe the relative cultural anchor of each conference into a
-specific continent. Most notably, PLDI and SPLASH appear to be very North
-American-centric, while ICFP's core community seems to have a quite strong
-anchor in Europe as well.
+This overall picture, however, hides some interesting facts pertaining to the
+relationship between the conferences' locations and the origin of the participants.
+Indeed, aggregating the attendance per conference intrinsically rests upon the
+assumption of a uniform community attending each instance of the conference
+every year. Table~\ref{fig:demo-per-event} and Figure~\ref{fig:demo-per-event}
+show a more detailed breakdown of the origin of participants for each
+conference, showing also the geographic region where the conferences were held.
 
-This aggregation of data however intrinsically rests upon the assumption of a uniform
-community attending each conference every year. A closer inspection of
-Figure~\ref{fig:demo-raw} easily convinces us of the erroneous dimension of this
-hypothesis. Most strikingly, Asian participation during POPL '15, ICFP '11 and
-ICFP '16, events that took place on the Asian continent, is significantly higher
-than usual: there appears to be a strong locality phenomenon. Crossing the data with
-Figure~\ref{fig:demo-conf} one can also notice that the only time SPLASH took
-place in Europe turned out to be the least expensive edition, challenging our previous
-observation that the conference appears to be mostly north American-centric.
+These charts make it clear that the location of the conferences had a
+substantial effect on attracting people from the same geographic areas. That
+effect is quite visible for ICFP and POPL, with noticeable ups and downs of the
+colored bars between North American and European participants when the
+conferences were located in North America and Europe, respectively. Most
+strikingly, Asian participation during POPL '15, ICFP '11 and ICFP '16, events
+that took place on the Asian continent, is significantly higher than usual:
+there appears to be a strong locality phenomenon. Crossing this data with
+Table~\ref{table:footprint}, one can also notice that the only time SPLASH took
+place in Europe turned out to be the least expensive edition, challenging our
+previous observation that the conference appears to be mostly north
+American-centric.
 
-\begin{figure}
+\begin{table}
   \csvautotabular{../../output/sigplan/demographic_delta.csv}
 \caption{Geographical distribution of participation conditioned by the location of the \event}
 \label{fig:local_effect}
-\end{figure}
+\end{table}
 
-Figure~\ref{fig:local_effect} attempts to measure this locality effect. The
+Table~\ref{fig:local_effect} attempts to measure this locality effect. The
 table depicts, all conferences being considered at once, the geographical
 distribution of attendance conditioned by the geographical location of the
 \event. The Asian phenomenon previously hinted at is here extremely
@@ -82,11 +111,35 @@ apparent: while overall on average, 10.9\% of the participants come from Asia,
 this number is roughly multiplied by a factor 4 when the \event takes place in Asia --
 without any significant drop in total volume of attendance that could indirectly bump
 the percentage.
-
 But interestingly, this phenomenon also exists in the case of Europe (+22.29\%
 deviation to the average) and North America (+12.15\% deviation to the average).
 Despite their name, international conferences appear to exhibit a fairly strong
 local component.
+
+Overall, this data shows that the goal of geographic inclusion was,
+indeed, accomplished by organizing the conferences in diverse geographic areas
+of the world. It also places Figure~\ref{fig:continents} into a broader context:
+a naive interpretation of that chart might lead us to conclude that North
+America and Europe are where most of this community is, but it is not that
+simple. Because of the regional effect on participation, the distribution of
+participants also reflects the fact that most of these conferences were held in
+North America and Europe (30), only a few were held in Asia (3), and none was
+held in South America, Oceania, or Africa.
+
+The situation may be summed up into the following two elementary observations. 
+\begin{obs}
+  The vast majority of participants are split between North America and Europe,
+  Asia to a much lesser degree. SPLASH and PLDI are strongly anchored in North
+  America, ICFP and POPL fairly equally split between North America and Europe.
+  \label{obs:dist-naive}
+\end{obs}
+This distribution however turns out to be \emph{strongly} dependent on the
+location of the \event.
+\begin{obs}
+  There is a major ``locality" effect: it is both true that locality attract
+  new participants, and distance repels some participants.
+  \label{obs:locality}
+\end{obs}
 
 \subsection{Attendance overlaps}
 \label{subsec:overlap}
