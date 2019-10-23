@@ -1,6 +1,4 @@
-\documentclass[manuscript, review, screen]{acmart}
-
-\citestyle{acmauthoryear}
+\documentclass[review, screen]{acmart}
 
 \acmVolume{0}
 \acmNumber{0}
@@ -11,6 +9,9 @@
 \setcopyright{acmcopyright}
 
 \acmDOI{0000001.0000001}
+
+\bibliographystyle{ACM-Reference-Format}
+\citestyle{acmauthoryear}   
 
 \usepackage[english]{babel}
 \usepackage[utf8x]{inputenc}
@@ -42,6 +43,13 @@
 \newcommand{\bcp}[1]{}
 \newcommand{\cvl}[1]{}
 \fi
+
+\makeatletter 
+\let\c@table\c@figure
+\let\c@lstlisting\c@figure
+\let\ftype@table\ftype@figure
+\let\ftype@listings\ftype@figure
+\makeatother
 
 \newif\ifopinions\opinionstrue   %% include author discussion
 
@@ -99,9 +107,12 @@ the data we gathered, and presents an analysis of this data. The main conclusion
 is that there is an inherent conflict between SIGPLAN's mission of geographic
 inclusion and carbon emissions, and that, going forward, innovative approaches
 for how to organize conferences that are both inclusive and carbon efficient
-will be needed.  \bcp{What about talking a little bit about the tools we
-  (you) developed to do this analysis and advertising the fact that we want
-  to make them available to other people?}
+will be needed. 
+
+We believe that most research communities would benefit from performing a
+similar introspection and drawing their own conclusions from its result. To
+this end, we present the open source Python script we developed to conduct
+our analysis.
 
 \end{abstract}
 
@@ -114,7 +125,8 @@ will be needed.  \bcp{What about talking a little bit about the tools we
 \input{footprint}
 \input{community}
 \input{locations}
-\input{whatif}
+%% \input{whatif}
 \ifopinions\input{opiniated}\fi
 
+\bibliography{sigplan_climate}
 \end{document}
