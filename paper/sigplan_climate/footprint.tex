@@ -8,45 +8,15 @@ conduct all of our analyses, and describe the first results ran on our dataset.
 \subsection{Evaluation of the carbon cost: methodology}
 \label{sec:methodo}
 
-\yz{This should probably be cut from the paper. Entirely, or abstracted?}
-\bcp{I think it's useful, actually -- especially wrt. my suggestion that
-  this paper can also be an advertisement for your software!  However, I
-  agree it doesn't belong here.  What about putting it in an appendix?}
-
 We conduct all our analyses through a \python{} script, publicly available at
-\url{https://github.com/YaZko/acm-climate}.\bcp{Maybe this repo needs a more
+\url{https://github.com/YaZko/acm-climate}. We describe its behavior and give
+a brief overview of its use in Section~\ref{sec:software}.
+\bcp{Maybe this repo needs a more
 informative name?}
 
-The script requires as an input a dataset similar to ours, described by two
-\texttt{csv} files. The first one describes the list of conferences: each line
-describes a specific event and the location it took place in, i.e. has the
-fields \texttt{Name, Year, City, State} and \texttt{Country}. The second one
-contains the list of participants of these events: each line describes a unique
-participation at an event with the location of origin of the participant, i.e.
-has the fields \texttt{Identifier, City, State, Country, Conference} and
-\texttt{Year}.
-
-The first pass of the analysis computes the needed raw data. 
-Informal named locations manually provided by participant are mapped to their
-ISO designation using the \texttt{pycountry} library.
-Once this is done, these named locations are converted to GPS
-locations using the \texttt{geopy} library, that provides a straightforward api
-to this end.
-
-%% An open source data-base of airports and their locations is then used to
-%% manually find the closest one to each city of concern, among those classified as
-%% \emph{medium} or \emph{large}.
-
-Distances in kilometers between airports are then computed between GPS locations
-once again using the \texttt{geopy} library. They use the geodesic distance
-(shortest distance for an ellipsoidal model of the Earth) with a model providing
-precisions that are several orders more precise than we need.
-
-At this point, we therefore know for each participant to a conference the
-distance they traveled.
-%% the two airports between which he is most likely to have commuted.
-It is relevant to keep in mind the following assumptions that have
-been made to reach this stage:
+For the carbon footprint estimate we present in this paper,
+it is relevant to keep in mind the following assumptions that have
+been made:
 \begin{itemize}
 \item we assume that \emph{all} participant travelled by plane;
 \item we assume that the airports used are close enough to the end points for their locations to be assimilated;
@@ -85,20 +55,20 @@ We therefore obtain the following piece-wise linear model of emissions for a fli
 \item $1.891 * 0.077610 * d$ \gazunit if $3700\leq d  $
 \end{itemize}
 
-It should be noted that experiments with other models show significant variance
-in absolute value, but resilience in relative values.\bcp{Maybe worth
-  showing some numbers justifying these statements?}\yz{I agree, will
-  do}\bcp{Assuming that we can get our numbers to agree with CoolEffect's,
-  we could also mention this!} Once again, refining the
-model would hence be a valuable work, but using this simple standard and
-well-established one appears appropriate to draw conclusion in terms of
-\emph{relative} impact of different measures.
+%% It should be noted that experiments with other models show significant variance
+%% in absolute value, but resilience in relative values.\bcp{Maybe worth
+%%   showing some numbers justifying these statements?}\yz{I agree, will
+%%   do}\bcp{Assuming that we can get our numbers to agree with CoolEffect's,
+%%   we could also mention this!} Once again, refining the
+%% model would hence be a valuable work, but using this simple standard and
+%% well-established one appears appropriate to draw conclusion in terms of
+%% \emph{relative} impact of different measures.
 
-This first pass of the script therefore give us an estimation of the footprint
-of our conferences. We have implemented on top of it several analyses aiming to
-estimate the correlation some concrete factors upon which conference organizers
-can act may have with this footprint.
-The description of these analyses will cover Section~\ref{sec:community} to \ref{sec:speculate}.
+%% This first pass of the script therefore give us an estimation of the footprint
+%% of our conferences. We have implemented on top of it several analyses aiming to
+%% estimate the correlation some concrete factors upon which conference organizers
+%% can act may have with this footprint.
+%% The description of these analyses will cover Section~\ref{sec:community} to \ref{sec:speculate}.
 
 \subsection{Footprint of the studied conferences}
 

@@ -1,0 +1,69 @@
+\section{An open source tool to conduct similar analyzes}
+\label{sec:software}
+
+We believe that the analysis we conducted over sigplan conferences is a valuable
+process of introspection for conference organizers. However the consequences of
+this analysis cannot be drawn universally: the situation heavily depends notably
+on the geographical distribution of the underlying research community, and on its
+cultural habits of attendance. Moreover, the practical conclusions that it should
+entail may diverge from a community to another, even in similar situation.
+As such, we strongly encourage similar studies performed by other SIGs, and more
+generally other communities of conferences.
+
+To help attain this goal, we developed an open source \python{} script that we
+intended as parameterizable and reusable as possible. All analyzes presented in
+this paper have been generated using this tool\footnote{The graphical
+  visualizations have been made separately, the script currently only generates
+  tables. Extending it to generate graphical takes on these tables would be an
+  interesting feature.}. The script can be found at the following github repository:
+\url{https://github.com/YaZko/acm-climate}.\bcp{Maybe this repo needs a more
+informative name?}
+We welcome all remarks, pull requests, feature requests and would be happy to assist
+anyone wishing to use the tool for their own analysis.
+
+A more detailed documentation is available in the repository. We give here a high-level overview
+of its content.
+
+The script requires as an input a dataset similar to ours, described by two
+\texttt{csv} files. The first one describes the list of conferences: each line
+describes a specific event and the location it took place in, i.e. has the
+fields \texttt{Name, Year, City, State} and \texttt{Country}. The second one
+contains the list of participants of these events: each line describes a unique
+participation at an event with the location of origin of the participant, i.e.
+has the fields \texttt{Identifier, City, State, Country, Conference} and
+\texttt{Year}.
+
+The first pass of the analysis computes the needed raw data. 
+Informal named locations manually provided by participant are mapped to their
+ISO designation using the \texttt{pycountry} library.
+Once this is done, these named locations are converted to GPS
+locations using the \texttt{geopy} library, that provides a straightforward api
+to this end.
+To avoid duplicating requests to online apis, all of these computations are cached
+locally.
+
+Distances in kilometers between locations are then computed between GPS locations
+once again using the \texttt{geopy} library. They use the geodesic distance
+(shortest distance for an ellipsoidal model of the Earth) with a model providing
+precision that are several orders more precise than we need.
+
+At this point, we therefore know for each participant to a conference the
+distance they traveled. The script then uses a model that computes the carbon
+cost of air travel based on this information. For the analysis presented in this
+paper, we used the \texttt{DEFRA 16} model described in
+Section~\ref{sec:methodo}, but we currently also propose a closely similar one
+developed by \texttt{CoolEffect}\footnote{\url{https://www.cooleffect.org/}}.
+As long as the models are functions of the distance, more can be easily added.
+
+This first pass of the script therefore gives us an estimate of the footprint of
+our conferences. We have implemented on top of it all the analyzes that we
+described through Section~\ref{sec:community}, as well as the speculative
+analysis described in Section~\ref{sec:speculate}. The output of these analyzes
+are encoded into \texttt{csv} tables that can be used as is, or the basis of
+visualization exercises.
+
+There are room for improvement on pretty much all sides: footprint models to be
+experimented, more complex analyzes to be performed or automating the visualization
+of the data to cite just a few. But we hope that this basis may strike fruitful
+discussion, and grows to address the needs of the various research communities.
+
