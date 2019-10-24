@@ -1,12 +1,12 @@
-\section{The footprint of conferences: an estimation}
+\section{Estimating the footprint of conferences}
 \label{sec:footprint}
 
-Carbon footprint is the essential metric of interest that we seek to reduce.
-As such, it is also the starting point of our analysis.
-We introduce in this section the methodology we used and tool we built to
-conduct all of our analyses, and describe the first results ran on our dataset.
+Carbon footprint is the essential metric that we seek to reduce.
+Accordingly, it is also the starting point of our analysis.  We introduce in
+this section the methodology we used and tool we built to conduct all of our
+analyses, and we describe the first results from our dataset.
 
-\subsection{Evaluation of the carbon cost: methodology}
+\subsection{Methodology for evaluating carbon cost}
 \label{sec:methodo}
 
 We conduct all our analyses through a \python{} script, publicly available at
@@ -15,46 +15,60 @@ a brief overview of its use in Section~\ref{sec:software}.
 \bcp{Maybe this repo needs a more
 informative name?}
 
-For the carbon footprint estimate we present in this paper,
-it is relevant to keep in mind the following assumptions that have
-been made:
+We make the following assumptions:
 \begin{itemize}
-\item we assume that \emph{all} participant travelled by plane;
-\item we assume that the airports used are close enough to the end points for their locations to be assimilated;
-\item we assume that all flights are direct flights;
+\item we assume that participant travel accounts for the entire carbon
+footprint of a conference;
+\item we assume that \emph{all} participants travel by plane, in economy
+class; 
+\item we assume that the airports in the conference city and in each
+participant's home city are close enough to the actual end points of their
+travel for their locations to be assimilated;
+\item we assume that all flights are direct;
 \item we assume that the geodesic distance is the one taken by planes.
 \end{itemize}
+Estimating the errors introduced by these assumptions and refining the
+analysis to make more realistic assumptions would obviously be very
+valuable! 
+%
+For this first effort, we are mainly aiming to get a 
+{\em relative} evaluation of different potential strategies for reducing
+footprints; for this purpose, we believe these assumptions are good enough. 
 
-Estimating the errors introduced by these hypotheses and refining them would be
-a valuable work. However, for this first proposal that mainly aims at a relative
-evaluation of different structural changes in our activities, we believe those
-to be workable hypotheses.
-
-The distance traveled by the participants is converted to an emission expressed
-in \gaz. To do so, we use a standard model introduced as part of the
-\texttt{DEFRA 16} report on Greenhouse gas
+The distance traveled by each participant is converted to an amount of
+emissions expressed in \gaz. To do this conversion, we use a standard model
+introduced as part of the \texttt{DEFRA 16} report on Greenhouse gas
 \footnote{\url{https://www.gov.uk/government/publications/greenhouse-gas-reporting-conversion-factors-2016}}
-\footnote{\url{https://co2calculator.acm.org/methodology.pdf}}
-conducted by the British Government.
+\footnote{\url{https://co2calculator.acm.org/methodology.pdf}} conducted by
+the British Government.
 
 The model distinguishes three classes of flight, depending on their length:
-short, medium or long hauls. Each category is associated with a linear
-coefficient relating directly the distance of travel to the amount of \gaz
-emitted. We make the assumptions, anecdotally observed, that researchers all
-fly in economy class.
+short, medium, and long haul. Each category is associated with a linear
+coefficient relating the distance of travel to the amount of \gaz
+emitted.  
 
-A second linear coefficient, identical for all flights and so-called
-\emph{radiative forcing index}, is added to account for the difference in
-radiative forcing between the same emissions at ground level compared to high in
-the atmosphere. This coefficient has been taken for the results presented in this
-paper to be $1.891$ as suggested by R. Sausen et al.~\cite{Sausen05}
+A second linear coefficient, identical for all flights, is the so-called
+\emph{radiative forcing index}; this is used to account for the difference
+in radiative forcing between the same emissions at ground level compared to
+high in the atmosphere.  We use the value $1.891$ for this coefficient, as
+suggested by R. Sausen et al.~\cite{Sausen05}
 
-We therefore obtain the following piece-wise linear model of emissions for a flight covering $d$ kms:
-\begin{itemize}
-\item $1.891 * 0.14735 * d$ \gazunit if $d < 785$
-\item $1.891 * 0.08728 * d$ \gazunit if $785 \leq d < 3700$
-\item $1.891 * 0.077610 * d$ \gazunit if $3700\leq d  $
-\end{itemize}
+We thus obtain the following piecewise-linear model of emissions for a
+flight covering $d$ kms: 
+
+\begin{center}
+\gazunit \quad=\quad
+\begin{tabular}{@{}lll}
+$1.891 * 0.14735 * d$ & if $d < 785$ \\
+$1.891 * 0.08728 * d$ & if $785 \leq d < 3700$ \\
+$1.891 * 0.077610 * d$ & if $3700\leq d  $ 
+\end{tabular}
+\end{center}
+% \begin{itemize}
+% \item $1.8& * 0.14735 * d$ \gazunit if $d < 785$ 
+% \item $1.891 * 0.08728 * d$ \gazunit if $785 \leq d < 3700$
+% \item $1.891 * 0.077610 * d$ \gazunit if $3700\leq d  $
+% \end{itemize}
 
 %% It should be noted that experiments with other models show significant variance
 %% in absolute value, but resilience in relative values.\bcp{Maybe worth
@@ -71,7 +85,7 @@ We therefore obtain the following piece-wise linear model of emissions for a fli
 %% can act may have with this footprint.
 %% The description of these analyses will cover Section~\ref{sec:community} to \ref{sec:speculate}.
 
-\subsection{Footprint of the studied conferences}
+\subsection{Conference footprints}
 
 \begin{table}
 \begin{tabular}{|l|l|c|c|c|}
@@ -87,18 +101,15 @@ We therefore obtain the following piece-wise linear model of emissions for a fli
 
 We now turn to the estimation of the footprint of our dataset.
 Table~\ref{table:footprint} depicts the total and average carbon cost per participant of
-all conferences analyzed. This cost is estimated in terms of \gazunitbis of emissions.
+all conferences analyzed. This cost is estimated in terms of \gazunitbis{}
+(metric tons of CO$_2$-equivalent) of emissions.
 The main data of interest is arguably the last column depicting the average cost per participant.
 
-This high level data already suggests an interesting observation:
 \begin{obs}
-If the carbon footprint of conferences due to air travel is indeed significant,
-its specific average value per participant varies from an \event to another by up
-to a factor of 2.
+The average per participant carbon footprint of conferences due to air
+travel varies from one to another by up to a factor of 2.
 \label{obs:footprint}
 \end{obs}
 
-Indeed, the lowest average carbon cost of our dataset is obtained by PLDI'18 at 0.9\gazunitbis,
-while the highest one is reached by ICFP'16 at 1.93\gazunitbis.
-Understanding the underlying rationals for such variations may be a promising
-angle to reduce our emissions without restructuring fundamentally our activity.
+The lowest average per-participant cost of our dataset is PLDI'18 at
+0.9\gazunitbis, while the highest one is ICFP'16 at 1.93\gazunitbis.

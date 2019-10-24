@@ -6,6 +6,12 @@ paper: sigplan_climate/main.tex
 	pdflatex main;\
 	mv main.pdf ../sigplan_climate_data_analysis.pdf
 
+bcp: sigplan_climate/main.tex
+	cd sigplan_climate;\
+	pdflatex main;\
+	mv main.pdf ../sigplan_climate_data_analysis.pdf;\
+	bibtex main
+
 draft_Y: draft_Yannick/old_draft.tex
 	cd draft_Yannick;\
 	pdflatex old_draft;\

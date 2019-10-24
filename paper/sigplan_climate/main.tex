@@ -1,4 +1,4 @@
-\documentclass[review, screen]{acmart}
+\documentclass[screen]{acmart}
 
 \acmVolume{0}
 \acmNumber{0}
@@ -53,9 +53,10 @@
 
 \newif\ifopinions\opinionsfalse   %% include author discussion
 
-\newcommand{\python}{\texttt{Python 3}}
+% \newcommand{\python}{\texttt{Python 3}}
+\newcommand{\python}{{Python 3}}
 \newcommand{\gaz}{\si{\kilogram\of{CO_2e}}}
-\newcommand{\gazunit}{\si{\kilogram\of{CO_2e~ per~ passenger}}}
+\newcommand{\gazunit}{\si{\kilogram\of{CO_2e}~ \textrm{per~ participant}}}
 \newcommand{\gazunitbis}{\si{\tonne\of{CO_2e}}}
 
 \newcommand{\event}{event} % What's the right term to designate a specific iteration of a conference?
@@ -64,11 +65,10 @@
 \newtheorem{obs}{Observation}
 \newtheorem{recommend}{Recommendation}
 
-\title{Engaging with Climate Change: grounding in data possible changes for SIGPLAN}
-
 \begin{document}
 
-\title{Towards Sustainable Conferences: An Analysis of SIGPLAN Conference Data}
+\title{Towards Sustainable Conferences: An Analysis of SIGPLAN Registration
+  Data} 
 
 \author{Cristina V. Lopes}
 %\orcid{1234-5678-9012-3456}

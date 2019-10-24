@@ -1,15 +1,16 @@
 \section{Dataset}
 \label{sec:dataset}
  
-The dataset we have consists of 10 years worth of attendance to the four major
-SIGPLAN conference series, namely: POPL, PLDI, ICFP, and SPLASH, from the
+Our dataset consists of 10 years worth of attendance to the four major
+SIGPLAN conference series---POPL, PLDI, ICFP, and SPLASH---from the
 beginning of 2009 until the end of 2018. Data for some of the conferences in the
 earlier years are missing. In total, we have data for 33 conferences,
 corresponding to 8,758 unique participants and 16,374 trips. For each
 participant, we know all the conferences (s)he attended, and from which city
 (s)he departed to attend the conferences.
-
-The identity of participants is hashed, leading to anonymization but retaining
-the possibility to study cross participation.
+%
+The names of participants are replaced in the dataset by unique hashes,
+obscuring each individual's identity while allowing them to be identified
+across years and across the conferences they attended.
 
 
