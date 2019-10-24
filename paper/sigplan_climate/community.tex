@@ -1,30 +1,27 @@
 \section{Data Analysis: Community}
 \label{sec:community}
 
-The amount of greenhouse emissions reached by a specific \event is in direct proportion with
+The greenhouse gas emissions from a given \event is in direct proportion to
 the average distance traveled by the participants of this \event.
-We therefore propose various analyzes aiming to estimate the nature of the
-communities that animate each conferences. These secondary metrics are
-intended to suggest to conference organizers possible ways to reduce the
-main metric of interest: the carbon footprint. 
+To understand emissions, we must therefore estimate the nature of the
+communities that attend each conference. 
 
-The aggregated information we derive falls into two main categories.
-First, the demographic distribution of the participants to the conferences
-conditioned by various factors.
-Second, the participation habits of the community through recurring participation
-to a given conference, and overlap in participation between several conferences.
+The aggregated information we describe below falls into two main categories:
+first, the demographic distribution of the participants to the conferences
+conditioned by various factors, and second, the participation habits of the
+community through recurring participation to a given conference and the
+overlap in participation between different conferences.
 
 %% Through this section, we present the results of our data analysis in a
 %% neutral way. We point out phenomena that came out as a
 %% surprise to us, but defer opinionated observations and practical conclusions to
 %% Section~\ref{sec:opinions}.
 
-\subsection{Demographics: Where did the Participants Come from?}
+\subsection{Demographics: Where did participants come from?}
 \label{subsec:demo}
 
-Demographic distributions of attendance are a key resource to understand
-the core community fueling a conference, hence suggesting carbon-cheap locations
-to host it.
+\bcp{Juse for aesthetics, we should be consistent about capitalization in
+  section headers.}
 
 \begin{figure}
   \centering
@@ -40,22 +37,21 @@ to host it.
 \end{table}
 
 
-Figure~\ref{fig:demo-per-conf} and Table~\ref{table:demo-per-conf} show where all
-participants came from. For each conference, we depict the distribution of
-attendance per continent. Table~\ref{table:demo-per-conf} also shows the portion
-of attendants originating from the same continent as the one the event took
-place in. To a first approximation, maximizing this last metric, i.e. hosting
-conferences in the continent containing the majority of its community, is a
-first simple heuristic to consider.
+Figure~\ref{fig:demo-per-conf} and Table~\ref{table:demo-per-conf} show
+where all participants came from. For each conference, we depict the
+distribution of attendance per continent. Table~\ref{table:demo-per-conf}
+shows the portion of attendants originating from the same continent as the
+one the event took place in. To a first approximation, maximizing this last
+metric, i.e. hosting conferences in the continent containing the majority of
+its community, is a good thing.
 
 Taken as a whole, these conferences attracted 50\% participants from North
 America, 36\% from Europe, 11\% from Asia, 2\% from Oceania, 1\% from South
 America, and less than 0.2\% from Africa.
-This data also emphasizes the relative anchor to a specific continent each
-conference may have.
-Most notably, PLDI and SPLASH appear to be very North
-American-centric, while ICFP's core community seems to have a quite strong
-anchor in Europe as well.
+The data also displays some degree of geographical affinity for the 
+various conferences.
+Notably, PLDI and SPLASH appear to be quite North-America-centric, while
+ICFP's core community seems to have a strong anchor in Europe as well.
 
 \begin{table}
   \csvautotabular{../../output/sigplan/demographic.csv}
@@ -86,16 +82,16 @@ conference, showing also the geographic region where the conferences were held.
 
 These charts make it clear that the location of the conferences had a
 substantial effect on attracting people from the same geographic areas. That
-effect is quite visible for ICFP and POPL, with noticeable ups and downs of the
-colored bars between North American and European participants when the
+effect is quite visible for ICFP and POPL, with noticeable ups and downs of
+the colored bars between North American and European participants when the
 conferences were located in North America and Europe, respectively. Most
-strikingly, Asian participation during POPL '15, ICFP '11 and ICFP '16, events
-that took place on the Asian continent, is significantly higher than usual:
-there appears to be a strong locality phenomenon. Crossing this data with
-Table~\ref{table:footprint}, one can also notice that the only time SPLASH took
-place in Europe turned out to be the least expensive edition, challenging our
-previous observation that the conference appears to be mostly north
-American-centric.
+strikingly, Asian participation during POPL '15, ICFP '11 and ICFP '16,
+events that took place on the Asian continent, is significantly higher than
+usual: there appears to be a strong locality phenomenon. Crossing this data
+with Table~\ref{table:footprint}, one can also notice that the only time
+SPLASH took place in Europe turned out to be the least carbon-intensive
+edition, challenging our previous observation that the conference appears to
+be mostly North-America-centric.
 
 \begin{table}
   \csvautotabular{../../output/sigplan/demographic_delta.csv}
@@ -126,14 +122,14 @@ participants also reflects the fact that most of these conferences were held in
 North America and Europe (30), only a few were held in Asia (3), and none was
 held in South America, Oceania, or Africa.
 
-The situation may be summed up into the following two elementary observations. 
+The situation may be summed up in two elementary observations:
 \begin{obs}
   The vast majority of participants are split between North America and Europe,
   Asia to a much lesser degree. SPLASH and PLDI are strongly anchored in North
   America, ICFP and POPL fairly equally split between North America and Europe.
   \label{obs:dist-naive}
 \end{obs}
-This distribution however turns out to be \emph{strongly} dependent on the
+This distribution, however, is \emph{strongly} dependent on the
 location of the \event.
 \begin{obs}
   There is a major ``locality" effect: it is both true that locality attract
@@ -170,7 +166,7 @@ regardless of the location it is held in.
 Figure~\ref{fig:hist_attendance} shows how often the same participants attended
 multiple conferences. At the extremes, 6,009 people (69\%) attended only 1
 conference, and 4 people attended 20 or more conferences. Participation is
-dominated by single-conference participants, which reflects the large and
+dominated by single-conference participants, perhaps reflecting a large and
 transient student population. The pattern is similar for each conference series,
 shown in Figure~\ref{fig:hist_attendance_per_conference}.
 
@@ -220,15 +216,15 @@ We now take a closer look at the habits of these recurring participants.
 
 A first natural question is to ponder whether there is a significant overlap
 in participation between conferences.
-Table~\ref{table:overlap-cross} depicts for any pairing of the four
-conferences considered the percentage of overlap. This measure is strikingly
+Table~\ref{table:overlap-cross} depicts, for each pairing of the four
+conferences, the percentage of overlap. This measure is strikingly
 low for most conferences.
 
 \begin{obs}
   Cross-conference overlap is low: the tightest pairing sees slightly over 10\%
   of common attendance for a given year. Extending the overlap among any two years,
   the tightest pairing still sees less than a quarter of unique participants having
-  participated at least once to both conferences.
+  participated at least once in both conferences.
   \label{obs:overlap-cross}
 \end{obs}
 
@@ -284,8 +280,8 @@ participants over time in SIGPLAN conferences, we can make a second observation,
 temporal this time:
 
 \begin{obs}
-  Temporal overlap is moderate: roughly a quarter of attendants were present
-  the year before at the same conference.
+Temporal overlap is moderate: roughly a quarter of attendees at a given
+conference were also present the year before at the same conference.
   \label{obs:overlap-temp}
 \end{obs}
 
@@ -349,24 +345,28 @@ Time proximity may detract cross-participation.
 
 Finally, Table~\ref{table:recurrent} and \ref{table:old-timers} offer two
 different views on recurrent participation. Table~\ref{table:recurrent}
-represents respectively for the whole dataset (row ``ALL'') and for each conference
-individually the average number of editions an participant has been part
-of, as well as the percentage of participants that have been part of at least
-some amount of editions of a conference. We immediately remark that no less than 75\% of unique
-participants has been part of a single edition.
+represents respectively for the whole dataset (row ``ALL'') and for each
+conference individually the average number of editions a participant has
+been part of, as well as the percentage of participants that have been part
+of at least a given number of editions of a conference. One striking fact is
+that no less than 75\% of unique participants have been to just a single
+edition.
 
 Table~\ref{table:old-timers} is a normalization of the information represented
-on Figure~\ref{fig:hist_attendance_per_conference}: for each instance of each
-conference, it depicts the percentage of participants that has been part of a
-previous instance of the conference, among our dataset.
+in Figure~\ref{fig:hist_attendance_per_conference}: for each instance of each
+conference, it depicts the percentage of participants that have been part of a
+previous instance of the conference (in our dataset).
 
 \begin{obs}
-  Over all conferences, the average amount of conferences a participant has been
-  part of is extremely low: 1.52. Less than 4\% of unique participants have been
-  to more than five events among our dataset.
-  Similarly, for any given \event, more than half of the participants are experiencing
-  this specific conference for the first time.
+Over all conferences, the average number of conferences a given participant
+has attended is just 1.52. Less than 4\% of unique participants have been to
+more than five events among our dataset.  Similarly, for any given \event,
+more than half of the participants were experiencing this specific
+conference for the first time.
   \label{obs:old-timers}
 \end{obs}
 
 
+\bcp{General question about all the pictures and tables: Are they
+  consistent? (I.e., were the pictures generated from the data in the
+  tables, or from earlier versions of that data?)}

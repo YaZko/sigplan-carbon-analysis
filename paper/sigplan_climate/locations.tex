@@ -21,16 +21,17 @@
 %% \paragraph{A naive, retrospective, optimal choice}
 
 We have observed that the location an \event takes place in significantly
-impacts the distribution of origin of its participants. However, dismissing
-temporarily this factor to consider what could have been the cheapest location
-for past conferences can be an illuminating exercise.
+impacts the distribution of origin of its participants. However, setting
+this factor aside temporarily to consider what could have been the cheapest
+location for past conferences, assuming that the change in location would
+cause no change in participants, can be an illuminating exercise.
 
 To this end, we chose a fixed number of locations that we believe to be
-representative and spread across the relevant parts of the globe for our
-concern: Paris, Edinburgh, Boston, Los Angeles, Vancouver, Tokyo, Beijing and
-Mumbai. We then reprocessed the dataset to look for the location that would have
-led to the lowest carbon footprint, once again assuming that it would not have
-changed the set of participants.
+representative and spread across the relevant parts of the globe: Paris,
+Edinburgh, Boston, Los Angeles, Vancouver, Tokyo, Beijing, and Mumbai. We
+then reprocessed the dataset to look for the location in this set that would
+have led to the lowest carbon footprint for each event, assuming that it
+would not have changed the set of participants.
 
 \begin{table}
   \begin{tabular}{|l|l|c|c|c|c|}
@@ -48,19 +49,21 @@ changed the set of participants.
   \label{table:optimal}
 \end{table}
 
-Figure~\ref{table:optimal} depicts the resulting data: for each \event, the best location
-and the average \gazunitbis it would have saved. We observe that in the majority
-of the events, the locality effect is strong enough that the optimal takes place on
-the original continent. However it is striking to see how often the East Coast turns
-out to be the cheapest destination. In particular it appears to be preferable to
-the West Coast in most cases, even despite the underlying locality effect that
-is ignored here.
+Figure~\ref{table:optimal} depicts the resulting data: for each \event, the
+best location and the average \gazunitbis it would have saved. We observe
+that in the majority of the events, the locality effect is strong enough
+that the optimal location is on the same continent as the actual
+location. However, it is striking to see how often the east coast of the US
+turns out to be the cheapest destination. In particular, it appears to be
+preferable to the west coast in most cases (in spite of the underlying
+locality effect that we are ignoring here).
 
 \begin{obs}
-  Due to the locality effect, past data can act as a heuristic for a worst case
-  distribution of attendance with respect to the objective function of
-  minimizing the carbon footprint. Doing so most notably suggests that the East
-  Coast should often be preferred to the West Coast.
+Due to the locality effect, past data can act as a heuristic for a worst
+case distribution of attendance with respect to the objective function of
+minimizing the carbon footprint. Doing so most notably suggests that the
+east coast of the US is generally a lower-carbon location than the west
+coast for these conferences.
   \label{obs:optim}
 \end{obs}
 

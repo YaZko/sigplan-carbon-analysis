@@ -1,17 +1,18 @@
-\section{An open source tool to conduct similar analyzes}
+\section{An open source tool for similar analyses}
 \label{sec:software}
 
-We believe that the analysis we conducted over sigplan conferences is a valuable
-process of introspection for conference organizers. However the consequences of
-this analysis cannot be drawn universally: the situation heavily depends notably
-on the geographical distribution of the underlying research community, and on its
-cultural habits of attendance. Moreover, the practical conclusions that it should
-entail may diverge from a community to another, even in similar situation.
-As such, we strongly encourage similar studies to be performed by other SIGs, and more
-generally other communities of conferences.
+We hope that the analysis we have conducted for a few SIGPLAN conferences
+will offer valuable insights for the organizers of these conferences.
+Clearly, though, any observations based on our data cannot be taken as
+universal facts: the situation heavily depends notably on the geographical
+distribution of the underlying research community and on its cultural habits
+of attendance. Moreover, the practical conclusions that it should entail may
+diverge from one community to another.  Accordingly, we strongly encourage
+similar studies to be performed by other groups.
 
-To help attain this goal, we developed an open source \python{} script that we
-intended as parameterizable and reusable as possible. All analyzes presented in
+To help with this, we have developed an open source \python{} script that we
+intend to be as parameterizable and reusable as possible. All analyses
+presented in 
 this paper have been generated using this tool\footnote{The graphical
   visualizations have been made separately, the script currently only generates
   tables. Extending it to generate graphical takes on these tables would be an
@@ -33,37 +34,38 @@ participation at an event with the location of origin of the participant, i.e.
 has the fields \texttt{Identifier, City, State, Country, Conference} and
 \texttt{Year}.
 
-The first pass of the analysis computes the needed raw data. 
-Informal named locations manually provided by participant are mapped to their
-ISO designation using the \texttt{pycountry} library.
-Once this is done, these named locations are converted to GPS
-locations using the \texttt{geopy} library, that provides a straightforward api
-to this end.
-To avoid duplicating requests to online apis, all of these computations are cached
+The first pass of the analysis computes the needed raw data.  Informal named
+locations manually provided by participant are mapped to their ISO
+designation using the \texttt{pycountry} library.  Once this is done, these
+named locations are converted to GPS locations using the \texttt{geopy}
+library, which provides a straightforward API to do this.  To avoid
+duplicating requests to online APIs, all of these computations are cached
 locally.
 
-Distances in kilometers between locations are then computed between GPS locations
-once again using the \texttt{geopy} library. They use the geodesic distance
-(shortest distance for an ellipsoidal model of the Earth) with a model providing
-precision that are several orders more precise than we need.
+Distances in kilometers between locations are then computed between GPS
+locations once again using the \texttt{geopy} library. They use the geodesic
+distance (shortest distance for an ellipsoidal model of the Earth) with a
+model providing precision that is several orders more precise than we need.
 
-At this point, we therefore know for each participant to a conference the
-distance they traveled. The script then uses a model that computes the carbon
-cost of air travel based on this information. For the analysis presented in this
-paper, we used the \texttt{DEFRA 16} model described in
-Section~\ref{sec:methodo}, but we currently also propose a closely similar one
-developed by \texttt{CoolEffect}\footnote{\url{https://www.cooleffect.org/}}.
-As long as the models are functions of the distance, more can be easily added.
+At this point, we therefore know, for each participant in a conference, the
+distance they traveled. The script then uses a model that computes the
+carbon cost of air travel based on this information. For the analysis
+presented in this paper, we used the \texttt{DEFRA 16} model described in
+Section~\ref{sec:methodo}, but we are also experimenting with a similar one
+developed by
+\texttt{CoolEffect}\footnote{\url{https://www.cooleffect.org/}}.  As long as
+models are functions of the distance, more can be easily added.
 
-This first pass of the script therefore gives us an estimate of the footprint of
-our conferences. We have implemented on top of it all the analyzes that we
-described through Section~\ref{sec:community}, as well as the speculative
-analysis described in Section~\ref{sec:speculate}. The output of these analyzes
-are encoded into \texttt{csv} tables that can be used as is, or for the basis of
-visualization exercises.
+This first pass of the script therefore gives us an estimate of the
+footprint of our conferences. We have implemented on top of it all the
+analyses that we described through Section~\ref{sec:community}, as well as
+the speculative analysis described in Section~\ref{sec:speculate}. The
+output of these analyses is encoded into \texttt{csv} tables that can be
+used as-is or as the basis of visualization exercises.
 
-There are room for improvement on pretty much all sides: footprint models to be
-experimented, more complex analyzes to be performed or automating the visualization
-of the data to cite just a few. But we hope that this basis may strike fruitful
-discussion, and grow to address the needs of the various research communities.
+There are room for improvement on pretty much all sides: footprint models to
+be experimented, more complex analyses to be performed or automating the
+visualization of the data to cite just a few. But we hope that this
+preliminary tool will form the basis for fruitful discussion as it grows to
+address the needs of more research communities.
 
