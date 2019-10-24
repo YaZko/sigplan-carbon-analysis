@@ -20,3 +20,6 @@ all:
 	$(MAKE) paper
 	$(MAKE) draft_Y
 	$(MAKE) draft_C
+
+clean:
+	rm -rf */*.{aux,bbl,blg,log,out,tmp}
