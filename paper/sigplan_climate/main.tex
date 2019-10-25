@@ -1,4 +1,4 @@
-\documentclass[screen]{acmart}
+\documentclass[screen,acmlarge]{acmart}
 
 \acmVolume{0}
 \acmNumber{0}
@@ -6,7 +6,7 @@
 \acmYear{2019}
 \acmMonth{0}
 
-\setcopyright{acmcopyright}
+\setcopyright{none}
 
 \acmDOI{0000001.0000001}
 
@@ -34,6 +34,8 @@
 
 \usepackage{glossaries}
 \usepackage{csvsimple}
+
+\definecolor{darkred}{rgb}{0.7, 0.0, 0.0}
 
 \newif\ifcomments\commentstrue   %% include author discussion
 \ifcomments
@@ -99,6 +101,13 @@
 \email{zakowski@seas.upenn.edu}
 
 \begin{abstract}
+
+\bigskip
+\begin{center}
+{\huge\textcolor{darkred}{Working draft of \today}}
+\end{center}
+\bigskip
+\bigskip
 
 In 2017, ACM's Special Interest Group on Programming Languages (SIGPLAN)
 formed an ad-hoc committee to study issues related to climate change---in
