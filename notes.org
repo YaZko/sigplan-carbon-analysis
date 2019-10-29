@@ -37,3 +37,14 @@
      A proper investigation of this statement would be useful.
      
 
+* TODO for YZ
+
+** Remove remaining hard-coded constants (years, conferences)
+
+** Documentation: step-by-step how-to add an analysis
+
+** Documentation: reinforce step-by-step run your own analysis
+
+** Documentation: step-by-step how-to add a footprint model
+
+** Documentation: reinforce list of options
