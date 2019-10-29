@@ -1,0 +1,39 @@
+* Call for help: a list of new features we'd love
+
+** Data visualization
+
+   The script currently outputs csv files of data. All visualization we have have been manually produced (via Excel usually).
+   Ideally, each analysis / the relevant analyses would come with both the csv file, and a default visualization generated
+   via panda/mathplotlib, or something higher level such as seaborn.
+
+** Prediction model
+   
+   Currently, most analyses are purely descriptive.
+   The one exception is the naive retrospective "best destination" analysis. Its rational goes as follow:
+   * The geographical distribution of a conference is a function of both the year and the location where it's hosted.
+   * Fixing the year, we observe roughly that the "center of this distribution" is attracted to location (not sure how to phrase this
+     formally).
+   * As such, taking the sample _observed_ at a location A to compute the hypothetical cost at another location B,
+     we obtain on average higher travel distances than we would have actually observed by hosting and sampling in B
+     (i.e. the attraction factor has not been accounted for).
+   * Hence if a location turns out cheaper with this model, it would have been even cheaper.
+
+   This makes some sense, but for better predictions, we would like to actually model the distribution (of a conference, and maybe also of
+   a group of conferences) as a function of the year and place of organization. Is that possible? Do we have even remotely enough data to 
+   have a workable error margin?
+
+** Beyond flights?
+   
+   We emphasized the elephant in the room: flight travels. However we really are concerned with conferences footprints. 
+   Many improvements in this direction can be wished for:
+   
+**** Finer grained models of travel behaviors 
+    
+     Currently, everyone take a direct flight. Account for hops? Account for trains?
+
+**** Hosting, meals, etc...
+     
+     Our off the table estimations led us to think that all other sources of emissions are dwarfed by flights.
+     A proper investigation of this statement would be useful.
+     
+
