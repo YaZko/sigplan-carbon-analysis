@@ -1,0 +1,124 @@
+* Tutorial for users: how to run one's analysis
+
+  We describe here the minimal knowledge required to run the tool on one's own data-set and interpret the output.
+
+** Preliminary: hard-coded constants to configure
+
+   Currently, two parameters remain hard-coded in the script, in [[../src/parameters.py][parameters]]: the
+   list of names of the conferences to be processed, and the span of years for
+   which they should be processed. The user should therefore locally update the 
+   following two variables:
+   * "self.confs_processed = ['ICFP','POPL','PLDI','SPLASH']"
+   * "self.years_processed = range(9,19)"
+
+** Data-set: expected input format
+
+   The script expects a data-set provided through two [csv] files observing
+   the following conventions:
+
+   * A first csv file should describe the conferences. Each line describes
+     a specific edition of a specific conference. More specifically, its header,
+     and hence format, should be [conference,year,city,state,country] where:
+     - 'conference' is the name of the conference;
+     - 'year' is a number corresponding to the year of the event (the format, 06
+       or 2006, does not matter as long as the choice is consistent across both
+       input files);
+     - 'city' is the name of the city where the event took place in;
+     - 'state' is the name of the state the where the event took place in (can be omitted if irrelevant);
+     - 'country' is the name of the country where the event took place in.
+     For instance, the following entry is valid: "ICFP,9,Edinburgh,,UK"
+     
+   * A second csv file should describe the participants. Each line describes a unique
+   participant taking part of a unique instance of a conference. More specifically, its
+   header, and hence format, should be [id,city,state,country,conference,year] where:
+     - 'id' is a number identifying a unique participant. It should be unique per participant
+       to allow proper cross participation analyses. 
+       If you cannot have such a unique identification of participants, you shall provide a
+       dummy number for this field, and disable (or dismiss) computation of cross-participation
+       analyses (see the Section on parameters for the script);
+     - 'city' is the name of the city where the participant came from;
+     - 'state is the name of the state where the participant came from (can be omitted if irrelevant);
+     - 'country is the name of the country where the participant came from;
+     - 'conference' is the name of the conference to which the participant went;
+     - 'year' is the year of the edition of the conference to which the participant went.
+       For instance, the following entry is valid: "10001,København N,,Denmark,ICFP,16"
+
+** Data-set: expected storing place
+   
+   The script currently quite naively expects for the input files to be exactly
+   stored in the [input] folder.
+
+** Running the script: providing parameters, options
+
+   The script takes three (ordered) mandatory parameters:
+   - the name 'data' of the file containing the participants information. 
+     The script hence will expect to find the file at "input/'data'.csv".
+   - the name 'confs' of the file containing the conferences information. 
+     The script hence will expect to find the file at "input/'confs.csv".
+   - the name 'out' of the folder in which the user wishes to get its output.
+     The script will create the folder "output/'out'" and write all computed
+     results in this folder.
+
+   Additionally, several optional parameters can be provided. The usual --help
+   option will display their description, we duplicate this description here.
+   - '-f' or '--force': by default, if the folder 'out' already exists, the script
+     will fail to ensure that it would not erase any data. This option override this
+     behavior by first removing the folder and its content.
+   - '-r' or '--radiative': the model evaluating the carbon footprints uses
+     the value 1.891 per default as its radiative forcing index. This option
+     allows to change this value.
+   - '--no_radiative': equivalent to '-r 1'.
+   - '-m' or '--model': by default, the model used is the one described in our draft,
+     referred to as 'acm'. This option permits to use a different model during the analysis.
+     The currently only other one implemented is the one used by the CoolEffect company,
+     referred to as 'cool'.
+   - '--no_id': if the unique identification of participants is not possible, this option
+     disable all analyses which rely on this information.
+     
+   An example of a correct invocation of the script is therefore:
+   "python3 main.py -f data confs sigplan"
+   
+** Output: description, interpretation
+
+   Our draft describe in some details the outputs resulting from the analysis in the case of 
+   the SIGPLAN conference. We give here a brief description of all output. All referred file
+   will be stored in "output/'out'"
+   - 'footprint_confs.csv': the carbon footprint per conference and year of interest.
+     Provides the location, number of participants, total footprint (in ton CO2-eq) and
+     average footprint per participant (in ton CO2-eq per participant)
+   - 'demographic.csv': per conference and year of interest, gives the continent that
+    hosted the event and the distribution of origin of participants per continent.
+    The last field contains the percentage of participants that came from the same
+    continent as the one when the event took place.
+   - 'demographic_per_conf.csv': aggregation over time of the previous data. Per conference,
+     distribution of origin of participants. The last field contains the percentage
+     of participants that came from the same continent as the one when the event
+     took place.
+   - 'demographic_delta.csv': aggregation over space of the previous data. For respectively
+     Europe, North America, Asia and anywhere on earth, distribution of origin of 
+     participants per continent. The last field contains the percentage of participants
+     that came from the same continent as the one when the event took place.
+   - 'overlap_intra_conf_C.csv': one such file is generated for each conference 'C'. 
+     For any two years of interest, gives the percentage of participants that went to
+     both editions.
+     Disabled by --no_id
+   - 'overlap_cross_conf_C1_C2.csv': one such file is generated for each pair of distinct
+     conferences 'C1' and 'C2'. For each year of interest, percentage of participants that
+     went to both conferences during this year. The last row gives the overlap over all years.
+   - 'old_timer_C.csv': for each year of interest, percentage of participants that have participated
+     to the same conference in the past.
+   - 'number_of_participations.csv': Overall, and for each conference, average number of participations
+     per participants, percentage that went at least twice, thrice, four times, five times. 
+   - 'optimal.csv': for each conference and year of interest, taking the same data of participation,
+     evaluates the carbon footprint that the following destinations would have induced:
+     [Paris, Edimburgh, Philadelphia, Boston, Los Angeles, Vancouver, Tokyo, Beijing, Mumbai] (this
+     list can be modified in 'src/parameters.py'). 
+     The file then displays in each case the original location and cost, the optimal location and
+     cost among the list, and the amount saved.
+     Our draft contains a discussion rationalizing the relevance of this data.
+
+* TODO Tutorial: how to add a new analysis
+
+* TODO Tutorial: how to add a new model for computing the carbon footprint
+
+

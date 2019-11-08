@@ -10,7 +10,9 @@ and describes this experiment and its conclusions in an ongoing draft.
 The Python script used to perform the analysis is however meant to be as general as possible.
 We would love to see other groups perform similar analyses.
 As such, we welcome all feature requests, issues and pull requests. 
-A brief overview of the script can be found in _/src/Readme.txt_. More documentation to come.
+A brief overview of the script can be found in _/src/Readme.txt_. 
+A fairly detailed step by step use of the script can be found in _/documentation/tutorial.org_.
+More documentation to come.
 
 ############### Dependencies ###############
 
