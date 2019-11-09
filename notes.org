@@ -40,11 +40,13 @@
 * TODO for YZ
 
 ** Remove remaining hard-coded constants (years, conferences)
+   CLOSED: [2019-11-02 Sat 18:37]
 
-** Documentation: step-by-step how-to add an analysis
+** DONE Documentation: step-by-step how-to add an analysis
 
-** Documentation: reinforce step-by-step run your own analysis
+** DONE Documentation: reinforce step-by-step run your own analysis
 
-** Documentation: step-by-step how-to add a footprint model
-
-** Documentation: reinforce list of options
+** DONE Documentation: step-by-step how-to add a footprint model
+   
+** DONE Documentation: reinforce list of options
+   
