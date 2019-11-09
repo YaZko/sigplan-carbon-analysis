@@ -117,7 +117,32 @@
      cost among the list, and the amount saved.
      Our draft contains a discussion rationalizing the relevance of this data.
 
-* TODO Tutorial: how to add a new analysis
+
+* Tutorial: how to add a new analysis
+
+** Providing an output path for the analysis
+
+   All output paths are defined in the file [[../src/parameters.py][parameters]].
+   They are stored in an object initialized in the main and (informally) required to be 
+   read-only afterward.
+   In order to define a new analysis, a new field initialized to the relative path of
+   the desired output should therefore be defined.
+
+** Defining the analysis
+
+   All analyses are defined in the file [[../src/data_processing.py][data_processing]]. 
+   A new analysis should take a GLOB object, containing all parameters defined in [[../src/parameters.py][parameters]]. 
+   The analysis being a function of the DB class, it has access to the internal representation
+   of both files.
+   Finally, it is likely to take as argument an element of the [Cache] class to access
+   computed information about the locations.
+   The top level function defining the analysis is expected to return no value, but take care
+   of writing in the file system the result of the analysis
+
+** Calling the analysis
+
+   All analyses are called in [[../src/main.py][main]], as part of the top-level function [analysis].
+   Currently, order does not matter except for [preprocess] that should take place first.
 
 * TODO Tutorial: how to add a new model for computing the carbon footprint
 
