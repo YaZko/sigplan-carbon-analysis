@@ -144,6 +144,56 @@
    All analyses are called in [[../src/main.py][main]], as part of the top-level function [analysis].
    Currently, order does not matter except for [preprocess] that should take place first.
 
-* TODO Tutorial: how to add a new model for computing the carbon footprint
+* Tutorial: how to add a new model for computing the carbon footprint
 
+** Current hypotheses, current models
+
+   The infrastructure currently relies on the following simplifying hypotheses:
+   - all participants traveled by planes;
+   - all participants live close enough to an airport than we can assimilate the distance flown to the distance between both cities;
+   - all flights are direct;
+   - all flights travel via the geodesic shortest path.
+
+   Assuming this, the script computes the distance between any two cities and is
+   intended to use models to compute the carbon footprint that can be expressed
+   as a function of this distance. In particular, the main model we use is the
+   one provided in the following report ordered by the UK government:
+   https://www.gov.uk/government/publications/greenhouse-gas-reporting-conversion-factors-2016
+
+   The model is piece-wise linear, and account for the radiative forcing effect.
+   It is defined in as the function [get_cost_acm] in [[../src/datastructure.py][datastructure]].  
+   
+   A second model, the one used by the [[https://www.cooleffect.org/][CoolEffect]] company at the time of our discussions,
+   is implemented in the same file as the function [get_cost_CoolEffect]. It is extremely similar.
+
+** Defining new models whose value is a function of the distance
+
+*** Naming the model
+
+    Available models can be selected via the "--model" option. The new model must therefore
+    be named and registered in [[../src/main.py][main]], in the definition of the model argument, by adding a
+    string to the "choices" list.
+
+*** Defining the model
+
+    In [[../src/datastructure.py][datastructure]], the model should be defined as a function a _get_ function returning 
+    a float.
+    WARNING: the float should be the carbon cost expressed in kg CO2_eq! 
+
+*** Defining a setter
+
+    In [[../src/datastructure.py][datastructure]], the function should be wrapped into a _get_and_set_ function following the model of
+    [get_and_set_cost_acm] or [get_and_set_cost_CoolEffect]
+
+*** Enriching the selector
+
+    In [[../src/datastructure.py][datastructure]], the function [get_footprint] and [get_and_set_footprint] should be enriched with
+    a case calling the new get and get_and_set functions when the new model is selected.
+
+** More involved models
+
+   More involved models, i.e. models would cost depends on other factor than the raw distance between cities,
+   would require a more significant refactoring and/or hacking.
+   Exploring their relevance could however be an extremely interesting project. Please feel free to submit pull 
+   request or open discussions as issues on the topic if you feel so inclined!
 
