@@ -28,9 +28,7 @@
      - 'country' is the name of the country where the event took place in.
      For instance, the following entry is valid: "ICFP,9,Edinburgh,,UK"
      
-   * A second csv file should describe the participants. Each line describes a unique
-   participant taking part of a unique instance of a conference. More specifically, its
-   header, and hence format, should be [id,city,state,country,conference,year] where:
+   * A second csv file should describe the participants. Each line describes a unique participant taking part of a unique instance of a conference. More specifically, its header, and hence format, should be [id,city,state,country,conference,year], where:
      - 'id' is a number identifying a unique participant. It should be unique per participant
        to allow proper cross participation analyses. 
        If you cannot have such a unique identification of participants, you shall provide a
