@@ -71,3 +71,13 @@ class Cache:
                 self.cache_new_loc(GLOB,place)
             except e:
                 raise(e)
+
+    def set_loc(self,GLOB,loc):
+        try:
+            cached_loc = self.cache[loc.place]
+            loc.set_GPS(cached_loc.GPS)
+            loc.set_iso(cached_loc.country_iso)
+            loc.set_continent(cached_loc.continent)
+            loc.set_airport(cached_loc.airport)
+        except e:
+            raise(e)

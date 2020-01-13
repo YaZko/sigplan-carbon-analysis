@@ -44,9 +44,10 @@ class DB:
                 # print('Processing {} {}'.format(name,year))
                 try:
                     cache.check_cache_loc(GLOB,loc.place)
+                    cache.set_loc(GLOB,loc)
                 except:
                     buggy_inputs.append((name,year))
-                    print('WARNING: in the list of conference, entry {} {} at {} cannot be processed and has been ignored'.format(name,year,loc))
+                    print('WARNING: in the list of conference, entry {} {} at {} cannot be processed and has been ignored\n'.format(name,year,loc))
         for name,year in buggy_inputs:
             self.confs[name].pop(year)
 
@@ -62,22 +63,20 @@ class DB:
                     loc = d.location
                     try:
                         cache.check_cache_loc(GLOB,loc.place)
+                        cache.set_loc(GLOB,loc)
                         footprint = d.get_and_set_footprint(GLOB, cache, conf_loc)
                         if footprint is None:
                             print(conf_loc)
                             raise KeyError
                     except:
-                        print('WARNING: in the list of participants, entry {} cannot be processed and has been ignored'.format(d))
+                        print('WARNING: in the list of participants, entry {} cannot be processed and has been ignored\n'.format(d))
                         buggy_inputs.append(d)
         for d in buggy_inputs:
             self.data.remove(d)
 
     def preprocess(self,GLOB,cache):
-        print('\n3.1\n')
         self.preprocess_confs(GLOB,cache)
-        print('\n3.2\n')
         self.preprocess_users(GLOB,cache)
-        print('\n3.3\n')
         self.print_user_db(GLOB)
 
     def print_user_db(self, GLOB):
@@ -97,7 +96,6 @@ class DB:
                              'total cost', 'average cost'])
             for name,conf in self.confs.items():
                 for year,conf_loc in conf.items():
-                    print('Footprint of {} {}'.format(name,year))
                     select_data = [d for d in self.data if d.conference == name and d.year == year]
                     for d in select_data:
                         if d.footprint is None:

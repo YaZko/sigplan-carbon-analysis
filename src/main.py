@@ -68,33 +68,23 @@ def initialize(GLOB):
     # TODO: Backup the logger and clean it up when starting a new session
     logging.basicConfig(filename='../output/analysis.log',level=logging.DEBUG)
 
-    print('2.1\n')
     cache = Cache(GLOB)
-    print('2.2\n')
     data,confs = parser.parse(GLOB)
-    print('2.3\n')
     db = DB(data,confs)
-    print('2.4\n')
 
     return cache,db
 
 def analysis():
 
-    print('1\n')
     GLOB = setup_args()
-    print('2\n')
 
     cache,db = initialize(GLOB)
-    print('3\n')
 
     db.preprocess(GLOB,cache)
-    print('4\n')
 
     db.footprint_per_conf(GLOB)
-    print('5\n')
 
     db.analysis_demographic(GLOB)
-    print('6\n')
 
     db.participation_overlap_intra_conf_generate_all(GLOB)
     db.participation_overlap_cross_conf_generate_all(GLOB)
