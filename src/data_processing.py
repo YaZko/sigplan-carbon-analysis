@@ -33,33 +33,51 @@ class DB:
     def get_participants_conf_year(self,conf,year):
         return [d for d in self.data if d.conference == conf and d.year == year]
 
+    # This routine checks for each location of each conference that the data for this location are already cached.
+    # If not, it tries to compute them and cache them.
+    # If it fails, it reports the likely to be erroneous data entry, and removes it from the conferences of consideration
     def preprocess_confs(self,GLOB,cache):
         logging.info("Starting the preprocessing of the locations of the events")
+        buggy_inputs = []
         for name,conf in self.confs.items():
             for year,loc in conf.items():
-                coord = loc.get_and_set_GPS(GLOB,cache)
-                iso = loc.get_and_set_iso(GLOB,cache)
-                continent = loc.get_and_set_continent(GLOB,cache)
-                airport = loc.get_and_set_airport(GLOB,cache)
+                # print('Processing {} {}'.format(name,year))
+                try:
+                    cache.check_cache_loc(GLOB,loc.place)
+                except:
+                    buggy_inputs.append((name,year))
+                    print('WARNING: in the list of conference, entry {} {} at {} cannot be processed and has been ignored'.format(name,year,loc))
+        for name,year in buggy_inputs:
+            self.confs[name].pop(year)
 
     def preprocess_users(self,GLOB,cache):
         logging.info("Starting the preprocessing of the participation database")
         confs = self.confs
+        buggy_inputs = []
         for name,conf in confs.items():
             for year,conf_loc in conf.items():
+                # print('Processing conference {} {}\n'.format(name,year))
                 participants = self.get_participants_conf_year(name,year)
                 for d in participants:
                     loc = d.location
-                    coord = loc.get_and_set_GPS(GLOB,cache)
-                    iso = loc.get_and_set_iso(GLOB,cache)
-                    continent = loc.get_and_set_continent(GLOB,cache)
-                    airport = loc.get_and_set_airport(GLOB,cache)
-
-                    footprint = d.get_and_set_footprint(GLOB, cache, conf_loc)
+                    try:
+                        cache.check_cache_loc(GLOB,loc.place)
+                        footprint = d.get_and_set_footprint(GLOB, cache, conf_loc)
+                        if footprint is None:
+                            print(conf_loc)
+                            raise KeyError
+                    except:
+                        print('WARNING: in the list of participants, entry {} cannot be processed and has been ignored'.format(d))
+                        buggy_inputs.append(d)
+        for d in buggy_inputs:
+            self.data.remove(d)
 
     def preprocess(self,GLOB,cache):
+        print('\n3.1\n')
         self.preprocess_confs(GLOB,cache)
+        print('\n3.2\n')
         self.preprocess_users(GLOB,cache)
+        print('\n3.3\n')
         self.print_user_db(GLOB)
 
     def print_user_db(self, GLOB):
@@ -79,7 +97,12 @@ class DB:
                              'total cost', 'average cost'])
             for name,conf in self.confs.items():
                 for year,conf_loc in conf.items():
+                    print('Footprint of {} {}'.format(name,year))
                     select_data = [d for d in self.data if d.conference == name and d.year == year]
+                    for d in select_data:
+                        if d.footprint is None:
+                            print(d)
+                            raise KeyError
                     nb = len(select_data)
                     if nb > 0:
                         total_footprint = round(reduce(lambda x,y: x + y.footprint, select_data, 0)/1000,2)

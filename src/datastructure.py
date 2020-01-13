@@ -74,6 +74,7 @@ class Location:
     def get_GPS(self):
         gn = geocoders.GeoNames(username='acm_climate')
         query = self.place.city
+        print ("Looking for GPS coordinates of {}".format(query))
         if self.place.country in ['USA','Canada'] and self.place.state is not None:
             query = query + ',' + self.place.state
         if self.place.country is not None:
@@ -154,7 +155,11 @@ class Location:
 
     def get_continent(self,iso):
         country = iso
-        return country_alpha2_to_continent_code(country)
+        try:
+            return country_alpha2_to_continent_code(country)
+        except KeyError as e:
+            print("Failed to find the continent associated to country {}".format(str(e).split(':')[1].strip()))
+            return None
 
     def get_and_set_continent(self,GLOB,cache):
         if self.continent is None:
@@ -238,13 +243,13 @@ class RawData:
 
     # TODO: define some getters maybe...
     def csv(self):
-        return "{},{},{},{},{},{}".format(self.id,self.place.location.city,self.place.location.state,self.place.location.country,self.conference,self.year)
+        return "{},{},{},{},{},{}".format(self.id,self.location.place.city,self.location.place.state,self.location.place.country,self.conference,self.year)
 
     def __repr__(self):
-        return "Data: ({},{},{},{},{},{})".format(self.id,self.place.location.city,self.place.location.state,self.place.location.country,self.conference,self.year)
+        return "Data: ({},{},{},{},{},{})".format(self.id,self.location.place.city,self.location.place.state,self.location.place.country,self.conference,self.year)
 
     def __str__(self):
-        return "Data: ({},{},{},{},{},{})".format(self.id,self.place.location.city,self.place.location.state,self.place.location.country,self.conference,self.year)
+        return "Data: ({},{},{},{},{},{})".format(self.id,self.location.place.city,self.location.place.state,self.location.place.country,self.conference,self.year)
 
     def set_footprint(self, cost):
         self.footprint = cost

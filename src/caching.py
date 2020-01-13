@@ -37,23 +37,37 @@ class Cache:
 
     # Given a place, computes its full location and caches the result
     def cache_new_loc(self,GLOB,place):
+
         loc = Location(place)
 
         # Computes and set all location fields
         gps = loc.get_GPS()
         loc.set_GPS(gps)
+        # print ("GPS done")
         iso = loc.get_iso()
         loc.set_iso(iso)
+        # print ("ISO done")
         continent = loc.get_continent(iso)
         loc.set_continent(continent)
         airport = loc.get_airport(GLOB,iso,gps)
         loc.set_airport(airport)
 
-        # Updates the dynamic cache
-        self.cache[place] = loc
+        # Assuming all data has been found, we update the caches:
+        if not (gps is None or iso is None or continent is None):
+            # Updates the dynamic cache
+            self.cache[place] = loc
 
-        # Updates the static cache
-        with open(GLOB.cache,'a') as csv_file:
-            appender = csv.writer(csv_file,delimiter=',',quoting=csv.QUOTE_MINIMAL)
-            loc.write_csv_row(appender)
+            # Updates the static cache
+            with open(GLOB.cache,'a') as csv_file:
+                appender = csv.writer(csv_file,delimiter=',',quoting=csv.QUOTE_MINIMAL)
+                loc.write_csv_row(appender)
+        else:
+            raise(KeyError)
+            # print("Location {} appears to be incorrect, giving up on it".format(loc))
 
+    def check_cache_loc(self,GLOB,place):
+        if not place in self.cache:
+            try:
+                self.cache_new_loc(GLOB,place)
+            except e:
+                raise(e)
