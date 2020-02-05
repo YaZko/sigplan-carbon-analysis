@@ -311,7 +311,7 @@ class RawData:
         else:
             return self.footprint
 
-    def get_footprint(self,GLOB,cache,destination):
+    def get_footprint(self, GLOB, cache, destination):
         if GLOB.model == 'acm':
             return self.get_cost_acm(GLOB, cache, destination)
         elif GLOB.modol == 'cool':

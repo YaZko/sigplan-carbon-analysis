@@ -297,7 +297,7 @@ class DB:
                         res = norm_perc(len(old_timers),len(select_data))
                         writer.writerow([year,res])
 
-    def pick_optimal(self,GLOB, cache, conf, year):
+    def pick_optimal_list(self,GLOB, cache, conf, year, count):
         logging.debug("Picking optimal for {} {}".format(conf,year))
         select_data = [d for d in self.data if d.conference == conf and d.year == year]
         nb = len(select_data)
@@ -306,23 +306,24 @@ class DB:
             base_average = round(base_total/nb,2)
             best_average = base_average
             base_loc = self.confs[conf][year]
-            best_loc = base_loc
+            best_locs = [base_loc] * count
 
-            for loc in GLOB.city_candidates:
-                loc = Location(Place(*loc))
-                costs = [d.get_footprint(GLOB, cache, loc) for d in select_data]
-                total = round(reduce(lambda x,y: x + y, costs, 0)/1000,2)
-                average = round(total/nb,2)
-                if best_average > average:
-                    best_average = average
-                    best_loc = loc
+            for locs in combinations(GLOB.city_candidates, count):
+                    locs = [Location(Place(*loc)) for loc in locs]
+                    costs = [min([d.get_footprint(GLOB, cache, loc) for loc in locs])
+                                for d in select_data]
+                    total = round(sum(costs / 1000, 2))
+                    average = round(total/nb,2)
+                    if best_average > average:
+                        best_average = average
+                        best_locs = locs
 
-            return (base_average,base_loc,best_average,best_loc)
+            return (base_average,base_loc,best_average,best_locs)
 
         else:
             return None
 
-    def pick_optimals(self, GLOB, cache):
+    def pick_optimal_lists(self, GLOB, cache, count):
 
         with open(GLOB.output_optimals,'w',newline='') as csvfile:
 
@@ -330,10 +331,10 @@ class DB:
             writer.writerow(['conf','year','orig. loc.','orig. cost', 'best loc.', 'best cost', 'saved'])
             for conf in GLOB.confs_processed:
                 for year in GLOB.years_processed:
-                    x = self.pick_optimal(GLOB, cache, conf, year)
+                    x = self.pick_optimal_list(GLOB, cache, conf, year, count)
                     if not x is None:
-                        (base,base_loc,best,best_loc) = x
-                        best_loc = best_loc.place.city + '*' if best_loc == base_loc else best_loc.place.city
+                        (base,base_loc,best,best_locs) = x
+                        best_loc = ','.join([loc.place.city for loc in best_locs])
                         writer.writerow([conf,year,self.confs[conf][year].place.city,base,best_loc,best,norm(base-best)])
 
     # Slightly ad-hoc function computing the average total overlap that occurs when a list of conference using the same location over sliding years (see Jens' request)

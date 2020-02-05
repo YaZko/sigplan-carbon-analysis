@@ -91,7 +91,11 @@ def analysis():
 
     db.get_number_of_participations(GLOB)
     db.get_old_timers(GLOB)
-    db.pick_optimals(GLOB, cache)
+
+    db.pick_optimal_lists(GLOB, cache, 1)
+    db.pick_optimal_lists(GLOB, cache, 2)
+    db.pick_optimal_lists(GLOB, cache, 3)
+
 
 analysis()
 
