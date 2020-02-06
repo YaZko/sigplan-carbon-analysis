@@ -76,78 +76,36 @@ def initialize(GLOB):
 
 def analysis():
 
+    print("Setting up arguments\n")
     GLOB = setup_args()
 
+    print("Initializing the cache\n")
     cache,db = initialize(GLOB)
 
+    print("Pre-processing locations\n")
     db.preprocess(GLOB,cache)
 
+    print("Computing footprints\n")
     db.footprint_per_conf(GLOB)
 
+    print("Computing demographic distribution\n")
     db.analysis_demographic(GLOB)
 
+    print("Computing temporal overlap\n")
     db.participation_overlap_intra_conf_generate_all(GLOB)
+    print("Computing cross-conference overlap\n")
     db.participation_overlap_cross_conf_generate_all(GLOB)
 
+    print("Computing number of participations\n")
     db.get_number_of_participations(GLOB)
+    print("Computing old timers\n")
     db.get_old_timers(GLOB)
 
+    print("Computing ideal location\n")
     db.pick_optimal_lists(GLOB, cache, 1)
+    print("Computing ideal bi-location\n")
     db.pick_optimal_lists(GLOB, cache, 2)
+    print("Computing ideal tri-location\n")
     db.pick_optimal_lists(GLOB, cache, 3)
 
-
 analysis()
-
-# initialize_user_db(raw_users_path, raw_user_types, users_path, raw_user_types,
-#                    raw_confs_path, confs_path, conf_names, raw_conf_types)
-
-# db = DB(data,confs)
-# db.preprocess(users_path,confs_path)
-# db.analysis_demographic(output_demographic)
-
-# db.get_number_of_participations(output_number_of_participations,conf_names)
-# db.get_old_timers(output_old_timer,conf_names,conf_years)
-# db.pick_optimals(output_optimals,conf_names,conf_years,city_candidates)
-
-# print(db.speculate_cost_at_loc("POPL",18,Location("Anchorage","AK","USA")))
-# print(db.speculate_cost_at_loc("POPL",18,Location("Los Angeles","CA","USA")))
-
-# db.participation_overlap_conf_generate_all(output_overlap_cross_conf,conf_names,conf_years)
-# db.participation_overlap_year_generate_all(output_overlap_cross_year,conf_names,conf_years)
-
-# db.participation_overlap_conf("POPL", )
-
-# dest = Location("Paris",None,"France")
-# for i in range(9,19):
-#     db.speculate_cost_at_loc("POPL",i,dest)
-#     db.speculate_cost_split("POPL",i,dest)
-
-# db.analysis(output_path)
-
-
-
-############# BEGIN DEPRECATED ############
-
-# Check if the chosen target files for the databases exists.
-# If not, parses the raw source and output them with the right format in the target files.
-def initialize_user_db(raw_users_path, raw_user_types, users_path, user_types,
-                       raw_confs_path, confs_path, conf_names, raw_conf_types):
-    print("Checking for existing db")
-    exists_db_users = os.path.isfile(users_path)
-    exists_db_confs = os.path.isfile(confs_path)
-    if not exists_db_users or not exists_db_confs:
-        print("Found no db, initializing")
-        users,confs = parser.parse(raw_users_path, raw_user_types,
-                                   raw_confs_path, conf_names, raw_conf_types)
-        db = DB(users,confs)
-        if not exists_db_users:
-            print('Initialized the user database.')
-            db.print_user_db(users_path)
-        if not exists_db_confs:
-            print('Initialized the conference database.')
-            db.print_conf_db(confs_path)
-    else:
-        print("Found existing db, skipping initialization")
-
-############# END DEPRECATED ############
