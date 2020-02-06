@@ -46,7 +46,9 @@ class Globals:
         self.output_overlap_cross_conf       = self.output_prefix + 'overlap_cross_conf#.csv'
         self.output_number_of_participations = self.output_prefix + 'number_of_participations.csv'
         self.output_old_timer                = self.output_prefix + 'old_timer_#.csv'
-        self.output_optimals                 = self.output_prefix + 'optimals.csv'
+        self.output_optimal_loc              = self.output_prefix + 'optimal_loc.csv'
+        self.output_optimal_biloc            = self.output_prefix + 'optimal_biloc.csv'
+        self.output_optimals_triloc          = self.output_prefix + 'optimal_triloc.csv'
 
         # Default model to compute the footprint of travels
         self.model = 'acm'

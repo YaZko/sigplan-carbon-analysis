@@ -102,10 +102,10 @@ def analysis():
     db.get_old_timers(GLOB)
 
     print("Computing ideal location\n")
-    db.pick_optimal_lists(GLOB, cache, 1)
+    db.pick_optimal_loc(GLOB, cache)
     print("Computing ideal bi-location\n")
-    db.pick_optimal_lists(GLOB, cache, 2)
+    db.pick_optimal_biloc(GLOB, cache)
     print("Computing ideal tri-location\n")
-    db.pick_optimal_lists(GLOB, cache, 3)
+    db.pick_optimal_triloc(GLOB, cache)
 
 analysis()
