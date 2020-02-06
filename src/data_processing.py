@@ -324,7 +324,7 @@ class DB:
 
     def pick_optimal_lists(self, GLOB, cache, count, output):
 
-        with open(GLOB.output,'w',newline='') as csvfile:
+        with open(output,'w',newline='') as csvfile:
 
             writer = csv.writer(csvfile, delimiter=',', quoting=csv.QUOTE_MINIMAL)
             writer.writerow(['conf','year','orig. loc.','orig. cost', 'best loc.', 'best cost', 'saved'])
@@ -344,8 +344,6 @@ class DB:
 
     def pick_optimal_triloc(self, GLOB, cache):
         self.pick_optimal_lists(GLOB,cache,3,GLOB.output_optimal_triloc)
-
-
 
     # Slightly ad-hoc function computing the average total overlap that occurs when a list of conference using the same location over sliding years (see Jens' request)
 

@@ -24,8 +24,8 @@ class Globals:
 
         # TODO: get those from the input by default, with option to pick as subset
         # Range of years to be considered
-        # self.years_processed = range(9,19)
-        self.years_processed = range(2007,2020)
+        self.years_processed = range(9,19)
+        # self.years_processed = range(2007,2020)
 
         # Cache for locations
         self.cache = '../input/.location_cache.csv'
@@ -48,7 +48,7 @@ class Globals:
         self.output_old_timer                = self.output_prefix + 'old_timer_#.csv'
         self.output_optimal_loc              = self.output_prefix + 'optimal_loc.csv'
         self.output_optimal_biloc            = self.output_prefix + 'optimal_biloc.csv'
-        self.output_optimals_triloc          = self.output_prefix + 'optimal_triloc.csv'
+        self.output_optimal_triloc           = self.output_prefix + 'optimal_triloc.csv'
 
         # Default model to compute the footprint of travels
         self.model = 'acm'
