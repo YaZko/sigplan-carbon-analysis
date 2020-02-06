@@ -19,6 +19,9 @@ More documentation to come.
 This project uses Python3. It relies on the `pycountry`, `pycontry-convert`, `request` and `geopy`
 libraries, all available through pip.
 
+If you have `pipenv` installed on your system, you can run `pipenv shell` to get a shell with the
+right dependencies installed locally to the directory.
+
 ############### Structure ###############
 
 ## input
