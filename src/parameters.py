@@ -19,8 +19,8 @@ class Globals:
         self.participants_path = '../input/' + input_participants + '.csv'
 
         # TODO: get those from the input by default, with option to pick a subset
-        self.confs_processed = ['GECCO']
-        # self.confs_processed = ['ICFP','POPL','PLDI','SPLASH']
+        # self.confs_processed = ['GECCO']
+        self.confs_processed = ['ICFP','POPL','PLDI','SPLASH']
 
         # TODO: get those from the input by default, with option to pick as subset
         # Range of years to be considered

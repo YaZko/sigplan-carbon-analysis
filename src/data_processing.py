@@ -134,7 +134,6 @@ class DB:
 
                 # For each conference
                 for name,conf in self.confs.items():
-
                     # Distribution for the conference 'name'
                     distrib_conf = init_distrib.copy()
                     total_attendance_conf = 0
@@ -334,7 +333,7 @@ class DB:
                     x = self.pick_optimal_list(GLOB, cache, conf, year, count)
                     if not x is None:
                         (base,base_loc,best,best_locs) = x
-                        best_loc = ','.join([loc.place.city for loc in best_locs])
+                        best_loc = ';'.join([loc.place.city for loc in best_locs])
                         writer.writerow([conf,year,self.confs[conf][year].place.city,base,best_loc,best,norm(base-best)])
 
     def pick_optimal_loc(self, GLOB, cache):
@@ -368,7 +367,6 @@ class DB:
                         d[id] = 1
             recurrent = len([x for x in d if d[x] > 1])
             recurrent2 = sum([d[x] - 1 for x in d if d[x] > 1])
-            # print("From year {}: {} recurrent".format(year,recurrent))
 
             # Computes the size of the union of the intersection of all combinations of events
             pairs = combinations(datas,2)
