@@ -184,7 +184,7 @@ class DB:
             writer.writerow(['Location'] + continents + ['Local'])
 
             for c in continents:
-                if not total_attendance_per_loc[c] is 0:
+                if total_attendance_per_loc[c] != 0:
                     writer.writerow([c] + [norm_perc(distrib_per_loc[c][x],total_attendance_per_loc[c]) for x in continents] + [norm_perc(distrib_per_loc[c]['SAME'],total_attendance_per_loc[c])])
             writer.writerow(['Any'] + [norm_perc(distrib_total[x],total_attendance) for x in continents] + [norm_perc(distrib_total['SAME'],total_attendance)])
 
@@ -409,7 +409,7 @@ class DB:
     def get_average_cost_conf_year(self,conf,year):
         conf_loc = self.confs[conf][year]
         select_data = [d for d in self.data if d.conference == conf and d.year == year]
-        if len(select_data) is 0:
+        if len(select_data) == 0:
             print('Missing data for conference {} during year {}'.format(conf,year))
             return 0
         else:
@@ -434,7 +434,7 @@ class DB:
     def get_cost_conf_year_at_loc(self,conf,year,loc):
         conf_loc = loc
         select_data = [d for d in self.data if d.conference == conf and d.year == year]
-        if len(select_data) is 0:
+        if len(select_data) == 0:
             print('Missing data for conference {} during year {}'.format(conf,year))
             return 0
         else:
