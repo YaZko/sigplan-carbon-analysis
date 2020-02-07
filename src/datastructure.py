@@ -106,10 +106,17 @@ class Location:
             return self.GPS
 
     # Computes the distance between two locations
+
     def get_distance(self, GLOB, cache, start):
         c1 = start.get_and_set_GPS(GLOB, cache)
         c2 = self.get_and_set_GPS(GLOB, cache)
-        return distance.distance(c1,c2).km
+        if (c1, c2) in GLOB.memo_distances:
+            return GLOB.memo_distances[(c1,c2)]
+        else:
+            ret = distance.distance(c1,c2).km
+            GLOB.memo_distances[(c1,c2)] = ret
+            GLOB.memo_distances[(c2,c1)] = ret
+            return ret
 
     def set_iso(self,iso):
         self.country_iso = iso
@@ -255,7 +262,8 @@ class RawData:
         self.footprint = cost
 
     def get_cost_acm(self, GLOB, cache, destination):
-        logging.debug('Estimating acm cost (radiative forcing included) from {} to {}'.format(self.location,destination))
+        # commented out because it is quite costly cumulatively
+        #logging.debug('Estimating acm cost (radiative forcing included) from {} to {}'.format(self.location,destination))
         dist = self.location.get_distance(GLOB, cache, destination)
         if dist < 785:
             emission_factor = 0.14735
