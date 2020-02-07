@@ -73,3 +73,5 @@ class Globals:
                                 ("Beijing",None,"China"),
                                 ("Mumbai",None,"India")]
 
+        self.memo_distances = {}
+
