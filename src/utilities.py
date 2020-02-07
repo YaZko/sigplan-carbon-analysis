@@ -15,7 +15,7 @@ def norm_perc(v,tot):
     return round(v/tot*100,2)
 
 def type_nil(t,s):
-    if s is "":
+    if s == "":
         return None
     elif t == str:
         return s.strip()
