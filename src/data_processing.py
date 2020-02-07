@@ -296,16 +296,15 @@ class DB:
                         res = norm_perc(len(old_timers),len(select_data))
                         writer.writerow([year,res])
 
-    def pick_optimal_list(self,GLOB, cache, conf, year, count):
-        logging.debug("Picking optimal for {} {}".format(conf,year))
-        select_data = [d for d in self.data if d.conference == conf and d.year == year]
+    def pick_optimal_list(self,GLOB, cache, count, pred):
+        select_data = [d for d in self.data if pred(d.conference, d.year)]
         nb = len(select_data)
         if nb > 0:
             base_total = round(reduce(lambda x,y: x + y.footprint, select_data, 0)/1000,2)
             base_average = round(base_total/nb,2)
             best_average = base_average
-            base_loc = self.confs[conf][year]
-            best_locs = [base_loc] * count
+            base_loc = None
+            best_locs = None
 
             for locs in combinations(GLOB.city_candidates, count):
                     locs = [Location(Place(*loc)) for loc in locs]
@@ -317,24 +316,34 @@ class DB:
                         best_average = average
                         best_locs = locs
 
-            return (base_average,base_loc,best_average,best_locs)
+            return base_average,base_loc,best_average,best_locs
 
         else:
             return None
 
     def pick_optimal_lists(self, GLOB, cache, count, output):
-
         with open(output,'w',newline='') as csvfile:
-
             writer = csv.writer(csvfile, delimiter=',', quoting=csv.QUOTE_MINIMAL)
             writer.writerow(['conf','year','orig. loc.','orig. cost', 'best loc.', 'best cost', 'saved'])
             for conf in GLOB.confs_processed:
                 for year in GLOB.years_processed:
-                    x = self.pick_optimal_list(GLOB, cache, conf, year, count)
+                    logging.debug("Picking optimal for {} {}".format(conf, year))
+                    x = self.pick_optimal_list(GLOB, cache, count, lambda c,y: y == year and c == conf)
                     if not x is None:
                         (base,base_loc,best,best_locs) = x
                         best_loc = ';'.join([loc.place.city for loc in best_locs])
                         writer.writerow([conf,year,self.confs[conf][year].place.city,base,best_loc,best,norm(base-best)])
+
+    def pick_optimal_for_set(self, GLOB, cache, count, output, confs):
+        with open(output,'w',newline='') as csvfile:
+            writer = csv.writer(csvfile, delimiter=',', quoting=csv.QUOTE_MINIMAL)
+            writer.writerow(['conf','year','orig. loc.','orig. cost', 'best loc.', 'best cost', 'saved'])
+            logging.debug(f"Picking optimal for the set {confs}")
+            x = self.pick_optimal_list(GLOB, cache, count, lambda c,y: (c,y) in confs)
+            if x is not None:
+                (base,base_loc,best,best_locs) = x
+                best_loc = ';'.join([loc.place.city for loc in best_locs])
+                writer.writerow([confs,base,best_loc,best])
 
     def pick_optimal_loc(self, GLOB, cache):
         self.pick_optimal_lists(GLOB,cache,1,GLOB.output_optimal_loc)
