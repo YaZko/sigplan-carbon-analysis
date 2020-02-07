@@ -108,4 +108,12 @@ def analysis():
     print("Computing ideal tri-location\n")
     db.pick_optimal_triloc(GLOB, cache)
 
+    print("Computing ideal for sets of conferences")
+    db.pick_optimal_for_set(GLOB, cache, 2, GLOB.output_prefix + 'ICFP-1012',
+                            {('ICFP', 10), ('ICFP', 11), ('ICFP', 12)})
+    db.pick_optimal_for_set(GLOB, cache, 2, GLOB.output_prefix + 'ICFP-1618',
+                            {('ICFP', 16), ('ICFP', 17), ('ICFP', 18)})
+    db.pick_optimal_for_set(GLOB, cache, 2, GLOB.output_prefix + 'POPL-1517',
+                            {('POPL', 15), ('POPL', 16), ('POPL', 17)})
+
 analysis()
