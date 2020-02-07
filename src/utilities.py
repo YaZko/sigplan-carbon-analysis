@@ -1,6 +1,6 @@
 # Utility to generate names of files Assuming that `name` is a string
 # containing a hole encoded as a '#' caracter, fill the hole with the string `arg`
-def fill_hole_string(name,arg):
+def fill_hole_string(name, arg):
     ctx = name.split("#")
     if len(ctx) < 2:
         raise Exception('{} contains no hole'.format(name))
@@ -9,12 +9,16 @@ def fill_hole_string(name,arg):
     else:
         return ctx[0] + arg + ctx[1]
 
-def norm(v):
-    return round(v,2)
-def norm_perc(v,tot):
-    return round(v/tot*100,2)
 
-def type_nil(t,s):
+def norm(v):
+    return round(v, 2)
+
+
+def norm_perc(v, tot):
+    return round(v / tot * 100, 2)
+
+
+def type_nil(t, s):
     if s == "":
         return None
     elif t == str:
@@ -22,12 +26,18 @@ def type_nil(t,s):
     else:
         return t(s)
 
-def get_args(row,types):
-    return [type_nil(types[i],row[i]) for i in range(min(len(row),len(types))) if types[i] is not None]
+
+def get_args(row, types):
+    return [
+        type_nil(types[i], row[i]) for i in range(min(len(row), len(types)))
+        if types[i] is not None
+    ]
+
 
 def string_to_double(s):
-    x,y = s.split(',')
+    x, y = s.split(',')
     return float(x.split('(')[1].strip()), float(y.split(')')[0].strip())
+
 
 # def export_to_tex(path):
 
@@ -38,7 +48,6 @@ def string_to_double(s):
 # """
 #   \bfseries event & \bfseries location & \bfseries nb. participants & \bfseries total cost & \bfseries average cost
 
-
 # """
 # \csvreader[head to column names]{../output/output.csv}{}%
 # {\\\conf\ \year & \location & \csvcoliv & \csvcolv & \csvcolvi}%
@@ -48,4 +57,3 @@ def string_to_double(s):
 # \label{fig:RawData}
 # \end{figure}
 # """
-
