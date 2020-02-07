@@ -309,9 +309,9 @@ class DB:
 
             for locs in combinations(GLOB.city_candidates, count):
                     locs = [Location(Place(*loc)) for loc in locs]
-                    costs = [min([d.get_footprint(GLOB, cache, loc) for loc in locs])
+                    costs = [min([d.get_footprint(GLOB, cache, loc) for loc in locs]) / 1000
                                 for d in select_data]
-                    total = round(sum(costs / 1000, 2))
+                    total = round(sum(costs, 2))
                     average = round(total/nb,2)
                     if best_average > average:
                         best_average = average
