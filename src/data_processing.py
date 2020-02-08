@@ -1,3 +1,4 @@
+from collections import Counter
 from functools import reduce
 from itertools import combinations, permutations
 from statistics import mean
@@ -71,7 +72,8 @@ class DB:
                         if footprint is None:
                             print(conf_loc)
                             raise KeyError
-                    except:
+                    except Exception as e:
+                        print(e)
                         print(
                             'WARNING: in the list of participants, entry {} cannot be processed and has been ignored\n'
                             .format(d))
@@ -119,22 +121,15 @@ class DB:
         output_file_conf = fill_hole_string(GLOB.output_demographic, '_per_conf')
         output_file_delta = fill_hole_string(GLOB.output_demographic, '_delta')
 
-        continents = ['EU', 'NA', 'AS', 'SA', 'AF', 'OC']
+        continents = GLOB.continents()
 
-        init_distrib = {'EU': 0, 'NA': 0, 'AS': 0, 'SA': 0, 'AF': 0, 'OC': 0, 'SAME': 0}
+        init_distrib = Counter({c: 0 for c in continents + ['SAME']})
 
         # Global distribution of origin
         distrib_total = init_distrib.copy()
         total_attendance = 0
         # Distribution for each origin of the conf
-        distrib_per_loc = {
-            'EU': init_distrib.copy(),
-            'NA': init_distrib.copy(),
-            'AS': init_distrib.copy(),
-            'SA': init_distrib.copy(),
-            'AF': init_distrib.copy(),
-            'OC': init_distrib.copy()
-        }
+        distrib_per_loc = {c: init_distrib.copy() for c in continents}
         total_attendance_per_loc = init_distrib.copy()
 
         with open(output_file_main, 'w', newline='') as csvfile_main:
@@ -165,33 +160,26 @@ class DB:
                             # Distribution of this instance
                             nb_loc = {}
 
-                            total_attendance = total_attendance + attendance
-                            total_attendance_per_loc[
-                                conf_loc.continent] = total_attendance_per_loc[
-                                    conf_loc.continent] + attendance
-                            total_attendance_conf = total_attendance_conf + attendance
+                            total_attendance += attendance
+                            total_attendance_per_loc[conf_loc.continent] += attendance
+                            total_attendance_conf += attendance
 
-                            for l in continents:
-                                nb_loc[l] = len(
-                                    [d for d in select_data if d.location.continent == l])
-
-                                distrib_total[l] = distrib_total[l] + nb_loc[l]
-                                distrib_per_loc[conf_loc.continent][l] = distrib_per_loc[
-                                    conf_loc.continent][l] + nb_loc[l]
-                                distrib_conf[l] = distrib_conf[l] + nb_loc[l]
-
-                            nb_same = len([
+                            nb_loc = {
+                                l: len([d for d in select_data if d.location.continent == l])
+                                for l in continents
+                            }
+                            nb_loc['SAME'] = len([
                                 d for d in select_data
                                 if d.location.continent == conf_loc.continent
                             ])
-                            distrib_total['SAME'] = distrib_total['SAME'] + nb_same
-                            distrib_per_loc[conf_loc.continent]['SAME'] = distrib_per_loc[
-                                conf_loc.continent]['SAME'] + nb_same
-                            distrib_conf['SAME'] = distrib_conf['SAME'] + nb_same
+
+                            distrib_total += nb_loc
+                            distrib_per_loc[conf_loc.continent] += nb_loc
+                            distrib_conf += nb_loc
 
                             main_row = [norm_perc(nb_loc[x], attendance) for x in continents]
                             writer_main.writerow([name, year, conf_loc.continent] + main_row +
-                                                 [norm_perc(nb_same, attendance)])
+                                                 [norm_perc(nb_loc['SAME'], attendance)])
 
                     conf_row = [
                         norm_perc(distrib_conf[x], total_attendance_conf) for x in continents

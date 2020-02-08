@@ -48,7 +48,7 @@ class Cache:
         iso = loc.get_iso()
         loc.set_iso(iso)
         # print ("ISO done")
-        continent = loc.get_continent(iso)
+        continent = loc.get_continent(GLOB, iso, gps)
         loc.set_continent(continent)
         airport = loc.get_airport(GLOB, iso, gps)
         loc.set_airport(airport)
@@ -67,18 +67,19 @@ class Cache:
             # print("Location {} appears to be incorrect, giving up on it".format(loc))
 
     def check_cache_loc(self, GLOB, place):
-        if not place in self.cache:
-            try:
-                self.cache_new_loc(GLOB, place)
-            except e:
-                raise (e)
+        if place not in self.cache:
+            self.cache_new_loc(GLOB, place)
 
     def set_loc(self, GLOB, loc):
-        try:
-            cached_loc = self.cache[loc.place]
-            loc.set_GPS(cached_loc.GPS)
-            loc.set_iso(cached_loc.country_iso)
-            loc.set_continent(cached_loc.continent)
-            loc.set_airport(cached_loc.airport)
-        except e:
-            raise (e)
+        cached_loc = self.cache[loc.place]
+        loc.set_GPS(cached_loc.GPS)
+        loc.set_iso(cached_loc.country_iso)
+
+        continent = cached_loc.continent
+        if GLOB.east_west and continent == 'NA':
+            if cached_loc.GPS[1] > -100.0:
+                continent = 'EC'
+            else:
+                continent = 'WC'
+        loc.set_continent(continent)
+        loc.set_airport(cached_loc.airport)

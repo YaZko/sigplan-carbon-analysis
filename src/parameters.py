@@ -3,7 +3,7 @@
 
 
 class Globals:
-    def __init__(self, input_events, input_participants, output_folder):
+    def __init__(self, input_events, input_participants, output_folder, east_west=False):
 
         ## Nature of the fields of interest in the csv files intended to be read
         ## Used to guide the parser when building the internal data structures
@@ -62,6 +62,8 @@ class Globals:
         # Flag to set whether participants are uniquely identified, and hence if participation overlap can be computed
         self.unique_id = True
 
+        self.east_west = east_west
+
         ## List of names of the conferences to be considered when looking for a rough retroactive optimal
         self.city_candidates = [("Paris", None, "France"), ("Edinburgh", None, "UK"),
                                 ("Philadelphia", "PA", "USA"), ("Boston", "MA", "USA"),
@@ -70,3 +72,9 @@ class Globals:
                                 ("Mumbai", None, "India")]
 
         self.memo_distances = {}
+
+    def continents(self):
+        if self.east_west:
+            return ['EU', 'WC', 'EC', 'AS', 'SA', 'AF', 'OC']
+        else:
+            return ['EU', 'NA', 'AS', 'SA', 'AF', 'OC']

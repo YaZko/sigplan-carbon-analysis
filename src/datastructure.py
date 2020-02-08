@@ -164,7 +164,7 @@ class Location:
     def set_continent(self, continent):
         self.continent = continent
 
-    def get_continent(self, iso):
+    def get_continent(self, GLOB, iso, gps):
         country = iso
         try:
             return country_alpha2_to_continent_code(country)
