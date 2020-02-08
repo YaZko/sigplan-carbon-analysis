@@ -7,6 +7,10 @@ verify_ssl = true
 geopy = "*"
 pycountry = "*"
 pycountry-convert = "*"
+unidecode = "*"
 
 [requires]
 python_version = "3.7"
+
+[dev-packages]
+pylint = "*"

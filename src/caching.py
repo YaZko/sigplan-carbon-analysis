@@ -1,8 +1,12 @@
-from datastructure import Place, Location
-from utilities import *
+import copy
+import unidecode
 import os
 import logging
 import csv
+
+from datastructure import Place, Location
+
+from utilities import *
 
 # Small data-structure handling the caching of locations, the computation of GPS locations notably requiring an API request
 # The state of the cache on the disk and of the mapping in memory is kept consistent to make sure stuff is cached even if the analysis crashes in the middle
@@ -67,18 +71,22 @@ class Cache:
             # print("Location {} appears to be incorrect, giving up on it".format(loc))
 
     def check_cache_loc(self, GLOB, place):
-        if not place in self.cache:
-            try:
-                self.cache_new_loc(GLOB, place)
-            except e:
-                raise (e)
+        nplace = self.normalize_loc(place)
+        if nplace not in self.cache:
+            self.cache_new_loc(GLOB, nplace)
 
     def set_loc(self, GLOB, loc):
-        try:
-            cached_loc = self.cache[loc.place]
-            loc.set_GPS(cached_loc.GPS)
-            loc.set_iso(cached_loc.country_iso)
-            loc.set_continent(cached_loc.continent)
-            loc.set_airport(cached_loc.airport)
-        except e:
-            raise (e)
+        cached_loc = self.cache[self.normalize_loc(loc.place)]
+        loc.set_GPS(cached_loc.GPS)
+        loc.set_iso(cached_loc.country_iso)
+        loc.set_continent(cached_loc.continent)
+        loc.set_airport(cached_loc.airport)
+
+    @staticmethod
+    def normalize_loc(place):
+        city = unidecode.unidecode_expect_ascii(place.city).lower()
+        country = unidecode.unidecode_expect_ascii(place.country).lower()
+        place = copy.deepcopy(place)
+        place.city = city
+        place.coutry = country
+        return place
