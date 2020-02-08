@@ -46,11 +46,11 @@ class DB:
                 try:
                     cache.check_cache_loc(GLOB, loc.place)
                     cache.set_loc(GLOB, loc)
-                except:
+                except Exception as e:
                     buggy_inputs.append((name, year))
                     print(
-                        'WARNING: in the list of conference, entry {} {} at {} cannot be processed and has been ignored\n'
-                        .format(name, year, loc))
+                        f'WARNING: in the list of conference, entry {name} {year} at {loc} cannot be processed and has been ignored because of exception {e}\n'
+                    )
         for name, year in buggy_inputs:
             self.confs[name].pop(year)
 
