@@ -57,10 +57,16 @@ def setup_args():
         help=
         'Assert that participants to events are not uniquely identified, disabling overlap analyses'
     )
+    parser.add_argument('--east-west-coast',
+                        action='store_true',
+                        help='Distinguish the east and the west coast in demographic analyses')
 
     args = parser.parse_args()
 
-    GLOB = Globals(args.input_events, args.input_participants, args.output_folder)
+    GLOB = Globals(args.input_events,
+                   args.input_participants,
+                   args.output_folder,
+                   east_west=args.east_west_coast)
 
     logging.info(
         "Analyzing the set of participants from file {} having taken part to events from file {}. The results of the analysis will be stored in folder {}."
