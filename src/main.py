@@ -61,12 +61,24 @@ def setup_args():
                         action='store_true',
                         help='Distinguish the east and the west coast in demographic analyses')
 
+    parser.add_argument(
+        "--log",
+        default="info",
+        choices=["info", "debug", "warning"],
+        help="Set the level of logging"
+    )
+
     args = parser.parse_args()
+
 
     GLOB = Globals(args.input_events,
                    args.input_participants,
                    args.output_folder,
                    east_west=args.east_west_coast)
+
+    log_levels = {'debug': logging.DEBUG, 'info': logging.INFO, 'warning': logging.WARNING}
+    logging.basicConfig(filename='../output/analysis.log', filemode='w',
+                        format='%(asctime)s - %(levelname)s: %(message)s', level=log_levels[args.log])
 
     logging.info(
         "Analyzing the set of participants from file {} having taken part to events from file {}. The results of the analysis will be stored in folder {}."
@@ -109,10 +121,6 @@ def setup_args():
 
 
 def initialize(GLOB):
-
-    # TODO: Backup the logger and clean it up when starting a new session
-    logging.basicConfig(filename='../output/analysis.log', level=logging.DEBUG)
-
     cache = Cache(GLOB)
     data, confs = parser.parse(GLOB)
     db = DB(data, confs)
@@ -120,8 +128,7 @@ def initialize(GLOB):
     return cache, db
 
 
-def analysis():
-
+def main():
     print("Setting up arguments\n")
     GLOB = setup_args()
 
@@ -166,4 +173,4 @@ def analysis():
                                                                                ('POPL', 17)})
 
 
-analysis()
+main()
