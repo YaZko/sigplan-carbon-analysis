@@ -3,9 +3,9 @@
 def fill_hole_string(name, arg):
     ctx = name.split("#")
     if len(ctx) < 2:
-        raise Exception('{} contains no hole'.format(name))
+        raise Exception("{} contains no hole".format(name))
     elif len(ctx) > 2:
-        raise Exception('{} contains more than one hole'.format(name))
+        raise Exception("{} contains more than one hole".format(name))
     else:
         return ctx[0] + arg + ctx[1]
 
@@ -29,14 +29,15 @@ def type_nil(t, s):
 
 def get_args(row, types):
     return [
-        type_nil(types[i], row[i]) for i in range(min(len(row), len(types)))
+        type_nil(types[i], row[i])
+        for i in range(min(len(row), len(types)))
         if types[i] is not None
     ]
 
 
 def string_to_double(s):
-    x, y = s.split(',')
-    return float(x.split('(')[1].strip()), float(y.split(')')[0].strip())
+    x, y = s.split(",")
+    return float(x.split("(")[1].strip()), float(y.split(")")[0].strip())
 
 
 # def export_to_tex(path):

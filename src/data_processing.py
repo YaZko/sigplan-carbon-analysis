@@ -50,8 +50,10 @@ class DB:
                 except:
                     buggy_inputs.append((name, year))
                     print(
-                        'WARNING: in the list of conference, entry {} {} at {} cannot be processed and has been ignored\n'
-                        .format(name, year, loc))
+                        "WARNING: in the list of conference, entry {} {} at {} cannot be processed and has been ignored\n".format(
+                            name, year, loc
+                        )
+                    )
         for name, year in buggy_inputs:
             self.confs[name].pop(year)
 
@@ -75,8 +77,10 @@ class DB:
                     except Exception as e:
                         print(e)
                         print(
-                            'WARNING: in the list of participants, entry {} cannot be processed and has been ignored\n'
-                            .format(d))
+                            "WARNING: in the list of participants, entry {} cannot be processed and has been ignored\n".format(
+                                d
+                            )
+                        )
                         buggy_inputs.append(d)
         for d in buggy_inputs:
             self.data.remove(d)
@@ -88,21 +92,41 @@ class DB:
 
     def print_user_db(self, GLOB):
         logging.info("Writing the raw emission data at {}".format(GLOB.output_raw))
-        with open(GLOB.output_raw, 'w', newline='') as csvfile:
-            writer = csv.writer(csvfile, delimiter=',', quoting=csv.QUOTE_MINIMAL)
+        with open(GLOB.output_raw, "w", newline="") as csvfile:
+            writer = csv.writer(csvfile, delimiter=",", quoting=csv.QUOTE_MINIMAL)
             writer.writerow(
-                ['id', 'city', 'state', 'country', 'continent', 'conference', 'year', 'footprint'])
+                [
+                    "id",
+                    "city",
+                    "state",
+                    "country",
+                    "continent",
+                    "conference",
+                    "year",
+                    "footprint",
+                ]
+            )
             for d in self.data:
                 d.write_csv_row(writer)
 
     def footprint_per_conf(self, GLOB):
-        with open(GLOB.footprint_confs, 'w', newline='') as csvfile:
-            writer = csv.writer(csvfile, delimiter=',', quoting=csv.QUOTE_MINIMAL)
+        with open(GLOB.footprint_confs, "w", newline="") as csvfile:
+            writer = csv.writer(csvfile, delimiter=",", quoting=csv.QUOTE_MINIMAL)
             writer.writerow(
-                ['conf', 'year', 'location', 'nb participants', 'total cost', 'average cost'])
+                [
+                    "conf",
+                    "year",
+                    "location",
+                    "nb participants",
+                    "total cost",
+                    "average cost",
+                ]
+            )
             for name, conf in self.confs.items():
                 for year, conf_loc in conf.items():
-                    select_data = [d for d in self.data if d.conference == name and d.year == year]
+                    select_data = [
+                        d for d in self.data if d.conference == name and d.year == year
+                    ]
                     for d in select_data:
                         if d.footprint is None:
                             print(d)
@@ -110,20 +134,29 @@ class DB:
                     nb = len(select_data)
                     if nb > 0:
                         total_footprint = round(
-                            reduce(lambda x, y: x + y.footprint, select_data, 0) / 1000, 2)
+                            reduce(lambda x, y: x + y.footprint, select_data, 0) / 1000,
+                            2,
+                        )
                         average_footprint = round(total_footprint / nb, 2)
-                        writer.writerow([
-                            name, year, conf_loc.place.city, nb, total_footprint, average_footprint
-                        ])
+                        writer.writerow(
+                            [
+                                name,
+                                year,
+                                conf_loc.place.city,
+                                nb,
+                                total_footprint,
+                                average_footprint,
+                            ]
+                        )
 
     def analysis_demographic(self, GLOB):
-        output_file_main = fill_hole_string(GLOB.output_demographic, '')
-        output_file_conf = fill_hole_string(GLOB.output_demographic, '_per_conf')
-        output_file_delta = fill_hole_string(GLOB.output_demographic, '_delta')
+        output_file_main = fill_hole_string(GLOB.output_demographic, "")
+        output_file_conf = fill_hole_string(GLOB.output_demographic, "_per_conf")
+        output_file_delta = fill_hole_string(GLOB.output_demographic, "_delta")
 
         continents = GLOB.continents()
 
-        init_distrib = Counter({c: 0 for c in continents + ['SAME']})
+        init_distrib = Counter({c: 0 for c in continents + ["SAME"]})
 
         # Global distribution of origin
         distrib_total = init_distrib.copy()
@@ -132,13 +165,19 @@ class DB:
         distrib_per_loc = {c: init_distrib.copy() for c in continents}
         total_attendance_per_loc = init_distrib.copy()
 
-        with open(output_file_main, 'w', newline='') as csvfile_main:
-            with open(output_file_conf, 'w', newline='') as csvfile_conf:
+        with open(output_file_main, "w", newline="") as csvfile_main:
+            with open(output_file_conf, "w", newline="") as csvfile_conf:
 
-                writer_main = csv.writer(csvfile_main, delimiter=',', quoting=csv.QUOTE_MINIMAL)
-                writer_conf = csv.writer(csvfile_conf, delimiter=',', quoting=csv.QUOTE_MINIMAL)
-                writer_main.writerow(['Conference', 'Year', 'Continent'] + continents + ['Local'])
-                writer_conf.writerow(['Conference'] + continents + ['Local'])
+                writer_main = csv.writer(
+                    csvfile_main, delimiter=",", quoting=csv.QUOTE_MINIMAL
+                )
+                writer_conf = csv.writer(
+                    csvfile_conf, delimiter=",", quoting=csv.QUOTE_MINIMAL
+                )
+                writer_main.writerow(
+                    ["Conference", "Year", "Continent"] + continents + ["Local"]
+                )
+                writer_conf.writerow(["Conference"] + continents + ["Local"])
 
                 # For each conference
                 for name, conf in self.confs.items():
@@ -151,7 +190,9 @@ class DB:
 
                         # List of participants to 'name[year]'
                         select_data = [
-                            d for d in self.data if d.conference == name and d.year == year
+                            d
+                            for d in self.data
+                            if d.conference == name and d.year == year
                         ]
                         attendance = len(select_data)
 
@@ -165,69 +206,112 @@ class DB:
                             total_attendance_conf += attendance
 
                             nb_loc = {
-                                l: len([d for d in select_data if d.location.continent == l])
+                                l: len(
+                                    [
+                                        d
+                                        for d in select_data
+                                        if d.location.continent == l
+                                    ]
+                                )
                                 for l in continents
                             }
-                            nb_loc['SAME'] = len([
-                                d for d in select_data
-                                if d.location.continent == conf_loc.continent
-                            ])
+                            nb_loc["SAME"] = len(
+                                [
+                                    d
+                                    for d in select_data
+                                    if d.location.continent == conf_loc.continent
+                                ]
+                            )
 
                             distrib_total += nb_loc
                             distrib_per_loc[conf_loc.continent] += nb_loc
                             distrib_conf += nb_loc
 
-                            main_row = [norm_perc(nb_loc[x], attendance) for x in continents]
-                            writer_main.writerow([name, year, conf_loc.continent] + main_row +
-                                                 [norm_perc(nb_loc['SAME'], attendance)])
+                            main_row = [
+                                norm_perc(nb_loc[x], attendance) for x in continents
+                            ]
+                            writer_main.writerow(
+                                [name, year, conf_loc.continent]
+                                + main_row
+                                + [norm_perc(nb_loc["SAME"], attendance)]
+                            )
 
                     conf_row = [
-                        norm_perc(distrib_conf[x], total_attendance_conf) for x in continents
+                        norm_perc(distrib_conf[x], total_attendance_conf)
+                        for x in continents
                     ]
-                    writer_conf.writerow([name] + conf_row +
-                                         [norm_perc(distrib_conf['SAME'], total_attendance_conf)])
+                    writer_conf.writerow(
+                        [name]
+                        + conf_row
+                        + [norm_perc(distrib_conf["SAME"], total_attendance_conf)]
+                    )
 
                 writer_conf.writerow(
-                    ['Any'] + [norm_perc(distrib_total[x], total_attendance) for x in continents] +
-                    [norm_perc(distrib_total['SAME'], total_attendance)])
+                    ["Any"]
+                    + [
+                        norm_perc(distrib_total[x], total_attendance)
+                        for x in continents
+                    ]
+                    + [norm_perc(distrib_total["SAME"], total_attendance)]
+                )
 
-        with open(output_file_delta, 'w', newline='') as csvfile_delta:
-            writer = csv.writer(csvfile_delta, delimiter=',', quoting=csv.QUOTE_MINIMAL)
-            writer.writerow(['Location'] + continents + ['Local'])
+        with open(output_file_delta, "w", newline="") as csvfile_delta:
+            writer = csv.writer(csvfile_delta, delimiter=",", quoting=csv.QUOTE_MINIMAL)
+            writer.writerow(["Location"] + continents + ["Local"])
 
             for c in continents:
                 if total_attendance_per_loc[c] != 0:
-                    writer.writerow([c] + [
-                        norm_perc(distrib_per_loc[c][x], total_attendance_per_loc[c])
-                        for x in continents
-                    ] + [norm_perc(distrib_per_loc[c]['SAME'], total_attendance_per_loc[c])])
-            writer.writerow(['Any'] +
-                            [norm_perc(distrib_total[x], total_attendance) for x in continents] +
-                            [norm_perc(distrib_total['SAME'], total_attendance)])
+                    writer.writerow(
+                        [c]
+                        + [
+                            norm_perc(
+                                distrib_per_loc[c][x], total_attendance_per_loc[c]
+                            )
+                            for x in continents
+                        ]
+                        + [
+                            norm_perc(
+                                distrib_per_loc[c]["SAME"], total_attendance_per_loc[c]
+                            )
+                        ]
+                    )
+            writer.writerow(
+                ["Any"]
+                + [norm_perc(distrib_total[x], total_attendance) for x in continents]
+                + [norm_perc(distrib_total["SAME"], total_attendance)]
+            )
 
     # Overlap of participation, in percentage, between two instances of two conferences
     def participation_overlap_single(self, name1, year1, name2, year2):
 
-        participants1 = set([d.id for d in self.data if d.conference == name1 and d.year == year1])
-        participants2 = set([d.id for d in self.data if d.conference == name2 and d.year == year2])
+        participants1 = set(
+            [d.id for d in self.data if d.conference == name1 and d.year == year1]
+        )
+        participants2 = set(
+            [d.id for d in self.data if d.conference == name2 and d.year == year2]
+        )
 
         if len(participants1) > 0 and len(participants2) > 0:
             intersection = participants1 & participants2
-            return norm(len(intersection) * 2 * 100 / (len(participants1) + len(participants2)))
+            return norm(
+                len(intersection) * 2 * 100 / (len(participants1) + len(participants2))
+            )
         else:
             return None
 
     # Overlap of participation, in percentage, between any two instances of a given conference
     def participation_overlap_intra_conf(self, GLOB, name):
 
-        output_file = fill_hole_string(GLOB.output_overlap_intra_conf, '_' + name)
+        output_file = fill_hole_string(GLOB.output_overlap_intra_conf, "_" + name)
 
-        with open(output_file, 'w', newline='') as csvfile:
+        with open(output_file, "w", newline="") as csvfile:
 
-            writer = csv.writer(csvfile, delimiter=',', quoting=csv.QUOTE_MINIMAL)
-            writer.writerow(['Year1', 'Year2', 'Overlap'])
+            writer = csv.writer(csvfile, delimiter=",", quoting=csv.QUOTE_MINIMAL)
+            writer.writerow(["Year1", "Year2", "Overlap"])
             for pair in combinations(GLOB.years_processed, 2):
-                overlap = self.participation_overlap_single(name, pair[0], name, pair[1])
+                overlap = self.participation_overlap_single(
+                    name, pair[0], name, pair[1]
+                )
                 if overlap is not None:
                     writer.writerow([pair[0], pair[1], overlap])
 
@@ -238,12 +322,14 @@ class DB:
     # Overlap of participation, in percentage, between two given conferences for each year
     def participation_overlap_cross_conf(self, GLOB, conf1, conf2):
 
-        output_file = fill_hole_string(GLOB.output_overlap_cross_conf, '_' + conf1 + '_' + conf2)
+        output_file = fill_hole_string(
+            GLOB.output_overlap_cross_conf, "_" + conf1 + "_" + conf2
+        )
 
-        with open(output_file, 'w', newline='') as csvfile:
+        with open(output_file, "w", newline="") as csvfile:
 
-            writer = csv.writer(csvfile, delimiter=',', quoting=csv.QUOTE_MINIMAL)
-            writer.writerow(['Year', 'Overlap'])
+            writer = csv.writer(csvfile, delimiter=",", quoting=csv.QUOTE_MINIMAL)
+            writer.writerow(["Year", "Overlap"])
             for year in GLOB.years_processed:
                 overlap = self.participation_overlap_single(conf1, year, conf2, year)
                 if overlap is not None:
@@ -257,7 +343,12 @@ class DB:
 
             if len(participants1) > 0 and len(participants2) > 0:
                 intersection = participants1 & participants2
-                agg = norm(len(intersection) * 2 * 100 / (len(participants1) + len(participants2)))
+                agg = norm(
+                    len(intersection)
+                    * 2
+                    * 100
+                    / (len(participants1) + len(participants2))
+                )
                 writer.writerow(["Any", agg])
 
     def participation_overlap_cross_conf_generate_all(self, GLOB):
@@ -266,10 +357,18 @@ class DB:
 
     def get_number_of_participations(self, GLOB):
 
-        with open(GLOB.output_number_of_participations, 'w', newline='') as csvfile:
-            writer = csv.writer(csvfile, delimiter=',', quoting=csv.QUOTE_MINIMAL)
+        with open(GLOB.output_number_of_participations, "w", newline="") as csvfile:
+            writer = csv.writer(csvfile, delimiter=",", quoting=csv.QUOTE_MINIMAL)
             writer.writerow(
-                ['Conference', 'Avrg nb of participations', '>= 2', '>= 3', '>= 4', '>= 5'])
+                [
+                    "Conference",
+                    "Avrg nb of participations",
+                    ">= 2",
+                    ">= 3",
+                    ">= 4",
+                    ">= 5",
+                ]
+            )
 
             # res: conf |-> id_participant |-> number of participations to conf specifically
             res = {x: {} for x in GLOB.confs_processed}
@@ -290,12 +389,13 @@ class DB:
                 norm_perc(len([v for v in aggregated if v > i]), len(aggregated))
                 for i in range(1, 5)
             ]
-            writer.writerow(['ALL', average] + row)
+            writer.writerow(["ALL", average] + row)
 
             for c in GLOB.confs_processed:
                 average = round(sum(res[c]) / len(res[c]), 2)
                 row = [
-                    norm_perc(len([v for v in res[c] if v > i]), len(res[c])) for i in range(1, 5)
+                    norm_perc(len([v for v in res[c] if v > i]), len(res[c]))
+                    for i in range(1, 5)
                 ]
                 writer.writerow([c, average] + row)
 
@@ -305,18 +405,22 @@ class DB:
 
             output_file_conf = fill_hole_string(GLOB.output_old_timer, conf)
 
-            with open(output_file_conf, 'w', newline='') as csvfile:
-                writer = csv.writer(csvfile, delimiter=',', quoting=csv.QUOTE_MINIMAL)
+            with open(output_file_conf, "w", newline="") as csvfile:
+                writer = csv.writer(csvfile, delimiter=",", quoting=csv.QUOTE_MINIMAL)
 
-                writer.writerow(['year', 'old timers'])
+                writer.writerow(["year", "old timers"])
 
                 for year in GLOB.years_processed:
                     select_data = [
-                        d.id for d in self.data if d.conference == conf and d.year == year
+                        d.id
+                        for d in self.data
+                        if d.conference == conf and d.year == year
                     ]
                     if len(select_data) > 0:
                         select_old_data = [
-                            d.id for d in self.data if d.conference == conf and d.year < year
+                            d.id
+                            for d in self.data
+                            if d.conference == conf and d.year < year
                         ]
                         old_timers = [c for c in select_data if c in select_old_data]
 
@@ -327,7 +431,9 @@ class DB:
         select_data = [d for d in self.data if pred(d.conference, d.year)]
         nb = len(select_data)
         if nb > 0:
-            base_total = round(reduce(lambda x, y: x + y.footprint, select_data, 0) / 1000, 2)
+            base_total = round(
+                reduce(lambda x, y: x + y.footprint, select_data, 0) / 1000, 2
+            )
             base_average = round(base_total / nb, 2)
             best_average = base_average
             base_loc = None
@@ -351,32 +457,49 @@ class DB:
             return None
 
     def pick_optimal_lists(self, GLOB, cache, count, output):
-        with open(output, 'w', newline='') as csvfile:
-            writer = csv.writer(csvfile, delimiter=',', quoting=csv.QUOTE_MINIMAL)
+        with open(output, "w", newline="") as csvfile:
+            writer = csv.writer(csvfile, delimiter=",", quoting=csv.QUOTE_MINIMAL)
             writer.writerow(
-                ['conf', 'year', 'orig. loc.', 'orig. cost', 'best loc.', 'best cost', 'saved'])
+                [
+                    "conf",
+                    "year",
+                    "orig. loc.",
+                    "orig. cost",
+                    "best loc.",
+                    "best cost",
+                    "saved",
+                ]
+            )
             for conf in GLOB.confs_processed:
                 for year in GLOB.years_processed:
                     logging.debug("Picking optimal for {} {}".format(conf, year))
-                    x = self.pick_optimal_list(GLOB, cache, count,
-                                               lambda c, y: y == year and c == conf)
+                    x = self.pick_optimal_list(
+                        GLOB, cache, count, lambda c, y: y == year and c == conf
+                    )
                     if x is not None:
                         (base, base_loc, best, best_locs) = x
-                        best_loc = ';'.join([loc.place.city for loc in best_locs])
-                        writer.writerow([
-                            conf, year, self.confs[conf][year].place.city, base, best_loc, best,
-                            norm(base - best)
-                        ])
+                        best_loc = ";".join([loc.place.city for loc in best_locs])
+                        writer.writerow(
+                            [
+                                conf,
+                                year,
+                                self.confs[conf][year].place.city,
+                                base,
+                                best_loc,
+                                best,
+                                norm(base - best),
+                            ]
+                        )
 
     def pick_optimal_for_set(self, GLOB, cache, count, output, confs, confs_name):
-        with open(output, 'w', newline='') as csvfile:
-            writer = csv.writer(csvfile, delimiter=',', quoting=csv.QUOTE_MINIMAL)
-            writer.writerow(['conf', 'best loc.', 'best cost'])
+        with open(output, "w", newline="") as csvfile:
+            writer = csv.writer(csvfile, delimiter=",", quoting=csv.QUOTE_MINIMAL)
+            writer.writerow(["conf", "best loc.", "best cost"])
             logging.debug(f"Picking optimal for the set {confs}")
             x = self.pick_optimal_list(GLOB, cache, count, lambda c, y: (c, y) in confs)
             if x is not None:
                 (base, base_loc, best, best_locs) = x
-                best_loc = ';'.join([loc.place.city for loc in best_locs])
+                best_loc = ";".join([loc.place.city for loc in best_locs])
                 writer.writerow([confs_name, best_loc, best])
 
     def pick_optimal_loc(self, GLOB, cache):
@@ -394,8 +517,10 @@ class DB:
 
         years = [year + k for k in range(len(confs))]
         pairs = list(zip(confs, years))
-        datas = [[d.id for d in self.data if d.conference == p[0] and d.year == p[1]]
-                 for p in pairs]
+        datas = [
+            [d.id for d in self.data if d.conference == p[0] and d.year == p[1]]
+            for p in pairs
+        ]
 
         if all(len(x) > 0 for x in datas):
 
@@ -449,10 +574,15 @@ class DB:
         res_rec = norm(total_rec / counter)
         res_rec2 = norm(total_rec2 / counter)
         res_all = norm(total_all / counter)
-        print("On average overall, the amount of recurrent participants has been: {}".format(
-            res_rec))
         print(
-            "On average overall, the amount of recurrent participants accounting for more than two has been: {}"
-            .format(res_rec2))
+            "On average overall, the amount of recurrent participants has been: {}".format(
+                res_rec
+            )
+        )
+        print(
+            "On average overall, the amount of recurrent participants accounting for more than two has been: {}".format(
+                res_rec2
+            )
+        )
         print("On average overall, the overlap has been: {}".format(res_all))
         return res_rec, res_rec2, res_all

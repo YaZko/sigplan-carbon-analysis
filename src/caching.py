@@ -18,14 +18,23 @@ class Cache:
         if not exists_cache:
             logging.info("No location cache, initializing one at {}".format(GLOB.cache))
 
-            with open(GLOB.cache, 'w', newline='') as csv_file:
-                writer = csv.writer(csv_file, delimiter=',', quoting=csv.QUOTE_MINIMAL)
+            with open(GLOB.cache, "w", newline="") as csv_file:
+                writer = csv.writer(csv_file, delimiter=",", quoting=csv.QUOTE_MINIMAL)
                 writer.writerow(
-                    ['city', 'state', 'country', 'country_iso', 'continent', 'GPS', 'airport'])
+                    [
+                        "city",
+                        "state",
+                        "country",
+                        "country_iso",
+                        "continent",
+                        "GPS",
+                        "airport",
+                    ]
+                )
 
         # Parses the cache and loads it as a mapping from [Place]s to [Location]s
-        with open(GLOB.cache, 'r') as csv_file:
-            reader = csv.reader(csv_file, delimiter=',')
+        with open(GLOB.cache, "r") as csv_file:
+            reader = csv.reader(csv_file, delimiter=",")
             # Skip the header
             next(reader)
             self.cache = {}
@@ -33,8 +42,9 @@ class Cache:
                 row = get_args(row, [str, str, str, str, str, str, str])
                 key = Place(*[row[i] for i in range(3)])
                 if not key in self.cache:
-                    self.cache[key] = Location(*([key] +
-                                                 [row[i].rstrip() for i in range(3, len(row))]))
+                    self.cache[key] = Location(
+                        *([key] + [row[i].rstrip() for i in range(3, len(row))])
+                    )
 
     # Given a place, computes its full location and caches the result
     def cache_new_loc(self, GLOB, place):
@@ -59,8 +69,10 @@ class Cache:
             self.cache[place] = loc
 
             # Updates the static cache
-            with open(GLOB.cache, 'a') as csv_file:
-                appender = csv.writer(csv_file, delimiter=',', quoting=csv.QUOTE_MINIMAL)
+            with open(GLOB.cache, "a") as csv_file:
+                appender = csv.writer(
+                    csv_file, delimiter=",", quoting=csv.QUOTE_MINIMAL
+                )
                 loc.write_csv_row(appender)
         else:
             raise (KeyError)
@@ -76,10 +88,10 @@ class Cache:
         loc.set_iso(cached_loc.country_iso)
 
         continent = cached_loc.continent
-        if GLOB.east_west and continent == 'NA':
+        if GLOB.east_west and continent == "NA":
             if cached_loc.GPS[1] > -100.0:
-                continent = 'EC'
+                continent = "EC"
             else:
-                continent = 'WC'
+                continent = "WC"
         loc.set_continent(continent)
         loc.set_airport(cached_loc.airport)

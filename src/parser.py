@@ -12,7 +12,7 @@ import logging
 def parse_confs(f_confs, types, confs_processed):
     logging.info("Parsing conference input")
     with open(f_confs) as csv_file:
-        csv_reader = csv.reader(csv_file, delimiter=',')
+        csv_reader = csv.reader(csv_file, delimiter=",")
         confs = {}
         # Skip the header. Be wary that a line will miss if columns are not named in the csv file
         next(csv_reader)
@@ -33,7 +33,7 @@ def parse_confs(f_confs, types, confs_processed):
 def parse_participants(file, types):
     logging.info("Parsing user data")
     with open(file) as csv_file:
-        csv_reader = csv.reader(csv_file, delimiter=',')
+        csv_reader = csv.reader(csv_file, delimiter=",")
         # Skip the header. Be wary that a line will miss if columns are not named in the csv file
         next(csv_reader)
         data = [get_args(r, types) for r in csv_reader]
