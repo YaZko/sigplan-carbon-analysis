@@ -63,6 +63,7 @@ class Globals:
         self.unique_id = True
 
         self.east_west = east_west
+        self.multilocation = False
 
         ## List of names of the conferences to be considered when looking for a rough retroactive optimal
         self.city_candidates = [("Paris", None, "France"), ("Edinburgh", None, "UK"),

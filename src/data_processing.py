@@ -368,17 +368,16 @@ class DB:
                             norm(base - best)
                         ])
 
-    def pick_optimal_for_set(self, GLOB, cache, count, output, confs):
+    def pick_optimal_for_set(self, GLOB, cache, count, output, confs, confs_name):
         with open(output, 'w', newline='') as csvfile:
             writer = csv.writer(csvfile, delimiter=',', quoting=csv.QUOTE_MINIMAL)
-            writer.writerow(
-                ['conf', 'year', 'orig. loc.', 'orig. cost', 'best loc.', 'best cost', 'saved'])
+            writer.writerow(['conf', 'best loc.', 'best cost'])
             logging.debug(f"Picking optimal for the set {confs}")
             x = self.pick_optimal_list(GLOB, cache, count, lambda c, y: (c, y) in confs)
             if x is not None:
                 (base, base_loc, best, best_locs) = x
                 best_loc = ';'.join([loc.place.city for loc in best_locs])
-                writer.writerow([confs, base, best_loc, best])
+                writer.writerow([confs_name, best_loc, best])
 
     def pick_optimal_loc(self, GLOB, cache):
         self.pick_optimal_lists(GLOB, cache, 1, GLOB.output_optimal_loc)

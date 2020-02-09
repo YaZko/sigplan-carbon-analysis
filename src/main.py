@@ -60,16 +60,16 @@ def setup_args():
     parser.add_argument('--east-west-coast',
                         action='store_true',
                         help='Distinguish the east and the west coast in demographic analyses')
-
     parser.add_argument(
-        "--log",
-        default="info",
-        choices=["info", "debug", "warning"],
-        help="Set the level of logging"
-    )
+        "--multilocation",
+        action="store_true",
+        help="Estimate the carbon gain of multilocating conferences (hardcoded for SIGPLAN)")
+    parser.add_argument("--log",
+                        default="info",
+                        choices=["info", "debug", "warning"],
+                        help="Set the level of logging")
 
     args = parser.parse_args()
-
 
     GLOB = Globals(args.input_events,
                    args.input_participants,
@@ -77,8 +77,10 @@ def setup_args():
                    east_west=args.east_west_coast)
 
     log_levels = {'debug': logging.DEBUG, 'info': logging.INFO, 'warning': logging.WARNING}
-    logging.basicConfig(filename='../output/analysis.log', filemode='w',
-                        format='%(asctime)s - %(levelname)s: %(message)s', level=log_levels[args.log])
+    logging.basicConfig(filename='../output/analysis.log',
+                        filemode='w',
+                        format='%(asctime)s - %(levelname)s: %(message)s',
+                        level=log_levels[args.log])
 
     logging.info(
         "Analyzing the set of participants from file {} having taken part to events from file {}. The results of the analysis will be stored in folder {}."
@@ -116,6 +118,8 @@ def setup_args():
     if args.no_id:
         logging.info("Disabling cross-participation analyses")
         GLOB.unique_id = False
+    if args.multilocation:
+        GLOB.multilocation = True
 
     return GLOB
 
@@ -156,21 +160,46 @@ def main():
 
     print("Computing ideal location\n")
     db.pick_optimal_loc(GLOB, cache)
+
+    if GLOB.multilocation:
+        estimate_multilocation_gains(GLOB, cache, db)
+
+
+def estimate_multilocation_gains(GLOB, cache, db):
     print("Computing ideal bi-location\n")
     db.pick_optimal_biloc(GLOB, cache)
     print("Computing ideal tri-location\n")
     db.pick_optimal_triloc(GLOB, cache)
 
-    print("Computing ideal for sets of conferences")
-    db.pick_optimal_for_set(GLOB, cache, 2, GLOB.output_prefix + 'ICFP-1012', {('ICFP', 10),
-                                                                               ('ICFP', 11),
-                                                                               ('ICFP', 12)})
-    db.pick_optimal_for_set(GLOB, cache, 2, GLOB.output_prefix + 'ICFP-1618', {('ICFP', 16),
-                                                                               ('ICFP', 17),
-                                                                               ('ICFP', 18)})
-    db.pick_optimal_for_set(GLOB, cache, 2, GLOB.output_prefix + 'POPL-1517', {('POPL', 15),
-                                                                               ('POPL', 16),
-                                                                               ('POPL', 17)})
+    print("Computing ideal bilocations for sets of conferences\n")
+    db.pick_optimal_for_set(GLOB, cache, 2, GLOB.output_prefix + 'biloc-ICFP-1012.csv',
+                            {('ICFP', y)
+                             for y in [10, 11, 12]}, "ICFP 10-12")
+    db.pick_optimal_for_set(GLOB, cache, 2, GLOB.output_prefix + 'biloc-ICFP-1012',
+                            {('ICFP', y)
+                             for y in [16, 17, 18]}, "ICFP 16-18")
+    db.pick_optimal_for_set(GLOB, cache, 2, GLOB.output_prefix + 'biloc-POPL-1517',
+                            {('POPL', y)
+                             for y in [15, 16, 17]}, "POPL 15-17")
+
+    print("Computing ideal trilocations for sets of conferences\n")
+    db.pick_optimal_for_set(GLOB, cache, 3, GLOB.output_prefix + 'triloc-ICFP-1012.csv',
+                            {('ICFP', y)
+                             for y in [10, 11, 12]}, "ICFP 10-12")
+    db.pick_optimal_for_set(GLOB, cache, 3, GLOB.output_prefix + 'triloc-ICFP-1012.csv',
+                            {('ICFP', y)
+                             for y in [16, 17, 18]}, "ICFP 16-18")
+    db.pick_optimal_for_set(GLOB, cache, 3, GLOB.output_prefix + 'triloc-POPL-1517.csv',
+                            {('POPL', y)
+                             for y in [15, 16, 17]}, "POPL 15-17")
+
+    print("Computing ideal bi/tri-locations for the whole history of conferences\n")
+    for conf in ['ICFP', 'POPL', 'PLDI', 'SPLASH']:
+        for k, kname in [(2, "bi"), (3, "tri")]:
+            db.pick_optimal_for_set(GLOB, cache, k,
+                                    GLOB.output_prefix + f'{kname}loc-{conf}-history.csv',
+                                    {(conf, y)
+                                     for y in range(0, 20)}, f"{conf} history")
 
 
 main()
