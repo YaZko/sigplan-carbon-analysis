@@ -1,3 +1,4 @@
+import math
 from collections import Counter
 from functools import reduce
 from itertools import combinations, permutations
@@ -435,7 +436,7 @@ class DB:
                 reduce(lambda x, y: x + y.footprint, select_data, 0) / 1000, 2
             )
             base_average = round(base_total / nb, 2)
-            best_average = base_average
+            best_average = math.inf
             base_loc = None
             best_locs = None
 
