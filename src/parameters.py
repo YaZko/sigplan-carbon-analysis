@@ -1,3 +1,5 @@
+import os
+
 ## This file should contains all global parameters manipulated by the analysis
 ## They should only be used in `main.py`, all methods being parameterized by these arguments
 
@@ -6,6 +8,9 @@ class Globals:
     def __init__(
         self, input_events, input_participants, output_folder, east_west=False
     ):
+
+        this_directory = os.path.dirname(os.path.realpath(__file__))
+        base_directory = os.path.dirname(this_directory)
 
         ## Nature of the fields of interest in the csv files intended to be read
         ## Used to guide the parser when building the internal data structures
@@ -16,9 +21,9 @@ class Globals:
 
         ## Input files
         # Read only input data for events/conferences
-        self.confs_path = "../input/" + input_events + ".csv"
+        self.confs_path = f"{base_directory}/input/{input_events}.csv"
         # Read only input data for attendees
-        self.participants_path = "../input/" + input_participants + ".csv"
+        self.participants_path = f"{base_directory}/input/{input_participants}.csv"
 
         # TODO: get those from the input by default, with option to pick a subset
         # self.confs_processed = ['GECCO']
@@ -30,13 +35,13 @@ class Globals:
         # self.years_processed = range(2007,2020)
 
         # Cache for locations
-        self.cache = "../input/.location_cache.csv"
+        self.cache = f"{base_directory}/input/.location_cache.csv"
 
         # Database of airports
-        self.airports = "../input/airports.json"
+        self.airports = f"{base_directory}/input/airports.json"
 
         ## Output files
-        self.output_prefix = "../output/" + output_folder + "/"
+        self.output_prefix = f"{base_directory}/output/{output_folder}/"
         # Raw emissions per participant
         self.output_raw = self.output_prefix + "emission_raw.csv"
         # Footprint per conference
@@ -53,6 +58,8 @@ class Globals:
         self.output_optimal_loc = self.output_prefix + "optimal_loc.csv"
         self.output_optimal_biloc = self.output_prefix + "optimal_biloc.csv"
         self.output_optimal_triloc = self.output_prefix + "optimal_triloc.csv"
+
+        self.logging_path = self.output_prefix + "analysis.log"
 
         # Default model to compute the footprint of travels
         self.model = "acm"

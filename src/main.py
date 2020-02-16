@@ -90,7 +90,7 @@ def setup_args():
         "warning": logging.WARNING,
     }
     logging.basicConfig(
-        filename="../output/analysis.log",
+        filename=GLOB.logging_path,
         filemode="w",
         format="%(asctime)s - %(levelname)s: %(message)s",
         level=log_levels[args.log],
