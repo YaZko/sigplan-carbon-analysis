@@ -587,3 +587,32 @@ class DB:
         )
         print("On average overall, the overlap has been: {}".format(res_all))
         return res_rec, res_rec2, res_all
+
+    def raw_data(self, GLOB):
+        with open(GLOB.output_prefix + "raw_participants.csv", "w", newline="") as csvfile:
+            w = csv.writer(csvfile, delimiter=",", quoting=csv.QUOTE_MINIMAL)
+            w.writerow(["participant", "conference", "year", "continent", "country", "lat", "long"])
+            for p in self.data:
+                w.writerow([
+                    p.id,
+                    p.conference,
+                    p.year,
+                    p.location.continent,
+                    p.location.country_iso,
+                    p.location.GPS[0],
+                    p.location.GPS[1]
+                ])
+
+        with open(GLOB.output_prefix + "raw_confs.csv", "w", newline="") as csvfile:
+            w = csv.writer(csvfile, delimiter=",", quoting=csv.QUOTE_MINIMAL)
+            w.writerow(["conference", "year", "continent", "country", "lat", "long"])
+            for conf, c in self.confs.items():
+                for year, data in c.items():
+                    w.writerow([
+                        conf,
+                        year,
+                        data.continent,
+                        data.country_iso,
+                        data.GPS[0],
+                        data.GPS[1]
+                    ])

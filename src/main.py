@@ -160,6 +160,9 @@ def main():
     print("Pre-processing locations\n")
     db.preprocess(GLOB, cache)
 
+    print("Outputing raw data")
+    db.raw_data(GLOB)
+
     print("Computing footprints\n")
     db.footprint_per_conf(GLOB)
 
