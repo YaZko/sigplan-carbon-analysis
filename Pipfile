@@ -8,5 +8,9 @@ geopy = "*"
 pycountry = "*"
 pycountry-convert = "*"
 
+jupyterlab = "*"
+pandas = "*"
+altair = "*"
+
 [requires]
 python_version = "3.8"

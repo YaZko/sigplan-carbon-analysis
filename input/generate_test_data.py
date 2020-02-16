@@ -15,7 +15,7 @@ cities = [
 
 def generate_people():
     with open("participants.csv", "w") as f:
-        print("participant,city,state,country,year", file=f)
+        print("participant,city,state,country,conference,year", file=f)
         for i in range(1, 2500):
             for y in range(9, 18):
                 for conf in ["POPL", "ICFP", "PLDI", "SPLASH"]:
