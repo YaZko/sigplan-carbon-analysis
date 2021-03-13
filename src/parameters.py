@@ -22,11 +22,13 @@ class Globals:
 
         # TODO: get those from the input by default, with option to pick a subset
         # self.confs_processed = ['GECCO']
-        self.confs_processed = ["ICFP", "POPL", "PLDI", "SPLASH"]
+        # self.confs_processed = ["ICFP", "POPL", "PLDI", "SPLASH"]
+        self.confs_processed = ["A","B"]
 
         # TODO: get those from the input by default, with option to pick as subset
         # Range of years to be considered
-        self.years_processed = range(9, 19)
+        self.years_processed = range(20, 22)
+        # self.years_processed = range(9, 19)
         # self.years_processed = range(2007,2020)
 
         # Cache for locations

@@ -1,0 +1,13 @@
+id,city,state,country,conference,year
+1,Paris,,France,A,20
+2,Cambridge,,United Kingdom,A,20
+3,Palo Alto,CA,USA,A,20
+1,Paris,,France,B,20
+4,Tokyo,,Japan,B,20
+5,Munchen,,Germany,B,20
+1,Paris,,France,A,21
+6,New York,NY,USA,A,21
+7,Mumbai,,India,A,21
+4,Tokyo,,Japan,B,21
+6,New York,NY,USA,B,21
+8,Edinburgh,,United Kingdom,B,21
