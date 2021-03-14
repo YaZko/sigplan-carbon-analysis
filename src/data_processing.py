@@ -384,12 +384,26 @@ class DB:
             res = {k: list(res[k].values()) for k in res}
             aggregated = [x for v in res.values() for x in v]
 
+            # res2: conf |-> nat |-> number of unique individual having participated to nat instances of conf
+            res2 = {x: {} for x in GLOB.confs_processed}
+            for k in res2:
+                count = 0
+                i = 1
+                x = res[k]
+                total = len(x)
+                while count < total:
+                    ci = len([v for v in x if v == i])
+                    count += ci
+                    res2[k][i] = ci
+                    i += 1
+
             # Overall
             average = norm(sum(aggregated) / len(aggregated))
             row = [
                 norm_perc(len([v for v in aggregated if v > i]), len(aggregated))
                 for i in range(1, 5)
             ]
+
             writer.writerow(["ALL", average] + row)
 
             for c in GLOB.confs_processed:
@@ -399,6 +413,17 @@ class DB:
                     for i in range(1, 5)
                 ]
                 writer.writerow([c, average] + row)
+
+        for conf in GLOB.confs_processed:
+
+            output_file_conf = fill_hole_string(GLOB.output_number_per_conf, conf)
+            print(output_file_conf)
+            with open(output_file_conf, "w", newline="") as csvfile:
+                writer = csv.writer(csvfile, delimiter=",", quoting=csv.QUOTE_MINIMAL)
+                nmax = max(res2[conf])
+                writer.writerow([str(i) for i in range(1,nmax + 1)])
+                writer.writerow([0 if res2[conf][i] is None else res2[conf][i] for i in range(1,nmax + 1)])
+                        
 
     def get_old_timers(self, GLOB):
 
@@ -473,7 +498,7 @@ class DB:
             )
             for conf in GLOB.confs_processed:
                 for year in GLOB.years_processed:
-                    logging.debug("Picking optimal for {} {}".format(conf, year))
+                    print("Picking optimal for {} {}".format(conf, year))
                     x = self.pick_optimal_list(
                         GLOB, cache, count, lambda c, y: y == year and c == conf
                     )

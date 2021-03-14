@@ -51,6 +51,9 @@ class Globals:
         self.output_number_of_participations = (
             self.output_prefix + "number_of_participations.csv"
         )
+        self.output_number_per_conf = (
+            self.output_prefix + "number_of_participations_#.csv"
+        )
         self.output_old_timer = self.output_prefix + "old_timer_#.csv"
         self.output_optimal_loc = self.output_prefix + "optimal_loc.csv"
         self.output_optimal_biloc = self.output_prefix + "optimal_biloc.csv"
