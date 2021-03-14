@@ -397,6 +397,17 @@ class DB:
                     res2[k][i] = ci
                     i += 1
 
+            # agg2: nat |-> number of unique individual having participated to nat instances 
+            agg2 = {}
+            count = 0
+            i = 1
+            total = len(aggregated)
+            while count < total:
+                ci = len([v for v in aggregated if v == i])
+                count += ci
+                agg2[i] = ci
+                i += 1
+
             # Overall
             average = norm(sum(aggregated) / len(aggregated))
             row = [
@@ -417,14 +428,19 @@ class DB:
         for conf in GLOB.confs_processed:
 
             output_file_conf = fill_hole_string(GLOB.output_number_per_conf, conf)
-            print(output_file_conf)
             with open(output_file_conf, "w", newline="") as csvfile:
                 writer = csv.writer(csvfile, delimiter=",", quoting=csv.QUOTE_MINIMAL)
                 nmax = max(res2[conf])
                 writer.writerow([str(i) for i in range(1,nmax + 1)])
                 writer.writerow([0 if res2[conf][i] is None else res2[conf][i] for i in range(1,nmax + 1)])
                         
-
+        output_file_conf = fill_hole_string(GLOB.output_number_per_conf, "total")
+        with open(output_file_conf, "w", newline="") as csvfile:
+            writer = csv.writer(csvfile, delimiter=",", quoting=csv.QUOTE_MINIMAL)
+            nmax = max(agg2)
+            writer.writerow([str(i) for i in range(1,nmax + 1)])
+            writer.writerow([0 if agg2[i] is None else agg2[i] for i in range(1,nmax + 1)])
+ 
     def get_old_timers(self, GLOB):
 
         for conf in GLOB.confs_processed:
