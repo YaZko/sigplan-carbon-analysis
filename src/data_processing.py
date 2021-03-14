@@ -247,6 +247,10 @@ class DB:
                         + [norm_perc(distrib_conf["SAME"], total_attendance_conf)]
                     )
 
+                print("total_attendance : {}".format(total_attendance))
+                for x in continents:
+                    print("{} has {}".format(x,norm_perc(distrib_total[x], total_attendance)))
+                       
                 writer_conf.writerow(
                     ["Any"]
                     + [
@@ -380,9 +384,15 @@ class DB:
                     else:
                         res[d.conference][d.id] = 1
 
+            aggregated = {}
+            for x in res.values():
+                for i,v in x.items():
+                    aggregated[i] = v if not i in aggregated else v + aggregated[i]
+
             # We forget about the id, each conf maps to a list of number of participations
             res = {k: list(res[k].values()) for k in res}
-            aggregated = [x for v in res.values() for x in v]
+            aggregated = [x for x in aggregated.values()]
+            # print("res: {}\naggregated: {}\n".format(res,aggregated))
 
             # res2: conf |-> nat |-> number of unique individual having participated to nat instances of conf
             res2 = {x: {} for x in GLOB.confs_processed}
@@ -425,6 +435,8 @@ class DB:
                 ]
                 writer.writerow([c, average] + row)
 
+        print("res: {}\naggregated: {}\nres2 : {}\nagg2: {}\n".format(res,aggregated,res2,agg2))
+
         for conf in GLOB.confs_processed:
 
             output_file_conf = fill_hole_string(GLOB.output_number_per_conf, conf)
@@ -432,14 +444,14 @@ class DB:
                 writer = csv.writer(csvfile, delimiter=",", quoting=csv.QUOTE_MINIMAL)
                 nmax = max(res2[conf])
                 writer.writerow([str(i) for i in range(1,nmax + 1)])
-                writer.writerow([0 if res2[conf][i] is None else res2[conf][i] for i in range(1,nmax + 1)])
+                writer.writerow([0 if not i in res2[conf] else res2[conf][i] for i in range(1,nmax + 1)])
                         
         output_file_conf = fill_hole_string(GLOB.output_number_per_conf, "total")
         with open(output_file_conf, "w", newline="") as csvfile:
             writer = csv.writer(csvfile, delimiter=",", quoting=csv.QUOTE_MINIMAL)
             nmax = max(agg2)
             writer.writerow([str(i) for i in range(1,nmax + 1)])
-            writer.writerow([0 if agg2[i] is None else agg2[i] for i in range(1,nmax + 1)])
+            writer.writerow([0 if not i in agg2 else agg2[i] for i in range(1,nmax + 1)])
  
     def get_old_timers(self, GLOB):
 
