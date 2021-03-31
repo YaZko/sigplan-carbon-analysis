@@ -4,7 +4,7 @@
 The greenhouse gas emissions from a given \event is in direct proportion to
 the average distance traveled by the participants of this \event.
 To understand emissions, we must therefore estimate the nature of the
-communities that attend each conference. 
+communities that attend each conference.
 
 The aggregated information we describe below falls into two main categories:
 first, the demographic distribution of the participants to the conferences
@@ -34,25 +34,33 @@ overlap in participation between different conferences.
 \end{table}
 
 
-Figure~\ref{fig:demo-per-conf}\footnote{The graphical representations in this preliminary draft are based on a slightly different version of our dataset than the one used by our tool. There may be some minor discrepancies between these representations and the raw tables presented.} and Table~\ref{table:demo-per-conf} show
-where all participants came from. For each conference, we depict the
+Figure~\ref{fig:demo-per-conf}\footnote{The graphical representations in
+  this preliminary draft are based on a slightly different version of our
+  dataset than the one used by our tool. There may be some minor
+  discrepancies between these representations and the raw tables
+  presented.\bcp{Hopefully we can remove this!  Or, if it's just the big
+    red-and-green table, we can at least move this comment there.}} and Table~\ref{table:demo-per-conf} show
+where all participants came from, grouped by ``continents'': North and South
+America, Europe, Asia, Africa, and Oceania. For each conference, we depict the
 distribution of attendance per continent. Table~\ref{table:demo-per-conf}
 shows the portion of attendants originating from the same continent as the
 one the event took place in. To a first approximation, maximizing this last
 metric, i.e. hosting conferences in the continent containing the majority of
 its community, is a good thing.
 
-Taken as a whole, these conferences attracted 50\% participants from North
+Taken as a whole, these conferences attracted 50\% of their participants
+from North
 America, 36\% from Europe, 11\% from Asia, 2\% from Oceania, 1\% from South
 America, and less than 0.2\% from Africa.
-The data also displays some degree of geographical affinity for the 
-various conferences.
-Notably, PLDI and SPLASH appear to be quite North-America-centric, while
-ICFP's core community seems to have a strong anchor in Europe as well.
+The data also shows some degree of geographical affinity for the
+various conferences:
+PLDI and SPLASH appear to be quite North-America-centric, while
+ICFP's core community has a strong anchor in Europe as well.
 
 \begin{table}
   \csvautotabular{../../output/sigplan/demographic.csv}
-  \caption{For each \event, continent in which it took place and distribution of
+  \caption{For each \event, the continent in which it took place and
+    distribution of
     each continent by origin of participants. The final column indicates the
     portion of participants that traveled from the same continent the
     conference took place in.}
@@ -72,27 +80,34 @@ ICFP's core community seems to have a strong anchor in Europe as well.
 This overall picture, however, hides some interesting facts pertaining to the
 relationship between the conferences' locations and the origin of the participants.
 Indeed, aggregating the attendance per conference intrinsically rests upon the
-assumption of a uniform community attending each instance of the conference
-every year. Table~\ref{fig:demo-per-event} and Figure~\ref{fig:demo-per-event}
+assumption of a uniform community that attends every instance of the conference
+every year.  This picture turns out to be quite misleading.
+
+Table~\ref{table:demo-per-event} and Figure~\ref{fig:demo-per-event}
 show a more detailed breakdown of the origin of participants for each
 conference, showing also the geographic region where the conferences were held.
-
-These charts make it clear that the location of the conferences had a
-substantial effect on attracting people from the same geographic areas. That
+%
+These charts make it clear that the location of the conference had a
+substantial effect on the distribution of attendees, with each conference
+tending to attract people from the same geographic area. This
 effect is quite visible for ICFP and POPL, with noticeable ups and downs of
 the colored bars between North American and European participants when the
 conferences were located in North America and Europe, respectively. Most
 strikingly, Asian participation during POPL '15, ICFP '11 and ICFP '16,
 events that took place on the Asian continent, is significantly higher than
-usual: there appears to be a strong locality phenomenon. Crossing this data
+the rest: there appears to be a strong locality phenomenon
+here. Cross-referencing this data
 with Table~\ref{table:footprint}, one can also notice that the only time
-SPLASH took place in Europe turned out to be the least carbon-intensive
-edition, challenging our previous observation that the conference appears to
+SPLASH took place in Europe also turned out to be the least carbon-intensive
+edition, challenging the previous observation, based on a high-level view
+of past attendance data, that the conference might appear to
 be mostly North-America-centric.
 
 \begin{table}
   \csvautotabular{../../output/sigplan/demographic_delta.csv}
-\caption{Geographical distribution of participation conditioned by the location of the \event}
+\caption{Geographical distribution of participation conditioned by the
+  location of the \event\bcp{What are the units?  Percentages of total
+    attendance at each conference? Percentages of participants?}}
 \label{table:local_effect}
 \end{table}
 
@@ -100,37 +115,42 @@ Table~\ref{table:local_effect} attempts to measure this locality effect. The
 table depicts, all conferences being considered at once, the geographical
 distribution of attendance conditioned by the geographical location of the
 \event. The Asian phenomenon previously hinted at is here extremely
-apparent: while overall on average, 10.9\% of the participants come from Asia,
-this number is roughly multiplied by a factor 4 when the \event takes place in Asia --
-without any significant drop in total volume of attendance that could indirectly bump
-the percentage.
-But interestingly, this phenomenon also exists in the case of Europe (+22.29\%
-deviation to the average) and North America (+12.15\% deviation to the average).
-Despite their name, international conferences appear to exhibit a fairly strong
-local component.
+apparent: while overall, on average, 10.9\% of the participants come from Asia,
+this number is roughly multiplied by a factor 4 when the \event takes place
+in Asia (without any significant drop in total volume of attendance that
+could indirectly bump this percentage).
+Interestingly, this phenomenon also exists in the case of Europe (+22.29\%
+deviation from the average) and North America (+12.15\% deviation from the
+average).
+Thus, despite their name, individual instances of international conferences
+appear to exhibit a fairly strong local component.
 
-Overall, this data shows that the goal of geographic inclusion was,
-indeed, accomplished by organizing the conferences in diverse geographic areas
-of the world. It also places Figure~\ref{fig:demo-per-event} into a broader context:
+Overall, this data shows that the goal of increasing geographic inclusion was,
+indeed, accomplished by organizing the conferences in diverse parts
+of the world. It also places Figure~\ref{fig:demo-per-event} in a broader
+context:
 a naive interpretation of that chart might lead us to conclude that North
 America and Europe are where most of this community is, but it is not that
 simple. Because of the regional effect on participation, the distribution of
-participants also reflects the fact that most of these conferences were held in
-North America and Europe (30), only a few were held in Asia (3), and none was
-held in South America, Oceania, or Africa.
+participants also reflects the fact that most of these conferences were {\em
+  held} in
+North America and Europe (30), only a few were held in Asia (3), and none in
+South America, Oceania, or Africa.
 
 The situation may be summed up in two elementary observations:
 \begin{obs}
-  The vast majority of participants are split between North America and Europe,
-  Asia to a much lesser degree. SPLASH and PLDI are strongly anchored in North
-  America, ICFP and POPL fairly equally split between North America and Europe.
+  The vast majority of participants are split between North America and
+  Europe, with the remainder mostly coming from
+  Asia. SPLASH and PLDI are strongly anchored in North
+  America. ICFP and POPL fairly equally split between North America and Europe.
   \label{obs:dist-naive}
 \end{obs}
 This distribution, however, is \emph{strongly} dependent on the
 location of the \event.
 \begin{obs}
-  There is a major ``locality" effect: it is both true that locality attract
-  new participants, and distance repels some participants.
+  There is also a strong locality effect in conference attendance: nearby
+  conferences attract significant numbers of new participants from the area,
+  while longer distances discourage some participants.
   \label{obs:locality}
 \end{obs}
 
@@ -140,8 +160,8 @@ location of the \event.
 Section~\ref{subsec:demo}, through the study of the demographic distribution of
 attendance, has suggested the existence of local communities that only
 partake in conferences when they take place close to their place of residency.
-One can conversely look for groups of regular attendees, that participate to a given \conf
-regardless of the location it is held in.
+One can conversely look for groups of ``regular attendees'' that participate in
+a given \conf regardless of where it is held.
 
 \begin{figure}
   \centering
@@ -162,7 +182,7 @@ regardless of the location it is held in.
 
 Figure~\ref{fig:hist_attendance} shows how often the same participants attended
 multiple conferences. At the extremes, 6,009 people (69\%) attended only 1
-conference, and 4 people attended 20 or more conferences. Participation is
+conference, and just 4 people attended 20 or more conferences. Participation is
 dominated by single-conference participants, perhaps reflecting a large and
 transient student population. The pattern is similar for each conference series,
 shown in Figure~\ref{fig:hist_attendance_per_conference}.
@@ -211,17 +231,22 @@ We now take a closer look at the habits of these recurring participants.
   \label{table:overlap-cross}
 \end{table}
 
-A first natural question is to ponder whether there is a significant overlap
+A first natural question is whether there is significant overlap
 in participation between conferences.
 Table~\ref{table:overlap-cross} depicts, for each pairing of the four
 conferences, the percentage of overlap. This measure is strikingly
 low for most conferences.
 
 \begin{obs}
-  Cross-conference overlap is low: the tightest pairing sees slightly over 10\%
-  of common attendance for a given year. Extending the overlap among any two years,
-  the tightest pairing still sees less than a quarter of unique participants having
-  participated at least once in both conferences.
+Cross-conference overlap is low: the tightest pairing sees slightly over
+10\% of common attendance for a given year. Extending the overlap among any
+two years, the tightest pairing still sees less than a quarter of unique
+participants having participated at least once in both conferences.
+\bcp{This may be the observation that people will be most interested in.  Is
+  there any more we can say about it?  Are the statistics we're presenting
+  really the most revealing ones?  Also: The figure is presented in abvolute
+  nunbers, while the tables use
+  percentages.  Maybe we should stick with one or the other? }
   \label{obs:overlap-cross}
 \end{obs}
 
@@ -286,29 +311,33 @@ In principle, it is desirable to have a balance between repeat participants and
 newcomers. Communities that don't attract new participants tend to stagnate; but
 communities that don't have a core of repeat participants tend to lose focus.
 
-The existence of a certain community associated with each conference series that
-tends to repeat participation is clearly visible on the diagonal in
+The existence of a stable community associated with each conference series
+(i.e., a group that
+tends to repeat participation) is clearly visible near the diagonal in
 Figure~\ref{fig:overlap}. The highest overlap of all in particular was between
-ICFP'16 and ICFP'17, with 180 repeaters. The four conference series show a
-healthy balance between repeat participation and newcomers.
+ICFP'16 and ICFP'17, with 180 repeaters. The four conference series show
+what seems to us to be a healthy balance between repeat participation and
+newcomers.
 
 The weaker overlap between conferences in different series is also apparent.
-For example, there is a somewhat surprising overlap between PLDI and
-POPL, followed by ICFP and POPL and by PLDI and SPLASH. The weakest overlaps are
-between ICFP and SPLASH, followed by ICFP and PLDI, and by POPL and SPLASH. It
-is unclear whether the overlap, or lack thereof, between these conference series
-is due to intellectual reasons or due to their dates. PLDI and POPL is the pair
-that is most distant in time, typically June and January, respectively. ICFP and
-SPLASH is the pair that is the closest in time, typically September and October.
-Time proximity may detract cross-participation.
+The strongest overlap is between PLDI and POPL, followed by ICFP and POPL
+and by PLDI and SPLASH. The weakest overlaps are between ICFP and SPLASH,
+followed by ICFP and PLDI, and by POPL and SPLASH. It is unclear whether the
+overlap, or lack thereof, between these conference series is due to
+intellectual reasons or due to their dates. PLDI and POPL is the pair that
+is most distant in time, typically June and January. Conversely, ICFP and
+SPLASH is the pair that is the closest in time, typically September and
+October.  One might conjecture that temporal proximity discourages
+cross-participation.
 
 \begin{table}
   \csvautotabular{../../output/sigplan/number_of_participations.csv}
 \caption{Overall and for each conference, the average number of instances a
   participant has taken part of, and the percentage of them that has
   attended at least $k$ instances, for $k\in\llbracket 2 \dots 5
-  \rrbracket$. Remark: the means and percentages are here computed with
-  respect to \emph{unique} participants.}
+  \rrbracket$. (The means and percentages are computed with
+  respect to \emph{unique} participants.) \bcp{Are the upside down question
+    marks intended?}}
 \label{table:recurrent}
 \end{table}
 
@@ -357,14 +386,17 @@ previous instance of the conference (in our dataset).
 \begin{obs}
 Over all conferences, the average number of conferences a given participant
 has attended is just 1.52. Less than 4\% of unique participants have been to
-more than five events among our dataset.  Similarly, for any given \event,
-more than half of the participants were experiencing this specific
-conference for the first time.
-  \label{obs:old-timers}
+more than five events among our dataset.  Similarly, at any given \event,
+more than half of the participants were experiencing this conference for the
+first time.
+\label{obs:old-timers}
 \end{obs}
 
 
 \bcp{General question about all the pictures and tables: Are they
   consistent? (I.e., were the pictures generated from the data in the
   tables, or from earlier versions of that data?)}
-\yz{Unfortunately no not at the moment: all tables are generated, but the Figures have been manually produced by Crista from her original take on the dataset. It would be great to regenerate them from the generated csv files, but I do not know how they have been generated exactly.}
+\yz{Unfortunately no not at the moment: all tables are generated, but the
+  Figures have been manually produced by Crista from her original take on
+  the dataset. It would be great to regenerate them from the generated csv
+  files, but I do not know how they have been generated exactly.}

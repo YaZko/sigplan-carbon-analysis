@@ -1,22 +1,35 @@
-\documentclass[screen,acmlarge]{acmart}
+\newif\ifacmstyle\acmstylefalse
 
+\ifacmstyle
+\documentclass[screen,acmlarge]{acmart}
+\else
+\documentclass{article}
+\usepackage{fullpage}
+\fi
+
+\ifacmstyle
 % \acmVolume{0}
 % \acmNumber{0}
 % \acmArticle{0}
 % \acmMonth{0}
 \acmYear{2021}
-
 \setcopyright{none}
-
 % \acmDOI{0000001.0000001}
+\fi
 
+\ifacmstyle
 \bibliographystyle{ACM-Reference-Format}
 \citestyle{acmauthoryear}
+\else
+\bibliographystyle{alpha}
+\fi
 
 \usepackage[english]{babel}
 \usepackage[utf8x]{inputenc}
 
 \usepackage{xspace}
+
+\ifacmstyle\else\usepackage{url}\fi
 
 \usepackage{caption}
 \usepackage{subcaption}
@@ -55,7 +68,7 @@
 \let\ftype@listings\ftype@figure
 \makeatother
 
-\newif\ifopinions\opinionsfalse   %% include author discussion
+\newif\ifopinions\opinionstrue   %% include author discussion
 
 % \newcommand{\python}{\texttt{Python 3}}
 \newcommand{\python}{{Python 3}}
@@ -75,11 +88,10 @@
 \let\ftype@table\ftype@figure
 \makeatother
 
-\begin{document}
-
-\title{Towards Sustainable Conferences:
+\title{Towards Sustainable Conferences: \\
 An Analysis of SIGPLAN's Carbon Footprint}
 
+\ifacmstyle
 \author{Cristina V. Lopes}
 %\orcid{1234-5678-9012-3456}
 \affiliation{%
@@ -106,14 +118,24 @@ An Analysis of SIGPLAN's Carbon Footprint}
   \country{USA}}
 \email{zakowski@seas.upenn.edu}
 
+\else
+\author{Cristina V. Lopes \and Benjamin C. Pierce \and Yannick Zakowski}
+\fi
+
+\begin{document}
+
+\maketitle
+
 \begin{abstract}
 \bigskip
 \begin{center}
 {\ifcomments\huge\textcolor{darkred}{Working draft of \today}\fi}
 \end{center}
 \bigskip
+\ifacmstyle
 \bcp{Can we get rid of the stuff at the bottom of the page, the page
   footers, etc.?}
+\fi
 \bigskip
 
 \noindent In 2017, ACM's Special Interest Group on Programming Languages (SIGPLAN)
@@ -138,10 +160,10 @@ analysis.
 
 \end{abstract}
 
+\ifacmstyle
 \keywords{Climate change, conferences, carbon footprint, air travel,
   SIGPLAN, ACM}
-
-\maketitle
+\fi
 
 \input{introduction}
 \input{dataset}
