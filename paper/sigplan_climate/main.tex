@@ -1,17 +1,17 @@
 \documentclass[screen,acmlarge]{acmart}
 
-\acmVolume{0}
-\acmNumber{0}
-\acmArticle{0}
-\acmYear{2019}
-\acmMonth{0}
+% \acmVolume{0}
+% \acmNumber{0}
+% \acmArticle{0}
+% \acmMonth{0}
+\acmYear{2021}
 
 \setcopyright{none}
 
-\acmDOI{0000001.0000001}
+% \acmDOI{0000001.0000001}
 
 \bibliographystyle{ACM-Reference-Format}
-\citestyle{acmauthoryear}   
+\citestyle{acmauthoryear}
 
 \usepackage[english]{babel}
 \usepackage[utf8x]{inputenc}
@@ -25,7 +25,7 @@
 \usepackage{amsthm}   % environment proof
 \usepackage{stmaryrd} % semantical brackets
 
-\usepackage{siunitx} 
+\usepackage{siunitx}
 
 \usepackage{xcolor}
 \usepackage{graphicx}
@@ -48,7 +48,7 @@
 \newcommand{\cvl}[1]{}
 \fi
 
-\makeatletter 
+\makeatletter
 \let\c@table\c@figure
 \let\c@lstlisting\c@figure
 \let\ftype@table\ftype@figure
@@ -64,15 +64,21 @@
 \newcommand{\gazunitbis}{\si{\tonne\of{CO_2e}}}
 
 \newcommand{\event}{event\xspace} % What's the right term to designate a specific iteration of a conference?
-\newcommand{\conf}{conference} 
+\newcommand{\conf}{conference}
 
 \newtheorem{obs}{Observation}
 \newtheorem{recommend}{Recommendation}
 
+% Make tables and figures number in the same sequence
+\makeatletter
+\let\c@table\c@figure
+\let\ftype@table\ftype@figure
+\makeatother
+
 \begin{document}
 
-\title{Towards Sustainable Conferences: An Analysis of SIGPLAN Registration
-  Data} 
+\title{Towards Sustainable Conferences:
+An Analysis of SIGPLAN's Carbon Footprint}
 
 \author{Cristina V. Lopes}
 %\orcid{1234-5678-9012-3456}
@@ -101,38 +107,39 @@
 \email{zakowski@seas.upenn.edu}
 
 \begin{abstract}
-
 \bigskip
 \begin{center}
-{\huge\textcolor{darkred}{Working draft of \today}}
+{\ifcomments\huge\textcolor{darkred}{Working draft of \today}\fi}
 \end{center}
 \bigskip
+\bcp{Can we get rid of the stuff at the bottom of the page, the page
+  footers, etc.?}
 \bigskip
 
-In 2017, ACM's Special Interest Group on Programming Languages (SIGPLAN)
+\noindent In 2017, ACM's Special Interest Group on Programming Languages (SIGPLAN)
 formed an ad-hoc committee to study issues related to climate change---in
-particular, how SIGPLAN might contribute to the 40\%\bcp{Or should this be
-  45? I've seen both numbers...} reduction in carbon
-emissions by 2030 that the IPCC tells us is needed to maintain warming under
+particular, how SIGPLAN can contribute to the 45\% reduction in carbon
+emissions that the IPCC says is needed by 2030 to maintain warming under
 1.5$^{\circ}$C~\cite{IPCCReport}.
-One important part of this effort has been
+One important part of this group's efforts was
 to gather data pertaining to SIGPLAN conferences so to gain a better
 understanding of their present emissions. This paper explains the data we
 gathered and presents some preliminary analysis of this data. Our main
-finding is that there is an inherent conflict between SIGPLAN's goal of
-geographic inclusiveness and the goal of reducing carbon emissions, and
-that, going forward, innovative approaches for how to organize conferences
+finding is that there is an inherent conflict between SIGPLAN's goals of
+geographic inclusiveness on one hand and of reducing carbon emissions on the
+other. Going forward, innovative approaches for how to organize conferences
 that are both inclusive and carbon efficient will be needed.
 
-We believe that other research communities can benefit from performing a
-similar introspection and drawing their own conclusions from results. To
-this end, we also describe the open-source Python scripts we developed to
-conduct our analysis.
+Our results are specific to SIGPLAN.  However, we hope that other research
+communities can benefit from similar introspection, drawing their own
+conclusions from data on their own conferences. To this end, we also
+describe the open-source Python scripts we developed to conduct our
+analysis.
 
 \end{abstract}
 
 \keywords{Climate change, conferences, carbon footprint, air travel,
-  SIGPLAN, ACM} 
+  SIGPLAN, ACM}
 
 \maketitle
 

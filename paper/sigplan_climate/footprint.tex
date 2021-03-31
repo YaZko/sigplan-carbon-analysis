@@ -1,26 +1,24 @@
-\section{Estimating the Footprint of Conferences}
+\section{Estimating the Footprints of Conferences}
 \label{sec:footprint}
 
-Carbon footprint is the essential metric that we seek to reduce.
-Accordingly, it is also the starting point of our analysis.  We introduce in
-this section the methodology we used and tool we built to conduct all of our
+{\em Carbon footprint} is the key metric that we ultimately seek to reduce
+and hence also the starting point of our analysis.  We introduce in this
+section the methodology we used and tool we built to conduct all of our
 analyses, and we describe the first results from our dataset.
 
 \subsection{Methodology for Evaluating Carbon Cost}
 \label{sec:methodo}
 
-We conduct all our analyses through a \python{} script, publicly available at
-\url{https://github.com/YaZko/acm-climate}. We describe its behavior and give
-a brief overview of its use in Section~\ref{sec:software}.
-\bcp{Maybe this repo needs a more
-informative name?}
-
-We make the following assumptions:
+We conduct all our analyses through a \python{} script,\footnote{Publicly available at
+\url{https://github.com/YaZko/acm-climate}\bcp{Maybe this repo needs a more
+informative name?}} described in more detail in Section~\ref{sec:software}.
+%
+Throughout, we make the following assumptions:
 \begin{itemize}
 \item we assume that participant travel accounts for the entire carbon
 footprint of a conference;
-\item we assume that \emph{all} participants travel by plane, in economy
-class; 
+\item we assume that {all} conference participants travel by plane, in economy
+class;
 \item we assume that the airports in the conference city and in each
 participant's home city are close enough to the actual end points of their
 travel for their locations to be assimilated;
@@ -29,11 +27,11 @@ travel for their locations to be assimilated;
 \end{itemize}
 Estimating the errors introduced by these assumptions and refining the
 analysis to make more realistic assumptions would obviously be very
-valuable! 
+worthwhile.
 %
-For this first effort, we are mainly aiming to get a 
+But, for this first effort, we are mainly aiming to get a
 {\em relative} evaluation of different potential strategies for reducing
-footprints; for this purpose, we believe these assumptions are good enough. 
+footprints; for this purpose, we believe these assumptions are good enough.
 
 The distance traveled by each participant is converted to an amount of
 emissions expressed in \gaz. To do this conversion, we use a standard model
@@ -42,10 +40,10 @@ introduced as part of the \texttt{DEFRA 16} report on Greenhouse gas
 \footnote{\url{https://co2calculator.acm.org/methodology.pdf}} conducted by
 the British Government.
 
-The model distinguishes three classes of flight, depending on their length:
-short, medium, and long haul. Each category is associated with a linear
-coefficient relating the distance of travel to the amount of \gaz
-emitted.  
+The model distinguishes three classes of flight, depending on their length
+(short, medium, or long haul). Each class is associated with a linear
+coefficient relating the distance of travel to the amount of \gaz{}
+emitted.
 
 A second linear coefficient, identical for all flights, is the so-called
 \emph{radiative forcing index}; this is used to account for the difference
@@ -54,18 +52,18 @@ high in the atmosphere.  We use the value $1.891$ for this coefficient, as
 suggested by R. Sausen et al.~\cite{Sausen05}
 
 We thus obtain the following piecewise-linear model of emissions for a
-flight covering $d$ kms: 
+flight covering $d$ kms:
 
 \begin{center}
 \gazunit \quad=\quad
 \begin{tabular}{@{}lll}
 $1.891 * 0.14735 * d$ & if $d < 785$ \\
 $1.891 * 0.08728 * d$ & if $785 \leq d < 3700$ \\
-$1.891 * 0.077610 * d$ & if $3700\leq d  $ 
+$1.891 * 0.077610 * d$ & if $3700\leq d  $
 \end{tabular}
 \end{center}
 % \begin{itemize}
-% \item $1.8& * 0.14735 * d$ \gazunit if $d < 785$ 
+% \item $1.8& * 0.14735 * d$ \gazunit if $d < 785$
 % \item $1.891 * 0.08728 * d$ \gazunit if $785 \leq d < 3700$
 % \item $1.891 * 0.077610 * d$ \gazunit if $3700\leq d  $
 % \end{itemize}
@@ -90,7 +88,7 @@ $1.891 * 0.077610 * d$ & if $3700\leq d  $
 \begin{table}
 \begin{tabular}{|l|l|c|c|c|}
   \hline%
-  \bfseries Event & \bfseries Location & \bfseries \# Participants & \bfseries Total cost & \bfseries Average cost 
+  \bfseries Event & \bfseries Location & \bfseries \# Participants & \bfseries Total cost & \bfseries Average cost
 \csvreader[head to column names]{../../output/sigplan/footprint_confs.csv}{}%
 {\\\conf\ \year & \location & \csvcoliv & \csvcolv & \csvcolvi}%
 \\\hline
@@ -99,18 +97,19 @@ $1.891 * 0.077610 * d$ & if $3700\leq d  $
 \label{table:footprint}
 \end{table}
 
-We now turn to the estimation of the footprint of our dataset.
+We now turn to the estimation of footprints in our
+dataset.
 Table~\ref{table:footprint} depicts the total and average carbon cost per participant of
 all conferences analyzed. This cost is estimated in terms of \gazunitbis{}
 (metric tons of CO$_2$-equivalent) of emissions.
-The main data of interest is arguably the last column depicting the average cost per participant.
 
-The lowest average per-participant cost of our dataset are tied ICFP'12 and ICFP'14 at
-0.88\gazunitbis, while the highest one is ICFP'16 at 1.93\gazunitbis.
+The main figure of interest is arguably the last column, depicting the
+average cost per participant.  The lowest average per-participant cost of
+our dataset are tied ICFP'12 and ICFP'14 at 0.88\gazunitbis, while the
+highest one is ICFP'16 at 1.93\gazunitbis.
 
 \begin{obs}
-The average per participant carbon footprint of conferences due to air
-travel varies from one to another by up to a factor of 2.
+The average per-participant carbon footprint of conferences due to air
+travel varies across our dataset by up to a factor of 2.
 \label{obs:footprint}
 \end{obs}
-
