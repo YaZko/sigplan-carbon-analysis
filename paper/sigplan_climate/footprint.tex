@@ -6,7 +6,7 @@ and hence also the starting point of our analysis.  We introduce in this
 section the methodology we used and tool we built to conduct all of our
 analyses, and we describe the first results from our dataset.
 
-\subsection{Methodology for Evaluating Carbon Cost}
+\subsection{Methodology for Evaluating Carbon Footprint}
 \label{sec:methodo}
 
 We conduct all our analyses through a \python{} script,\footnote{Publicly available at
@@ -87,25 +87,24 @@ $1.891 * 0.077610 * d$ & if $3700\leq d  $
 \begin{table}
 \begin{tabular}{|l|l|c|c|c|}
   \hline%
-  \bfseries Event & \bfseries Location & \bfseries \# Participants & \bfseries Total cost & \bfseries Average cost
+  \bfseries Event & \bfseries Location & \bfseries \# Participants & \bfseries Total footprint & \bfseries Average footprint
 \csvreader[head to column names]{../../output/sigplan/footprint_confs.csv}{}%
 {\\\conf\ \year & \location & \csvcoliv & \csvcolv & \csvcolvi}%
 \\\hline
 \end{tabular}
-\caption{For each \event: location, number of participants and carbon cost,
-  total and average per participant, in \gazunitbis.  \bcp{What about
-    changing ``cost'' in most places to ``footprint''?}}
+\caption{For each \event: location, number of participants and carbon footprint,
+  total and average per participant, in \gazunitbis. }
 \label{table:footprint}
 \end{table}
 
 We now turn to the estimation of footprints in our
 dataset.
-Table~\ref{table:footprint} depicts the total and average carbon cost per participant of
-all conferences analyzed. This cost is estimated in terms of \gazunitbis{}
+Table~\ref{table:footprint} depicts the total and average carbon footprint per participant of
+all conferences analyzed. This footprint is estimated in terms of \gazunitbis{}
 (metric tons of CO$_2$-equivalent) of emissions.
 
 The main figure of interest is arguably the last column, depicting the
-average cost per participant.  The lowest average per-participant cost of
+average footprint per participant.  The lowest average per-participant footprint of
 our dataset are tied ICFP'12 and ICFP'14 at 0.88\gazunitbis, while the
 highest one is ICFP'16 at 1.93\gazunitbis.
 

@@ -1,4 +1,4 @@
-conf,year,orig. loc.,orig. cost,best loc.,best cost,saved
+conf,year,orig. loc.,orig. footprint,best loc.,best footprint,saved
 ICFP,10,Baltimore,1.19,Philadelphia,1.18,0.01
 ICFP,11,Tokyo,1.54,Tokyo,1.55,-0.01
 ICFP,12,Copenhagen,0.88,Edinburgh,0.91,-0.03

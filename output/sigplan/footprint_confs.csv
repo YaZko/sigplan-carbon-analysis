@@ -1,4 +1,4 @@
-conf,year,location,nb participants,total cost,average cost
+conf,year,location,nb participants,total footprint,average footprint
 ICFP,10,Baltimore,336,399.44,1.19
 ICFP,11,Tokyo,336,518.27,1.54
 ICFP,12,Copenhagen,481,422.34,0.88
