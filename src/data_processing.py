@@ -119,8 +119,8 @@ class DB:
                     "year",
                     "location",
                     "nb participants",
-                    "total cost",
-                    "average cost",
+                    "total footprint",
+                    "average footprint",
                 ]
             )
             for name, conf in self.confs.items():
@@ -435,23 +435,21 @@ class DB:
                 ]
                 writer.writerow([c, average] + row)
 
-        print("res: {}\naggregated: {}\nres2 : {}\nagg2: {}\n".format(res,aggregated,res2,agg2))
-
         for conf in GLOB.confs_processed:
 
             output_file_conf = fill_hole_string(GLOB.output_number_per_conf, conf)
             with open(output_file_conf, "w", newline="") as csvfile:
                 writer = csv.writer(csvfile, delimiter=",", quoting=csv.QUOTE_MINIMAL)
                 nmax = max(res2[conf])
-                writer.writerow([str(i) for i in range(1,nmax + 1)])
-                writer.writerow([0 if not i in res2[conf] else res2[conf][i] for i in range(1,nmax + 1)])
+                writer.writerow(['']+[str(i) for i in range(1,nmax + 1)])
+                writer.writerow(['']+[0 if not i in res2[conf] else res2[conf][i] for i in range(1,nmax + 1)])
                         
         output_file_conf = fill_hole_string(GLOB.output_number_per_conf, "total")
         with open(output_file_conf, "w", newline="") as csvfile:
             writer = csv.writer(csvfile, delimiter=",", quoting=csv.QUOTE_MINIMAL)
             nmax = max(agg2)
-            writer.writerow([str(i) for i in range(1,nmax + 1)])
-            writer.writerow([0 if not i in agg2 else agg2[i] for i in range(1,nmax + 1)])
+            writer.writerow(['']+[str(i) for i in range(1,nmax + 1)])
+            writer.writerow(['']+[0 if not i in agg2 else agg2[i] for i in range(1,nmax + 1)])
  
     def get_old_timers(self, GLOB):
 
@@ -518,9 +516,9 @@ class DB:
                     "conf",
                     "year",
                     "orig. loc.",
-                    "orig. cost",
+                    "orig. footprint",
                     "best loc.",
-                    "best cost",
+                    "best footprint",
                     "saved",
                 ]
             )
@@ -548,7 +546,7 @@ class DB:
     def pick_optimal_for_set(self, GLOB, cache, count, output, confs, confs_name):
         with open(output, "w", newline="") as csvfile:
             writer = csv.writer(csvfile, delimiter=",", quoting=csv.QUOTE_MINIMAL)
-            writer.writerow(["conf", "best loc.", "best cost"])
+            writer.writerow(["conf", "best loc.", "best footprint"])
             logging.debug(f"Picking optimal for the set {confs}")
             x = self.pick_optimal_list(GLOB, cache, count, lambda c, y: (c, y) in confs)
             if x is not None:
