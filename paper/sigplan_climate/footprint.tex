@@ -84,17 +84,21 @@ $1.891 * 0.077610 * d$ & if $3700\leq d  $
 
 \subsection{Conference Footprints}
 
+
 \begin{table}
-\begin{tabular}{|l|l|c|c|c|}
-  \hline%
-  \bfseries Event & \bfseries Location & \bfseries \# Participants & \bfseries Total footprint & \bfseries Average footprint
-\csvreader[head to column names]{../../output/sigplan/footprint_confs.csv}{}%
-{\\\conf\ \year & \location & \csvcoliv & \csvcolv & \csvcolvi}%
-\\\hline
-\end{tabular}
-\caption{For each \event: location, number of participants and carbon footprint,
-  total and average per participant, in \gazunitbis. }
-\label{table:footprint}
+  \centering
+  \csvreader[%
+    head to column names,
+    tabular={|l|l|c|c|c|},
+    table head=\hline \bfseries Event & \bfseries Location & \bfseries \# Participants & \bfseries Total footprint & \bfseries Average footprint\\\hline,
+    late after line=\\,
+    table foot = \hline,
+  ]{../../output/sigplan/footprint_confs.csv}{}{%
+    \conf\ \year & \location & \csvcoliv & \csvcolv & \csvcolvi
+  }
+  \label{table:footprint}
+  \caption{For each \event: location, number of participants and carbon footprint,
+    total and average per participant, in \gazunitbis. }
 \end{table}
 
 We now turn to the estimation of footprints in our

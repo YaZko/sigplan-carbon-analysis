@@ -298,9 +298,10 @@ class DB:
 
         if len(participants1) > 0 and len(participants2) > 0:
             intersection = participants1 & participants2
-            return norm(
-                len(intersection) * 2 * 100 / (len(participants1) + len(participants2))
-            )
+            return [len (intersection), len(participants1), len(participants2)]
+            # return norm(
+                # len(intersection) * 2 * 100 / (len(participants1) + len(participants2))
+            # )
         else:
             return None
 
@@ -334,27 +335,27 @@ class DB:
         with open(output_file, "w", newline="") as csvfile:
 
             writer = csv.writer(csvfile, delimiter=",", quoting=csv.QUOTE_MINIMAL)
-            writer.writerow(["Year", "Overlap"])
+            writer.writerow(["Year", "Overlap", "Total1", "Total2"])
             for year in GLOB.years_processed:
                 overlap = self.participation_overlap_single(conf1, year, conf2, year)
                 if overlap is not None:
-                    writer.writerow([year, overlap])
+                    writer.writerow([year] + overlap)
 
             # Aggregated overlap: percentage of participants having been at least once at both conferences
             # Note: the percentage is computed with respect to the mean of the number of unique participants
             # to both conferences
-            participants1 = set([d.id for d in self.data if d.conference == conf1])
-            participants2 = set([d.id for d in self.data if d.conference == conf2])
+            participants1 = [d.id for d in self.data if d.conference == conf1]
+            participants2 = [d.id for d in self.data if d.conference == conf2]
 
             if len(participants1) > 0 and len(participants2) > 0:
-                intersection = participants1 & participants2
-                agg = norm(
-                    len(intersection)
-                    * 2
-                    * 100
-                    / (len(participants1) + len(participants2))
-                )
-                writer.writerow(["Any", agg])
+                intersection = set(participants1) & set(participants2)
+                # agg = norm(
+                #     len(intersection)
+                #     * 2
+                #     * 100
+                #     / (len(participants1) + len(participants2))
+                # )
+                writer.writerow(["Any", len(intersection), len(participants1), len(participants2)])
 
     def participation_overlap_cross_conf_generate_all(self, GLOB):
         for pair in combinations(GLOB.confs_processed, 2):

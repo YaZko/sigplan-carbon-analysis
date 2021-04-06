@@ -28,8 +28,20 @@ overlap in participation between different conferences.
 \end{figure}
 
 \begin{table}
-  \csvautotabular{../../output/sigplan/demographic_per_conf.csv}
-\caption{For each kind of conference, distribution of participants per continent of origin}
+    \centering
+    \csvreader[%
+      head to column names,
+      tabular={|c|c|c|c|c|c|c||c|},
+      table head=\hline \bfseries Conference & \bfseries EU (\%) & \bfseries NA (\%) & \bfseries AS (\%) & \bfseries SA (\%) & \bfseries AF (\%) & \bfseries OC (\%) & \bfseries Local (\%)\\\hline,
+      table foot = \hline,
+      late after line=\ifthenelse{\equal{\Conference}{Any}}{\\\hline}{\\},
+    ]{../../output/sigplan/demographic_per_conf.csv}{}{%
+      \Conference & \EU & \NA & \AS & \SA & \AF & \OC & \Local \
+    }
+
+   \caption{For each kind of conference, distribution of participants per continent of origin.
+     Among all participants of a category of conferences, displays the percentage of these participants that traveled from the indicated continent. The \textbf{Local} column uses for each instance of the conference the same continent as the one the conference took place in. The line \emph{Any} computes the same data, but across all conferences at once.
+   }
 \label{table:demo-per-conf}
 \end{table}
 
@@ -58,12 +70,20 @@ PLDI and SPLASH appear to be quite North-America-centric, while
 ICFP's core community has a strong anchor in Europe as well.
 
 \begin{table}
-  \csvautotabular{../../output/sigplan/demographic.csv}
+  \centering
+  \csvreader[%
+    head to column names,
+    tabular={|c|c||c|c|c|c|c|c||c|},
+    table head=\hline \bfseries Event & \bfseries Location & \bfseries EU (\%) & \bfseries NA (\%) & \bfseries AS (\%) & \bfseries SA (\%) & \bfseries AF (\%) & \bfseries OC (\%) & \bfseries Local (\%)\\\hline,
+    table foot = \hline,
+    late after line=\\,
+  ]{../../output/sigplan/demographic.csv}{}{%
+    \Conference~\Year & \Continent & \EU & \NA & \AS & \SA & \AF & \OC & \Local \
+  }
   \caption{For each \event, the continent in which it took place and
-    distribution of
-    each continent by origin of participants. The final column indicates the
-    portion of participants that traveled from the same continent the
-    conference took place in.}
+    the distribution of attendance per continent of origin of participants.
+    The final column indicates the
+    portion of participants that did not change continent to attend the conference.}
   \label{table:demo-per-event}
 \end{table}
 
@@ -104,7 +124,16 @@ of past attendance data, that the conference might appear to
 be mostly North-America-centric.
 
 \begin{table}
-  \csvautotabular{../../output/sigplan/demographic_delta.csv}
+  \centering
+  \csvreader[%
+    head to column names,
+    tabular={|c||c|c|c|c|c|c||c|},
+    table head=\hline \bfseries Location & \bfseries EU (\%) & \bfseries NA (\%) & \bfseries AS (\%) & \bfseries SA (\%) & \bfseries AF (\%) & \bfseries OC (\%) & \bfseries Local (\%)\\\hline,
+    table foot = \hline,
+    late after line=\ifthenelse{\equal{\Location}{Any}}{\\\hline}{\\},
+  ]{../../output/sigplan/demographic_delta.csv}{}{%
+     \Location & \EU & \NA & \AS & \SA & \AF & \OC & \Local 
+  }
   \caption{Geographical distribution of participation conditioned by the
     location of the \event: each row indicates the continent in which the
     conference took place, and each cell of this row depicts the percentage of
@@ -196,40 +225,101 @@ We now take a closer look at the habits of these recurring participants.
 
 \begin{table}
   \centering
-  \begin{subtable}[b]{0.3\textwidth}
+  \begin{subtable}[!t]{0.48\textwidth}
     \centering
-    \csvautotabular{../../output/sigplan/overlap_cross_conf_ICFP_POPL.csv}
-    \caption{POPL and ICFP}
+    \csvreader[%
+      head to column names,
+      tabular={|c|c|c|c|},
+      table head=\hline \bfseries Year & \bfseries Overlap & \bfseries \#ICFP & \bfseries \#POPL \\\hline,
+      table foot = \hline,
+      late after line=\ifthenelse{\equal{\Location}{Any}}{\\\hline}{\\},
+    ]{../../output/sigplan/overlap_cross_conf_ICFP_POPL.csv}{}{%
+      \Year & \Overlap & \csvcoliii & \csvcoliv
+    }
+    \caption{ICFP and POPL}
   \end{subtable}
-  \begin{subtable}[b]{0.3\textwidth}
+  \hspace{\fill}
+  \begin{subtable}[!t]{0.48\textwidth}
     \centering
-    \csvautotabular{../../output/sigplan/overlap_cross_conf_POPL_PLDI.csv}
+    %% \flushright
+    \csvreader[%
+      head to column names,
+      tabular={|c|c|c|c|},
+      table head=\hline \bfseries Year & \bfseries Overlap & \bfseries \#POPL & \bfseries \#PLDI \\\hline,
+      table foot = \hline,
+      late after line=\ifthenelse{\equal{\Location}{Any}}{\\\hline}{\\},
+    ]{../../output/sigplan/overlap_cross_conf_POPL_PLDI.csv}{}{%
+      \Year & \Overlap & \csvcoliii & \csvcoliv
+    }
     \caption{POPL and PLDI}
   \end{subtable}
-  \begin{subtable}[b]{0.3\textwidth}
+  \newline
+  \vspace*{0.1cm}
+  \newline
+
+  \begin{subtable}[!t]{0.48\textwidth}
     \centering
-    \csvautotabular{../../output/sigplan/overlap_cross_conf_POPL_SPLASH.csv}
+    \csvreader[%
+      head to column names,
+      tabular={|c|c|c|c|},
+      table head=\hline \bfseries Year & \bfseries Overlap & \bfseries \#POPL & \bfseries \#SPLASH \\\hline,
+      table foot = \hline,
+      late after line=\ifthenelse{\equal{\Location}{Any}}{\\\hline}{\\},
+    ]{../../output/sigplan/overlap_cross_conf_POPL_SPLASH.csv}{}{%
+      \Year & \Overlap & \csvcoliii & \csvcoliv
+    } 
     \caption{POPL and SPLASH}
   \end{subtable}
-  \begin{subtable}[b]{0.3\textwidth}
+  \hspace{\fill}
+  \begin{subtable}[!t]{0.48\textwidth}
     \centering
-    \csvautotabular{../../output/sigplan/overlap_cross_conf_ICFP_PLDI.csv}
+    %% \flushright
+    \csvreader[%
+      head to column names,
+      tabular={|c|c|c|c|},
+      table head=\hline \bfseries Year & \bfseries Overlap & \bfseries \#ICFP & \bfseries \#PLDI \\\hline,
+      table foot = \hline,
+      late after line=\ifthenelse{\equal{\Location}{Any}}{\\\hline}{\\},
+    ]{../../output/sigplan/overlap_cross_conf_ICFP_PLDI.csv}{}{%
+      \Year & \Overlap & \csvcoliii & \csvcoliv
+    }
     \caption{ICFP and PLDI}
   \end{subtable}
-  \begin{subtable}[b]{0.3\textwidth}
+  \newline
+  \vspace*{0.1cm}
+  \newline
+
+  \begin{subtable}[!t]{0.48\textwidth}
     \centering
-    \csvautotabular{../../output/sigplan/overlap_cross_conf_ICFP_SPLASH.csv}
+    \csvreader[%
+      head to column names,
+      tabular={|c|c|c|c|},
+      table head=\hline \bfseries Year & \bfseries Overlap & \bfseries \#ICFP & \bfseries \#SPLASH \\\hline,
+      table foot = \hline,
+      late after line=\ifthenelse{\equal{\Location}{Any}}{\\\hline}{\\},
+    ]{../../output/sigplan/overlap_cross_conf_ICFP_SPLASH.csv}{}{%
+      \Year & \Overlap & \csvcoliii & \csvcoliv
+    }
     \caption{ICFP and SPLASH}
   \end{subtable}
-  \begin{subtable}[b]{0.3\textwidth}
+  \hspace{\fill}
+  \begin{subtable}[!t]{0.48\textwidth}
+    %% \flushright
     \centering
-    \csvautotabular{../../output/sigplan/overlap_cross_conf_PLDI_SPLASH.csv}
+    \csvreader[%
+      head to column names,
+      tabular={|c|c|c|c|},
+      table head=\hline \bfseries Year & \bfseries Overlap & \bfseries \#PLDI & \bfseries \#SPLASH \\\hline,
+      table foot = \hline,
+      late after line=\ifthenelse{\equal{\Location}{Any}}{\\\hline}{\\},
+    ]{../../output/sigplan/overlap_cross_conf_PLDI_SPLASH.csv}{}{%
+      \Year & \Overlap & \csvcoliii & \csvcoliv
+    }
     \caption{PLDI and SPLASH}
   \end{subtable}
-   \caption{For every year, overlap in attendance between the events of two
-     different conferences. The ``Any'' row depicts the percentage of unique
-     participants that went at least once to both conferences over the available
-     years of data.}
+  \caption{For every year, we display the number of participants that attended two given conferences.
+    We also indicate the total attendance of each event for reference.
+     The \emph{Any} row depicts the sum over all years.}
   \label{table:overlap-cross}
 \end{table}
 
