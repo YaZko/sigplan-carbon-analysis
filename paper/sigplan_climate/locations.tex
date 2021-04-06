@@ -37,20 +37,25 @@ have led to the lowest carbon footprint for each event, assuming that it
 would not have changed the set of participants.
 
 \begin{table}
-  \begin{tabular}{|l|l|c|c|c|c|}
-    \hline%
-    \bfseries Event & \bfseries Orig. Loc. & \bfseries Orig. Cost & \bfseries Best Loc. & \bfseries Best Cost & \bfseries Saved
-    \csvreader[head to column names]{../../output/sigplan/optimal_loc.csv}{}%
-              {\\\conf\ \year & \csvcoliii & \csvcoliv & \csvcolv & \csvcolvi & \csvcolvii}%
-              \\\hline
-  \end{tabular}
-  \caption{For each \event, depicts the location among Paris, Edinburgh,
-    Boston, Philadelphia, Los Angeles, Vancouver, Tokyo, Beijing and Mumbai
-    \bcp{and Copenhagen, Gothenburg, Oxford, ...}\yz{No the list is fixed} that would
-    have led to the lowest carbon footprint. Starred best locations indicates that they coincide with the original one.
+    \centering
+    \csvreader[%
+      head to column names,
+      tabular={|l|l|c|c|c|c|},
+      table head=\hline \bfseries Event & \bfseries Orig. Loc. & \bfseries Orig. Cost & \bfseries Best Loc. & \bfseries Best Cost & \bfseries Saved \\\hline,
+      table foot= \hline,
+      late after line=\\,
+    ]{../../output/sigplan/optimal_loc.csv}{}{%
+      \conf\ \year & \csvcoliii & \csvcoliv & \csvcolv & \csvcolvi & \csvcolvii
+    }
+  \caption{For each \event, depicts the location, among the following arbitrarily fixed list:
+    Paris, Edinburgh, Boston, Philadelphia, Los Angeles, Vancouver, Tokyo, Beijing and Mumbai,
+    that would have led to the lowest carbon footprint.
+    Starred best locations indicates that they coincide with the original one.
     The final column shows the amount
     of \gazunitbis that it would have saved.\bcp{in what units?} \bcp{Could
-      we display 0.0 as blank?}}
+      we display 0.0 as blank?}
+    \yz{I have a doubt about the code that computes this. If we want to keep it I need to check thoroughly what it does}
+  }
   \label{table:optimal}
 \end{table}
 

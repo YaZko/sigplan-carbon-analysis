@@ -465,32 +465,62 @@ cross-participation.
 \end{table}
 
 
-
 \begin{table}
   \centering
   \begin{subtable}[b]{0.4\textwidth}
     \centering
-    \csvautotabular{../../output/sigplan/old_timer_POPL.csv}
+    \csvreader[%
+      head to column names,
+      tabular={|c|c|},
+      table head=\hline \bfseries Year & \bfseries Old timers (\%)  \\\hline,
+      table foot= \hline,
+      late after line=\\,
+    ]{../../output/sigplan/old_timer_POPL.csv}{}{%
+      \year & \csvcolii 
+    }
     \caption{Case of POPL}
   \end{subtable}
   \begin{subtable}[b]{0.4\textwidth}
     \centering
-    \csvautotabular{../../output/sigplan/old_timer_ICFP.csv}
+    \csvreader[%
+      head to column names,
+      tabular={|c|c|},
+      table head=\hline \bfseries Year & \bfseries Old timers (\%)  \\\hline,
+      table foot= \hline,
+      late after line=\\,
+    ]{../../output/sigplan/old_timer_ICFP.csv}{}{%
+      \year & \csvcolii 
+    }
     \caption{Case of ICFP}
   \end{subtable}
-  \\
   \begin{subtable}[b]{0.4\textwidth}
     \centering
-    \csvautotabular{../../output/sigplan/old_timer_PLDI.csv}
+    \csvreader[%
+      head to column names,
+      tabular={|c|c|},
+      table head=\hline \bfseries Year & \bfseries Old timers (\%)  \\\hline,
+      table foot= \hline,
+      late after line=\\,
+    ]{../../output/sigplan/old_timer_PLDI.csv}{}{%
+      \year & \csvcolii 
+    }
     \caption{Case of PLDI}
   \end{subtable}
   \begin{subtable}[b]{0.4\textwidth}
     \centering
-    \csvautotabular{../../output/sigplan/old_timer_SPLASH.csv}
+    \csvreader[%
+      head to column names,
+      tabular={|c|c|},
+      table head=\hline \bfseries Year & \bfseries Old timers (\%)  \\\hline,
+      table foot= \hline,
+      late after line=\\,
+    ]{../../output/sigplan/old_timer_SPLASH.csv}{}{%
+      \year & \csvcolii 
+    }
     \caption{Case of SPLASH}
   \end{subtable}
   \caption{For each conference, percentage of participants that have been
-    part of a previous edition of the same conference}
+    part of a previous edition of the same conference.}
   \label{table:old-timers}
 \end{table}
 
@@ -506,7 +536,10 @@ edition.
 Table~\ref{table:old-timers} is a normalization of the information represented
 in Figure~\ref{fig:hist_attendance_per_conference}: for each instance of each
 conference, it depicts the percentage of participants that have been part of a
-previous instance of the conference (in our dataset).
+previous instance of the conference (in our dataset). Since we take as origin of
+time the first year for which we have data, the table is naturally overall monotonic
+as years progress. Exceptions can be noticed, such as POPL'15, that seem to indicate
+a (proportional) lack of ``old timers''. 
 
 \begin{obs}
 Over all conferences, the average number of conferences a given participant
