@@ -49,7 +49,10 @@ class Globals:
         self.output_overlap_intra_conf = self.output_prefix + "overlap_intra_conf#.csv"
         self.output_overlap_cross_conf = self.output_prefix + "overlap_cross_conf#.csv"
         self.output_number_of_participations = (
-            self.output_prefix + "number_of_participations.csv"
+            self.output_prefix + "number_of_participations_per_conf.csv"
+        )
+        self.output_number_of_participations_per_year = (
+            self.output_prefix + "number_of_participations_per_year.csv"
         )
         self.output_number_per_conf = (
             self.output_prefix + "number_of_participations_#.csv"
