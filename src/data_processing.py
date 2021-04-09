@@ -298,9 +298,10 @@ class DB:
 
         if len(participants1) > 0 and len(participants2) > 0:
             intersection = participants1 & participants2
-            return norm(
-                len(intersection) * 2 * 100 / (len(participants1) + len(participants2))
-            )
+            return [len (intersection), len(participants1), len(participants2)]
+            # return norm(
+                # len(intersection) * 2 * 100 / (len(participants1) + len(participants2))
+            # )
         else:
             return None
 
@@ -318,7 +319,7 @@ class DB:
                     name, pair[0], name, pair[1]
                 )
                 if overlap is not None:
-                    writer.writerow([pair[0], pair[1], overlap])
+                    writer.writerow([pair[0], pair[1]] + overlap)
 
     def participation_overlap_intra_conf_generate_all(self, GLOB):
         for c in GLOB.confs_processed:
@@ -334,27 +335,19 @@ class DB:
         with open(output_file, "w", newline="") as csvfile:
 
             writer = csv.writer(csvfile, delimiter=",", quoting=csv.QUOTE_MINIMAL)
-            writer.writerow(["Year", "Overlap"])
+            writer.writerow(["Year", "Overlap", "Total1", "Total2"])
+            overlap_acc = 0
+            part1_acc = 0
+            part2_acc = 0
             for year in GLOB.years_processed:
                 overlap = self.participation_overlap_single(conf1, year, conf2, year)
                 if overlap is not None:
-                    writer.writerow([year, overlap])
+                    overlap_acc += overlap[0]
+                    part1_acc += overlap[1]
+                    part2_acc += overlap[2]
+                    writer.writerow([year] + overlap)
 
-            # Aggregated overlap: percentage of participants having been at least once at both conferences
-            # Note: the percentage is computed with respect to the mean of the number of unique participants
-            # to both conferences
-            participants1 = set([d.id for d in self.data if d.conference == conf1])
-            participants2 = set([d.id for d in self.data if d.conference == conf2])
-
-            if len(participants1) > 0 and len(participants2) > 0:
-                intersection = participants1 & participants2
-                agg = norm(
-                    len(intersection)
-                    * 2
-                    * 100
-                    / (len(participants1) + len(participants2))
-                )
-                writer.writerow(["Any", agg])
+            writer.writerow(["All", overlap_acc, part1_acc, part2_acc])
 
     def participation_overlap_cross_conf_generate_all(self, GLOB):
         for pair in combinations(GLOB.confs_processed, 2):
@@ -368,6 +361,7 @@ class DB:
                 [
                     "Conference",
                     "Avrg nb of participations",
+                    "Avrg non one timer",
                     ">= 2",
                     ">= 3",
                     ">= 4",
@@ -418,22 +412,26 @@ class DB:
                 agg2[i] = ci
                 i += 1
 
+            for c in GLOB.confs_processed:
+                average = round(sum(res[c]) / len(res[c]), 2)
+                res_no_one_timers = [x for x in res[c] if x > 1]
+                average2 = round(sum(res_no_one_timers) / len(res_no_one_timers), 2)
+                row = [
+                    norm_perc(len([v for v in res[c] if v > i]), len(res[c]))
+                    for i in range(1, 5)
+                ]
+                writer.writerow([c, average, average2] + row)
+
             # Overall
             average = norm(sum(aggregated) / len(aggregated))
+            average2 = norm(sum([x for x in aggregated if x > 1]) / len([x for x in aggregated if x > 1]))
             row = [
                 norm_perc(len([v for v in aggregated if v > i]), len(aggregated))
                 for i in range(1, 5)
             ]
 
-            writer.writerow(["ALL", average] + row)
+            writer.writerow(["All", average, average2] + row)
 
-            for c in GLOB.confs_processed:
-                average = round(sum(res[c]) / len(res[c]), 2)
-                row = [
-                    norm_perc(len([v for v in res[c] if v > i]), len(res[c]))
-                    for i in range(1, 5)
-                ]
-                writer.writerow([c, average] + row)
 
         for conf in GLOB.confs_processed:
 
@@ -450,7 +448,87 @@ class DB:
             nmax = max(agg2)
             writer.writerow(['']+[str(i) for i in range(1,nmax + 1)])
             writer.writerow(['']+[0 if not i in agg2 else agg2[i] for i in range(1,nmax + 1)])
- 
+
+    def get_number_of_participations_per_year(self, GLOB):
+
+        with open(GLOB.output_number_of_participations_per_year, "w", newline="") as csvfile:
+            writer = csv.writer(csvfile, delimiter=",", quoting=csv.QUOTE_MINIMAL)
+            writer.writerow(
+                [
+                    "Year",
+                    "Avrg nb of participations",
+                    "Avrg non one timer",
+                    ">= 2",
+                    ">= 3",
+                    "= 4"
+                ]
+            )
+
+            # res: year |-> id_participant |-> number of participations during year specifically
+            res = {x: {} for x in GLOB.years_processed}
+            for d in self.data:
+                if d.year in GLOB.years_processed:
+                    if d.id in res[d.year]:
+                        res[d.year][d.id] = res[d.year][d.id] + 1
+                    else:
+                        res[d.year][d.id] = 1
+            # print(res)
+
+            aggregated = {}
+            for x in res.values():
+                for i,v in x.items():
+                    aggregated[i] = v if not i in aggregated else v + aggregated[i]
+            # print(aggregated)
+
+            # We forget about the id, each year maps to a list of number of participations
+            res = {k: list(res[k].values()) for k in res}
+            aggregated = [x for x in aggregated.values()]
+            # print("res: {}\naggregated: {}\n".format(res,aggregated))
+
+            # res2: conf |-> nat |-> number of unique individual having participated to nat instances of conf
+            res2 = {x: {} for x in GLOB.years_processed}
+            for k in res2:
+                count = 0
+                i = 1
+                x = res[k]
+                total = len(x)
+                while count < total:
+                    ci = len([v for v in x if v == i])
+                    count += ci
+                    res2[k][i] = ci
+                    i += 1
+
+            # agg2: nat |-> number of unique individual having participated to nat instances 
+            agg2 = {}
+            count = 0
+            i = 1
+            total = len(aggregated)
+            while count < total:
+                ci = len([v for v in aggregated if v == i])
+                count += ci
+                agg2[i] = ci
+                i += 1
+
+            for c in GLOB.years_processed:
+                average = round(sum(res[c]) / len(res[c]), 2)
+                res_no_one_timers = [x for x in res[c] if x > 1]
+                average2 = round(sum(res_no_one_timers) / len(res_no_one_timers), 2)
+                row = [
+                    norm_perc(len([v for v in res[c] if v > i]), len(res[c]))
+                    for i in range(1, 4)
+                ]
+                writer.writerow([c, average, average2] + row)
+
+            # Overall
+            average = norm(sum(aggregated) / len(aggregated))
+            average2 = norm(sum([x for x in aggregated if x > 1]) / len([x for x in aggregated if x > 1]))
+            row = [
+                norm_perc(len([v for v in aggregated if v > i]), len(aggregated))
+                for i in range(1, 4)
+            ]
+
+            writer.writerow(["All", average, average2] + row)
+
     def get_old_timers(self, GLOB):
 
         for conf in GLOB.confs_processed:

@@ -171,8 +171,10 @@ def main():
     print("Computing cross-conference overlap\n")
     db.participation_overlap_cross_conf_generate_all(GLOB)
 
-    print("Computing number of participations\n")
+    print("Computing number of participations per conference\n")
     db.get_number_of_participations(GLOB)
+    print("Computing number of participations per year\n")
+    db.get_number_of_participations_per_year(GLOB)
     print("Computing old timers\n")
     db.get_old_timers(GLOB)
 

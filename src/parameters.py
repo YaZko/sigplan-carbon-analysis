@@ -22,13 +22,13 @@ class Globals:
 
         # TODO: get those from the input by default, with option to pick a subset
         # self.confs_processed = ['GECCO']
-        # self.confs_processed = ["ICFP", "POPL", "PLDI", "SPLASH"]
-        self.confs_processed = ["A","B"]
+        self.confs_processed = ["ICFP", "POPL", "PLDI", "SPLASH"]
+        # self.confs_processed = ["A","B"]
 
         # TODO: get those from the input by default, with option to pick as subset
         # Range of years to be considered
-        self.years_processed = range(20, 22)
-        # self.years_processed = range(9, 19)
+        # self.years_processed = range(20, 22)
+        self.years_processed = range(9, 19)
         # self.years_processed = range(2007,2020)
 
         # Cache for locations
@@ -49,7 +49,10 @@ class Globals:
         self.output_overlap_intra_conf = self.output_prefix + "overlap_intra_conf#.csv"
         self.output_overlap_cross_conf = self.output_prefix + "overlap_cross_conf#.csv"
         self.output_number_of_participations = (
-            self.output_prefix + "number_of_participations.csv"
+            self.output_prefix + "number_of_participations_per_conf.csv"
+        )
+        self.output_number_of_participations_per_year = (
+            self.output_prefix + "number_of_participations_per_year.csv"
         )
         self.output_number_per_conf = (
             self.output_prefix + "number_of_participations_#.csv"
