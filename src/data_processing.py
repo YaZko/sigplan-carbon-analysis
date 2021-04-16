@@ -488,7 +488,7 @@ class DB:
             for i in range(1, 5):
                 row = row + [len([v for v in aggregated if v > i]), norm_perc_int(len([v for v in aggregated if v > i]), len(aggregated))]
 
-            writer.writerow(["All", average, average2] + row)
+            writer.writerow(["Combined", average, average2] + row)
 
 
         for conf in GLOB.confs_processed:
@@ -586,7 +586,7 @@ class DB:
             for i in range(1, 4):
                 row = row + [len([v for v in aggregated if v > i]), norm_perc_int(len([v for v in aggregated if v > i]), len(aggregated))]
 
-            writer.writerow(["All", average, average2] + row)
+            writer.writerow(["Combined", average, average2] + row)
 
     def get_old_timers(self, GLOB):
 

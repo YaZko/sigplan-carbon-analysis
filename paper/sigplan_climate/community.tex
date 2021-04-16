@@ -325,15 +325,10 @@ conferences, the percentage of overlap. This measure is strikingly
 low for most conferences.
 
 \begin{obs}
-Cross-conference overlap is low: the tightest pairing sees slightly over
+Cross-conference overlap is modest: the tightest pairing sees slightly over
 10\% of common attendance for a given year. Extending the overlap among any
-two years, the tightest pairing still sees less than a quarter of unique
+two years, the tightest pairing sees slightly less than a quarter of unique
 participants having participated at least once in both conferences.
-\bcp{This may be the observation that people will be most interested in.  Is
-  there any more we can say about it?  Are the statistics we're presenting
-  really the most revealing ones?  Also: The figure is presented in abvolute
-  nunbers, while the tables use
-  percentages.  Maybe we should stick with one or the other? }
   \label{obs:overlap-cross}
 \end{obs}
 
@@ -424,20 +419,20 @@ cross-participation.
     tabular={|l|c|c|c|c|c|c|},
     table head=\hline \bfseries Conference & \bfseries Avg & \bfseries Avg $\geq$ 2 & \bfseries $\geq$ 2 & \bfseries $\geq$ 3 & \bfseries $\geq$ 4 & \bfseries $\geq$ 5 \\\hline,
     table foot= \hline,
-    late after line=\ifthenelse{\equal{\Conference}{All}}{\\\hline}{\\},
+    late after line=\ifthenelse{\equal{\Conference}{Combined}}{\\\hline}{\\},
   ]{../../output/sigplan/number_of_participations_per_conf.csv}{}{%
     \Conference & \csvcolii & \csvcoliii & \csvcoliv~ (\csvcolv \%) & \csvcolvi~ (\csvcolvii \%) & \csvcolviii ~(\csvcolix \%) & \csvcolx~ (\csvcolxi \%)
   }
-\caption{For each conference and overall, the first two columns show the
-  average number of instances a 
-  unique individual has taken part of (\textbf{Avg}) and the same count but
-  omitting individuals that have participated in exactly one conference ever
+\caption{For each conference, the first two columns show the
+  average number of instances a unique individual has taken part of (\textbf{Avg}),
+  and the same ratio but omitting individuals that have participated in exactly one conference 
   (\textbf{Avg} $\geq$ \textbf{2}).
   The other columns display the percentage of participants that have
   attended at least $k$ instances, for $k\in\llbracket 2 \dots 5
   \rrbracket$. Note that the means and percentages are computed with
-  respect to the number of \emph{unique} participants. \bcp{Show both
-    absolute numbers and percentages in tables 11 and 12.}}
+  respect to the number of \emph{unique} participants.
+  The \emph{Combined} row computes the same data over all participations, without discriminating conferences.
+  }
 \label{table:recurrent}
 \end{table}
 
@@ -445,10 +440,10 @@ cross-participation.
   \centering
   \csvreader[%
     head to column names,
-    tabular={|l|c|c|c|c|c|},
+    tabular={|c|c|c|c|c|c|},
     table head=\hline \bfseries Year & \bfseries Avg & \bfseries Avg $\geq$ 2 & \bfseries $\geq$ 2 (\%) & \bfseries $\geq$ 3 (\%) & \bfseries $\geq$ 4 (\%) \\\hline,
     table foot= \hline,
-    late after line=\ifthenelse{\equal{\Year}{All}}{\\\hline}{\\},
+    late after line=\ifthenelse{\equal{\Year}{Combined}}{\\\hline}{\\},
   ]{../../output/sigplan/number_of_participations_per_year.csv}{}{%
     \Year & \csvcolii & \csvcoliii & \csvcoliv~(\csvcolv \%) & \csvcolvi~(\csvcolvii\%) & \csvcolviii~(\csvcolix\%)
   }
@@ -458,7 +453,9 @@ cross-participation.
   The other columns display the percentage of participants that have
   attended at least $k$ conferences, for $k\in\llbracket 2 \dots 4
   \rrbracket$. Note that the means and percentages are computed with
-  respect to the number of \emph{unique} participants. }
+  respect to the number of \emph{unique} participants.
+  The \emph{Combined} row computes the same data over all participants, without discriminating years: it hence coincide with the same row in Table~\ref{table:recurrent}.
+  }
 \label{table:recurrent-year}
 \end{table}
 
