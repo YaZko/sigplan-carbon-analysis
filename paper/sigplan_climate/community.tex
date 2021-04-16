@@ -427,20 +427,22 @@ cross-participation.
   \csvreader[%
     head to column names,
     tabular={|l|c|c|c|c|c|c|},
-    table head=\hline \bfseries Conference & \bfseries Avg & \bfseries Avg $\geq$ 2 & \bfseries $\geq$ 2 (\%) & \bfseries $\geq$ 3 (\%) & \bfseries $\geq$ 4 (\%) & \bfseries $\geq$ 5 (\%) \\\hline,
+    table head=\hline \bfseries Conference & \bfseries Avg & \bfseries Avg $\geq$ 2 & \bfseries $\geq$ 2 & \bfseries $\geq$ 3 & \bfseries $\geq$ 4 & \bfseries $\geq$ 5 \\\hline,
     table foot= \hline,
     late after line=\ifthenelse{\equal{\Conference}{All}}{\\\hline}{\\},
   ]{../../output/sigplan/number_of_participations_per_conf.csv}{}{%
-    \Conference & \csvcolii & \csvcoliii & \csvcoliv & \csvcolv & \csvcolvi & \csvcolvii
+    \Conference & \csvcolii & \csvcoliii & \csvcoliv~ (\csvcolv \%) & \csvcolvi~ (\csvcolvii \%) & \csvcolviii ~(\csvcolix \%) & \csvcolx~ (\csvcolxi \%)
   }
-\caption{For each conference and overall, the average number of instances a
-  unique individual has taken part of (\textbf{Avg}), and the same data
+\caption{For each conference and overall, the first two columns show the
+  average number of instances a 
+  unique individual has taken part of (\textbf{Avg}) and the same count but
   omitting individuals that have participated in exactly one conference ever
-  (\textbf{Avg} $\geq$ \textbf{2}). 
+  (\textbf{Avg} $\geq$ \textbf{2}).
   The other columns display the percentage of participants that have
   attended at least $k$ instances, for $k\in\llbracket 2 \dots 5
   \rrbracket$. Note that the means and percentages are computed with
-  respect to the number of \emph{unique} participants. }
+  respect to the number of \emph{unique} participants. \bcp{Show both
+    absolute numbers and percentages in tables 11 and 12.}}
 \label{table:recurrent}
 \end{table}
 
@@ -449,15 +451,15 @@ cross-participation.
   \csvreader[%
     head to column names,
     tabular={|l|c|c|c|c|c|},
-    table head=\hline \bfseries Year & \bfseries Avrg & \bfseries Avrg $\geq$ 2 & \bfseries $\geq$ 2 (\%) & \bfseries $\geq$ 3 (\%) & \bfseries $\geq$ 4 (\%) \\\hline,
+    table head=\hline \bfseries Year & \bfseries Avg & \bfseries Avg $\geq$ 2 & \bfseries $\geq$ 2 (\%) & \bfseries $\geq$ 3 (\%) & \bfseries $\geq$ 4 (\%) \\\hline,
     table foot= \hline,
     late after line=\ifthenelse{\equal{\Year}{All}}{\\\hline}{\\},
   ]{../../output/sigplan/number_of_participations_per_year.csv}{}{%
-    \Year & \csvcolii & \csvcoliii & \csvcoliv & \csvcolv & \csvcolvi
+    \Year & \csvcolii & \csvcoliii & \csvcoliv~(\csvcolv \%) & \csvcolvi~(\csvcolvii\%) & \csvcolviii~(\csvcolix\%)
   }
   \caption{For each year, the average number of conferences a participant has participated
-    in among POPL, PLDI, ICFP and SPLASH (\textbf{Avrg}),
-    and the same data without considering individual that has participated exactly once (\textbf{Avrg} $\geq$ \textbf{2}).
+    in among POPL, PLDI, ICFP and SPLASH (\textbf{Avg}),
+    and the same data without considering individual that has participated exactly once (\textbf{Avg} $\geq$ \textbf{2}).
   The other columns display the percentage of participants that have
   attended at least $k$ conferences, for $k\in\llbracket 2 \dots 4
   \rrbracket$. Note that the means and percentages are computed with
@@ -473,11 +475,11 @@ cross-participation.
     \csvreader[%
       head to column names,
       tabular={|c|c|},
-      table head=\hline \bfseries Year & \bfseries Old timers (\%)  \\\hline,
+      table head=\hline \bfseries Year & \bfseries Old timers  \\\hline,
       table foot= \hline,
       late after line=\\,
     ]{../../output/sigplan/old_timer_POPL.csv}{}{%
-      \year & \csvcolii
+      \year & \csvcolii~(\csvcoliii \%)
     }
     \caption{Case of POPL}
   \end{subtable}
@@ -486,11 +488,11 @@ cross-participation.
     \csvreader[%
       head to column names,
       tabular={|c|c|},
-      table head=\hline \bfseries Year & \bfseries Old timers (\%)  \\\hline,
+      table head=\hline \bfseries Year & \bfseries Old timers  \\\hline,
       table foot= \hline,
       late after line=\\,
     ]{../../output/sigplan/old_timer_ICFP.csv}{}{%
-      \year & \csvcolii
+      \year & \csvcolii~(\csvcoliii \%)
     }
     \caption{Case of ICFP}
   \end{subtable}
@@ -499,11 +501,11 @@ cross-participation.
     \csvreader[%
       head to column names,
       tabular={|c|c|},
-      table head=\hline \bfseries Year & \bfseries Old timers (\%)  \\\hline,
+      table head=\hline \bfseries Year & \bfseries Old timers \\\hline,
       table foot= \hline,
       late after line=\\,
     ]{../../output/sigplan/old_timer_PLDI.csv}{}{%
-      \year & \csvcolii
+      \year & \csvcolii~(\csvcoliii \%)
     }
     \caption{Case of PLDI}
   \end{subtable}
@@ -512,11 +514,11 @@ cross-participation.
     \csvreader[%
       head to column names,
       tabular={|c|c|},
-      table head=\hline \bfseries Year & \bfseries Old timers (\%)  \\\hline,
+      table head=\hline \bfseries Year & \bfseries Old timers \\\hline,
       table foot= \hline,
       late after line=\\,
     ]{../../output/sigplan/old_timer_SPLASH.csv}{}{%
-      \year & \csvcolii
+      \year & \csvcolii~(\csvcoliii \%)
     }
     \caption{Case of SPLASH}
   \end{subtable}
