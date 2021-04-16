@@ -363,9 +363,13 @@ class DB:
                     "Avrg nb of participations",
                     "Avrg non one timer",
                     ">= 2",
+                    ">= 2 per",
                     ">= 3",
+                    ">= 3 per",
                     ">= 4",
+                    ">= 4 per",
                     ">= 5",
+                    ">= 5 per",
                 ]
             )
 
@@ -416,19 +420,18 @@ class DB:
                 average = round(sum(res[c]) / len(res[c]), 2)
                 res_no_one_timers = [x for x in res[c] if x > 1]
                 average2 = round(sum(res_no_one_timers) / len(res_no_one_timers), 2)
-                row = [
-                    norm_perc(len([v for v in res[c] if v > i]), len(res[c]))
-                    for i in range(1, 5)
-                ]
+                row = []
+                for i in range(1, 5):
+                    row = row + [len([v for v in res[c] if v > i]), norm_perc(len([v for v in res[c] if v > i]), len(res[c]))]
+                
                 writer.writerow([c, average, average2] + row)
 
             # Overall
             average = norm(sum(aggregated) / len(aggregated))
             average2 = norm(sum([x for x in aggregated if x > 1]) / len([x for x in aggregated if x > 1]))
-            row = [
-                norm_perc(len([v for v in aggregated if v > i]), len(aggregated))
-                for i in range(1, 5)
-            ]
+            row = []
+            for i in range(1, 5):
+                row = row + [len([v for v in aggregated if v > i]), norm_perc(len([v for v in aggregated if v > i]), len(aggregated))]
 
             writer.writerow(["All", average, average2] + row)
 
@@ -459,8 +462,11 @@ class DB:
                     "Avrg nb of participations",
                     "Avrg non one timer",
                     ">= 2",
+                    ">= 2 per",
                     ">= 3",
-                    "= 4"
+                    ">= 3 per",
+                    "= 4",
+                    "= 4 per"
                 ]
             )
 
@@ -513,19 +519,17 @@ class DB:
                 average = round(sum(res[c]) / len(res[c]), 2)
                 res_no_one_timers = [x for x in res[c] if x > 1]
                 average2 = round(sum(res_no_one_timers) / len(res_no_one_timers), 2)
-                row = [
-                    norm_perc(len([v for v in res[c] if v > i]), len(res[c]))
-                    for i in range(1, 4)
-                ]
+                row = []
+                for i in range(1,4):
+                    row = row + [len([v for v in res[c] if v > i]), norm_perc(len([v for v in res[c] if v > i]), len(res[c]))]
                 writer.writerow([c, average, average2] + row)
 
             # Overall
             average = norm(sum(aggregated) / len(aggregated))
             average2 = norm(sum([x for x in aggregated if x > 1]) / len([x for x in aggregated if x > 1]))
-            row = [
-                norm_perc(len([v for v in aggregated if v > i]), len(aggregated))
-                for i in range(1, 4)
-            ]
+            row = []
+            for i in range(1, 4):
+                row = row + [len([v for v in aggregated if v > i]), norm_perc(len([v for v in aggregated if v > i]), len(aggregated))]
 
             writer.writerow(["All", average, average2] + row)
 
@@ -538,7 +542,7 @@ class DB:
             with open(output_file_conf, "w", newline="") as csvfile:
                 writer = csv.writer(csvfile, delimiter=",", quoting=csv.QUOTE_MINIMAL)
 
-                writer.writerow(["year", "old timers"])
+                writer.writerow(["year", "old timers", "old timers per"])
 
                 for year in GLOB.years_processed:
                     select_data = [
@@ -555,7 +559,7 @@ class DB:
                         old_timers = [c for c in select_data if c in select_old_data]
 
                         res = norm_perc(len(old_timers), len(select_data))
-                        writer.writerow([year, res])
+                        writer.writerow([year, len(old_timers), res])
 
     def pick_optimal_list(self, GLOB, cache, count, pred):
         select_data = [d for d in self.data if pred(d.conference, d.year)]

@@ -178,11 +178,11 @@ def main():
     print("Computing old timers\n")
     db.get_old_timers(GLOB)
 
-    print("Computing ideal location\n")
-    db.pick_optimal_loc(GLOB, cache)
+    # print("Computing ideal location\n")
+    # db.pick_optimal_loc(GLOB, cache)
 
-    if GLOB.multilocation:
-        estimate_multilocation_gains(GLOB, cache, db)
+    # if GLOB.multilocation:
+    #     estimate_multilocation_gains(GLOB, cache, db)
 
 
 def estimate_multilocation_gains(GLOB, cache, db):
