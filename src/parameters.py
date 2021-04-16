@@ -62,6 +62,10 @@ class Globals:
         self.output_optimal_biloc = self.output_prefix + "optimal_biloc.csv"
         self.output_optimal_triloc = self.output_prefix + "optimal_triloc.csv"
 
+        # Outputs designed specifically to match desired visualization in the paper 
+        self.ParticipantsOrigin = self.output_prefix + "ParticipantsOrigin.csv"
+        self.ParticipantsOriginC = self.output_prefix + "ParticipantsOrigin#.csv"
+
         # Default model to compute the footprint of travels
         self.model = "acm"
 
