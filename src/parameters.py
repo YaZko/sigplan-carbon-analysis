@@ -65,6 +65,8 @@ class Globals:
         # Outputs designed specifically to match desired visualization in the paper 
         self.ParticipantsOrigin = self.output_prefix + "ParticipantsOrigin.csv"
         self.ParticipantsOriginC = self.output_prefix + "ParticipantsOrigin#.csv"
+        self.AttendanceHist = self.output_prefix + "AttendanceHist.csv"
+        self.AttendanceHistC = self.output_prefix + "AttendanceHist#.csv"
 
         # Default model to compute the footprint of travels
         self.model = "acm"

@@ -414,10 +414,29 @@ class DB:
                 for i,v in x.items():
                     aggregated[i] = v if not i in aggregated else v + aggregated[i]
 
+            # print("res: {}\naggregated: {}\n".format(res,aggregated))
             # We forget about the id, each conf maps to a list of number of participations
             res = {k: list(res[k].values()) for k in res}
             aggregated = [x for x in aggregated.values()]
             # print("res: {}\naggregated: {}\n".format(res,aggregated))
+
+            for conf in GLOB.confs_processed:
+                output_AHC = fill_hole_string(GLOB.AttendanceHistC, conf)
+                with open(output_AHC, "w", newline="") as csvfile:
+                    writer_AHC = csv.writer(csvfile, delimiter=",", quoting=csv.QUOTE_MINIMAL)
+                    writer_AHC.writerow(["Number of attendance", "Number of individuals"])
+                    tmp = set(res[conf])
+                    ntimer = {i:len([k for k in res[conf] if k == i]) for i in tmp}
+                    for i,k in ntimer.items():
+                        writer_AHC.writerow([i, k])
+
+            tmp = set(aggregated)
+            ntimer = {i:len([k for k in aggregated if k == i]) for i in tmp}
+            with open(GLOB.AttendanceHist, "w", newline="") as csvfile:
+                writer_AH = csv.writer(csvfile, delimiter=",", quoting=csv.QUOTE_MINIMAL)
+                writer_AH.writerow(["Number of attendance", "Number of individuals"])
+                for i,k in ntimer.items():
+                    writer_AH.writerow([i, k])
 
             # res2: conf |-> nat |-> number of unique individual having participated to nat instances of conf
             res2 = {x: {} for x in GLOB.confs_processed}
