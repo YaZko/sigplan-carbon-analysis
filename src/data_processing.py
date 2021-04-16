@@ -1,7 +1,7 @@
 import math
 from collections import Counter
 from functools import reduce
-from itertools import combinations, permutations
+from itertools import combinations, permutations, combinations_with_replacement
 from statistics import mean
 from time import sleep
 
@@ -379,6 +379,17 @@ class DB:
     def participation_overlap_cross_conf_generate_all(self, GLOB):
         for pair in combinations(GLOB.confs_processed, 2):
             self.participation_overlap_cross_conf(GLOB, pair[0], pair[1])
+
+    def participation_overlap_general(self, GLOB):
+        with open(GLOB.OverlapAnalysiscrop, "w", newline="") as csvfile:
+            writer = csv.writer(csvfile, delimiter=",", quoting=csv.QUOTE_MINIMAL)
+            writer.writerow(["Conf1", "Year1", "Conf2", "Year2", "Overlap"])
+            for conf1,conf2 in combinations_with_replacement(GLOB.confs_processed, 2):
+                for year1,year2 in combinations_with_replacement(GLOB.years_processed, 2):
+                    overlap = self.participation_overlap_single(conf1,year1,conf2,year2)
+                    if not overlap is None:
+                        writer.writerow([conf1,year1,conf2,year2,overlap[0]])
+
 
     def get_number_of_participations(self, GLOB):
 

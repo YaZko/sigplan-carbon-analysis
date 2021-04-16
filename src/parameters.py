@@ -67,6 +67,7 @@ class Globals:
         self.ParticipantsOriginC = self.output_prefix + "ParticipantsOrigin#.csv"
         self.AttendanceHist = self.output_prefix + "AttendanceHist.csv"
         self.AttendanceHistC = self.output_prefix + "AttendanceHist#.csv"
+        self.OverlapAnalysiscrop = self.output_prefix + "OverlapAnalysis-crop.csv"
 
         # Default model to compute the footprint of travels
         self.model = "acm"
