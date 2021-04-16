@@ -135,10 +135,8 @@ class DB:
                     nb = len(select_data)
                     if nb > 0:
                         total_footprint = round(
-                            reduce(lambda x, y: x + y.footprint, select_data, 0) / 1000,
-                            2,
-                        )
-                        average_footprint = round(total_footprint / nb, 2)
+                            reduce(lambda x, y: x + y.footprint, select_data, 0) / 1000)
+                        average_footprint = round(total_footprint / nb, 1)
                         writer.writerow(
                             [
                                 name,
@@ -474,21 +472,21 @@ class DB:
                 i += 1
 
             for c in GLOB.confs_processed:
-                average = round(sum(res[c]) / len(res[c]), 2)
+                average = round(sum(res[c]) / len(res[c]), 1)
                 res_no_one_timers = [x for x in res[c] if x > 1]
-                average2 = round(sum(res_no_one_timers) / len(res_no_one_timers), 2)
+                average2 = round(sum(res_no_one_timers) / len(res_no_one_timers), 1)
                 row = []
                 for i in range(1, 5):
-                    row = row + [len([v for v in res[c] if v > i]), norm_perc(len([v for v in res[c] if v > i]), len(res[c]))]
+                    row = row + [len([v for v in res[c] if v > i]), norm_perc_int(len([v for v in res[c] if v > i]), len(res[c]))]
                 
                 writer.writerow([c, average, average2] + row)
 
             # Overall
-            average = norm(sum(aggregated) / len(aggregated))
-            average2 = norm(sum([x for x in aggregated if x > 1]) / len([x for x in aggregated if x > 1]))
+            average = round(norm(sum(aggregated) / len(aggregated)),1)
+            average2 = round(norm(sum([x for x in aggregated if x > 1]) / len([x for x in aggregated if x > 1])),1)
             row = []
             for i in range(1, 5):
-                row = row + [len([v for v in aggregated if v > i]), norm_perc(len([v for v in aggregated if v > i]), len(aggregated))]
+                row = row + [len([v for v in aggregated if v > i]), norm_perc_int(len([v for v in aggregated if v > i]), len(aggregated))]
 
             writer.writerow(["All", average, average2] + row)
 
@@ -573,20 +571,20 @@ class DB:
                 i += 1
 
             for c in GLOB.years_processed:
-                average = round(sum(res[c]) / len(res[c]), 2)
+                average = round(sum(res[c]) / len(res[c]), 1)
                 res_no_one_timers = [x for x in res[c] if x > 1]
-                average2 = round(sum(res_no_one_timers) / len(res_no_one_timers), 2)
+                average2 = round(sum(res_no_one_timers) / len(res_no_one_timers), 1)
                 row = []
                 for i in range(1,4):
-                    row = row + [len([v for v in res[c] if v > i]), norm_perc(len([v for v in res[c] if v > i]), len(res[c]))]
+                    row = row + [len([v for v in res[c] if v > i]), norm_perc_int(len([v for v in res[c] if v > i]), len(res[c]))]
                 writer.writerow([c, average, average2] + row)
 
             # Overall
-            average = norm(sum(aggregated) / len(aggregated))
-            average2 = norm(sum([x for x in aggregated if x > 1]) / len([x for x in aggregated if x > 1]))
+            average = round(norm(sum(aggregated) / len(aggregated)),1)
+            average2 = round(norm(sum([x for x in aggregated if x > 1]) / len([x for x in aggregated if x > 1])),1)
             row = []
             for i in range(1, 4):
-                row = row + [len([v for v in aggregated if v > i]), norm_perc(len([v for v in aggregated if v > i]), len(aggregated))]
+                row = row + [len([v for v in aggregated if v > i]), norm_perc_int(len([v for v in aggregated if v > i]), len(aggregated))]
 
             writer.writerow(["All", average, average2] + row)
 
@@ -615,7 +613,7 @@ class DB:
                         ]
                         old_timers = [c for c in select_data if c in select_old_data]
 
-                        res = norm_perc(len(old_timers), len(select_data))
+                        res = norm_perc_int(len(old_timers), len(select_data))
                         writer.writerow([year, len(old_timers), res])
 
     def pick_optimal_list(self, GLOB, cache, count, pred):

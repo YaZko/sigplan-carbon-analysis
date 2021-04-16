@@ -15,8 +15,10 @@ def norm(v):
 
 
 def norm_perc(v, tot):
-    return round(v / tot * 100, 2)
+    return round(v / tot * 100, 1)
 
+def norm_perc_int(v, tot):
+    return round(v / tot * 100)
 
 def type_nil(t, s):
     if s == "":
