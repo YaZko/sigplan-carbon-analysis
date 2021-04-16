@@ -154,6 +154,7 @@ class DB:
         output_file_main = fill_hole_string(GLOB.output_demographic, "")
         output_file_conf = fill_hole_string(GLOB.output_demographic, "_per_conf")
         output_file_delta = fill_hole_string(GLOB.output_demographic, "_delta")
+        output_ParticipantsOrigin = GLOB.ParticipantsOrigin
 
         continents = GLOB.continents()
 
@@ -168,97 +169,123 @@ class DB:
 
         with open(output_file_main, "w", newline="") as csvfile_main:
             with open(output_file_conf, "w", newline="") as csvfile_conf:
+                with open(output_ParticipantsOrigin, "w", newline="") as csvfile_PO:
 
-                writer_main = csv.writer(
-                    csvfile_main, delimiter=",", quoting=csv.QUOTE_MINIMAL
-                )
-                writer_conf = csv.writer(
-                    csvfile_conf, delimiter=",", quoting=csv.QUOTE_MINIMAL
-                )
-                writer_main.writerow(
-                    ["Conference", "Year", "Continent"] + continents + ["Local"]
-                )
-                writer_conf.writerow(["Conference"] + continents + ["Local"])
-
-                # For each conference
-                for name, conf in self.confs.items():
-                    # Distribution for the conference 'name'
-                    distrib_conf = init_distrib.copy()
-                    total_attendance_conf = 0
-
-                    # For each instance of the conference 'name'
-                    for year, conf_loc in conf.items():
-
-                        # List of participants to 'name[year]'
-                        select_data = [
-                            d
-                            for d in self.data
-                            if d.conference == name and d.year == year
-                        ]
-                        attendance = len(select_data)
-
-                        # If we actually have data for this instance
-                        if attendance > 0:
-                            # Distribution of this instance
-                            nb_loc = {}
-
-                            total_attendance += attendance
-                            total_attendance_per_loc[conf_loc.continent] += attendance
-                            total_attendance_conf += attendance
-
-                            nb_loc = {
-                                l: len(
-                                    [
-                                        d
-                                        for d in select_data
-                                        if d.location.continent == l
-                                    ]
-                                )
-                                for l in continents
-                            }
-                            nb_loc["SAME"] = len(
-                                [
-                                    d
-                                    for d in select_data
-                                    if d.location.continent == conf_loc.continent
-                                ]
-                            )
-
-                            distrib_total += nb_loc
-                            distrib_per_loc[conf_loc.continent] += nb_loc
-                            distrib_conf += nb_loc
-
-                            main_row = [
-                                norm_perc(nb_loc[x], attendance) for x in continents
-                            ]
-                            writer_main.writerow(
-                                [name, year, conf_loc.continent]
-                                + main_row
-                                + [norm_perc(nb_loc["SAME"], attendance)]
-                            )
-
-                    conf_row = [
-                        norm_perc(distrib_conf[x], total_attendance_conf)
-                        for x in continents
-                    ]
-                    writer_conf.writerow(
-                        [name]
-                        + conf_row
-                        + [norm_perc(distrib_conf["SAME"], total_attendance_conf)]
+                    writer_main = csv.writer(
+                        csvfile_main, delimiter=",", quoting=csv.QUOTE_MINIMAL
                     )
+                    writer_conf = csv.writer(
+                        csvfile_conf, delimiter=",", quoting=csv.QUOTE_MINIMAL
+                    )
+                    writer_PO = csv.writer(
+                        csvfile_PO, delimiter=",", quoting=csv.QUOTE_MINIMAL
+                    )
+                    writer_main.writerow(
+                        ["Conference", "Year", "Continent"] + continents + ["Local"]
+                    )
+                    writer_conf.writerow(["Conference"] + continents + ["Local"])
+                    writer_PO.writerow(["Conference"] + continents)
 
-                print("total_attendance : {}".format(total_attendance))
-                for x in continents:
-                    print("{} has {}".format(x,norm_perc(distrib_total[x], total_attendance)))
+                    # For each conference
+                    for name, conf in self.confs.items():
+                        # Distribution for the conference 'name'
+                        distrib_conf = init_distrib.copy()
+                        total_attendance_conf = 0
+
+                        output_POC = fill_hole_string(GLOB.ParticipantsOriginC, name)
+                        with open(output_POC, "w", newline="") as csvfile_POC:
+                            writer_POC = csv.writer(
+                                csvfile_POC, delimiter=",", quoting=csv.QUOTE_MINIMAL
+                            )
+                            writer_POC.writerow(["Year", "Location"] + continents)
+ 
+                            # For each instance of the conference 'name'
+                            for year, conf_loc in conf.items():
+
+                                # List of participants to 'name[year]'
+                                select_data = [
+                                    d
+                                    for d in self.data
+                                    if d.conference == name and d.year == year
+                                ]
+                                attendance = len(select_data)
+
+                                # If we actually have data for this instance
+                                if attendance > 0:
+                                    # Distribution of this instance
+                                    nb_loc = {}
+                                
+                                    total_attendance += attendance
+                                    total_attendance_per_loc[conf_loc.continent] += attendance
+                                    total_attendance_conf += attendance
+                                    
+                                    nb_loc = {
+                                        l: len(
+                                            [
+                                                d
+                                                for d in select_data
+                                                if d.location.continent == l
+                                            ]
+                                        )
+                                        for l in continents
+                                    }
+                                    nb_loc["SAME"] = len(
+                                        [
+                                            d
+                                            for d in select_data
+                                            if d.location.continent == conf_loc.continent
+                                        ]
+                                    )
+
+                                    distrib_total += nb_loc
+                                    distrib_per_loc[conf_loc.continent] += nb_loc
+                                    distrib_conf += nb_loc
+
+                                    main_row = [
+                                        norm_perc(nb_loc[x], attendance) for x in continents
+                                    ]
+                                    writer_main.writerow(
+                                        [name, year, conf_loc.continent]
+                                        + main_row
+                                        + [norm_perc(nb_loc["SAME"], attendance)]
+                                    )
+                                    
+                                    main_row = [nb_loc[x] for x in continents]
+                                    writer_POC.writerow([name+str(year), conf_loc.continent] + main_row)
+
+
+                        conf_row = [
+                            norm_perc(distrib_conf[x], total_attendance_conf)
+                            for x in continents
+                        ]
+                        writer_conf.writerow(
+                            [name]
+                            + conf_row
+                            + [norm_perc(distrib_conf["SAME"], total_attendance_conf)]
+                        )
+                        conf_row = [distrib_conf[x] for x in continents]
+                        writer_PO.writerow(
+                            [name]
+                            + conf_row
+                        )
+
+
+                    # print("total_attendance : {}".format(total_attendance))
+                    # for x in continents:
+                    #     print("{} has {}".format(x,norm_perc(distrib_total[x], total_attendance)))
                        
-                writer_conf.writerow(
-                    ["Any"]
-                    + [
-                        norm_perc(distrib_total[x], total_attendance)
-                        for x in continents
-                    ]
-                    + [norm_perc(distrib_total["SAME"], total_attendance)]
-                )
+                    writer_conf.writerow(
+                        ["Any"]
+                        + [
+                            norm_perc(distrib_total[x], total_attendance)
+                            for x in continents
+                        ]
+                        + [norm_perc(distrib_total["SAME"], total_attendance)]
+                    )
+                    writer_PO.writerow(
+                        ["All"]
+                        + [distrib_total[x] for x in continents]
+                    )
 
         with open(output_file_delta, "w", newline="") as csvfile_delta:
             writer = csv.writer(csvfile_delta, delimiter=",", quoting=csv.QUOTE_MINIMAL)
@@ -363,9 +390,13 @@ class DB:
                     "Avrg nb of participations",
                     "Avrg non one timer",
                     ">= 2",
+                    ">= 2 per",
                     ">= 3",
+                    ">= 3 per",
                     ">= 4",
+                    ">= 4 per",
                     ">= 5",
+                    ">= 5 per",
                 ]
             )
 
@@ -383,10 +414,29 @@ class DB:
                 for i,v in x.items():
                     aggregated[i] = v if not i in aggregated else v + aggregated[i]
 
+            # print("res: {}\naggregated: {}\n".format(res,aggregated))
             # We forget about the id, each conf maps to a list of number of participations
             res = {k: list(res[k].values()) for k in res}
             aggregated = [x for x in aggregated.values()]
             # print("res: {}\naggregated: {}\n".format(res,aggregated))
+
+            for conf in GLOB.confs_processed:
+                output_AHC = fill_hole_string(GLOB.AttendanceHistC, conf)
+                with open(output_AHC, "w", newline="") as csvfile:
+                    writer_AHC = csv.writer(csvfile, delimiter=",", quoting=csv.QUOTE_MINIMAL)
+                    writer_AHC.writerow(["Number of attendance", "Number of individuals"])
+                    tmp = set(res[conf])
+                    ntimer = {i:len([k for k in res[conf] if k == i]) for i in tmp}
+                    for i,k in ntimer.items():
+                        writer_AHC.writerow([i, k])
+
+            tmp = set(aggregated)
+            ntimer = {i:len([k for k in aggregated if k == i]) for i in tmp}
+            with open(GLOB.AttendanceHist, "w", newline="") as csvfile:
+                writer_AH = csv.writer(csvfile, delimiter=",", quoting=csv.QUOTE_MINIMAL)
+                writer_AH.writerow(["Number of attendance", "Number of individuals"])
+                for i,k in ntimer.items():
+                    writer_AH.writerow([i, k])
 
             # res2: conf |-> nat |-> number of unique individual having participated to nat instances of conf
             res2 = {x: {} for x in GLOB.confs_processed}
@@ -416,19 +466,18 @@ class DB:
                 average = round(sum(res[c]) / len(res[c]), 2)
                 res_no_one_timers = [x for x in res[c] if x > 1]
                 average2 = round(sum(res_no_one_timers) / len(res_no_one_timers), 2)
-                row = [
-                    norm_perc(len([v for v in res[c] if v > i]), len(res[c]))
-                    for i in range(1, 5)
-                ]
+                row = []
+                for i in range(1, 5):
+                    row = row + [len([v for v in res[c] if v > i]), norm_perc(len([v for v in res[c] if v > i]), len(res[c]))]
+                
                 writer.writerow([c, average, average2] + row)
 
             # Overall
             average = norm(sum(aggregated) / len(aggregated))
             average2 = norm(sum([x for x in aggregated if x > 1]) / len([x for x in aggregated if x > 1]))
-            row = [
-                norm_perc(len([v for v in aggregated if v > i]), len(aggregated))
-                for i in range(1, 5)
-            ]
+            row = []
+            for i in range(1, 5):
+                row = row + [len([v for v in aggregated if v > i]), norm_perc(len([v for v in aggregated if v > i]), len(aggregated))]
 
             writer.writerow(["All", average, average2] + row)
 
@@ -459,8 +508,11 @@ class DB:
                     "Avrg nb of participations",
                     "Avrg non one timer",
                     ">= 2",
+                    ">= 2 per",
                     ">= 3",
-                    "= 4"
+                    ">= 3 per",
+                    "= 4",
+                    "= 4 per"
                 ]
             )
 
@@ -513,19 +565,17 @@ class DB:
                 average = round(sum(res[c]) / len(res[c]), 2)
                 res_no_one_timers = [x for x in res[c] if x > 1]
                 average2 = round(sum(res_no_one_timers) / len(res_no_one_timers), 2)
-                row = [
-                    norm_perc(len([v for v in res[c] if v > i]), len(res[c]))
-                    for i in range(1, 4)
-                ]
+                row = []
+                for i in range(1,4):
+                    row = row + [len([v for v in res[c] if v > i]), norm_perc(len([v for v in res[c] if v > i]), len(res[c]))]
                 writer.writerow([c, average, average2] + row)
 
             # Overall
             average = norm(sum(aggregated) / len(aggregated))
             average2 = norm(sum([x for x in aggregated if x > 1]) / len([x for x in aggregated if x > 1]))
-            row = [
-                norm_perc(len([v for v in aggregated if v > i]), len(aggregated))
-                for i in range(1, 4)
-            ]
+            row = []
+            for i in range(1, 4):
+                row = row + [len([v for v in aggregated if v > i]), norm_perc(len([v for v in aggregated if v > i]), len(aggregated))]
 
             writer.writerow(["All", average, average2] + row)
 
@@ -538,7 +588,7 @@ class DB:
             with open(output_file_conf, "w", newline="") as csvfile:
                 writer = csv.writer(csvfile, delimiter=",", quoting=csv.QUOTE_MINIMAL)
 
-                writer.writerow(["year", "old timers"])
+                writer.writerow(["year", "old timers", "old timers per"])
 
                 for year in GLOB.years_processed:
                     select_data = [
@@ -555,7 +605,7 @@ class DB:
                         old_timers = [c for c in select_data if c in select_old_data]
 
                         res = norm_perc(len(old_timers), len(select_data))
-                        writer.writerow([year, res])
+                        writer.writerow([year, len(old_timers), res])
 
     def pick_optimal_list(self, GLOB, cache, count, pred):
         select_data = [d for d in self.data if pred(d.conference, d.year)]
